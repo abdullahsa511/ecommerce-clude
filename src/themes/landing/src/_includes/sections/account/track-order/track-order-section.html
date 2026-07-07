@@ -1,0 +1,53 @@
+<section id="account-db-active-quotes">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+
+
+        
+        <!-- Profile pic aside bar -->
+        @@include('../account-leftside-manubar.html')
+
+
+
+        <div id="dashboard-track-order" class="col-12 col-md-8 col-lg-9 dashboard-main" data-v-component-dashboardtrackorder>
+          <div class="th-login-form-container pt-30 gap-5">
+
+            <div class="th-login-form-header text-center">
+              <h2>Track Your Order</h2>
+              <p class="description">Provide your order number below to track your delivery and installation status.</p>
+            </div>
+
+            <div class="th-login-form-body">
+              <form class="th-form" action="">
+                <div class="form-group ">
+                  <label for="@name">Order Number*</label>
+                  <input type="text" class="form-control" name="orderNumber" id="orderNumber" placeholder="Enter your order number">
+                </div>
+                <!-- <div class="form-group ">
+                  <label for="@name">Order Email*</label>
+                  <input type="email" name="@name" id="@name" placeholder="Enter your email">
+                </div>
+                <div class="form-group ">
+                  <label for="@name">Postcode*</label>
+                  <input type="text" name="@postcode" id="@Postcode" placeholder="Enter your postcode">
+                </div> -->
+                <!-- Submit Button -->
+                <div class="form-group my-40 ">
+                  <button type="submit" id="trackOrderButton" class="th-btn-primary w-100">
+                    <span class="mr-5">Check Status </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+          <div id="tracking-orders-list" class="mt-4 pl-25">
+            <!-- tracking orders list will be rendered here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

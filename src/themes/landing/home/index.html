@@ -1,0 +1,4023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-v-component-head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <!-- Preconnect to CDN origins used by footer scripts (saves DNS + TCP + TLS before first request) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="canonical" href="https://krost.com.au/projects" data-v-head-canonical />
+  <base href="">
+  <title data-v-head-title>Krost Business Furniture</title>
+  <meta name="title" content="Krost Business Furniture" data-v-head-meta-title>
+  <meta name="description" content="Krost Business Furniture" data-v-head-meta-description />
+  <meta name="keywords" content="Krost Business Furniture, Business Furniture, Office Furniture, Home Furniture, Furniture" data-v-head-meta-keywords />
+  <meta name="author" content="Krost Business Furniture" data-v-head-meta-author>
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" data-v-og-type>
+  <meta property="og:title" content="" data-v-og-title>
+  <meta property="og:description" content="" data-v-og-description>
+  <meta property="og:url" content="" data-v-og-url>
+  <meta property="og:image" content="" data-v-og-image>
+  <meta property="og:site_name" content="Krost Business Furniture">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="" data-v-twitter-title>
+  <meta name="twitter:description" content="" data-v-twitter-description>
+  <meta name="twitter:image" content="" data-v-twitter-image>
+  <meta name="robots" content="noindex, follow" data-v-robots>
+
+  <style>
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased
+    }
+  </style>
+  <!-- LCP: preload hero image so it's discoverable from initial document -->
+  <!-- <link rel="preload" fetchpriority="high" as="image" href="/img/bg/home/hero_home.jpg"> -->
+  <!-- Critical fonts: preload so they start early and don't wait for CSS (shortens chain) -->
+  <link rel="preload" href="/fonts/opensans/OpenSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+  <link rel="icon" type="image/x-icon" href="../../images/icons/Krost.ico" data-v-global-site.favicon>
+  <!-- <link rel="icon" type="image/x-icon" href="../../media/favicon.ico" sizes="32x32" data-v-global-site.favicon> -->
+
+  <!-- Main stylesheet: non-blocking to avoid delaying LCP/FCP -->
+  <link rel="preload" href="/css/lib/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link id="stylesheet-min" rel="stylesheet" href="/css/stylesheet.min.css">
+  <link rel="stylesheet" href="/css/solid.min.css">
+
+  <link rel="preload" href="/css/lib/choices.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/flatpickr.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lightgallery-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lg-transitions.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <style>
+    .booking-calendar-wrapper {
+      width: 100%;
+      padding: 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .booking-calendar-wrapper {
+        padding: 70px 0;
+      }
+    }
+
+    .th-booking-calendar .flatpickr-calendar.open,
+    .th-booking-calendar .flatpickr-calendar.inline {
+      max-height: 100%;
+      width: 100%;
+      background: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .th-booking-calendar .flatpickr-months {
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 45px;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-next-month {
+      position: relative;
+      left: inherit;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month {
+      -webkit-box-flex: inherit;
+      -webkit-flex: inherit;
+      -ms-flex: inherit;
+      flex: inherit;
+      align-items: center;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month {
+      display: flex;
+      text-align: center;
+      width: 250px;
+      position: relative;
+    }
+
+    .th-booking-calendar .flatpickr-rContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .th-booking-calendar .flatpickr-days {
+      width: 100%;
+    }
+
+    .th-booking-calendar .dayContainer {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .th-booking-calendar .flatpickr-day {
+      margin: 0;
+      text-align: center;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      font-weight: bolder;
+      width: 100%;
+      max-width: inherit;
+      max-height: inherit;
+      border-radius: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+  <!-- Product Schema -->
+  <script id="product-schema" type="application/ld+json"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H02GVWQGKP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-H02GVWQGKP');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NRR9X3MQ');
+  </script>
+
+</head>
+
+<body class="bg-white">
+  <link rel="stylesheet" href="/css/mobile-home.css">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRR9X3MQ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="krost-recaptcha-config" class="d-none" aria-hidden="true" data-recaptcha-site-key="" data-recaptcha-action-contact="" data-recaptcha-action-service="" data-recaptcha-action-project="" data-recaptcha-action-booking=""></div>
+
+  <style>
+    .th-pinboard-count-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      right: -10px;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.8;
+      color: #fff;
+      border-radius: 50%;
+      padding: 0;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      box-sizing: border-box;
+    }
+
+    .th-pinboard-count-badge #pinboard-item-count {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .th-pinboard-count-badge-text {
+      position: relative;
+      left: -2px;
+    }
+
+    /* User dropdown - shows on click of user icon */
+    .th-user-dropdown {
+      position: relative;
+    }
+
+    .th-user-dropdown .dropdown-toggle {
+      color: inherit;
+      text-decoration: none;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-toggle:hover {
+      opacity: 0.85;
+    }
+
+    .th-user-dropdown .dropdown-toggle::after {
+      display: none;
+      /* Hide default Bootstrap caret - icon is enough */
+    }
+
+    .th-user-dropdown .dropdown-menu {
+      min-width: 180px;
+      padding: 0px 0px;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .th-user-dropdown .dropdown-item {
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2E2E2E;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-item:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: #231F20;
+    }
+
+    .th-user-dropdown .dropdown-divider {
+      margin: 6px 0;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button {
+      color: #6B7280;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button:hover {
+      color: #DC2626;
+      background-color: rgba(220, 38, 38, 0.06);
+    }
+  </style>
+  <!--==============================Header Area==============================-->
+  <div class="th-header header-layout menu-white" data-v-component-header role="header">
+    <!-- edit link  -->
+    <div class="d-flex justify-content-end pr-40 align-items-center position-absolute" data-v-header-component-link style="right: 40px; color: #fff;">
+      <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank" style="color: #fff;">Edit</a>
+    </div>
+
+    <div class="th-topbar d-flex justify-content-center flex-column">
+      <div class="position-relative container th-container p-0 th-container-md">
+        <div class="d-flex align-items-center justify-content-center">
+          <a href="/catalogue#th-request-catalogue" class="font-white th-topbar-text" data-v-header-top_header_middle_text>Experience the Future of Workspace: The 2026 Catalogue is Out Now</a>
+        </div>
+        <div class="contact-sales d-flex align-items-center justify-content-center">
+          <i class="fal fa-envelope font-white" style="font-size: 18px;"></i>
+          <a href="/catalogue" target="_blank" class="font-white th-topbar-link" data-v-header-top_header_right_text>Get Your Copy</a>
+        </div>
+      </div>
+    </div>
+    <!--============================== Mobile Menu ============================== -->
+    <div class="th-menu-wrapper mobile-menu" role="navigation">
+      <div class="th-menu-area text-center">
+        <div class="th-mobile-menu-head">
+          <div class="mobile-logo">
+            <a class="icon-masking" href="/">
+              <img src="/img/logo-white.png" alt="KROST">
+            </a>
+          </div>
+          <button class="th-menu-toggle">
+            <i class="fal fa-times"></i>
+          </button>
+        </div>
+        <div class="th-mobile-menu">
+          <ul class="mobile-menu-list" data-v-header-mobile-menu-list>
+            <li class="mobile-menu-item" data-v-header-mobile-menu-item>
+              <a href="/" data-v-header-mobile-menu-item-href>
+                <span data-v-header-mobile-menu-item-title>Home</span>
+              </a>
+              <ul class="sub-menu" data-v-header-mobilemenu-children>
+                <li>
+                  <a href="#" data-v-header-mobilemenu-childitem></a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="about.html">About Us</a>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Services</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="service.html">Services</a>
+                </li>
+                <li>
+                  <a href="service-details.html">Services Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Pages</a>
+              <ul class="sub-menu">
+                <li class="menu-item-has-children">
+                  <a href="#">Shop</a>
+                  <ul class="sub-menu">
+                    <li>
+                      <a href="shop.html">Shop</a>
+                    </li>
+                    <li>
+                      <a href="shop-details.html">Shop Details</a>
+                    </li>
+                    <li>
+                      <a href="cart.html">Cart Page</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html">Checkout</a>
+                    </li>
+                    <li>
+                      <a href="wishlist.html">Wishlist</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="team.html">Team</a>
+                </li>
+                <li>
+                  <a href="team-details.html">Team Details</a>
+                </li>
+                <li>
+                  <a href="project.html">Project</a>
+                </li>
+                <li>
+                  <a href="project-details.html">Project Details</a>
+                </li>
+                <li>
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                  <a href="pricing.html">Pricing</a>
+                </li>
+                <li>
+                  <a href="faq.html">Faq Page</a>
+                </li>
+                <li>
+                  <a href="error.html">Error Page</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Blog</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                  <a href="blog-details.html">Blog Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-wrapper desktop-menu" role="navigation">
+      <!-- Main Menu Area -->
+      <div class="menu-area">
+        <div class="container th-container p-0 th-container-md">
+          <div class="row align-items-center justify-content-between ps-50 pe-50">
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-start th-nav-section-px">
+              <div class="main-menu d-none d-lg-inline-block">
+                <ul class="desktop-menu-list" data-v-header-desktop-menu-list>
+                  <li class="menu-item-has-children mega-menu-wrap desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a href="#" class="th-nav-link th-nav-link-py">
+                      <span data-v-header-desktop-menu-item-title>Products</span>
+                    </a>
+                    <ul class="mega-menu py-5" data-v-header-mega-menu>
+                      <!-- <div class="row justify-content-center"> -->
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-9" data-v-header-mega-menu-rows style="flex: 5">
+
+                            <div class="row mega-menu-row category-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <a href="" class="category-link mega-menu-item-link" data-v-header-mega-submenu-item-link>
+                                  <h5 class="hover" data-v-header-mega-menu-item-title>Workstations</h5>
+                                </a>
+                                <nobr>
+                                  <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                    <a href="" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                      <span class="hover" data-v-header-categorylink-title>Workstations</span>
+                                    </a>
+                                    <!-- <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>screens</span>
+                                  </a> -->
+                                  </span>
+                                </nobr>
+                              </div>
+                              <!-- <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Screens</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Acoustic booths</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Perspex screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Desks</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Executive desks</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Desk system</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Modesty panels</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>tables</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Meeting tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Counter Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Training Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Cafe Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Coffee Tables</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Storage</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>In-office storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                  <span>Universal storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>steel storage units</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Shelving</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Custom joinery</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            </div>
+
+                            <!-- <div class="row mega-menu-row mt-50 category-two-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5 data-v-header-categorytwoitem-title>Seating</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="/shofiul-categories-seating.html" class="category-two-link mega-menu-item-link" data-v-header-categorytwolink-href>
+                                    <span data-v-header-categorytwolink-title>All seating</span>
+                                  </a>
+                                  <a href="/shofiul-category-products.html" class="category-two-link mega-menu-item-link">
+                                    <span>Task seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>executive seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>training seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Occasional seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Stools</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Lounges</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            <!-- <div class="col mega-menu-item category-two-item">
+                                <h5>Accessories</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Computer accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Power accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                  <span>General office
+                                    accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Acoustic solutions</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Training</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Communication
+                                      boards</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>screen partitions</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Finishes</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Materials</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Fabrics</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Counters</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            <!-- </div> -->
+                          </div>
+                          <!-- Sidebar Images -->
+                          <!-- <div class="col-3 d-flex flex-column gap-3 side-image-list" style="flex: 1;">
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/book-metting.png" alt="boot-meetting">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/contact-sells.png" alt="contact-sells">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/request-catalog.png" alt="request-catalog">
+                            </div>
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="row">
+                              <div class="col">
+                                <a class="font-weight-700 hover" href="/categories">View All Categories</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ul>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="shofiul-projects.html">
+                      <span data-v-header-desktop-menu-item-title>Projects</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="tuhin-blogs.html">
+                      <span data-v-header-desktop-menu-item-title>Blog</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="/zahidul-about.html">
+                      <span class="manu-name" data-v-header-desktop-menu-item-title>About</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="th-menu-toggle d-block d-lg-none">
+                <i class="far fa-bars"></i>
+              </button>
+            </div>
+            <div class="d-flex flex-2-md col-4 align-items-center justify-content-center">
+              <div class="header-logo">
+                <a class="icon-masking" href="/">
+                  <img src="/img/logo_black.png" alt="KROST">
+                </a>
+              </div>
+
+            </div>
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-end th-nav-section-px">
+              <div class=" d-none d-lg-inline-block">
+                <a class="th-nav-link th-nav-link" href="/resources">
+                  <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Resources</span>
+                </a>
+                <a class="th-nav-link th-nav-link" href="/contact-us">
+                  <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Contact Us</span>
+                </a>
+              </div>
+              <div class="header-button  d-none d-lg-inline-block">
+                <a href="https://store.krost.com.au" class="h-btn d-flex align-items-center justify-content-center th-nav-link">
+                  <span>Shop Now</span>
+                </a>
+              </div>
+
+              <div class="d-flex align-items-end gap-3 gap-3-ml" style="margin-bottom: 1px;">
+
+                <!-- search section  -->
+                <!-- <div class="th-header-search" id="th-header-global-search">
+                  <a 
+                    class="d-flex th-nav-link"
+                    href=""
+                    title="Search"
+                    role="button"
+                    aria-label="Search"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#search_offcanvasRight"
+                    aria-controls="search_offcanvasRight">
+                    <i class="fa-regular fa-magnifying-glass" style="font-size: 26px;"></i>
+                  </a>
+                </div> -->
+                <div class="th-header-search" id="th-header-global-search">
+                  <button type="button" class="btn p-0 border-0 d-flex th-nav-link" title="Search" aria-label="Search" data-bs-toggle="offcanvas" data-bs-target="#search_offcanvasRight" aria-controls="search_offcanvasRight">
+                    <i class="fa-regular fa-magnifying-glass" style="font-size: 26px;"></i>
+                  </button>
+                </div>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="search_offcanvasRight" aria-labelledby="search_offcanvasRightLabelLabel">
+                  <!-- <div id="searchbar-app"> -->
+                  <div class="offcanvas-body d-none d-lg-block" id="searchbar-app">
+                  </div>
+
+                  <!-- ======================== mobile searchbar ======================== -->
+                  <div class="offcanvas-wrapper mobile-searchbar d-lg-none">
+                    <div class="offcanvas-header header-upper d-flex align-items-center justify-content-between">
+                      <h3 id="search_offcanvasRightLabelLabel">Search</h3>
+                      <i class="fa-solid fa-xmark" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                    </div>
+                    <div class="offcanvas-body" id="searchbar-app-mobile">
+                    </div>
+                  </div>
+                </div>
+                <!-- ============================== end vue app integration ============================== -->
+
+
+                <style>
+                  .th-mouse-hover {
+                    &:hover {
+                      color: #0a0a14 !important;
+                      cursor: pointer;
+                      font-weight: 600;
+                    }
+                  }
+                </style>
+
+                <!-- <a href="" id="pinboard-button th-nav-link" 
+                role="button" 
+                aria-label="Pinboard"
+                data-bs-toggle="offcanvas" 
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-right: 1px; width: 26px;">
+                  <span class="" style="position: relative;">
+                    <img src="/img/pinboard-icon.png" alt="Pinboard" loading="lazy" style="width: 26px; height: 27px;">
+                    <div class="th-pinboard-count-badge" style="display: none;">
+                      <span id="pinboard-item-count" ></span>
+                    </div>
+                  </span>
+                </a> -->
+                <button type="button" id="pinboard-button" class="btn p-0 border-0 th-nav-link" aria-label="Pinboard" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-right: 1px; width: 26px;">
+                  <span class="" style="position: relative;">
+                    <img src="/img/pinboard-icon.png" alt="Pinboard" loading="lazy" style="width: 26px; height: 27px;">
+                    <div class="th-pinboard-count-badge" style="display: none;">
+                      <span id="pinboard-item-count"></span>
+                    </div>
+                  </span>
+                </button>
+
+                <!-- <div class="dropdown th-user-dropdown" id="user-profile-info">
+                  <a href="#" class="d-flex align-items-center dropdown-toggle th-nav-link" aria-label="Account menu" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" title="Account menu">
+                    <i class="fa-solid fa-user" style="font-size: 26px;"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" data-v-header-navigation-menus>
+                    <li data-v-header-navigation-menu-item><a class="dropdown-item" href="/login">Login</a></li>
+                    <li data-v-header-signup-menu><a class="dropdown-item" href="/signup">Sign Up</a></li>
+                    <li data-v-header-account-menu><a class="dropdown-item" href="/account/recent-orders">Account</a></li>
+                    <li data-v-header-logout-menu><a class="dropdown-item" href="/logout" >Logout</a></li>
+                  </ul>
+                </div> -->
+
+                <div class="dropdown th-user-dropdown" id="user-profile-info">
+                  <button type="button" class="btn p-0 border-0 d-flex align-items-center dropdown-toggle th-nav-link" aria-label="Account menu" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" title="Account menu">
+                    <i class="fa-solid fa-user" style="font-size: 26px;"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" data-v-header-navigation-menus>
+                    <li data-v-header-navigation-menu-item>
+                      <a class="dropdown-item" href="/login">Login</a>
+                    </li>
+                    <li data-v-header-signup-menu>
+                      <a class="dropdown-item" href="/signup">Sign Up</a>
+                    </li>
+                    <li data-v-header-account-menu>
+                      <a class="dropdown-item" href="/account/recent-orders">Account</a>
+                    </li>
+                    <li data-v-header-logout-menu>
+                      <a class="dropdown-item" href="/logout">Logout</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- <div data-v-header-account-menu-admin id="header-is-admin" style="display: none;"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" id="is-logged-in"></script>
+
+
+
+
+
+  <!--============================== Hero Area ==============================-->
+  <section data-v-component-herohome class="th-hero-wrapper th-hero th-hero-transparent gr-bg4 breadcrumb_class th-way-points" id="hero" data-v-herohome-hero_image>
+    <!-- LCP image: discoverable in HTML, high priority, no lazy-load -->
+
+    <div class="container th-container">
+      <div class="text-white d-flex justify-content-end pr-40 align-items-center position-absolute th-component-edit-link" data-v-herohome-component-link style="right: 40px; z-index: 10;">
+        <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+        <a href="" target="_blank" class="text-white">Component Edit</a>
+      </div>
+      <div class="row">
+        <div class="col-xl-7">
+          <div class="th-hero-container gr-bg4">
+
+
+            <div class="way-points-container" data-v-herohome-waypoints>
+              <div id="way-point-1" class="way-point" style="left: 30%; top: 40%;" data-v-herohome-waypoint>
+                <div class="circle-point" style="position: absolute;"></div>
+                <div class="circle-point" style="position: absolute;"></div>
+
+                <span class="way-point-link">
+                  <a href="point-1" target="_blank" data-v-herohome-waypoint-link>point 1</a>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="th-hero-style th-mt-100">
+              <h1 class="th-hero-title th-hero-title-mb" data-v-herohome-hero_title>
+                2025 <span class=''>Catalogue</span>
+                <span class='line-break'>Sent Out</span>
+              </h1>
+              <span class="th-hero-subtitle th-hero-subtitle-my" data-v-herohome-hero_subtitle>Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</span>
+
+              <div class="th-hero-wrapp" data-v-herohome-hero_button_group>
+                <div class="button position-relative pb-3" data-v-herohome-button>
+                  <a href="contact.html" class="th-btn text-capitalize" data-v-herohome-hero_button_link>
+                    <span class="mr-5 th-btn-text-mr" data-v-herohome-hero_button_label>
+                      Visit Our Showroom
+                    </span>
+                  </a>
+                </div>
+
+                <div class="button position-relative">
+                  <a href="contact.html" class="th-btn-outline text-capitalize" data-v-herohome-hero_button_link>
+                    <span class="mr-5 th-btn-text-mr" data-v-herohome-hero_button_label_outline>
+                      Contact Sales
+
+                    </span>
+                  </a>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-5">
+          <div class="th-hero-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--======== End Hero Section ========-->
+  <script>
+  // document.addEventListener('DOMContentLoaded', function () {
+  //   document.querySelectorAll('[data-bg-src]').forEach(function (el) {
+  //     const src = el.getAttribute('data-bg-src');
+
+  //     if (src) {
+  //       el.style.backgroundImage = `url("${src}")`;
+  //       el.classList.add('background-image');
+  //     }
+  //   });
+  // });
+  </script>
+  <!--============================== Section Categories ==============================-->
+  <section id="home-categories" data-v-component-categoriesslidernav class="th-section-categories-py">
+    <div class="d-flex justify-content-end pr-40 align-items-center position-absolute th-component-edit-link" data-v-categoriesslidernav-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row home-categories-row">
+        <div class="col-12">
+          <div class="th-section-header sectionHeaderClass th-section-header-pb-50">
+            <div class="th-section-header-wrapper left flex-1">
+              <h2 class="th-section-title th-section-title-mb" data-v-categoriesslidernav-section_title> Product Categoriess </h2>
+              <div class="th-section-subtitle th-section-subtitle-mb" data-v-categoriesslidernav-section_subtitle>
+                Lorem ipsum dolor sit amet consectetur.
+              </div>
+            </div>
+
+            <div class="right">
+              <a href="/categories">
+                <div class="th-section-header-link">
+                  <span class="th-view-all-btn" data-v-categoriesslidernav-section_link_text>View All Categories</span>
+                  <span class="th-section-header-link-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-12">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="th-categories-slider-nav">
+                  <div class="th-categories-menu">
+                    <ul class="th-menu-container" data-v-categoriesslidernav-collapse-items>
+                      <li class="th-slide-active">
+                        <a href="#" class="th-category-slide-trigger home-product-category-slider-item" data-v-categoriesslidernav-collapse-item data-slide-index="0">
+                          <h3 class="mb-0 th-title th-category-nav-item th-nav-item-pt-5">
+                            <span data-v-categoriesslidernav-collapse-items-title class="">Workstations</span>
+                          </h3>
+                        </a>
+                        <ul class="th-subcategories-manu" data-v-categoriesslidernav-sub-menu-items>
+                          <li>
+                            <a href="service.html" data-v-categoriesslidernav-collapse-items-sub-menu-items-link>
+                              <h6 class="th-subcategory-nav-item th-subcategory-nav-item-title th-nav-item-pt-5" data-v-categoriesslidernav-collapse-items-sub-menu-items-title>Workstations
+                              </h6>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="service-details.html">
+                              <h6 class="th-title-17 th-subcategory-nav-item-title th-nav-item-pt-5">Workstations Screens</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <div class="th-link classPadding">
+                              <div class="th-link-text th-pr-5">
+                                View All
+                              </div>
+                              <!-- <div class="th-link-icon-btn">
+                              <i class="fa-regular fa-arrow-up degree-60"></i>
+                            </div> -->
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="home-product-category-slider-item">
+                        <a href="#" class="th-category-slide-trigger">
+                          <h3 class="mb-0 th-title text-weight-400 font-22">
+                            <span class="home-product-category-slider-item" data-slide-index="1">Desks</span>
+                          </h3>
+                        </a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Desks</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Desks System</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <div class="th-link classPadding">
+                              <div class="th-link-text th-pr-5">
+                                Read More
+                              </div>
+                              <div class="th-link-icon-btn">
+                                <i class="fa-regular fa-arrow-up degree-60"></i>
+                              </div>
+                            </div>
+
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="home-product-category-slider-item">
+                        <a href="#" class="th-category-slide-trigger">
+                          <h3 class="mb-0 th-title text-weight-400 font-22">
+                            <span class="home-product-category-slider-item" data-slide-index="2">Tables</span>
+                          </h3>
+                        </a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Tables</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Boardroom Tables</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <div class="th-link classPadding">
+                              <div class="th-link-text th-pr-5">
+
+                                Read More
+                              </div>
+                              <div class="th-link-icon-btn">
+                                <i class="fa-regular fa-arrow-up degree-60"></i>
+                              </div>
+                            </div>
+
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#" class="th-category-slide-trigger">
+                          <h3 class="mb-0 th-title text-weight-400 font-22">
+                            <span class="home-product-category-slider-item" data-slide-index="3">Seating</span>
+                          </h3>
+                        </a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Seating</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Boardroom Tables</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <div class="th-link classPadding">
+                              <div class="th-link-text th-pr-5">
+
+                                Read More
+                              </div>
+                              <div class="th-link-icon-btn">
+                                <i class="fa-regular fa-arrow-up degree-60"></i>
+                              </div>
+                            </div>
+
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="#" class="th-category-slide-trigger">
+                          <h3 class="mb-0 th-title text-weight-400 font-22">
+                            <span class="home-product-category-slider-item" data-slide-index="4">Storage</span>
+                          </h3>
+                        </a>
+                        <ul class="sub-menu">
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Storage</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="service.html">
+                              <h6 class="th-title-17">Boardroom Tables</h6>
+                            </a>
+                          </li>
+                          <li>
+                            <div class="link">
+                              <div class="link-text th-pr-5">View All</div>
+                              <div class="link-icon-btn">
+                                <i class="fa-regular fa-arrow-up degree-60"></i>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="slider-container home-category-slider">
+                  <div class="slider-area">
+                    <div class="swiper home-category-swiper home-product-category-slider">
+                      <div class="swiper-wrapper" data-v-categoriesslidernav-slider-items>
+                        <div class="swiper-slide gr-bg6" data-v-categoriesslidernav-slider-item>
+                          <a href="#" class="category-slide-link" data-v-categoriesslidernav-slider-item-link style="z-index: 1;">
+                            <img src="/img/bg/home/home_cat_workstation.jpg" alt="Workstation" loading="lazy" data-v-categoriesslidernav-slider-item-image />
+
+                            <div class="slider-content gr-bg5" data-ani="slideinleft" data-ani-delay=".1s">
+                              <h4 class="th-title th-title-24 font-white" data-ani="slideinleft" data-ani-delay=".2s" data-v-categoriesslidernav-slider-item-title>
+                                Workstation
+                              </h4>
+                              <h6 class="th-title th-title-16 font-white" data-ani="slideinleft" data-ani-delay="0.3s" data-v-categoriesslidernav-subtext>
+                                Energistically harnes
+                              </h6>
+                              <!-- <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
+                              <div class="position-relative">
+                                <a href="/contact-sales" class="th-btn-outline text-capitalize"
+                                  data-v-categoriesslidernav-slider-item-buttonText>
+                                  <span class="mr-5" data-v-categoriesslidernav-slider-item-buttonText>Contact
+                                    Sales</span>
+                                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                                </a>
+                              </div>
+                            </div> -->
+                            </div>
+                          </a>
+                        </div>
+                        <!-- <div class="swiper-slide gr-bg6" data-v-categoriesslidernav-slider-item>
+                          <img src="/img/bg/home/home_cat_chair.jpg" alt="Desks"
+                            data-v-categoriesslidernav-slider-item-image />
+                          <div class="slider-content gr-bg5" data-ani="slideinleft" data-ani-delay=".1s">
+                            <h4 class="title font-white" data-ani="slideinleft" data-ani-delay=".2s"
+                              data-v-categoriesslidernav-slider-item-title>Desks</h4>
+                            <h6 class="th-title-20 font-white pb-15" data-ani="slideinleft" data-ani-delay="0.3s"
+                              data-v-categoriesslidernav-slider-item-subTitle>Energistically harness</h6>
+                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
+                              <div class="position-relative">
+                                <a href="/contact-sales" class="th-btn-outline text-capitalize"
+                                  data-v-categoriesslidernav-slider-item-buttonText>
+                                  <span class="mr-5">Contact Sales</span>
+                                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide gr-bg6" data-v-categoriesslidernav-slider-item>
+                          <img src="/img/bg/home/home_cat_seating.jpg" alt="Tables"
+                            data-v-categoriesslidernav-slider-item-image />
+                          <div class="slider-content gr-bg5" data-ani="slideinleft" data-ani-delay=".1s">
+                            <h4 class="title font-white" data-ani="slideinleft" data-ani-delay=".2s"
+                              data-v-categoriesslidernav-slider-item-title>Tables</h4>
+                            <h6 class="th-title-20 font-white pb-15" data-ani="slideinleft" data-ani-delay="0.3s"
+                              data-v-categoriesslidernav-slider-item-subTitle>Energistically harness</h6>
+                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
+                              <div class="position-relative">
+                                <a href="/contact-sales" class="th-btn-outline text-capitalize"
+                                  data-v-categoriesslidernav-slider-item-buttonText>
+                                  <span class="mr-5">Contact Sales</span>
+                                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide gr-bg6" data-v-categoriesslidernav-slider-item>
+                          <img src="/img/bg/home/home_cat_seating.jpg" alt="Seating"
+                            data-v-categoriesslidernav-slider-item-image />
+                          <div class="slider-content gr-bg5" data-ani="slideinleft" data-ani-delay=".1s">
+                            <h4 class="title font-white" data-ani="slideinleft" data-ani-delay=".2s"
+                              data-v-categoriesslidernav-slider-item-title>Seating</h4>
+                            <h6 class="th-title-20 font-white pb-15" data-ani="slideinleft" data-ani-delay="0.3s"
+                              data-v-categoriesslidernav-slider-item-subTitle>Energistically harness</h6>
+                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
+                              <div class="position-relative">
+                                <a href="/contact-sales" class="th-btn-outline text-capitalize"
+                                  data-v-categoriesslidernav-slider-item-buttonText>
+                                  <span class="mr-5">Contact Sales</span>
+                                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide gr-bg6" data-v-categoriesslidernav-slider-item>
+                          <img src="/img/bg/home/home_cat_workstation.jpg" alt="Storage"
+                            data-v-categoriesslidernav-slider-item-image />
+                          <div class="slider-content gr-bg5" data-ani="slideinleft" data-ani-delay=".1s">
+                            <h4 class="title font-white" data-ani="slideinleft" data-ani-delay=".2s"
+                              data-v-categoriesslidernav-slider-item-title>Storage</h4>
+                            <h6 class="th-title-20 font-white pb-15" data-ani="slideinleft" data-ani-delay="0.3s"
+                              data-v-categoriesslidernav-slider-item-subTitle>Energistically harness</h6>
+                            <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.4s">
+                              <div class="position-relative">
+                                <a href="/contact-sales" class="th-btn-outline text-capitalize"
+                                  data-v-categoriesslidernav-slider-item-buttonText>
+                                  <span class="mr-5">Contact Sales</span>
+                                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+
+                      </div>
+                      <!-- <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div> -->
+                      <div class="swiper-pagination"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== Featured Projects Slider Section ==============================-->
+
+  <section id="th-featured-projects-slider" class="pt-0" data-v-component-featuredprojectslider>
+    <div class="d-flex justify-content-end pr-40 th-pr-40 align-items-center position-absolute th-component-edit-link" data-v-featuredprojectslider-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5 th-pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components/3/items" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row featured-projects-row">
+        <div class="th-section-header sectionHeaderClass th-section-header-pb-50">
+          <div class="th-section-header-wrapper left flex-1">
+            <a href="/projects" class="section-header-link-mobile d-none">
+              <h2 class="th-section-title th-section-title-mb"> Featured Projects </h2>
+            </a>
+            <h2 class="th-section-title th-section-title-mb section-header-link-desktop" data-v-featuredprojectslider-section_title id="feature-projects-heading-title-desktop"> Featured Projects </h2>
+            <div class="th-section-subtitle th-section-subtitle-mb" data-v-featuredprojectslider-section_subtitle>
+              Explore how we’ve helped Australian businesses transform their workspaces with tailored design solutions.
+            </div>
+          </div>
+
+          <div class="right">
+            <a href="/projects">
+              <div class="th-section-header-link">
+                <span class="th-view-all-btn th-view-all-btn">View All Projects</span>
+                <span class="th-section-header-link-btn">
+                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="section-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="swiper th-featured-projects-slider th-pb-80">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide d-flex flex-column justify-content-between">
+                    <div class="th-item-project d-flex flex-column" style="flex: 1;">
+                      <div class="th-img-container itemProjectClass">
+                        <a href="" data-v-featuredprojectslideritem-link>
+                          <img src="/img/bg/home/home_feature_project_1.jpg" alt="" loading="lazy" data-v-featuredprojectslideritem-image />
+                        </a>
+                      </div>
+                      <div class="th-add-to-pinboard th-pinboard-tooltip position-absolute top-right-30" data-id="" data-toggle="tooltip" data-placement="top" title="" role="button" tabindex="0" data-bs-original-title="Add to Pinboard" data-original-title="Add to Pinboard" data-model="project" data-title="Chwyla" data-description="This is the first project description." data-image="/img/bg/home/home_feature_project_1.jpg" data-v-featuredprojectslideritem-add-to-pinboard>
+                        <i class="fa-solid fa-plus"></i>
+                      </div>
+                      <div class="th-item-footer d-flex flex-column justify-content-between" style="flex: 1;">
+                        <div>
+                          <div class="th-label th-item-subtitle-my" data-v-featuredprojectslideritem-label>Build</div>
+                          <h3 class="th-item-title-bold th-title-mb-15" data-v-featuredprojectslideritem-title>
+                            <a href="" data-v-featuredprojectslideritem-link>
+                              Chwyla
+                            </a>
+                          </h3>
+                          <div class="th-description th-description-my" style="word-break: break-word;" data-v-featuredprojectslideritem-description>This is the first project description.</div>
+                        </div>
+                        <div class="classPadding">
+                          <a class="th-link" href="project-details.html" data-v-featuredprojectslideritem-link>
+                            <div class="th-link-text pr-5">View Project
+                            </div>
+                            <!-- <div class="th-link-icon-btn">
+                              <i class="fa-regular fa-arrow-up degree-60"></i>
+                            </div> -->
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="th-item-project">
+                      <div class="th-img-container itemProjectClass">
+                        <img src="/img/bg/home/home_feature_project_2.jpg" />
+                      </div>
+                      <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                        <i class="fa-solid fa-plus"></i>
+                      </div>
+                      <div class="th-item-footer">
+                        <div class="th-label">Total Fitouts</div>
+                        <h3 class="th-title">Fiorelli packing</h3>
+                        <div class="th-description">This is the second project description.</div>
+                        <div class="th-link classPadding">
+                          <div class="th-link-text pr-5">
+
+                            View All
+                          </div>
+                          <!-- <div class="th-link-icon-btn">
+                            <i class="fa-regular fa-arrow-up degree-60"></i>
+                          </div> -->
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="th-item-project">
+                      <div class="th-img-container itemProjectClass">
+                        <img src="/img/bg/home/home_feature_project_3.jpg" />
+                      </div>
+                      <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                        <i class="fa-solid fa-plus"></i>
+                      </div>
+                      <div class="th-item-footer">
+                        <div class="th-label">Merit Interiors</div>
+                        <h3 class="th-title">Berry Street</h3>
+                        <div class="th-description">This is the third project description.</div>
+                        <div class="th-link classPadding">
+                          <div class="th-link-text pr-5">
+                            Read More
+                          </div>
+                          <div class="th-link-icon-btn">
+                            <i class="fa-regular fa-arrow-up degree-60"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="th-item-project">
+                      <div class="th-img-container itemProjectClass">
+                        <img src="/img/bg/home/home_feature_project_4.jpg" />
+                      </div>
+                      <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                        <i class="fa-solid fa-plus"></i>
+                      </div>
+                      <div class="th-item-footer">
+                        <div class="th-label">Amicus</div>
+                        <h3 class="th-title">Artifex</h3>
+                        <div class="th-description">This is the third project description.</div>
+                        <div class="th-link classPadding">
+                          <div class="th-link-text pr-5">
+
+                            Read More
+                          </div>
+                          <div class="th-link-icon-btn">
+                            <i class="fa-regular fa-arrow-up degree-60"></i>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="swiper-scrollbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Featured Projects Slider Section ==============================-->
+  <!--============================== Block Quote component ==============================-->
+  <section id="th-block-quote" class="th-section-py" data-v-component-blockquote>
+    <div class="th-block-quote__edit th-component-edit-link d-flex justify-content-end align-items-center position-absolute" data-v-blockquote-component-link>
+      <i class="fa-solid fa-pencil th-block-quote__edit-icon" aria-hidden="true"></i>
+      <a href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="th-block-quote" data-v-blockquote-content>
+            <p>
+              Our Legacy Isn’t Only About Refined And Functional Furniture, Fit For Australian Organizations,
+              It’s About The Trust We’ve Fostered For Decades
+            </p>
+            <span class="th-quote-author" data-v-blockquote-image>-
+              <img src="" alt="krost-logo" loading="lazy">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Block Quote component ==============================-->
+  <!--============================== Design Resources Section ==============================-->
+  <section id="home-design-resources" data-v-component-designresources class="">
+    <div class="d-flex justify-content-end pr-40 align-items-center position-absolute th-component-edit-link" data-v-designresources-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row design-resources">
+        <div class="th-section-header sectionHeaderClass th-section-header-pb-50" style="display: block">
+          <div class="th-section-header-wrapper left flex-1">
+            <h2 class="th-section-title th-section-title-mb" data-v-designresources-section_title> Design Resources </h2>
+            <div class="th-section-subtitle th-section-subtitle-mb" data-v-designresources-section_subtitle>
+              Everything you need to specify, plan, and deliver your next commercial project.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="section-body">
+          <div class="col-md-12">
+            <div class="row design-resource-list">
+              <div class="col-md-3 design-resource-item">
+                <div class="th-item-resource">
+                  <a href="link" data-v-designresourcesitem-link class="mt-15">
+                    <img src="/img/bg/home/home_dr-fabrics.jpg" alt="Model Library" loading="lazy" data-v-designresourcesitem-img />
+                  </a>
+                  <div class="th-item-resource-content">
+                    <div class="th-link pb-15">
+                      <a href="link" data-v-designresourcesitem-link class="mt-15">
+                        <h6 class="th-item-title-bold mb-0" data-v-designresourcesitem-title> Model Library </h6>
+                      </a>
+                    </div>
+                    <div class="th-description" data-v-designresourcesitem-description>
+                      Download 2D/3D CAD and Revit files to streamline your floor plans and specifications.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 design-resource-item">
+                <div class="th-item-resource">
+                  <img src="/img/bg/home/home_dr-models.jpg" alt="Sample Image" />
+                  <div class="th-item-resource-content">
+                    <div class="th-link">
+                      <a href="link">
+                        <h6 class="th-item-title"> Image Gallery </h6>
+                      </a>
+                    </div>
+                    <div class="description">Access our full library of high-resolution project photography and detailed product imagery.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 design-resource-item">
+                <div class="th-item-resource">
+                  <img src="/img/bg/home/home_dr-models.jpg" alt="Sample Image" />
+                  <div class="th-item-resource-content">
+                    <div class="th-link">
+                      <a href="link">
+                        <h6 class="th-item-title"> Image Gallery </h6>
+                      </a>
+                    </div>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 design-resource-item">
+                <div class="th-item-resource">
+                  <img src="/img/bg/home/home_dr-finish.jpg" alt="Sample Image" />
+                  <div class="th-item-resource-content">
+                    <div class="th-link">
+                      <a href="link">
+                        <h6 class="th-item-title"> Fabrics </h6>
+                      </a>
+                    </div>
+                    <div class="description">Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Design Resources Section ==============================-->
+  <!--============================== Featured product ==============================-->
+  <section id="feature-products" class="th-section-py" data-v-component-featureproductsmasonry>
+    <div class="d-flex justify-content-end pr-40 th-pr-40 align-items-center position-absolute th-component-edit-link" data-v-featureproductsmasonry-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5 th-pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row featured-product">
+        <div class="col-12">
+          <div class="th-section-header sectionHeaderClass th-section-title-mb-0" style="display: block">
+            <div class="th-section-header-wrapper text-center">
+              <h2 class="  th-section-title th-section-title-mb" data-v-featureproductsmasonry-section_title> Feature Products </h2>
+              <div class="th-section-subtitle th-section-subtitle-mb" data-v-featureproductsmasonry-section_subtitle>
+                Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body th-masonry-col-2">
+            <div class="th-masonry-grid th-column-gap-column-gap" data-v-featureproductsmasonry-grid>
+
+              <div class="th-masonry-grid-item grid-col-span-8 " data-v-featureproductsmasonryitem-class style="transform: translateY(0px);padding-top:0px">
+                <div class="th-item-img" data-v-featureproductsmasonryitem-img-wrapper>
+                  <a href="" data-v-featureproductsmasonryitem-link>
+                    <img src="/img/bg/home/home_fp_1.jpg" alt="" loading="lazy" data-v-featureproductsmasonryitem-img />
+                  </a>
+                </div>
+                <div class="th-add-to-pinboard th-pinboard-tooltip position-absolute top-right-30" data-id="" data-toggle="tooltip" data-placement="top" title="" role="button" tabindex="0" data-bs-original-title="Add to Pinboard" data-original-title="Add to Pinboard" data-model="product" data-title="Chwyla" data-product-url="catalogue/products/seating/chwyla" data-description="This is the first project description." data-image="/img/bg/home/home_feature_project_1.jpg" data-v-featuredproductitem-add-to-pinboard>
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="th-product-info-wrapper">
+                  <div class="th-item-info th-mt-15">
+                    <h6 class="th-title-17">
+                      <div class="th-link">
+                        <h6 class="th-item-title-bold" data-v-featureproductsmasonryitem-heading>
+                          <a href="" data-v-featureproductsmasonryitem-link> Chwyla</a>
+                        </h6>
+                      </div>
+
+                    </h6>
+                    <p class="th-description pt-15" data-v-featureproductsmasonryitem-des>
+                      Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                    </p>
+                    <div class="th-link pt-10">
+                      <a class="th-link pt-10" href="product-details.html" data-v-featureproductsmasonryitem-link target="_blank">
+                        <div class="th-link-text pr-5">
+                          View Product
+                        </div>
+
+                      </a>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="th-masonry-grid-item grid-col-span-5 " style="transform: translateY(0px);padding-top:0px">
+                <div class="th-item-img">
+                  <img src="/img/bg/home/home_fp_2.jpg" alt="Product 1" />
+                </div>
+                <div class="th-product-info-wrapper">
+                  <div class="th-item-info th-mt-15">
+                    <h6 class="th-title-17">
+                      <div class="th-link">
+                        <h6 class="th-item-title"> Kobe </h6>
+
+                        <div class="th-link-icon">
+                          <i class="fa-regular fa-arrow-right"></i>
+                        </div>
+
+                      </div>
+
+                    </h6>
+                    <p class="th-description">
+                      Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                    </p>
+                    <div class="th-link pt-10">
+                      <div class="th-link-text pr-5">
+
+                        Read More
+                      </div>
+                      <div class="th-link-icon-btn">
+                        <i class="fa-regular fa-arrow-up degree-60"></i>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="th-masonry-grid-item grid-col-span-5 " style="transform: translateY(0px);padding-top:0px">
+                <div class="th-item-img">
+                  <img src="/img/bg/home/home_fp_3.jpg" alt="Product 1" />
+                </div>
+                <div class="th-product-info-wrapper">
+                  <div class="th-item-info th-mt-15">
+                    <h6 class="th-title-17">
+                      <div class="th-link">
+                        <h6 class="th-item-title"> Desks </h6>
+
+                        <div class="th-link-icon">
+                          <i class="fa-regular fa-arrow-right"></i>
+                        </div>
+
+                      </div>
+
+                    </h6>
+                    <p class="th-description">
+                      Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                    </p>
+                    <div class="th-link pt-10">
+                      <div class="th-link-text pr-5">
+
+                        Read More
+                      </div>
+                      <div class="th-link-icon-btn">
+                        <i class="fa-regular fa-arrow-up degree-60"></i>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="th-masonry-grid-item grid-col-span-8 " style="transform: translateY(0px);padding-top:0px">
+                <div class="th-item-img">
+                  <img src="/img/bg/home/home_fp_4.jpg" alt="Product 1" />
+                </div>
+                <div class="th-product-info-wrapper">
+                  <div class="th-item-info th-mt-15">
+                    <h6 class="th-title-17">
+                      <div class="th-link">
+                        <h6 class="th-item-title"> Sofas </h6>
+
+                        <div class="th-link-icon">
+                          <i class="fa-regular fa-arrow-right"></i>
+                        </div>
+
+                      </div>
+
+                    </h6>
+                    <p class="th-description">
+                      Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                    </p>
+                    <div class="th-link pt-10">
+                      <div class="th-link-text pr-5">
+
+                        Read More
+                      </div>
+                      <div class="th-link-icon-btn">
+                        <i class="fa-regular fa-arrow-up degree-60"></i>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Featured product ==============================-->
+  <!-- ============================ Start Home Blogs =========================== -->
+  <section id="home-blogs" class="bg-gray th-section-py" data-v-component-blogslider>
+    <div class="d-flex justify-content-end pr-40 th-pr-40 align-items-center position-absolute th-component-edit-link" data-v-blogslider-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5 th-pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/5/overview" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row home-blogs">
+
+        <div class="th-section-header sectionHeaderClass th-section-header-pb-50">
+          <div class="th-section-header-wrapper left flex-1">
+            <a href="/blog" class="section-header-link-mobile d-none">
+              <h2 class="th-section-title th-section-title-mb"> Latest News </h2>
+            </a>
+            <h2 class="th-section-title th-section-title-mb section-header-link-desktop" data-v-blogslider-section_title> Blog </h2>
+            <div class="th-section-subtitle th-section-subtitle-mb" data-v-blogslider-section_subtitle>
+              Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+            </div>
+          </div>
+
+          <div class="right">
+            <a href="/blog" target="_blank" data-v-blogslider-section_link>
+              <div class="th-section-header-link">
+                <span class="th-view-all-btn All BlogsClass" data-v-blogslider-section_link_text>View All Articles</span>
+                <span class="th-section-header-link-btn">
+                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="section-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="swiper home-blog-slider">
+                <div class="swiper-wrapper">
+
+
+                  <div class="swiper-slide d-flex flex-column" style="height: auto;">
+                    <div class="list-img position-relative">
+                      <div class="img-container">
+                        <a href="" data-v-blogslideritem-slug class="hover">
+                          <img src="/img/bg/home/home_blog-1.jpg" alt="" loading="lazy" data-v-blogslideritem-image />
+                        </a>
+                      </div>
+                      <div class="th-add-to-pinboard th-pinboard-tooltip position-absolute top-right-30" data-id="" data-toggle="tooltip" data-placement="top" title="" role="button" tabindex="0" data-bs-original-title="Add to Pinboard" data-original-title="Add to Pinboard" data-model="post" data-title="data-v-blogslideritem-name" data-description="data-v-blogslideritem-excerpt" data-image="data-v-blogslideritem-image" data-v-blogslideritem-add-to-pinboard>
+                        <i class="fa-solid fa-plus"></i>
+                      </div>
+                    </div>
+                    <div class="slider-footer d-flex flex-column justify-content-between" style="flex: 1">
+                      <div>
+                        <a href="#" data-v-blogslideritem-slug class="hover th-blog-title">
+                          <h6 class="th-mt-20 th-item-title-bold mb-0" data-v-blogslideritem-name>Lorem ipsum</h6>
+                        </a>
+                        <p class="font-weight-400" data-v-blogslideritem-excerpt>
+                          Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" data-v-blogslideritem-slug>
+                          <div class="link th-read-more-btn">
+                            <div class="link-text th-link-text th-pr-5">Read More</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="swiper-slide">
+                    <img src="/img/bg/home/home_blog-2.jpg" />
+                    <div class="add-to-pinboard position-absolute top-right-30">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="slider-footer">
+
+                      <h6 class="th-title-20 font-weight-700 th-blog-slider-title">Lorem ipsum</h6>
+                      <p class="th-blog-slider-description">
+                        Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                      </p>
+
+                      <div class="link">
+                        <div class="link-text th-pr-5">Read More</div>
+                        <div class="link-icon-btn">
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/img/bg/home/home_blog-3.jpg" />
+                    <div class="add-to-pinboard position-absolute top-right-30">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="slider-footer">
+
+                      <h6 class="th-title-20 font-weight-700 th-blog-slider-title">Lorem ipsum</h6>
+                      <p class="th-blog-slider-description">
+                        Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                      </p>
+
+                      <div class="link">
+                        <div class="link-text th-pr-5">Read More</div>
+                        <div class="link-icon-btn">
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/img/bg/home/home_blog-4.jpg" />
+                    <div class="add-to-pinboard position-absolute top-right-30">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="slider-footer">
+
+                      <h6 class="th-title-20 font-weight-700 th-blog-slider-title">Lorem ipsum</h6>
+                      <p class="th-blog-slider-description">
+                        Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                      </p>
+
+                      <div class="link">
+                        <div class="link-text th-pr-5">Read More</div>
+                        <div class="link-icon-btn">
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/img/bg/home/home_blog-5.jpg" />
+                    <div class="add-to-pinboard position-absolute top-right-30">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="slider-footer">
+
+                      <h6 class="th-title-20 font-weight-700 th-blog-slider-title">Lorem ipsum</h6>
+                      <p class="th-blog-slider-description">
+                        Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+                      </p>
+
+                      <div class="link">
+                        <div class="link-text th-pr-5">Read More</div>
+                        <div class="link-icon-btn">
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ End Home Blogs =========================== -->
+  <!--============================== Need Help Section ==============================-->
+  <section id="need-help-section">
+    <div class="d-flex justify-content-end pr-40 align-items-center position-absolute th-component-edit-link" data-v-needhelp-component-link style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container">
+      <div class="row need-help-row" data-v-component-needhelp>
+        <div class="th-section-header sectionHeaderClass th-section-header-pb-50" style="display: block">
+          <div class="th-section-header-wrapper text-center">
+            <h2 class="th-section-title th-section-title-mb" data-v-needhelp-section_title> Need Help? </h2>
+            <div class="th-section-subtitle th-section-subtitle-mb" data-v-needhelp-section_subtitle>
+              Need help selecting the right finishes or configurations from the catalogue? Speak with our team today.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="section-body">
+          <div class="col-md-12">
+            <div class="th-need-help-container" data-v-needhelp-wrapper>
+              <div class="th-item-help d-flex flex-column align-items-center">
+                <a href="#" class="th-link-text pr-5" data-v-needhelpitem-icon-title-url>
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                    <div class="th-btn-circle-icon">
+                      <i class="fa-solid fa-phone" data-v-needhelpitem-icon></i>
+                    </div>
+                    <h6 class="th-item-title-bold th-needhelp-title-custom-height" data-v-needhelpitem-title>Any Questions?</h6>
+                  </div>
+                </a>
+                <div class="d-flex flex-column justify-content-between align-items-center" style="flex: 1;">
+                  <p class="th-description th-need-to-help-des-my" data-v-needhelpitem-description>Visit our showrooms, call or email us</p>
+                  <div class="th-link">
+                    <a href="#" class="th-link-text pr-5" data-v-needhelpitem-link>Contact Us</a>
+                    <!-- <div class="th-link-icon">
+                    <i class="fa-regular fa-arrow-right"></i>
+                  </div> -->
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="th-item-help">
+                <div class="th-btn-circle-icon">
+                  <i class="fa-duotone fa-book-open-cover"></i>
+                </div>
+
+                <h6 class="th-item-title-bold">See Our Latest Collection?</h6>
+                <p class="th-description th-need-to-help-des-my">Check out our latest projects</p>
+                <div class="th-link">
+                  <div class="th-link-text th-pr-5">View Catalogue</div>
+                  <div class="th-link-icon">
+                    <i class="fa-regular fa-arrow-right"></i>
+                  </div>
+                </div>
+
+              </div>
+              <div class="th-item-help">
+                <div class="th-btn-circle-icon">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h6 class="th-item-title-bold">Need some inspiration?</h6>
+                <p class="th-description th-need-to-help-des-my">Check out our latest projects</p>
+                <div class="th-link">
+                  <div class="th-link-text th-pr-5">View Projects</div>
+                  <div class="th-link-icon">
+                    <i class="fa-regular fa-arrow-right"></i>
+                  </div>
+                </div>
+
+              </div>
+              <div class="th-item-help">
+                <div class="th-btn-circle-icon">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <h6 class="th-item-title-bold">Need something now?</h6>
+                <p class="th-description th-need-to-help-des-my">Visit our online store!</p>
+                <div class="th-link">
+                  <div class="th-link-text th-pr-5">Shop Now</div>
+                  <div class="th-link-icon">
+                    <i class="fa-regular fa-arrow-right"></i>
+                  </div>
+                </div>
+
+              </div>
+              <div class="th-item-help">
+                <div class="th-btn-circle-icon">
+                  <i class="fa-solid fa-360-degrees"></i>
+                </div>
+
+                <h6 class="font-weight-700 th-next-step-title">Can’t make it to our showrooms?</h6>
+                <p class="th-description th-need-to-help-des-my">Visit our online store!</p>
+                <div class="th-link">
+                  <div class="th-link-text th-pr-5">Take a Tour</div>
+                  <div class="th-link-icon">
+                    <i class="fa-regular fa-arrow-right"></i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Need Help Section ==============================-->
+  <!--============================== Footer ==============================-->
+  <section id="footer-section-container" data-v-component-footer class="th-footer bg-gray th-footer-section-py" title="footer" data-v-save-global="index.html,.footer-1">
+
+    <div data-v-footer-edit-link-container class="d-flex justify-content-end pr-40 align-items-center position-absolute th-component-edit-link" style="right: 40px">
+      <i class="fa-solid fa-pencil pr-5 th-pr-5" style="font-size: .8rem"></i>
+      <a data-v-footer-edit-link href="http://localhost:5173/components" target="_blank">Edit</a>
+    </div>
+    <div class="container th-container" data-v-slug="main-footer">
+      <div class="row component-footer">
+        <div class="col-lg-8 border-right-dark border-right-md-0">
+          <h4 class="text-weight-700 th-footer-title th-title-mb-15">Contact Us</h4>
+          <div class="footer-left-content">
+            <div class="text-weight-600 pt-10">
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-envelope pr-5 th-pr-5"></i>
+                <p data-v-footer-contact_email>
+                  <a href="mailto:sales@krost.com.au">sales@krost.com.au</a>
+                </p>
+              </div>
+              <div class="d-flex align-items-center">
+                <i class="fa-solid fa-phone pr-5 th-pr-5"></i>
+                <p data-v-footer-contact_phone>
+                  <a href="tel:1800157678" class="footer-phone-link">1800 1KROST</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="d-grid grid-col-3">
+              <div class="th-showroom-address">
+                <p class="th-footer-heading th-footer-title-mb" data-v-footer-sydney_office_name>Sydney Office</p>
+                <p class="th-address-line" data-v-footer-sydney_office_address>
+                  33 Ricketty St
+                </p>
+                <div class="d-flex align-items-center text-weight-600 pt-10">
+                  <i class="fa-solid fa-phone pr-5 th-pr-5"></i>
+                  <p data-v-footer-sydney_office_phone>
+                    <a href="tel:0295573055" class="footer-phone-link">02 9557 3055</a>
+                  </p>
+                </div>
+                <p class="th-opening-hours" data-v-footer-sydney_office_hours>Mon-Fri, 8AM-5PM</p>
+              </div>
+
+              <div class="th-showroom-address">
+                <p class="text-weight-600 mb-15 th-footer-heading th-footer-title-mb" data-v-footer-melbourne_office_name>Melbourne Office</p>
+                <p class="th-address-line" data-v-footer-melbourne_office_address>
+                  617-643 Spencer St
+                </p>
+                <div class="d-flex align-items-center text-weight-600 pt-10">
+                  <i class="fa-solid fa-phone pr-5 th-pr-5"></i>
+                  <p data-v-footer-melbourne_office_phone>
+                    <a href="tel:0396828280" class="footer-phone-link">03 9682 8280</a>
+                  </p>
+                </div>
+                <p class="th-opening-hours" data-v-footer-melbourne_office_hours>Mon-Fri, 9AM-5PM</p>
+              </div>
+
+              <div class="th-showroom-address">
+                <p class="text-weight-600 mb-15 th-footer-heading th-footer-title-mb" data-v-footer-brisbane_office_name>Brisbane Office</p>
+                <p class="th-address-line" data-v-footer-brisbane_office_address>
+                  936 Stanley St E
+                </p>
+                <div class="d-flex align-items-center text-weight-600 pt-10">
+                  <i class="fa-solid fa-phone pr-5 th-pr-5"></i>
+                  <p data-v-footer-brisbane_office_phone>
+                    <a href="tel:0733386000" class="footer-phone-link">07 3338 6000</a>
+                  </p>
+                </div>
+                <p class="th-opening-hours" data-v-footer-brisbane_office_hours>Mon-Fri, 8:30AM-5PM</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex flex-column">
+          <div class="th-subscription pl-20 th-pl-20 pl-md-0">
+            <div class="th-subscription-heading">
+              <div class="th-subscription-details">
+                <h4 class="text-weight-700 th-footer-title" data-v-footer-subscription_title>Krost News</h4>
+                <div class="th-description description" data-v-footer-subscription_description>Receive the latest news and updates</div>
+              </div>
+            </div>
+            <form action="/#subscription-form" method="POST" id="subscription-form" needs-validation>
+              <input type="hidden" name="nonce" id="subscription-form-nonce" value="" data-v-nonce>
+              <div class="th-subscription-form" id="subscription-form-container">
+                <label class="pr-10">
+                  <input type="email" class="form-control" name="email" id="subscriptionEmail" placeholder="Enter your email" aria-label="Enter your email" data-v-footer-subscription_placeholder />
+                  <div class="invalid-feedback" id="email-feedback"></div>
+                  <div class="valid-feedback" id="success-feedback"></div>
+                </label>
+                <div class="link">
+                  <button id="subscription-form-button" type="submit" class="link-text pr-5" data-v-footer-subscription_button_text>Subscribe</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="th-footer-navigation">
+            <ul>
+
+              <li class="">
+                <span class="link">
+                  <a href="/about" data-v-footer-footer_navigation_our_store>About</a>
+                </span>
+              </li>
+              <li class="class">
+                <span class="link class">
+                  <a href="/catalogue" data-v-footer-footer_navigation_catalogue>Catalogue</a>
+                </span>
+              </li>
+              <li class="class">
+                <span class="link class">
+                  <a href="/contact-us" data-v-footer-footer_navigation_contact_us>Contact Us</a>
+                </span>
+              </li>
+              <li class="class">
+                <span class="link class">
+                  <a href="/faqs" data-v-footer-footer_navigation_faqs>FAQs</a>
+                </span>
+              </li>
+              <li class="border-right-0">
+                <span class="link border-right-0">
+                  <a href="/resources" data-v-footer-footer_navigation_resources>Resources</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="th-footer-follow th-pt-30 mt-auto th-pl-20 pl-md-0">
+            <p class="text-weight-600 th-pb-10">Follow Us:</p>
+            <div class="social-media">
+              <ul class="social-media-list" data-v-footer-socila-media-list>
+
+                <li class="social-media-item" data-v-footer-socila-media-item>
+                  <span class="link">
+                    <a href="https://www.linkedin.com/company/krost-furniture/" target="_blank" data-v-url area-label="LinkedIn">
+                      <i class="fa-brands fa-linkedin-in" data-v-icon></i>
+                    </a>
+                  </span>
+                </li>
+
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.facebook.com/krostfurniture/" target="_blank" area-label="Facebook">
+                      <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.instagram.com/krostfurniture/" target="_blank" area-label="Instagram">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.pinterest.com/krostfurniture/" target="_blank" area-label="Pinterest">
+                      <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.youtube.com/@KrostAu" target="_blank" area-label="Youtube">
+                      <i class="fa-brands fa-youtube-p"></i>
+                    </a>
+                  </span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="th-footer-copyright mt-30">
+      <div class="container th-container">
+        <div class="d-flex flex-column flex-md-row th-footer-copyright-content">
+          <div class="text-muted flex-grow-1">
+            <a class="btn-link text-muted" href="/privacy-policy" target="_blank" data-v-footer-copyright_privacy_url>Terms & Privacy Policy</a>
+          </div>
+          <div class="text-muted copyright-text-right">
+            &copy;
+            <!-- <span data-v-footer-copyright_company_name>KROST</span>. <span data-v-footer-copyright_powered_by_text>Powered
+            by</span> -->
+            <span class="text-muted" data-v-footer-copyright_powered_by_url area-label="KROST">Krost Business Furniture</span>
+            <span data-v-footer-copyright_year>2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--============================== End Footer ==============================-->
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Krost Business Furniture - Sydney Showroom",
+  "url": "https://krost.com.au",
+  "telephone": "+61-2-9557-3055",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "33 Ricketty St",
+    "addressLocality": "Mascot",
+    "addressRegion": "NSW",
+    "postalCode": "2020",
+    "addressCountry": "AU"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ]
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Krost Business Furniture - Melbourne Showroom",
+  "url": "https://krost.com.au",
+  "telephone": "+61-3-9682-8280",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "617-643 Spencer St",
+    "addressLocality": "West Melbourne",
+    "addressRegion": "VIC",
+    "postalCode": "3003",
+    "addressCountry": "AU"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ]
+}
+</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Krost Business Furniture - Brisbane Showroom",
+  "url": "https://krost.com.au",
+  "telephone": "+61-7-3338-6000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "936 Stanley St E",
+    "addressLocality": "East Brisbane",
+    "addressRegion": "QLD",
+    "postalCode": "4169",
+    "addressCountry": "AU"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:30",
+      "closes": "17:00"
+    }
+  ]
+}
+</script>
+
+  <style>
+    .footer-logo-container {
+      display: flex;
+      align-items: right;
+      justify-content: right;
+      margin-top: -65px;
+    }
+
+    .footer-logo {
+      top: 239px;
+      left: 1396px;
+      width: 74px;
+      height: 61px;
+    }
+  </style>
+
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+  <!-- Virtual Pinboard Section -->
+  <div class="offcanvas offcanvas-end pinboard" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div id="pinboard-app">
+
+    </div>
+  </div>
+  <!-- End Virtual Pinboard Section -->
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js" async data-quill="true"></script>
+
+  <style>
+    /* new pinboard sidebar section start */
+
+
+
+    /* .pinboard {
+    width: 350px;
+    margin: 20px auto;
+} */
+
+    .pinboard.offcanvas {
+      z-index: 1055;
+    }
+
+    .card-item {
+      display: flex;
+      background: #fff;
+      border-radius: 3px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      align-items: self-start;
+    }
+
+    .card-left {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 3px;
+      }
+    }
+
+
+    .card-content {
+      flex: 1;
+      margin-left: 12px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .type {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--gray-600);
+      letter-spacing: 1px;
+    }
+
+    .card-actions {
+      margin-top: -25px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-actions i {
+      margin-left: 10px;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .card-actions i:hover {
+      color: #333;
+    }
+
+    .card-footer {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .card-footer:hover {
+      color: #000;
+    }
+
+    .pinboard-header-info {
+      gap: 10px;
+    }
+
+    .pinboard-offcanvas-close {
+      line-height: 1;
+      text-decoration: none !important;
+    }
+
+    .pinboard-offcanvas-close:focus {
+      box-shadow: none;
+    }
+
+    .pinboard-offcanvas-close:focus-visible {
+      outline: 2px solid rgba(0, 0, 0, 0.25);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Project name + chevron dropdown (logged-in header; desktop) */
+    .pinboard-header-project-wrap {
+      min-width: 0;
+      max-width: min(100%, 280px);
+    }
+
+    /* Mobile-only header duplicate: full width + menu aligned under project row */
+    .pinboard-header-project-wrap--mobile {
+      max-width: 100%;
+    }
+
+    .pinboard-project-menu--mobile {
+      left: 0;
+      right: auto;
+    }
+
+    .pinboard-project-name {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .pinboard-project-email {
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    /* .pinboard-project-chevron-btn {
+  line-height: 1;
+  text-decoration: none !important;
+}
+.pinboard-project-chevron-btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.pinboard-project-chevron-btn:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
+  border-radius: 2px;
+} */
+    .pinboard-project-chevron {
+      font-size: 12px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .pinboard-project-chevron.is-open {
+      transform: rotate(180deg);
+    }
+
+    /* .pinboard-project-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 260px;
+  max-width: min(92vw, 320px);
+  z-index: 1060;
+  padding: 8px 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: left;
+} */
+    .pinboard-project-menu-item {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 14px;
+      line-height: 1.35;
+      color: #212529;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .pinboard-project-menu-item:hover,
+    .pinboard-project-menu-item:focus {
+      background: #f3f4f6;
+      outline: none;
+    }
+
+    .pinboard-project-menu-item.is-active {
+      background: #eceff1;
+    }
+
+    .pinboard-project-menu-create {
+      font-weight: 500;
+    }
+
+    .pinboard-project-menu-divider {
+      height: 1px;
+      margin: 6px 0;
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    .pinboard-project-check {
+      font-size: 13px;
+      color: #212529;
+    }
+
+    .pinboard-project-menu-label {
+      min-width: 0;
+    }
+
+    .pinboard-info {
+      text-align: end;
+
+      h5 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0
+      }
+
+      h6 {
+        font-size: 12px;
+        font-weight: 400;
+        margin: 0
+      }
+    }
+
+    .user-profile-img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    /* new pinboard sidebar section end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .th-pinboard-edit-wrapper {
+      border: 1px solid #dee2e6;
+      border-radius: 10px !important;
+      font-size: 14px !important;
+    }
+
+    /* Keep consistent height when switching between view and edit mode */
+    .th-pinboard-edit-content .item-comment-box {
+      min-height: 46px !important;
+      resize: none;
+    }
+
+    /* textarea.form-control,
+    textarea {
+      min-height: 154px !important;
+      padding-top: 16px !important;
+      padding-bottom: 17px !important;
+      font-size: 14px !important;
+    } */
+
+    .th-display-pre-line {
+      white-space: pre-line !important;
+    }
+
+    .th-pinboard-view-text {
+      padding-top: 0 !important;
+      margin-top: -15px !important;
+    }
+
+    .th-pinboard-item-comment>.item-comment-box,
+    .th-pinboard-item-edit .item-comment-box {
+      /* min-height: 62px !important;
+      max-height: 150px !important; */
+      overflow-y: auto !important;
+      font-size: 14px !important;
+      border-radius: 10px !important;
+    }
+
+    /* New comment textarea - empty/placeholder state */
+    .th-pinboard-item-comment .item-comment-box {
+      min-height: 90px !important;
+      scrollbar-width: thin;
+      line-height: 25px;
+      font-size: 14px;
+      padding: 5px 5px;
+      border-radius: 10px !important;
+    }
+
+    /* Thin scrollbar in editing mode, remove inner border */
+    .th-pinboard-item-edit .item-comment-box {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+      border: none !important;
+      box-shadow: none !important;
+      outline: none !important;
+      line-height: 25px;
+    }
+
+    .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+    }
+
+    /* textarea.form-control,
+    textarea {
+      min-height: 70px;
+      padding-top: 16px;
+      padding-bottom: 17px;
+    } */
+
+
+
+    .th-btn-primary-post {
+      width: 50px !important;
+      height: 35px !important;
+      background-color: #000;
+      color: #fff !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      border: none;
+      margin-right: 10px;
+
+      &:hover {
+        background-color: rgb(9, 7, 7);
+        text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    #save-pinboard-form {
+      @media screen and (max-width: 500px) {
+        .th-modal-body-padding {
+          padding: 0px !important;
+        }
+      }
+    }
+
+    .otp-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .otp-input {
+      width: 48px;
+      height: 55px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 600;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      transition: all 0.2s ease;
+    }
+
+    .otp-input:focus {
+      border-color: #000;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+
+    .resend-link {
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Pinboard drag & drop placeholder and preview */
+    .pinboard-ghost {
+      opacity: 0.9;
+      height: 150px;
+      margin: 0 0 12px 0 !important;
+      border: 1px dashed #cfcfcf;
+      background: var(--gray-light) !important;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .pinboard-ghost>* {
+      opacity: 0 !important;
+    }
+
+    .pinboard-drag-preview {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      max-width: 280px;
+    }
+
+    .pinboard-drag-preview .thumb {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .pinboard-drag-preview .title {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pinboard-drag-preview .close-icon {
+      margin-left: auto;
+      font-size: 14px;
+      color: #999;
+    }
+
+    /* Add Comment (toggle button + panel) */
+    .th-add-comment-toggle-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--gray-200);
+      border: none;
+      border-radius: 999px;
+      color: #4a4a4a;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1;
+      position: relative;
+    }
+
+    .th-add-comment-toggle-btn::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px dashed var(--gray-400);
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .th-add-comment-toggle-plus {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .th-add-comment-panel {
+      width: 100%;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 3px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .th-add-comment-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* margin-bottom: 14px; */
+      gap: 12px;
+    }
+
+    .th-add-comment-panel-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .th-add-comment-panel-collapse {
+      color: #6f6f6f;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .th-add-comment-textarea {
+      width: 100%;
+      border: 1px solid #d7d7d7 !important;
+      border-radius: 3px !important;
+      padding: 16px 16px !important;
+      min-height: 110px !important;
+      font-size: 16px !important;
+      color: #222;
+      resize: none;
+      outline: none;
+    }
+
+    .th-add-comment-textarea::placeholder {
+      color: #9a9a9a;
+      opacity: 1;
+    }
+
+    .th-add-comment-preview-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+
+    .th-add-comment-bottom-row {
+      margin-top: 14px;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .th-add-comment-upload-label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d7d7d7;
+      border-radius: 12px;
+      padding: 12px 10px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .th-add-comment-upload-label input {
+      display: none;
+    }
+
+    .th-add-comment-submit-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 12px 10px;
+      background: #000;
+      color: #fff !important;
+      font-size: 16px !important;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid #000;
+    }
+  </style>
+  <!-- Defer all scripts so they run after parse; reduces blocking and moves forced reflows (jQuery/Swiper) off critical path -->
+  <script type="text/javascript" src="/js/lib/jquery-3.7.1.min.js?v=1.0.1" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js?v=1.0.1" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuex@3/dist/vuex.min.js?v=1.0.1" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js" defer></script>
+  <script src="https://unpkg.com/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js?v=1.0.1" defer></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?v=1.0.1" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+
+
+  <script type="text/javascript" src="/js/lib/bootstrap.bundle.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/swiper-bundle.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/flatpickr-4.6.13.min.js?v=1.0.1" defer></script>
+
+
+  <!-- <script type="text/javascript" src="/js/solid.min.js?v=1.0.1"></script> -->
+
+  <script type="text/javascript" src="/js/lib/player.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lightgallery.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-thumbnail.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-zoom.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-autoplay.min.js" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-fullscreen.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-share.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-rotate.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-video.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/lg-pager.min.js?v=1.0.1" defer></script>
+  <script type="text/javascript" src="/js/lib/choices.min.js?v=1.0.1" defer></script>
+  <script id="bundle-script" type="text/javascript" src="/js/bundle.js?v=1.0.1" defer></script>
+  <script src="/js/vue-universal-app.js?v=1.0.1" type="module" defer></script>
+
+  <!-- Load app scripts after first paint to move jQuery/Swiper reflows off critical path -->
+
+
+
+
+  <div id="user-tutorial" class="is-hidden" aria-hidden="true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+      /* ---- overlay shell (fixed viewport layer) ---- */
+      #user-tutorial {
+        position: fixed;
+        inset: 0;
+        z-index: 10050;
+        display: none;
+      }
+
+      #user-tutorial.is-visible {
+        display: block;
+      }
+
+      #user-tutorial.is-hidden {
+        display: none !important;
+      }
+
+      body.user-tutorial-open {
+        overflow: hidden;
+      }
+
+      /* never show on mobile */
+      @media (max-width: 768px) {
+
+        #user-tutorial,
+        #user-tutorial.is-visible {
+          display: none !important;
+        }
+
+        body.user-tutorial-open {
+          overflow: auto;
+        }
+      }
+
+      /* ---- keyframes ---- */
+      @keyframes kpb-pinRing {
+        0% {
+          transform: scale(1);
+          opacity: .5;
+        }
+
+        70%,
+        100% {
+          transform: scale(1.9);
+          opacity: 0;
+        }
+      }
+
+      @keyframes kpb-caret {
+
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ============================ COMPONENT ============================ */
+      #user-tutorial #krost-pinboard {
+        font-family: 'Hanken Grotesk', system-ui, sans-serif;
+        color: #1b1b1a;
+      }
+
+      #user-tutorial #krost-pinboard *,
+      #user-tutorial #krost-pinboard *::before,
+      #user-tutorial #krost-pinboard *::after {
+        box-sizing: border-box;
+      }
+
+      #user-tutorial #krost-pinboard button {
+        white-space: nowrap;
+        font-family: inherit;
+      }
+
+      /* overlay stage — centres the modal over the page */
+      #user-tutorial #krost-pinboard .stage {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 24px;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      #user-tutorial #krost-pinboard.is-closed .stage {
+        display: none;
+      }
+
+      /* modal shell — override Bootstrap .modal (position:fixed;top:0;left:0) */
+      #user-tutorial #krost-pinboard .modal {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        z-index: auto;
+        width: 900px;
+        max-width: 100%;
+        min-height: 446px;
+        height: auto;
+        margin: 0;
+        overflow: hidden;
+        outline: none;
+        background: #fff;
+        border-radius: 18px;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .5);
+        pointer-events: auto;
+      }
+
+      /* ---- visual column ---- */
+      #user-tutorial #krost-pinboard .modal__visual {
+        background: #f2f2f0;
+        padding: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #ececea;
+      }
+
+      #user-tutorial #krost-pinboard .device {
+        width: 100%;
+        height: 360px;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 14px 30px -16px rgba(0, 0, 0, .3);
+        background: #f2f2f0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #user-tutorial #krost-pinboard .device>* {
+        height: 100%;
+      }
+
+      /* shared pinboard icon + count badge */
+      #user-tutorial #krost-pinboard .pinboard-icon {
+        position: relative;
+        display: inline-flex;
+      }
+
+      #user-tutorial #krost-pinboard .pinboard-icon img {
+        height: 22px;
+        width: auto;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .pinboard-icon__count {
+        position: absolute;
+        top: -6px;
+        right: -7px;
+        min-width: 14px;
+        height: 14px;
+        border-radius: 8px;
+        background: #1b1b1a;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 700;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 3px;
+        border: 1.5px solid #fff;
+      }
+
+      #user-tutorial #krost-pinboard .pinboard-icon--on-grey .pinboard-icon__count {
+        border-color: #ececeb;
+      }
+
+      /* STEP 1 — browse */
+      #user-tutorial #krost-pinboard .browse {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      #user-tutorial #krost-pinboard .browse__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        background: #fff;
+        border-bottom: 1px solid #ececea;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .browse__logo {
+        height: 12px;
+        width: auto;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .browse__nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      #user-tutorial #krost-pinboard .nav-bar {
+        width: 30px;
+        height: 5px;
+        border-radius: 3px;
+        background: #e4e4e1;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .nav-bar--sm {
+        width: 24px;
+      }
+
+      #user-tutorial #krost-pinboard .browse__body {
+        padding: 16px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        min-height: 0;
+      }
+
+      #user-tutorial #krost-pinboard .browse__title {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+      }
+
+      #user-tutorial #krost-pinboard .browse__sub {
+        font-size: 10.5px;
+        color: #8a8a86;
+        margin-top: 1px;
+      }
+
+      #user-tutorial #krost-pinboard .browse__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 11px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      #user-tutorial #krost-pinboard .product-card {
+        background: #fff;
+        border: 1px solid #e7e7e3;
+        border-radius: 11px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #user-tutorial #krost-pinboard .product-card__media {
+        position: relative;
+        flex: 1;
+        min-height: 70px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      #user-tutorial #krost-pinboard .product-card__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .product-card__label {
+        padding: 9px 11px;
+        font-size: 12px;
+        font-weight: 700;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .pin {
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+      }
+
+      #user-tutorial #krost-pinboard .pin__ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: #1b1b1a;
+        animation: kpb-pinRing 1.9s ease-out infinite;
+      }
+
+      #user-tutorial #krost-pinboard .pin__btn {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0ee;
+        border: 1px solid #e0e0dc;
+        color: #1b1b1a;
+      }
+
+      #user-tutorial #krost-pinboard .pin--active .pin__btn {
+        background: #fff;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .14);
+      }
+
+      #user-tutorial #krost-pinboard .pin__btn svg {
+        width: 12px;
+        height: 12px;
+        display: block;
+      }
+
+      /* STEP 2 — board */
+      #user-tutorial #krost-pinboard .board {
+        height: 100%;
+        background: #ececeb;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      #user-tutorial #krost-pinboard .board__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 11px;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .board__title {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -.01em;
+        white-space: nowrap;
+      }
+
+      #user-tutorial #krost-pinboard .board__list {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row {
+        background: #fff;
+        border-radius: 11px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb {
+        width: 50px;
+        height: 42px;
+        border-radius: 7px;
+        flex: none;
+        overflow: hidden;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb--cover {
+        background: #f0f0ee;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb--cover img {
+        object-fit: cover;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb--contain {
+        background: #fff;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__thumb--contain img {
+        object-fit: contain;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__info {
+        flex: 1;
+        min-width: 0;
+        line-height: 1.2;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__title {
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__type {
+        font-size: 9.5px;
+        color: #9a9a95;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        margin-top: 2px;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__note {
+        font-size: 10.5px;
+        color: #8a8a86;
+        margin-top: 4px;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__actions {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex: none;
+        color: #bdbdb8;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__actions svg {
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__actions .icon-drag {
+        width: 14px;
+        height: 14px;
+      }
+
+      #user-tutorial #krost-pinboard .pin-row__actions .icon-remove {
+        width: 13px;
+        height: 13px;
+      }
+
+      /* STEP 3 — save */
+      #user-tutorial #krost-pinboard .save {
+        height: 100%;
+        background: #ececeb;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      #user-tutorial #krost-pinboard .save__title {
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -.01em;
+        margin-bottom: 11px;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .project-chip {
+        background: #fff;
+        border-radius: 11px;
+        padding: 11px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 13px;
+        flex: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+      }
+
+      #user-tutorial #krost-pinboard .project-chip__avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: #1b1b1a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .project-chip__info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      #user-tutorial #krost-pinboard .project-chip__name {
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+
+      #user-tutorial #krost-pinboard .project-chip__meta {
+        font-size: 10.5px;
+        color: #8a8a86;
+      }
+
+      #user-tutorial #krost-pinboard .project-chip__tag {
+        font-size: 9.5px;
+        color: #9a9a95;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        font-weight: 600;
+      }
+
+      #user-tutorial #krost-pinboard .save__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      #user-tutorial #krost-pinboard .field {
+        background: #fff;
+        border: 1px solid #e0e0dc;
+        border-radius: 10px;
+        padding: 11px 13px;
+        font-size: 12px;
+      }
+
+      #user-tutorial #krost-pinboard .field--filled {
+        font-weight: 700;
+        color: #1b1b1a;
+      }
+
+      #user-tutorial #krost-pinboard .field--email {
+        color: #9a9a95;
+        display: flex;
+        align-items: center;
+      }
+
+      #user-tutorial #krost-pinboard .caret {
+        width: 1px;
+        height: 13px;
+        background: #1b1b1a;
+        display: inline-block;
+        animation: kpb-caret 1.1s step-end infinite;
+        margin-left: 1px;
+      }
+
+      #user-tutorial #krost-pinboard .save__btn {
+        margin-top: 12px;
+        flex: none;
+        background: #161614;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 13px;
+        font-size: 12.5px;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: .01em;
+      }
+
+      /* STEP 4 — quote */
+      #user-tutorial #krost-pinboard .quote {
+        height: 100%;
+        background: #f2f2f0;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip {
+        background: #fff;
+        border: 1px solid #e7e7e3;
+        border-radius: 10px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: none;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+        background: #1b1b1a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 800;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__name {
+        font-size: 12.5px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__meta {
+        font-size: 10px;
+        color: #9a9a95;
+        margin-top: 1px;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__status {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #eaf6f0;
+        color: #1f7a52;
+        border-radius: 20px;
+        padding: 3px 8px;
+        font-size: 9px;
+        font-weight: 700;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .saved-chip__status svg {
+        width: 9px;
+        height: 9px;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .quote__title {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: -.01em;
+        line-height: 1.25;
+        margin: 14px 0 10px;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .quote__methods {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        min-height: 0;
+      }
+
+      #user-tutorial #krost-pinboard .method {
+        background: #fff;
+        border: 1px solid #e0e0dc;
+        border-radius: 9px;
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+
+      #user-tutorial #krost-pinboard .method__icon {
+        display: flex;
+        color: #1b1b1a;
+        flex: none;
+      }
+
+      #user-tutorial #krost-pinboard .method__icon svg {
+        width: 15px;
+        height: 15px;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .method__label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #1b1b1a;
+        white-space: nowrap;
+      }
+
+      /* ---- copy column ---- */
+      #user-tutorial #krost-pinboard .modal__copy {
+        padding: 34px 34px 28px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      #user-tutorial #krost-pinboard .close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: #f0f0ee;
+        color: #6f6f6b;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #user-tutorial #krost-pinboard .badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        align-self: flex-start;
+        background: #1b1b1a;
+        color: #fff;
+        border-radius: 20px;
+        padding: 5px 12px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .05em;
+        margin-bottom: 20px;
+      }
+
+      #user-tutorial #krost-pinboard .badge__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #2f9e6b;
+        display: block;
+      }
+
+      #user-tutorial #krost-pinboard .step-label {
+        font-family: 'Spline Sans Mono', monospace;
+        font-size: 11px;
+        color: #a3a39e;
+        letter-spacing: .08em;
+        margin-bottom: 10px;
+      }
+
+      #user-tutorial #krost-pinboard .step-title {
+        font-size: 27px;
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -.02em;
+        margin: 0 0 14px;
+      }
+
+      #user-tutorial #krost-pinboard .step-body p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: #5e5e58;
+        margin: 0 0 14px;
+      }
+
+      #user-tutorial #krost-pinboard .step-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      #user-tutorial #krost-pinboard .step-body strong {
+        font-weight: 700;
+        color: #1b1b1a;
+      }
+
+      /* + badge inside the step-1 copy */
+      #user-tutorial #krost-pinboard .plus-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: .95em;
+        height: .95em;
+        background: #ececea;
+        border-radius: 50%;
+        font-weight: 500;
+        line-height: 0;
+        vertical-align: middle;
+        position: relative;
+        top: -.05em;
+      }
+
+      #user-tutorial #krost-pinboard .plus-badge>span {
+        display: block;
+        transform: translateY(-.07em);
+      }
+
+      #user-tutorial #krost-pinboard .plus-badge--body {
+        width: 1.4em;
+        height: 1.4em;
+        top: -.08em;
+        color: #1b1b1a;
+      }
+
+      #user-tutorial #krost-pinboard .spacer {
+        flex: 1;
+        min-height: 24px;
+      }
+
+      #user-tutorial #krost-pinboard .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      #user-tutorial #krost-pinboard .dots {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+      }
+
+      #user-tutorial #krost-pinboard .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 4px;
+        border: none;
+        background: #cfcfca;
+        cursor: pointer;
+        padding: 0;
+        transition: all .25s;
+      }
+
+      #user-tutorial #krost-pinboard .dot--active {
+        width: 24px;
+        background: #1b1b1a;
+      }
+
+      #user-tutorial #krost-pinboard .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #user-tutorial #krost-pinboard .btn-text {
+        background: none;
+        border: none;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #6f6f6b;
+        cursor: pointer;
+        padding: 11px 6px;
+      }
+
+      #user-tutorial #krost-pinboard .btn-primary {
+        background: #161614;
+        color: #fff;
+        border: none;
+        border-radius: 11px;
+        padding: 12px 26px;
+        font-size: 13.5px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* responsive: stack on narrow screens */
+      @media (max-width: 720px) {
+        #user-tutorial #krost-pinboard .modal {
+          grid-template-columns: 1fr;
+        }
+
+        #user-tutorial #krost-pinboard .modal__visual {
+          border-right: none;
+          border-bottom: 1px solid #ececea;
+        }
+      }
+    </style>
+
+
+    <div id="krost-pinboard">
+      <div class="stage">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="kpb-title">
+
+          <!-- LEFT: visual preview (rendered from data) -->
+          <div class="modal__visual">
+            <div class="device" id="kpb-device"></div>
+          </div>
+
+          <!-- RIGHT: copy + navigation -->
+          <div class="modal__copy">
+            <button class="close" id="kpb-close" type="button" aria-label="Close">&times;</button>
+            <div class="badge">
+              <span class="badge__dot"></span>NEW ON KROST
+            </div>
+            <div class="step-label" id="kpb-label"></div>
+            <h3 class="step-title" id="kpb-title"></h3>
+            <div class="step-body" id="kpb-body"></div>
+            <div class="spacer"></div>
+            <div class="footer">
+              <div class="dots" id="kpb-dots"></div>
+              <div class="actions">
+                <button class="btn-text" id="kpb-back" type="button">Back</button>
+                <button class="btn-primary" id="kpb-next" type="button">Next</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+  (function () {
+    "use strict";
+
+    var STORAGE_KEY = "krost_pinboard_tutorial_seen";
+    var ASSET_BASE = "/assets/";
+
+    var tutorialShell = document.getElementById("user-tutorial");
+    if (!tutorialShell) { return; }
+
+    var MOBILE_MQ = window.matchMedia("(max-width: 768px)");
+
+    function isMobileView() {
+      return MOBILE_MQ.matches;
+    }
+
+    function hasSeenTutorial() {
+      try {
+        return localStorage.getItem(STORAGE_KEY) === "true";
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function markTutorialSeen() {
+      try {
+        localStorage.setItem(STORAGE_KEY, "true");
+      } catch (e) { /* ignore quota / private mode */ }
+    }
+
+    function showTutorial() {
+      tutorialShell.classList.remove("is-hidden");
+      tutorialShell.classList.add("is-visible");
+      tutorialShell.setAttribute("aria-hidden", "false");
+      document.body.classList.add("user-tutorial-open");
+    }
+
+    function hideTutorial() {
+      tutorialShell.classList.remove("is-visible");
+      tutorialShell.classList.add("is-hidden");
+      tutorialShell.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("user-tutorial-open");
+    }
+
+    if (hasSeenTutorial()) {
+      hideTutorial();
+      return;
+    }
+  
+    /* ===================== CONTENT (edit me) ===================== */
+  
+    var STEPS = [
+      {
+        label: "01 · Browse",
+        visual: "browse",
+        titleHtml: 'Spot something you love? Hit the <span class="plus-badge"><span>+</span></span>',
+        body: [
+          'Every product, project gallery, blog post, and showroom setting features a <span class="plus-badge plus-badge--body"><span>+</span></span> icon.',
+          'One simple click saves it directly to your temporary board—no sign-up, no checkout, no friction.'
+        ]
+      },
+      {
+        label: "02 · Pin it",
+        visual: "board",
+        titleHtml: "Watch your workspace vision take shape",
+        body: [
+          "Products, project galleries, blog posts, and showroom settings all live side-by-side.",
+          "You can seamlessly reorder items, remove alternatives, add custom notes, or even upload your own reference images straight from your device to keep all your inspiration in one place."
+        ]
+      },
+      {
+        label: "03 · Save",
+        visual: "save",
+        titleHtml: "Name your project to lock it in",
+        body: [
+          "Give your pinboard a custom name and enter your email address and verify with OTP to securely save it.",
+          "Pick up right where you left off on any desktop, tablet, or mobile device."
+        ]
+      },
+      {
+        label: "04 · Quote",
+        visual: "quote",
+        titleHtml: "Let\u2019s turn your concept into a tailored quote",
+        body: [
+          'Once saved, you can instantly share your board with us by choosing one of our four contact methods: an <strong>email confirmation</strong>, a <strong>quick phone call request</strong>, booking a <strong>showroom tour</strong>, or a <strong>virtual meeting</strong>.',
+          "A Krost consultant will review your curated selections and reach out shortly with customised pricing and options built around your project."
+        ]
+      }
+    ];
+  
+    var BROWSE_ITEMS = [
+      { name: "Archi", image: "sm-archi-chair.jpg", pinned: true },
+      { name: "Kove",  image: "sm-kove-chair.jpg",  pinned: false }
+    ];
+  
+    var PINBOARD_ITEMS = [
+      { title: "MA Financial Suite",                              type: "Project", image: "sm-ma-financial.jpg",    fit: "cover" },
+      { title: "Ace",                                             type: "Product", image: "sm-ace-workstation.jpg", fit: "contain" },
+      { title: "Sensory Layering in Australian Workplace Design", type: "Post",    image: "sm-sensory-post.jpg",    fit: "cover" },
+      { title: "Archi",                                           type: "Product", image: "sm-archi-item.jpg",      fit: "contain" }
+    ];
+  
+    var PROJECT = {
+      boardName: "Virtual Pinboard",
+      name: "Acme HQ \u2014 Level 12 fitout",
+      itemCount: 4,
+      email: "you@company.com.au"
+    };
+  
+    var CONTACT_METHODS = [
+      { label: "Request a Call Back",        icon: "phone" },
+      { label: "Email a Consultant",         icon: "mail" },
+      { label: "Book a Showroom Tour",       icon: "calendar" },
+      { label: "Book a Video Consultation",  icon: "video" }
+    ];
+  
+    var ICONS = {
+      plus:     '<svg viewBox="0 0 24 24" fill="none"><path d="M12 5.5v13M5.5 12h13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
+      drag:     '<svg class="icon-drag" viewBox="0 0 16 16" fill="none"><circle cx="2.5" cy="4" r="1" fill="currentColor"/><circle cx="2.5" cy="8" r="1" fill="currentColor"/><circle cx="2.5" cy="12" r="1" fill="currentColor"/><rect x="6" y="3.25" width="8" height="1.5" rx="0.75" fill="currentColor"/><rect x="6" y="7.25" width="8" height="1.5" rx="0.75" fill="currentColor"/><rect x="6" y="11.25" width="8" height="1.5" rx="0.75" fill="currentColor"/></svg>',
+      remove:   '<svg class="icon-remove" viewBox="0 0 16 16"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      check:    '<svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      phone:    '<svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l1.5 4.5L7.5 10a11 11 0 0 0 6 6l1.5-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+      mail:     '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+      calendar: '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      video:    '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 10l5-3v10l-5-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+    };
+  
+    function asset(file) { return ASSET_BASE + file; }
+    function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  
+    function renderBrowse() {
+      var cards = BROWSE_ITEMS.map(function (item) {
+        return '' +
+          '<div class="product-card">' +
+            '<div class="product-card__media">' +
+              '<img src="' + asset(item.image) + '" alt="' + esc(item.name) + '" loading="lazy">' +
+              '<div class="pin' + (item.pinned ? ' pin--active' : '') + '">' +
+                (item.pinned ? '<span class="pin__ring"></span>' : '') +
+                '<span class="pin__btn">' + ICONS.plus + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="product-card__label">' + esc(item.name) + '</div>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="browse">' +
+          '<div class="browse__bar">' +
+            '<img class="browse__logo" src="' + asset("krost-logo.png") + '" alt="KROST" loading="lazy">' +
+            '<div class="browse__nav">' +
+              '<span class="nav-bar"></span>' +
+              '<span class="nav-bar nav-bar--sm"></span>' +
+              '<span class="pinboard-icon">' +
+                '<img src="' + asset("pinboard-icon.png") + '" alt="Pinboard" loading="lazy">' +
+                '<span class="pinboard-icon__count">3</span>' +
+              '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="browse__body">' +
+            '<div>' +
+              '<div class="browse__title">Task Seating</div>' +
+              '<div class="browse__sub">Tap the + on anything you like</div>' +
+            '</div>' +
+            '<div class="browse__grid">' + cards + '</div>' +
+          '</div>' +
+        '</div>';
+    }
+  
+    function renderBoard() {
+      var rows = PINBOARD_ITEMS.map(function (item) {
+        return '' +
+          '<div class="pin-row">' +
+            '<div class="pin-row__thumb pin-row__thumb--' + item.fit + '">' +
+              '<img src="' + asset(item.image) + '" alt="' + esc(item.title) + '" loading="lazy">' +
+            '</div>' +
+            '<div class="pin-row__info">' +
+              '<div class="pin-row__title">' + esc(item.title) + '</div>' +
+              '<div class="pin-row__type">' + esc(item.type) + '</div>' +
+              '<div class="pin-row__note">+ Add Note</div>' +
+            '</div>' +
+            '<div class="pin-row__actions">' + ICONS.drag + ICONS.remove + '</div>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="board">' +
+          '<div class="board__head">' +
+            '<div class="board__title">' + esc(PROJECT.boardName) + '</div>' +
+            '<span class="pinboard-icon pinboard-icon--on-grey">' +
+              '<img src="' + asset("pinboard-icon.png") + '" alt="Pinboard" loading="lazy">' +
+              '<span class="pinboard-icon__count">' + PROJECT.itemCount + '</span>' +
+            '</span>' +
+          '</div>' +
+          '<div class="board__list">' + rows + '</div>' +
+        '</div>';
+    }
+  
+    function renderSave() {
+      return '' +
+        '<div class="save">' +
+          '<div class="save__title">Save your project</div>' +
+          '<div class="project-chip">' +
+            '<div class="project-chip__avatar">V</div>' +
+            '<div class="project-chip__info">' +
+              '<div class="project-chip__name">' + esc(PROJECT.boardName) + '</div>' +
+              '<div class="project-chip__meta">' + PROJECT.itemCount + ' items</div>' +
+            '</div>' +
+            '<div class="project-chip__tag">Project</div>' +
+          '</div>' +
+          '<div class="save__fields">' +
+            '<div class="field field--filled">' + esc(PROJECT.name) + '</div>' +
+            '<div class="field field--email">' + esc(PROJECT.email) + '<span class="caret"></span></div>' +
+          '</div>' +
+          '<button class="save__btn" type="button">Save Project And Continue</button>' +
+        '</div>';
+    }
+  
+    function renderQuote() {
+      var methods = CONTACT_METHODS.map(function (m) {
+        return '' +
+          '<div class="method">' +
+            '<span class="method__icon">' + (ICONS[m.icon] || "") + '</span>' +
+            '<span class="method__label">' + esc(m.label) + '</span>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="quote">' +
+          '<div class="saved-chip">' +
+            '<div class="saved-chip__avatar">V</div>' +
+            '<div class="saved-chip__info">' +
+              '<div class="saved-chip__name">' + esc(PROJECT.name) + '</div>' +
+              '<div class="saved-chip__meta">' + PROJECT.itemCount + ' items \u00b7 Project</div>' +
+            '</div>' +
+            '<div class="saved-chip__status">' + ICONS.check + 'Saved</div>' +
+          '</div>' +
+          '<div class="quote__title">Connect with a Krost consultant for a quote</div>' +
+          '<div class="quote__methods">' + methods + '</div>' +
+        '</div>';
+    }
+  
+    var VISUALS = { browse: renderBrowse, board: renderBoard, save: renderSave, quote: renderQuote };
+  
+    var root   = document.getElementById("krost-pinboard");
+    var device = document.getElementById("kpb-device");
+    var elLabel = document.getElementById("kpb-label");
+    var elTitle = document.getElementById("kpb-title");
+    var elBody  = document.getElementById("kpb-body");
+    var elDots  = document.getElementById("kpb-dots");
+    var btnBack = document.getElementById("kpb-back");
+    var btnNext = document.getElementById("kpb-next");
+    var btnClose = document.getElementById("kpb-close");
+  
+    var step = 0;
+    var initialized = false;
+  
+    function render() {
+      var s = STEPS[step];
+      var isLast = step === STEPS.length - 1;
+  
+      device.innerHTML = (VISUALS[s.visual] || function () { return ""; })();
+      elLabel.textContent = s.label;
+      elTitle.innerHTML = s.titleHtml;
+      elBody.innerHTML = s.body.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+  
+      elDots.innerHTML = STEPS.map(function (_, i) {
+        return '<button class="dot' + (i === step ? " dot--active" : "") +
+               '" type="button" data-step="' + i + '" aria-label="Step ' + (i + 1) + '"></button>';
+      }).join("");
+  
+      btnBack.style.display = step > 0 ? "" : "none";
+      btnNext.textContent = isLast ? "Start Pinning" : "Next";
+    }
+  
+    function close() {
+      markTutorialSeen();
+      root.classList.add("is-closed");
+      hideTutorial();
+      if (typeof window.onPinboardClose === "function") { window.onPinboardClose(); }
+      document.dispatchEvent(new CustomEvent("krost-pinboard:close"));
+    }
+  
+    function initTutorial() {
+      if (initialized) { return; }
+      if (isMobileView()) {
+        hideTutorial();
+        return;
+      }
+      initialized = true;
+      render();
+      showTutorial();
+    }
+
+    MOBILE_MQ.addEventListener("change", function () {
+      if (isMobileView()) {
+        hideTutorial();
+      }
+    });
+  
+    btnNext.addEventListener("click", function () {
+      if (step === STEPS.length - 1) { close(); }
+      else { step += 1; render(); }
+    });
+    btnBack.addEventListener("click", function () {
+      if (step > 0) { step -= 1; render(); }
+    });
+    elDots.addEventListener("click", function (e) {
+      var dot = e.target.closest(".dot");
+      if (dot) { step = parseInt(dot.getAttribute("data-step"), 10); render(); }
+    });
+    btnClose.addEventListener("click", close);
+
+    if (document.readyState === "complete") {
+      initTutorial();
+    } else {
+      window.addEventListener("load", initTutorial);
+    }
+  })();
+  </script>
+  </div>
+
+  <script src="/js/mobile-home.js" defer></script>
+</body>
+
+</html>

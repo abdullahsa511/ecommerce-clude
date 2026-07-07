@@ -1,0 +1,73 @@
+[
+  {
+    "showroom_id": 1,
+    "value": "W. Australia Standard Time",
+    "abbr": "WAST",
+    "offset": 8,
+    "isdst": false,
+    "label": "(UTC+08:00) Perth",
+    "utc": [
+      "Antarctica/Casey",
+      "Australia/Perth"
+    ]
+  },
+  {
+    "showroom_id": 1,
+    "value": "Cen. Australia Standard Time",
+    "abbr": "CAST",
+    "offset": 9.5,
+    "isdst": false,
+    "label": "(UTC+09:30) Adelaide",
+    "utc": [
+      "Australia/Adelaide",
+      "Australia/Broken_Hill"
+    ]
+  },
+  {
+    "showroom_id": 1,
+    "value": "AUS Central Standard Time",
+    "abbr": "ACST",
+    "offset": 9.5,
+    "isdst": false,
+    "label": "(UTC+09:30) Darwin",
+    "utc": [
+      "Australia/Darwin"
+    ]
+  },
+  {
+    "showroom_id": 3,
+    "value": "E. Australia Standard Time",
+    "abbr": "EAST",
+    "offset": 10,
+    "isdst": false,
+    "label": "(UTC+10:00) Brisbane",
+    "utc": [
+      "Australia/Brisbane",
+      "Australia/Lindeman"
+    ]
+  },
+  {
+    "showroom_id": 1,
+    "value": "AUS Eastern Standard Time",
+    "abbr": "AEST",
+    "offset": 10,
+    "isdst": false,
+    "label": "(UTC+10:00) Canberra, Melbourne, Sydney",
+    "utc": [
+      "Australia/Melbourne",
+      "Australia/Sydney"
+    ]
+  },
+  {
+    "showroom_id": 2,
+    "value": "Tasmania Standard Time",
+    "abbr": "TST",
+    "offset": 10,
+    "isdst": false,
+    "label": "(UTC+10:00) Hobart",
+    "utc": [
+      "Australia/Currie",
+      "Australia/Hobart"
+    ]
+  }
+]

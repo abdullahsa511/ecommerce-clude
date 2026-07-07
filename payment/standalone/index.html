@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Krost — Secure payment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --canvas:#efebe5;--card:#fff;--card-border:#e8e3db;--ink:#16130f;--ink-hover:#2a2520;
+    --muted:#857f77;--label:#76706a;--eyebrow:#a39c92;--faint:#ada69d;--field-bg:#fbfaf7;
+    --field-border:#e6e1d9;--hairline:#eee9e1;--panel:#faf8f4;--panel-border:#eee9e1;
+    --error:#c13b2e;--success:#1c7c54;--success-bg:#e7f3ec;--error-bg:#fbeae7;--neutral-bg:#f4f1eb;--nab-red:#c8102e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;color:var(--ink)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  input::placeholder{color:#b5afa7}
+  .page{min-height:100vh;width:100%;background:var(--canvas);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px 120px}
+  .shell{width:100%;max-width:468px}
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:22px;box-shadow:0 20px 50px -28px rgba(28,22,12,.3);padding:30px 30px 24px}
+  .screen{animation:fadeUp .3s ease}
+  .screen--center{text-align:center}
+  .brandRow{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
+  .brandLogo{height:22px;width:auto;display:block}
+  .secureBadge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--muted);background:#f5f2ec;padding:6px 11px;border-radius:999px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);margin-bottom:6px}
+  .heading{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+  .subheading{font-size:13.5px;color:var(--muted);margin-bottom:22px}
+  .subheading--narrow{max-width:340px;margin-left:auto;margin-right:auto}
+  .amountWrap{position:relative;margin-bottom:22px}
+  .amountPrefix{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:24px;font-weight:600;color:var(--ink)}
+  .amountInput{height:66px;width:100%;padding:0 18px 0 38px;border:1px solid var(--field-border);border-radius:13px;background:var(--field-bg);font-size:26px;font-weight:600;color:var(--ink);font-family:inherit;outline:none;transition:border-color .15s,background .15s}
+  .fieldStack{display:flex;flex-direction:column;gap:16px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .label{font-size:12.5px;font-weight:600;color:var(--label)}
+  .input{height:46px;width:100%;padding:0 14px;border:1px solid var(--field-border);border-radius:11px;background:var(--field-bg);font-size:15px;color:var(--ink);font-family:inherit;outline:none;transition:border-color .15s,background .15s}
+  .amountInput:focus,.input:focus{border-color:var(--ink);background:#fff}
+  .input--card{padding-right:56px;letter-spacing:.02em}
+  .inputWrap{position:relative}
+  .cardMark{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;align-items:center}
+  .row{display:flex;gap:12px}
+  .row>.field{flex:1}
+  .errorText{font-size:12px;color:var(--error)}
+  .divider{display:flex;align-items:center;gap:12px;margin:24px 0 18px}
+  .divider__line{flex:1;height:1px;background:var(--hairline)}
+  .divider__text{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--eyebrow)}
+  .brand-visa{font-style:italic;font-weight:800;font-size:14px;color:#1a1f71;letter-spacing:-.02em}
+  .brand-mc{display:inline-flex;align-items:center}
+  .brand-mc__a{width:17px;height:17px;border-radius:50%;background:#eb001b}
+  .brand-mc__b{width:17px;height:17px;border-radius:50%;background:#f79e1b;margin-left:-7px;mix-blend-mode:multiply}
+  .brand-amex{background:#1f72cd;color:#fff;font-size:9px;font-weight:800;padding:3px 5px;border-radius:3px}
+  .btn-primary{height:54px;width:100%;border:none;border-radius:13px;background:var(--ink);color:#fff;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .15s}
+  .btn-primary:hover{background:var(--ink-hover)}
+  .btn-primary:disabled{opacity:.7;cursor:default}
+  .btn-primary--spaced{margin-top:24px}
+  .btn-ghost{margin-top:10px;height:42px;width:100%;border:none;background:transparent;color:var(--label);font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:color .15s}
+  .btn-ghost:hover{color:var(--ink)}
+  .btn-outline{margin-top:22px;height:50px;width:100%;border:1px solid #e0dbd2;border-radius:13px;background:#fff;color:var(--ink);font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:background .15s}
+  .btn-outline:hover{background:var(--panel)}
+  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin .7s linear infinite}
+  .panel{background:var(--panel);border:1px solid var(--panel-border);border-radius:14px;padding:6px 18px}
+  .panel--left{text-align:left}
+  .panel__row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #efeae2}
+  .panel__row:last-child{border-bottom:none}
+  .panel__label{font-size:13.5px;color:var(--label)}
+  .panel__value{font-size:14px;font-weight:600;color:var(--ink)}
+  .panel__value--strong{font-size:15px;font-weight:700}
+  .totalRow{display:flex;justify-content:space-between;align-items:baseline;margin:20px 2px 4px}
+  .totalRow__label{font-size:15px;font-weight:600;color:var(--ink)}
+  .totalRow__value{font-size:28px;font-weight:700;color:var(--ink)}
+  .totalNote{text-align:right;font-size:12px;color:var(--eyebrow);margin:0 2px 22px}
+  .statusIcon{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:6px auto 18px}
+  .statusIcon--success{background:var(--success-bg)}
+  .statusIcon--error{background:var(--error-bg)}
+  .statusIcon--neutral{background:var(--neutral-bg)}
+  .alert{background:var(--error-bg);border:1px solid #f2d6d1;color:var(--error);font-size:13px;border-radius:11px;padding:11px 14px;margin-top:16px}
+  .footer{margin-top:24px;padding-top:18px;border-top:1px solid #efeae2;display:flex;flex-direction:column;gap:11px;align-items:center}
+  .footer__marks{display:flex;align-items:center;gap:13px}
+  .footer__visa{font-style:italic;font-weight:800;font-size:13px;color:#b7b0a6;letter-spacing:-.02em}
+  .footer__mc{display:inline-flex;align-items:center}
+  .footer__mc-a{width:14px;height:14px;border-radius:50%;background:#c9c2b8}
+  .footer__mc-b{width:14px;height:14px;border-radius:50%;background:#dcd6cc;margin-left:-6px}
+  .footer__amex{background:#cfc8be;color:#fff;font-size:8px;font-weight:800;padding:3px 4px;border-radius:3px}
+  .footer__sep{width:1px;height:14px;background:#e4dfd6}
+  .footer__powered{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--eyebrow)}
+  .footer__nab{font-weight:800;color:var(--nab-red);letter-spacing:.01em}
+  .footer__fine{font-size:11px;color:var(--faint);text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="shell">
+    <div class="card">
+      <div class="brandRow">
+        <img class="brandLogo" src="krost-logo.png" alt="Krost" />
+        <span class="secureBadge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="#857F77" stroke-width="2" stroke-linecap="round"/><rect x="4.5" y="10" width="15" height="10.5" rx="2.5" fill="#857F77"/></svg>
+          Secure checkout
+        </span>
+      </div>
+      <div id="screen"></div>
+      <div class="footer">
+        <div class="footer__marks">
+          <span class="footer__visa">VISA</span>
+          <span class="footer__mc"><span class="footer__mc-a"></span><span class="footer__mc-b"></span></span>
+          <span class="footer__amex">AMEX</span>
+          <span class="footer__sep"></span>
+          <span class="footer__powered">Powered by <span class="footer__nab">nab</span></span>
+        </div>
+        <div class="footer__fine">Payments are encrypted and processed securely.<br/>Questions? accounts@krost.com.au</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ----------------------------------------------------------------------------
+   Krost x NAB — standalone preview (mock).
+   Self-contained: no build step, no backend. Demonstrates the full UX so it can
+   be hosted statically for sign-off. It does NOT take real payments — the live
+   site uses the Next.js app in this repo, which signs requests to NAB server-side.
+
+   Demo behaviour: any well-formed card "approves". A card number ending in 0000
+   simulates an issuer decline. Amount/reference prefill from the URL, e.g.
+   index.html?amount=1250.00&reference=INV-04821
+---------------------------------------------------------------------------- */
+const SUPPORT_EMAIL = 'accounts@krost.com.au';
+const REQUIRE_EMAIL = true;
+const CURRENCY = 'AUD';
+
+const state = {
+  screen: 'details',
+  amount: '', reference: '', email: '',
+  cardName: '', cardNumber: '', expiry: '', cvc: '',
+  errors: {}, processing: false, last4: '', txnId: '', payError: ''
+};
+
+(function prefill(){
+  try {
+    const p = new URLSearchParams(location.search);
+    const amt = p.get('amount');
+    const ref = p.get('reference') || p.get('ref');
+    if (amt) state.amount = amt.replace(/[^0-9.]/g, '');
+    if (ref) state.reference = ref;
+    if (p.get('state') === 'invalid') state.screen = 'invalid';
+  } catch (e) {}
+})();
+
+function money(v){
+  const n = parseFloat(String(v).replace(/[^0-9.]/g,''));
+  return isNaN(n) ? '0.00' : n.toLocaleString('en-AU',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function brandOf(num){
+  const n=(num||'').replace(/\D/g,'');
+  if(/^4/.test(n))return'visa';
+  if(/^(5[1-5]|2[2-7])/.test(n))return'mastercard';
+  if(/^3[47]/.test(n))return'amex';
+  return'';
+}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function brandMark(b){
+  if(b==='visa')return '<span class="brand-visa">VISA</span>';
+  if(b==='mastercard')return '<span class="brand-mc"><span class="brand-mc__a"></span><span class="brand-mc__b"></span></span>';
+  if(b==='amex')return '<span class="brand-amex">AMEX</span>';
+  return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" stroke="#C9C2B8" stroke-width="1.6"/><path d="M2.5 9.5h19" stroke="#C9C2B8" stroke-width="1.6"/></svg>';
+}
+function err(field){return state.errors[field]?`<span class="errorText">${esc(state.errors[field])}</span>`:'';}
+
+function render(){
+  const root = document.getElementById('screen');
+  const s = state, b = brandOf(s.cardNumber);
+  let html = '';
+
+  if(s.screen==='details'){
+    html = `<div class="screen">
+      <div class="eyebrow">Amount due</div>
+      <div class="amountWrap">
+        <span class="amountPrefix">$</span>
+        <input id="amount" inputmode="decimal" class="amountInput" value="${esc(s.amount)}" placeholder="0.00" aria-label="Amount due" />
+      </div>
+      <div class="fieldStack">
+        <div class="field">
+          <label class="label">Reference / Invoice number</label>
+          <input id="reference" class="input" value="${esc(s.reference)}" placeholder="INV-00000" />
+        </div>
+        ${REQUIRE_EMAIL?`<div class="field">
+          <label class="label">Email for receipt</label>
+          <input id="email" type="email" class="input" value="${esc(s.email)}" placeholder="you@company.com.au" />
+          ${err('email')}
+        </div>`:''}
+      </div>
+      <div class="divider"><div class="divider__line"></div><span class="divider__text">Card details</span><div class="divider__line"></div></div>
+      <div class="fieldStack">
+        <div class="field">
+          <label class="label">Name on card</label>
+          <input id="cardName" class="input" value="${esc(s.cardName)}" placeholder="J. Smith" />
+          ${err('cardName')}
+        </div>
+        <div class="field">
+          <label class="label">Card number</label>
+          <div class="inputWrap">
+            <input id="cardNumber" inputmode="numeric" class="input input--card" value="${esc(s.cardNumber)}" placeholder="0000 0000 0000 0000" />
+            <div class="cardMark">${brandMark(b)}</div>
+          </div>
+          ${err('cardNumber')}
+        </div>
+        <div class="row">
+          <div class="field">
+            <label class="label">Expiry</label>
+            <input id="expiry" inputmode="numeric" class="input" value="${esc(s.expiry)}" placeholder="MM/YY" />
+            ${err('expiry')}
+          </div>
+          <div class="field">
+            <label class="label">CVC</label>
+            <input id="cvc" inputmode="numeric" class="input" value="${esc(s.cvc)}" placeholder="123" />
+            ${err('cvc')}
+          </div>
+        </div>
+      </div>
+      ${s.payError?`<div class="alert">${esc(s.payError)}</div>`:''}
+      <button id="review" class="btn-primary btn-primary--spaced">Review payment
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>`;
+  }
+
+  else if(s.screen==='confirm'){
+    html = `<div class="screen">
+      <div class="heading" style="font-size:21px">Review your payment</div>
+      <div class="subheading">Please confirm the details below before paying.</div>
+      <div class="panel">
+        <div class="panel__row"><span class="panel__label">Reference</span><span class="panel__value">${esc(s.reference||'—')}</span></div>
+        ${REQUIRE_EMAIL?`<div class="panel__row"><span class="panel__label">Receipt to</span><span class="panel__value">${esc(s.email)}</span></div>`:''}
+        <div class="panel__row"><span class="panel__label">Card</span><span class="panel__value">•••• ${esc(s.last4||'0000')}</span></div>
+      </div>
+      <div class="totalRow"><span class="totalRow__label">Total</span><span class="totalRow__value">$${money(s.amount)}</span></div>
+      <div class="totalNote">${CURRENCY} · No surcharge applied</div>
+      <button id="pay" class="btn-primary" ${s.processing?'disabled':''}>
+        ${s.processing?'<span class="spinner"></span> Processing…':'<span>Pay $'+money(s.amount)+'</span>'}
+      </button>
+      <button id="back" class="btn-ghost">Back to edit</button>
+    </div>`;
+  }
+
+  else if(s.screen==='success'){
+    html = `<div class="screen screen--center">
+      <div class="statusIcon statusIcon--success"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1C7C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="heading">Payment successful</div>
+      <div class="subheading">${REQUIRE_EMAIL?'A receipt has been sent to your email.':'Thank you — your payment is complete.'}</div>
+      <div class="panel panel--left">
+        <div class="panel__row"><span class="panel__label">Amount paid</span><span class="panel__value panel__value--strong">$${money(s.amount)}</span></div>
+        <div class="panel__row"><span class="panel__label">Reference</span><span class="panel__value">${esc(s.reference||'—')}</span></div>
+        <div class="panel__row"><span class="panel__label">Transaction ID</span><span class="panel__value">${esc(s.txnId)}</span></div>
+        <div class="panel__row"><span class="panel__label">Date</span><span class="panel__value">${new Date().toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}</span></div>
+      </div>
+      <button id="print" class="btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#16130F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Download receipt</button>
+    </div>`;
+  }
+
+  else if(s.screen==='failure'){
+    html = `<div class="screen screen--center">
+      <div class="statusIcon statusIcon--error"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="#C13B2E" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+      <div class="heading">Payment declined</div>
+      <div class="subheading subheading--narrow">${esc(s.payError||'Your card issuer declined this transaction. No funds have been taken. Please check your details or try another card.')}</div>
+      <div class="panel panel--left" style="margin-bottom:22px">
+        <div class="panel__row"><span class="panel__label">Reference</span><span class="panel__value">${esc(s.reference||'—')}</span></div>
+        <div class="panel__row"><span class="panel__label">Amount</span><span class="panel__value">$${money(s.amount)}</span></div>
+      </div>
+      <button id="retry" class="btn-primary">Try again</button>
+    </div>`;
+  }
+
+  else if(s.screen==='invalid'){
+    html = `<div class="screen screen--center">
+      <div class="statusIcon statusIcon--neutral"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#A39C92" stroke-width="2"/><path d="M12 7.5v5" stroke="#A39C92" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.3" r="1.2" fill="#A39C92"/></svg></div>
+      <div class="heading">This payment link is no longer valid</div>
+      <div class="subheading subheading--narrow">The link may have expired or already been paid. Please use the link on your most recent invoice or statement, or contact us for a new one.</div>
+      <a class="btn-outline" href="mailto:${SUPPORT_EMAIL}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#16130F" stroke-width="1.8"/><path d="M4 7l8 6 8-6" stroke="#16130F" stroke-width="1.8" stroke-linecap="round"/></svg> Contact ${SUPPORT_EMAIL}</a>
+    </div>`;
+  }
+
+  root.innerHTML = html;
+  wire();
+}
+
+function bindInput(id, key, transform){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('input', e => {
+    const v = transform ? transform(e.target.value) : e.target.value;
+    state[key] = v;
+    if(transform) e.target.value = v;
+    if(state.errors[key]){ state.errors[key] = undefined; }
+  });
+}
+
+function wire(){
+  const s = state;
+  if(s.screen==='details'){
+    bindInput('amount','amount', v=>v.replace(/[^0-9.]/g,''));
+    bindInput('reference','reference');
+    bindInput('email','email');
+    bindInput('cardName','cardName');
+    bindInput('cardNumber','cardNumber', v=>v.replace(/\D/g,'').slice(0,16).replace(/(.{4})/g,'$1 ').trim());
+    bindInput('expiry','expiry', v=>{const d=v.replace(/\D/g,'').slice(0,4);return d.length>2?d.slice(0,2)+'/'+d.slice(2):d;});
+    bindInput('cvc','cvc', v=>v.replace(/\D/g,'').slice(0,4));
+    // re-render only the brand mark live without losing focus
+    const cn = document.getElementById('cardNumber');
+    if(cn) cn.addEventListener('input', ()=>{ const m=document.querySelector('.cardMark'); if(m) m.innerHTML=brandMark(brandOf(state.cardNumber)); });
+    document.getElementById('review').addEventListener('click', goConfirm);
+  }
+  if(s.screen==='confirm'){
+    document.getElementById('pay').addEventListener('click', pay);
+    document.getElementById('back').addEventListener('click', ()=>{state.screen='details';state.processing=false;render();});
+  }
+  if(s.screen==='success'){
+    document.getElementById('print').addEventListener('click', ()=>{try{window.print();}catch(e){}});
+  }
+  if(s.screen==='failure'){
+    document.getElementById('retry').addEventListener('click', ()=>{state.screen='details';state.processing=false;render();});
+  }
+}
+
+function goConfirm(){
+  const s = state, e = {};
+  if(!s.amount || parseFloat(s.amount) <= 0) e.amount='Enter an amount';
+  if(REQUIRE_EMAIL && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email)) e.email='Enter a valid email';
+  if(!s.cardName.trim()) e.cardName='Enter the name on card';
+  if(s.cardNumber.replace(/\s/g,'').length < 15) e.cardNumber='Enter a valid card number';
+  if(!/^\d{2}\/\d{2}$/.test(s.expiry)) e.expiry='MM/YY';
+  if(s.cvc.length < 3) e.cvc='CVC';
+  state.errors = e;
+  if(Object.keys(e).length){ render(); return; }
+  state.last4 = s.cardNumber.replace(/\s/g,'').slice(-4);
+  state.payError = '';
+  state.screen = 'confirm';
+  render();
+}
+
+function pay(){
+  state.processing = true; render();
+  // Simulate a server round-trip. Card ending 0000 => decline.
+  setTimeout(()=>{
+    const declined = state.cardNumber.replace(/\D/g,'').endsWith('0000');
+    state.processing = false;
+    if(declined){
+      state.payError = 'Your card issuer declined this transaction. No funds have been taken.';
+      state.screen = 'failure';
+    } else {
+      state.txnId = 'NAB' + Date.now().toString().slice(-8);
+      state.screen = 'success';
+    }
+    render();
+  }, 1500);
+}
+
+render();
+</script>
+</body>
+</html>

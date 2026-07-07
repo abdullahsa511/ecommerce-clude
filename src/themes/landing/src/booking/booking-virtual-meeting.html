@@ -1,0 +1,201 @@
+@@include('../_includes/components/html-head.html')
+
+
+
+
+<body class="home bg-white">
+
+    @@include('../_includes/sections/navigation.html')
+
+    <section id="booking-virtual-meeting" class="py-0" data-v-component-bookingvirtualmeeting>
+        <div class="th-book-confirmed-section bg-gray">
+            <div class="container th-container">
+                <div class="section-body">
+                    <h1 class="th-section-title" data-v-bookingshowroomvisit-title>Virtual Meeting</h1>
+                    <p class="th-section-subtitle" data-v-bookingshowroomvisit-subtitle>
+                        A calendar invitation and summary have been dispatched to your email address. Please contact
+                        your consultant for further assistance.
+                    </p>
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fa-solid fa-cube"></i>
+                            <span data-v-bookingvirtualmeeting-item-count>3 items</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <span>Project Name: </span> <span data-v-bookingvirtualmeeting-project-name></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container th-container">
+            <div class="section-body">
+                <div class="th-book-confirmed-row py-50">
+                    <div class="th-booking-summary">
+                        <div class="th-booking-summary-consultant">
+                            <div class="th-consultant-photo">
+                                <img src="/img/account-dashboard/profile-pic.png" alt="Book a Virtual Meeting"
+                                    data-v-bookingvirtualmeeting-consultant-photo>
+                            </div>
+                            <div class="th-consultant-meta">
+                                <div class="th-consultant-meta-item">
+                                    <span class="th-consultant-meta-label"
+                                        data-v-bookingvirtualmeeting-consultant-designation>Sales Consultant</span>
+                                    <a class="th-consultant-meta-value th-consultant-meta-value-link underline" href=""
+                                        data-v-bookingvirtualmeeting-consultant-name>Leslie Alexander</a>
+                                </div>
+                                <div class="th-consultant-meta-item">
+                                    <span class="th-consultant-meta-label">Phone Number</span>
+                                    <a class="th-consultant-meta-value" href="tel:0412345678"
+                                        data-v-bookingvirtualmeeting-consultant-phone>0412 345 678</a>
+                                </div>
+                                <div class="th-consultant-meta-item">
+                                    <span class="th-consultant-meta-label">Email</span>
+                                    <a class="th-consultant-meta-value th-consultant-meta-value-email" href=""
+                                        data-v-bookingvirtualmeeting-consultant-email>leslie@krost.com.au</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="th-booking-summary-details">
+                            <div class="th-booking-detail">
+                                <div class="th-booking-detail-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+
+                                <div class="th-booking-detail-content" id="virtual-meeting-info"
+                                    data-v-virtual-meeting-info>
+                                    <span class="th-booking-detail-label">Platform</span>
+                                    <div class="virtual-meeting-options">
+                                        <label class="custom-radio virtual-meeting-platform" data="google-meet">
+                                            <input type="radio" name="virtual-meeting-platform" value="google-meet">
+                                            <span class="radio-mark"></span>
+                                            Google Meet
+                                        </label>
+
+                                        <label class="custom-radio virtual-meeting-platform" data="zoom">
+                                            <input type="radio" name="virtual-meeting-platform" value="zoom">
+                                            <span class="radio-mark"></span>
+                                            Zoom
+                                        </label>
+
+                                        <label class="custom-radio virtual-meeting-platform" data="microsoft-teams">
+                                            <input type="radio" name="virtual-meeting-platform" value="microsoft-teams">
+                                            <span class="radio-mark"></span>
+                                            Microsoft Teams
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="th-booking-detail">
+                                <div class="th-booking-detail-icon">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </div>
+                                <div class="th-booking-detail-content">
+                                    <span class="th-booking-detail-label">Service</span>
+                                    <p class="th-booking-detail-value">Project Consultation</p>
+                                </div>
+                            </div>
+                            <div class="th-booking-detail">
+                                <div class="th-booking-detail-icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </div>
+                                <!-- <div class="th-booking-detail-content">
+                                    <span class="th-booking-detail-label">Time</span>
+                                    <p class="th-booking-detail-value">Thursday, 5 March 2026</p>
+                                    <a href="#" class="th-booking-detail-link underline" id="get-showroom-visit-data"
+                                        data-v-bookingvirtualmeeting-calendar data-location onclick="openBookingCalendar(this)">Add to
+                                        your calendar</a>
+                                    <div id="generated-calendar-link" style="display: none;"></div>
+                                </div> -->
+                                <div class="th-booking-detail-content">
+                                    <span class="th-booking-detail-label">Time</span>
+                                    <p class="th-booking-detail-time" data-v-bookingvirtualmeeting-meeting-time>
+                                        10:00 AM
+                                    </p>
+                                    <p class="th-booking-detail-date" data-v-bookingvirtualmeeting-showroom-date>
+                                        Thursday, 5 March 2026
+                                    </p>
+                                    <a class="th-booking-detail-link underline" href="#" id="get-showroom-visit-data"
+                                        data-v-bookingvirtualmeeting-calendar data-visit-showroom-id=""
+                                        onclick="openBookingCalendar(this)">
+                                        Add To Google Calendar
+                                    </a>
+                                    <br>
+                                    <a style="cursor: pointer;" id="download-ics-file-outlook"
+                                        class="th-booking-detail-ics-file underline"
+                                        data-v-bookingvirtualmeeting-calendar>
+                                        Download ICS File for Outlook
+                                    </a>
+                                    <br>
+                                    <a style="cursor: pointer;" id="download-ics-file-mac"
+                                        class="th-booking-detail-ics-file underline"
+                                        data-v-bookingvirtualmeeting-calendar>
+                                        Download ICS File for Mac
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="th-booking-detail th-opacity-text" id="showroomNote">
+                                <div class="th-booking-detail-icon">
+                                    <i class="fa-solid fa-pen"></i>
+                                </div>
+                                <div class="th-booking-detail-content">
+                                    <textarea name="" id="booking-showroom-visit-note" class="form-control"
+                                        placeholder="Add a Note" data-v-bookingvirtualmeeting-note></textarea>
+                                    <!-- feedback message -->
+                                    <div id="booking-showroom-visit-note-feedback" class="th-pt-10 text-danger"></div>
+                                    <a class="th-booking-detail-link underline th-pt-10"
+                                        id="send-booking-showroom-visit-note-button" style="cursor: pointer;"
+                                        data-v-bookingvirtualmeeting-note-id>Send Message</a>
+                                </div>
+                            </div>
+                            <!-- reschedule booking or cancel booking -->
+                            <div class="th-booking-detail th-opacity-text" id="reschedule-booking-or-cancel-booking">
+                                <div class="th-booking-detail-icon">
+                                    <i class="fa-solid fa-pen font-size-16"></i>
+                                </div>
+                                <div class="th-booking-detail-content" id="reschedule">
+                                    <!-- <span class="th-booking-detail-label">Reschedule Booking</span> -->
+                                    <a class="th-booking-detail-link underline th-pt-10" id="reschedule-booking-button"
+                                        style="cursor: pointer;"
+                                        data-v-bookingshowroomvisitcontactsales-reschedule-booking-id>Reschedule
+                                        Booking</a>
+                                </div>
+                                <div class="th-booking-detail-content">
+                                    <!-- <span class="th-booking-detail-label">Cancel Booking</span> -->
+                                    <a class="th-booking-detail-link underline th-pt-10" id="cancel-booking-button"
+                                        style="cursor: pointer; color: red;"
+                                        data-v-bookingshowroomvisitcontactsales-cancel-booking-id>Cancel Booking</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .th-time-slot.existing-booking-slot {
+            border-color: #dc3545;
+            /* background-color: #dc3545; */
+            color: #dc3545;
+        }
+
+        .th-time-slot.existing-booking-slot label {
+            color: #dc3545;
+        }
+    </style>
+
+    @@include('../_includes/sections/footer.html')
+
+    @@include('../_includes/sections/pinboard.html')
+
+    @@include('../_includes/components/footer-scripts-account.html')
+
+</body>
+
+</html>

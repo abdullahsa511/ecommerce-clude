@@ -1,0 +1,5 @@
+.gap-3.gap-3-ml{
+    @include respond-to(ml){
+        gap: .75rem!important;
+    }
+}

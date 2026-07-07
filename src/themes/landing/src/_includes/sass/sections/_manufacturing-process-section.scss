@@ -1,0 +1,93 @@
+   .th-manufacturing-process-section {
+     background-color: gray;
+   }
+
+   .th-manfacturing-container {
+     //   background-color: #eaeaec !important;
+     // background-color: #eaeaec !important;
+     margin-top: 150px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+
+    // .section-body {
+    //   padding-bottom: 60px;
+    // }
+    .right-img {
+      margin-top: -220px;
+      @include respond-to(md) {
+        margin-top: 20px;
+      }
+    }
+    .link-gap {
+      margin-top: 41px;
+      @include respond-to(md) {
+        margin-top: 25px;
+      }
+    }
+    .img-fluid {
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .th-manufacturing-details{
+      font-size: 22px;
+    }
+  
+    .th-video-wrapper{
+      // margin: 50px 0 50px 50px;
+      // @include respond-to(md){
+      //   margin: 0px !important;
+      //   padding-top: 40px !important;
+      // }
+      .lg-backdrop{
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .lg-outer{
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .lg-thumb-item{
+        border-radius: 20px;
+      }
+      .lg-sub-html{
+        display: none;
+      }
+
+    }
+  }
+  
+#th-gallery-manufacturingprocess{
+  @include respond-to(sm){
+    margin-top: 30px;
+  }
+  .th-container{
+    background-color: white;
+    padding:60px;
+    border-radius: 30px;
+    @include respond-to(sm){
+      padding: 40px 0px !important;
+    }
+    h2{
+      font-size: 35px;
+      font-weight: 700;
+      @include respond-to(lg){
+        font-size: 25px;
+      }
+      @include respond-to(md){
+        font-size: 35px;
+      }
+    }
+    .th-section-header-wrapper{
+      @include respond-to(md){
+        .section-title-wrapper{
+          padding-bottom: 0 !important;
+        }
+        .th-section-subtitle{
+          text-align:justify
+        }
+      }
+    }
+  }
+ }

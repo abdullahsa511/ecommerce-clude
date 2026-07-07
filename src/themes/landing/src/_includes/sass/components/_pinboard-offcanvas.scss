@@ -1,0 +1,772 @@
+.offcanvas {
+  width: 672px!important;
+  @include respond-to(lg){
+    width: 100% !important; /* Make the offcanvas full width on small screens */
+  }
+}
+.offcanvas-header {
+  &.th-header-lower{
+    padding-left:2px;
+    h5{
+      margin-bottom: 0;
+    }
+  }
+  &.th-header-upper{
+    padding-right:35px;
+    @include respond-to(sm){
+      padding-right:15px;
+    }
+  }
+  // @media (max-width: 767px) { }
+  h4{
+    margin-bottom: 0;
+  }
+}
+.th-header-upper {
+  padding-bottom: 0;
+
+  .left-icon {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  h3 {
+    padding-top: 10px;
+  }
+  .change-pinboard {
+    text-decoration: underline;
+    font-size: 16px;
+    cursor: pointer;
+    color: #5a5a5a;
+    margin-left: auto; /* Push to the right */
+  }
+
+}
+// .th-header-lower { }
+/* Pinboard offcanvas: fill viewport; list scrolls; footer always visible */
+#pinboard-app {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+
+  .pinboard-app-root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+
+    @include respond-to(sm){
+      .th-header-upper{
+        display: flex;
+        flex-direction: column;
+        align-items: start!important;
+        .pinboard-header-info{
+          width: auto!important;
+        }
+        .pinboard-header-project-wrap{
+          text-align: start!important;
+          display: block!important;
+        }
+      }
+    }
+    //header new layout end here
+  }
+
+  .offcanvas-header {
+    flex-shrink: 0;
+  }
+
+  .offcanvas-body {
+    height: auto !important;
+    flex: 1 1 auto;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Main + footer row: column on mobile & desktop so list can flex-shrink and scroll */
+  .pinboard-offcanvas-tablet-row.row {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    flex-wrap: nowrap !important;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    row-gap: 0.75rem;
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      flex-direction: row;
+      row-gap: 0;
+    }
+  }
+
+  .pinboard-offcanvas-col--main {
+    display: flex;
+    flex-direction: column;
+    // flex: 1 1 auto !important; /* override .col-* flex: 0 0 auto so main can shrink and scroll */
+    min-height: 0;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .pinboard-offcanvas-search {
+    flex-shrink: 0;
+  }
+  .pinboard-main{
+   max-height:65vh;
+   overflow-y: auto;
+  }
+
+  .pinboard-offcanvas-col--actions {
+    flex: 0 0 auto !important;
+    flex-shrink: 0;
+  }
+
+  /* Scrollable list + fixed footer (overrides global .th-pinboard below) */
+  .th-pinboard {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    overflow: hidden;
+
+    .th-pinboard-bottom {
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--bs-offcanvas-padding-x) + 5px) var(--bs-offcanvas-padding-x);
+      background: var(--gray-100);
+      border-radius: 5px;
+    }
+
+    // .th-pinboard { width: 100% } — already full width above
+
+    .pinboard-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      h3 {
+        margin: 0 0 7px 0 !important;
+        padding: 0 !important;
+        font-size: 16px;
+      }
+      p {
+        line-height: 149%;
+        font-size: 16px;
+        padding-bottom: 14px;
+      }
+    }
+  }
+
+  /* Mobile (<768px): full-width action buttons; tablet+ matches desktop */
+  @media (max-width: 767px) {
+    .pinboard-offcanvas-footer-btns {
+      > .d-flex.flex-row {
+        flex-direction: column !important;
+        align-items: stretch;
+      }
+
+      .th-add-comment-toggle-btn,
+      a#pinboard-link,
+      button.th-btn-gray[data-bs-dismiss='offcanvas'] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    .th-add-comment-bottom-row {
+      flex-direction: column !important;
+      align-items: stretch;
+      justify-content: flex-start !important;
+
+      .th-add-comment-upload-label,
+      .th-add-comment-submit-btn {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+
+      .th-add-comment-upload-label {
+        margin-right: 0 !important;
+      }
+    }
+
+    /* Item card: note / Post / Edit — full width on small screens only */
+    .th-pinboard-item-comment .d-flex.align-items-start {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+
+    .th-btn-primary-post {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .th-pinboard-edit-wrapper {
+      // flex-direction: column !important;
+      flex-direction: row !important;
+      align-items: stretch !important;
+
+      > .btn {
+        width: 50% !important;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+#offcanvasRight.offcanvas.offcanvas-end,
+.offcanvas.offcanvas-end:has(#pinboard-app) {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 100vh;
+  max-height: 100dvh;
+}
+
+.th-pinboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  min-height: 78vh;
+  justify-content: space-between;
+  padding-bottom: 70px;
+
+  // @media (max-width: 767px) { width: 100%; } — redundant with .th-pinboard width: 100%
+
+  .pinboard-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-content {
+    h3 {
+      margin: 0 0 7px 0 !important;
+      padding: 0 !important;
+      font-size: 16px;
+    }
+    p {
+      line-height: 149%;
+      font-size: 16px;
+      padding-bottom: 14px;
+    }
+  }
+}
+
+.fiorelli {
+  padding-bottom: 0 !important;
+}
+.fiorelli-lorem {
+  font-size: 18px;
+}
+
+.th-pinboard {
+  .col-md-8 {
+    position: relative;
+  }
+  // @media (max-width: 767px) {
+  //   position: relative;
+  // }
+
+  .th-close-btn {
+    position: absolute;
+    top: -10px; /* Adjust the top value to move the button upwards */
+    right: 10px;
+    border: none;
+    color: #929292;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+}
+
+
+/* Add comment panel — smooth expand/collapse (Vue <transition name="pinboard-add-comment-collapse">) */
+.pinboard-add-comment-collapse-enter-active,
+.pinboard-add-comment-collapse-leave-active {
+  transition: max-height 0.35s ease, opacity 0.28s ease;
+  overflow: hidden;
+}
+
+.pinboard-add-comment-collapse-enter,
+.pinboard-add-comment-collapse-leave-to {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0 !important;
+}
+
+.pinboard-add-comment-collapse-enter-to,
+.pinboard-add-comment-collapse-leave {
+  max-height: 1600px;
+  opacity: 1;
+}
+
+/* Tablet (768–991px): split layout only — styling matches desktop (see commented block history) */
+@media (min-width: 768px) and (max-width: 1200px) {
+  #pinboard-app {
+  }
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.fabric-img {
+  width: 60%;
+}
+.fabric-color-img {
+  width: 50%;
+}
+
+.comment-box {
+  width: 100%;
+  margin-top: 10px;
+  height: 40px !important;
+  border: 1px solid #d9d9d9;
+  color: #808080;
+  border-radius: 2px;
+}
+
+.comment-box::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+.additional-notes {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.large-box {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px;
+  resize: none;
+  color: #808080;
+}
+
+.large-box::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.upload-btn,
+.comment-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+}
+
+.comment-btn {
+  background: #000;
+  color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.profile-btn,
+.sales-btn {
+  width: 48%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.profile-btn {
+  background: #fff;
+}
+
+.sales-btn {
+  background: #000;
+  color: #fff;
+}
+
+@media (max-width: 575px) {
+  /* Hide the close button in the col-md-8 column on small screens */
+  .close-btn-mobile {
+    display: none;
+  }
+
+  /* Position the close button in the top-right corner of the col-md-4 column */
+  .row-1,
+  .row-2,
+  .row-3 {
+    .col-md-4 {
+      position: relative;
+    }
+  }
+
+  .row-1,
+  .row-3 {
+    .col-md-4 .th-ofc-item-close-btn {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      font-size: 25px; /* Optional: Increase font size */
+      z-index: 10;
+    }
+  }
+  .row-2 {
+    .col-md-4 .th-ofc-item-close-btn {
+      position: absolute;
+      top: -60px;
+      right: 10px;
+      font-size: 25px; /* Optional: Increase font size */
+      z-index: 10;
+    }
+  }
+}
+
+
+.pinboard-project-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  // min-width: 290px;
+  min-width: 620px;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow-y: overlay;
+  scrollbar-width: thin;
+  z-index: 1060;
+  padding: 8px 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: left;
+
+  @include respond-to(lg){
+    // right: auto;
+    // left: 0;
+    max-height: 70vh;
+    overflow-y: overlay;
+    right: -230px;
+  }
+  @include respond-to(sm){
+    left: 0;
+    min-width: 350px !important;
+  }
+}
+
+.pinboard-project-menu-fade-enter-active,
+.pinboard-project-menu-fade-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  transform-origin: top right;
+}
+
+.pinboard-project-menu-fade-enter,
+.pinboard-project-menu-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+}
+
+// pinboard tab view start here
+.pinboard-project-photos {
+  display: none;
+}
+.pinboard-project-photos-title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #222;
+
+  span {
+    font-weight: 400;
+    color: #444;
+  }
+}
+
+.pinboard-project-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pinboard-project-photos-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  background: #f3f3f3;
+  aspect-ratio: 1 / 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+
+@include respond-to(lg){
+  .pinboard-project-photos {
+    display: block;
+  }
+
+  .pinboard-project-photos-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+
+@include respond-to(sm){
+  .pinboard-project-photos{
+        display: none !important;
+      }
+      .th-add-comment-toggle-btn-lg {
+        display: inline-flex !important;
+      }
+}
+
+// pinboard tab view end here
+
+
+//new Css started from here 
+.pinboard-close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+#pinboard-items{
+  padding-bottom: 150px;
+}
+@include respond-to(lg){
+  #pinboard-items{
+    flex:2!important;
+  }
+}
+@include respond-to(lg){
+  .pinboard-project-photos{
+    flex:3;
+  }
+}
+@include respond-to(lg){
+  .pinboard-offcanvas-footer-btns{
+    flex-direction: row!important;
+    .th-tablet-btn{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        background: var(--theme-primary);
+        border: none;
+        border-radius: 999px;
+        color: var(--white-color);
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: 1;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px dashed var(--gray-400);
+            border-radius: 999px;
+            pointer-events: none;// ensure border is included inside the element's size
+        }
+    }
+    .flex-row{
+      flex:1!important;
+    }
+  }
+}
+// $breakpoints: (
+//   hd: 1880px,
+//   xxl: 1600px,
+//   mac: 1513px,
+//   xl: 1399px,
+//   ml: 1299px,
+//   lg: 1199px,
+//   md: 991px,
+//   mds: 767px,
+//   sm: 540px,
+//   xs: 389px,
+//   vxs: 330px,
+// );
+
+@include respond-to(xs){
+  .pinboard-main {
+    max-height: 65vh;
+    overflow-y: overlay;
+  }
+}
+@include respond-to(sm){
+
+  // header section start here
+  .offcanvas-header{
+    .pinboard-header-project-wrap{
+      .pinboard-project-email{
+        position: absolute;
+        right: 0;
+        left: 142px;
+        bottom: 45px;
+        width: 60vw;
+        max-width: 245px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+      }
+    }
+  }
+  
+  // header section end here
+
+  .pinboard-main {
+    max-height: 68vh!important;
+    overflow-y: overlay!important;
+  }
+  .pinboard-offcanvas-footer-btns{
+    flex-direction: column!important;
+  }
+  .pinboard-offcanvas-footer-icons{
+    .icon-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+    
+    .icon-btn i {
+        pointer-events: none;
+    }
+  }
+  
+}
+
+@include respond-to(mds){
+  .pinboard-main {
+    max-height: 72vh;
+    overflow-y: overlay;
+  }
+}
+@include respond-to(md){
+  .pinboard-main {
+    max-height: 76vh;
+    overflow-y: overlay;
+  }
+}
+
+@include respond-to(lg){
+  .pinboard-main {
+    max-height: 65vh;
+    overflow-y: overlay;
+  }
+}
+// @include respond-to(ml){
+//   .pinboard-main {
+//     max-height: 65vh;
+//     overflow-y: overlay;
+//   }
+// }
+// @include respond-to(xl){
+//   .pinboard-main {
+//     max-height: 75vh;
+//     overflow-y: overlay;
+//   }
+// }
+
+
+
+@include respond-to(lg){
+  .pinboard-app-root{
+    .th-header-upper{
+      display:flex;
+      flex-direction: row;
+      .pinboard-header-info{
+        width: 100%;
+        .pinboard-header-project-wrap{
+          display: flex;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .pinboard-header-tablet {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .pinboard-header-left {
+        flex: 0 0 auto;
+        // max-width: 120px;
+    }
+
+    .pinboard-header-center {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .pinboard-header-right {
+        margin-right: 25px;
+    }
+
+    .pinboard-project-name {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .pinboard-email {
+        // max-width: 110px;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+

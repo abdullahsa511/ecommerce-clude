@@ -1,0 +1,266 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="bg-white">
+  <!--==============================Header Area==============================-->
+
+  @@include('../_includes/sections/navigation.html')
+
+
+
+  
+
+  <section id="searchresulthero" class="pb-30 pt-0 text-primary" data-v-component-searchresulthero>
+
+    <div class="th-hero-wrapper th-hero pb-0 pt-0 text-primary" id="hero" style="min-height: 300px;">
+      <div class="container th-container th-hero-section th-section">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="th-breadcrumb d-flex justify-content-between align-items-center">
+              <div aria-label="breadcrumb">
+                <ol class="breadcrumb font-black" data-v-searchresulthero-breadcrumbs>
+                  <li class="breadcrumb-item font-black" data-v-searchresulthero-breadcrumb-list>
+                    <a href="/" class="font-black" data-v-searchresulthero-breadcrumb-link>Home</a>
+                  </li>
+                  <li class="breadcrumb-item font-black" aria-current="page" data-v-searchresulthero-breadcrumb-list>
+                    Search Results
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="th-hero-container text-primary pb-25" style="color: var(--theme-primary)!important;">
+              <div class="th-hero-style th-hero-style-category text-primary">
+                <h1 class="text-primary th-hero-title">
+                  <span data-v-searchresulthero-heading-title id="global-search-results-query-title">Search results for
+                  </span> <span data-v-searchresulthero-title id="global-search-results-query"></span>
+                </h1>
+                <span class="th-hero-subtitle text-primary" data-v-searchresulthero-subtitle>Lorem ipsum dolor sit amet
+                  consectetur.
+                  Scelerisque urna pellentesque.</span>
+                <div class="th-hero-wrapp">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="th-products-list" class="may-also-like pt-0">
+    <div class="container th-container" id="vue-app-search-list-container">
+
+    </div>
+  </section>
+  <!-- @@include('../_includes/sections/product/product-list-section.html') -->
+  @@include('../_includes/sections/footer.html')
+
+  @@include('../_includes/sections/pinboard.html')
+
+  @@include('../_includes/components/footer-scripts-products.html')
+
+  <style>
+    .custom-multiselect {
+      position: relative;
+      width: 100%;
+      font-family: inherit;
+    }
+
+    .multiselect-display {
+      min-height: 53px;
+      background: #ffffff;
+      border: 1px solid var(--theme-border);
+      border-radius: 3px;
+      padding: 5px 40px 5px 10px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .multiselect-display:hover {
+      border-color: #cbd5e1;
+    }
+
+    .multiselect-display:focus-within {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+
+
+    .selected-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      background: #eef2ff;
+      color: #4f46e5;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 14px;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #6b7280;
+      border-bottom: 2px solid #6b7280;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+
+    .arrow.open {
+      transform: rotate(-135deg);
+      margin-top: 6px;
+    }
+
+    .multiselect-dropdown {
+      position: absolute;
+      width: 100%;
+      background: #ffffff;
+      /* border-radius: 12px; */
+      border: 1px solid #e5e7eb;
+      /* margin-top: 8px; */
+      padding: 8px;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 0.15s ease-in-out;
+    }
+
+    .multiselect-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .multiselect-dropdown-item:hover {
+      background: #f3f4f6;
+    }
+
+    .multiselect-dropdown-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #6366f1;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .th-img-container {
+      width: 100%;
+      height: 300px;
+      /* Set your desired height */
+      overflow: hidden;
+    }
+
+    .th-img-container a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Fill container without distortion */
+      display: block;
+    }
+
+    .search-filter-button {
+      padding-top: 13px !important;
+      border: 2px solid black !important;
+    }
+
+
+    /* Mobile spacing fix */
+    @media (max-width: 767px) {
+      .th-hero-wrapper {
+        min-height: auto !important;
+      }
+
+      .th-hero-container,
+      .th-hero-section {
+        padding-bottom: 0 !important;
+      }
+
+      .th-hero-style-category {
+        margin-top: 0 !important;
+      }
+
+      .th-hero-style-category h1 {
+        font-size: 22px !important;
+      }
+
+      .th-hero-style-category .th-hero-subtitle {
+        font-size: 16px !important;
+      }
+
+
+
+      .th-section-header-wrapper h2 {
+        font-size: 22px !important;
+      }
+
+      .th-padding-bottom-0-mobile {
+        padding-bottom: 0 !important;
+      }
+
+
+      .th-filter-row>div {
+        margin-bottom: 10px;
+      }
+
+      .search-filter-button {
+        height: 45px;
+        padding: 0 !important;
+      }
+
+      .multiselect-display {
+        height: 45px;
+        display: flex;
+        align-items: center;
+      }
+
+      #quick-search-input {
+        height: 45px;
+      }
+
+      .th-margin-bottom-20 {
+        margin-bottom: 20px !important;
+      }
+
+      .multiselect-display {
+        min-height: 45px !important;
+      }
+
+    }
+  </style>
+
+
+</body>
+
+</html>

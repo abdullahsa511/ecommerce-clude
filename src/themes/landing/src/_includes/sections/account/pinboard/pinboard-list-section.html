@@ -1,0 +1,51 @@
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+
+<section id="account-pinboardList">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+
+        @@include('../account-leftside-manubar.html')
+
+
+        <div class="col-12 col-md-8 col-lg-9 th-dashboard-main">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="th-dashboard-header th-pinboard-header">Virtual Pinboards</h2>
+            </div>
+            <div class="col-md-12">
+              <div class="th-dash-pinboard-devider border-bottom-gray"></div>
+            </div>
+          </div>
+
+          <!--================= Section pinboard List ==========================-->
+          <div data-v-component-accountpinboardlist id="account-pinboardlist-data-container">
+            <div data-v-accountpinboardlist-success>
+              <div class="pt-10 pb-10 text-center th-card-light" style="color: #171717; background-color: rgb(250, 243, 243);">
+                <div class="d-flex justify-content-center align-items-center gap-3 mb-10 flex-wrap">
+                  <div
+                    style="width:38px; height:38px; border-radius:50%; background:#171717; color:#fff; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">
+                    ✓</div>
+                  <div style="letter-spacing:0.16em; font-size:10px; color:#8e8e8e;">
+                    REQUEST RECEIVED
+                  </div>
+                </div>
+                <h3 id="" style="font-weight:700; margin-bottom:8px;" data-v-accountpinboardlist-message>
+                  We'll be in touch shortly.
+                </h3>
+                <p style="font-size:13px; color:#666; margin-bottom:24px;">You can submit a new request any time.</p>
+              </div>
+            </div>
+            <div id="account-pinboard-list" class="th-section pt-10">
+            </div>
+          </div>
+          <!--================= End Section pinboard List ==========================-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js" async data-quill="true"></script>
+

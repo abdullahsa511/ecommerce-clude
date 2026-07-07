@@ -1,0 +1,43 @@
+.th-signup,
+.th-login {
+    .password-input-wrapper {
+        position: relative;
+        input {
+            padding-right: 2.5rem;
+        }
+        .password-toggle-btn {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            color: #6c757d;
+        }
+    }
+    .th-signup-form-header,
+    .th-login-form-header{
+        text-align: center;
+        margin-bottom: 55px;
+        p{
+            font-size: 18px;
+        }
+    }
+    .th-signup-form-wrapper,
+    .th-signup-form-container,
+    .th-login-form-container{
+        max-width: 525px;
+        margin: 0 auto;
+    }
+    .th-imge-container,
+    .th-img-container {
+        img {
+            max-height: 925px;
+        }
+        @include respond-to(mds) {
+            display: none
+        }
+    }
+}

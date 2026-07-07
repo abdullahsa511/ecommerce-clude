@@ -1,0 +1,101 @@
+ <section id="th-request-catalogue" class="th-request-contact" data-v-component-requestcatalogue>
+  <div class="gr-bg8-request-catalogue">
+    <div class="container th-container">
+    <div class="row"> 
+      <div class="col-md-12">
+        <div class="th-requset-catalouge-content pt-15">
+          <h2 data-v-requestcatalogue-section_title>Request Catalogue</h2>
+          <p data-v-requestcatalogue-section_subtitle>Lorem ipsum dolor sit amet consectetur. Egestas orci gravida amet
+            <br> egestas et. Pellentesque libero donec sit egestas orci.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-7">
+          <div class="th-img-container th-request-catalouge-img">
+            <img src="/img/contact/contact-location-one.jpeg" alt="" data-v-requestcatalogue-image>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-5">
+          <div class="th-request-catalouge-form">
+
+            <div id="request-catalogue-alert-message" style="display: none; color: green; font-weight: bold;"></div>
+            <div class="form-container th-cf-wrapper overlap th-bg-cf-white">
+              <form>
+                <input type="hidden" name="nonce" value="" data-v-nonce>
+                <div class="form-group">
+                  <label for="catalogue-format" >Format</label>
+                  <select class="form-control" id="catalogue-format">
+                    <option value="" selected disabled>Select a Format</option>
+                    <option value="physical">Physical Copy</option>
+                    <option value="digital">Digital Version</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="first-name" >First Name*</label>
+                  <input type="text" id="first-name" class="form-control" placeholder="First Name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="last-name" >Last Name*</label>
+                  <input type="text" id="last-name" class="form-control" placeholder="Last Name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" >Email*</label>
+                  <input type="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+
+                <div class="form-group d-none" id="phone-number">
+                  <label for="phone-number">Phone Number</label>
+                  <input type="text" id="phone-number" class="form-control" placeholder="Phone Number">
+                </div>
+
+              
+                <div class="form-group" id="company-group">
+                  <label for="company">Company Name</label>
+                  <input type="text" id="company" class="form-control" placeholder="Company Name">
+                </div>
+                <div class="form-group" id="mailing-address-group">
+                  <label for="company">Mailing Address</label>
+                  <input type="text" id="mailing-address" class="form-control" placeholder="Mailing Address">
+                </div>
+                
+                <!-- Text Area -->
+                <!-- <div class="form-group">
+                  <label for="message">Message</label>
+                  <div class="text-section">
+                    <textarea class="form-control" placeholder="Enter your message"></textarea>
+                  </div>
+                </div> -->
+                <!-- Submit Button -->
+                <div class="form-group d-none" id="request-my-copy-button">
+                  <button type="submit" class="th-btn-primary mt-30">
+                    Request My Copy
+                  </button>
+                </div>
+                <!-- <div class="form-group" id="requestCatalogueSubmitButton">
+                  <button type="submit" class="th-btn-primary mt-30">
+                    View Instantly
+                  </button>
+                </div> -->
+                <div class="form-group">
+                  <button type="submit" class="th-btn-primary mt-30" id="requestCatalogueSubmitButton">
+                    View Instantly
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </section>
+

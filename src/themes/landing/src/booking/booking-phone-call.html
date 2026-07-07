@@ -1,0 +1,166 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="home bg-white">
+  @@include('../_includes/sections/navigation.html')
+
+  <div id="booking-phone-call-app">
+    <section id="booking-phone-call" class="bg-gray" data-v-component-bookingphonecall>
+      <div class="bg-gray submission-confirmation-hero">
+        <div class="container th-container">
+          <div class="section-body py-50">
+            <div class="breadcrumb_class submission-confirmation-breadcrumb">
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/account/virtual-pinboards">Pinboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Confirmation</li>
+              </ol>
+            </div>
+
+            <div
+              class="submission-confirmation-status d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill">
+              <i class="fa-solid fa-circle-check font-size-16"></i>
+              <p class="mb-0">Request Received</p>
+            </div>
+
+            <div class="row align-items-start align-items-md-center g-3">
+              <div class="col-12 col-md">
+                <h1 class="th-section-title submission-confirmation-title mb-0" data-v-bookingphonecall-title>We'll be
+                  in
+                  touch shortly.</h1>
+              </div>
+              <div class="col-12 col-md-auto text-md-end">
+                <div class="invalid-feedback d-block" id="cancel-phone-call-feedback" data-v-bookingphonecall-feedback></div>
+                <a href="/account/virtual-pinboards" type="button" class="th-btn th-btn-primary text-capitalize mb-2 font-weight-500">
+                  Back to Pinboard 
+                  <!-- <i class="fa-solid fa-arrow-right" style="padding-left: 16px;"></i> -->
+                </a>
+                <form action="/booking/cancel-phone-call" method="post">
+                  <button type="submit" class="th-btn text-capitalize th-btn-text font-weight-500" style="width: 185px;">
+                    Cancel request
+                  </button>
+                  <input type="hidden" name="pinboard_uuid" data-v-bookingphonecall-pinboard-uuid>
+                  <input type="hidden" name="nonce" data-v-bookingphonecall-nonce>
+                </form>
+              </div>
+            </div>
+            <p class="th-section-subtitle submission-confirmation-subtitle mb-0" data-v-bookingphonecall-subtitle> Your
+              request has been received. Our consultant will be in touch shortly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="th-contact-members">
+      <div class="container th-container">
+        <div class="row project-details-wrapper">
+          <div class="col-md-6">
+            <div class="th-virtual-meeting-image">
+              <img src="/media/catalogue/catalogue-confirmation/confirm1.png" alt="Executive Office">
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="project-summary">
+              <p class="summary-eyebrow mb-2">Project Summary</p>
+              <h2 class="mb-3" data-v-bookingphonecall-pinboard-name>Executive Office</h2>
+
+              <div class="summary-meta d-flex align-items-start justify-content-between py-3">
+                <div>
+                  <p class="summary-meta-label mb-1">Submitted</p>
+                  <p class="summary-meta-value mb-0 font-size-16" data-v-bookingphonecall-pinboard-created-at>
+                    7 May 2026 
+                    <span data-v-submissionconfirmation-pinboard-created-at-time> 10:42 AM</span>
+                  </p>
+                </div>
+                <div class="text-md-end">
+                  <p class="summary-meta-label mb-1">Items</p>
+                  <p class="summary-meta-value mb-0">
+                    <span data-v-bookingphonecall-pinboard-item-count>3</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="summary-list" data-v-bookingphonecall-pinboard-items>
+                <!-- item 1 -->
+                <div class="summary-item d-flex align-items-center py-3" data-v-bookingphonecall-pinboard-item>
+                  <div class="summary-thumb flex-shrink-0">
+                    <a href="" data-v-item-link-url>
+                      <img src="/media/products/product-image/product-image-1.png" alt="Acoustic Pod - Quad"
+                      data-v-bookingphonecall-pinboard-item-image>
+                    </a>
+                    
+                  </div>
+                  <div>
+                    <a data-v-item-link-url class="summary-title mb-1" data-v-bookingphonecall-pinboard-item-name>Acoustic Pod - Quad
+                    </a>
+                    <p class="summary-subtitle mb-0 text-capitalize" data-v-bookingphonecall-pinboard-item-description>Storm Grey
+                      - 4-seater</p>
+                  </div>
+                </div>
+                <!-- end item 1 -->
+              </div>
+
+              <div class="summary-view-more text-center pt-3 d-none" data-v-bookingphonecall-view-more-wrapper>
+                <button type="button" class="th-btn th-btn-text font-weight-500"
+                  data-v-bookingphonecall-view-more-btn>
+                  View more (<span data-v-bookingphonecall-view-more-count>0</span>)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var VISIBLE_LIMIT = 5;
+
+      function initPinboardViewMore() {
+        var container = document.querySelector('[data-v-bookingphonecall-pinboard-items]');
+        var wrapper = document.querySelector('[data-v-bookingphonecall-view-more-wrapper]');
+        var btn = document.querySelector('[data-v-bookingphonecall-view-more-btn]');
+        var countEl = document.querySelector('[data-v-bookingphonecall-view-more-count]');
+        if (!container || !wrapper || !btn) return;
+
+        var items = container.querySelectorAll('[data-v-bookingphonecall-pinboard-item]');
+        var total = items.length;
+
+        if (total <= VISIBLE_LIMIT) {
+          wrapper.classList.add('d-none');
+          return;
+        }
+
+        for (var i = VISIBLE_LIMIT; i < total; i++) {
+          items[i].classList.add('d-none');
+          items[i].classList.add('pinboard-item-hidden');
+        }
+        if (countEl) countEl.textContent = String(total - VISIBLE_LIMIT);
+        wrapper.classList.remove('d-none');
+
+        btn.addEventListener('click', function () {
+          var hidden = container.querySelectorAll('[data-v-bookingphonecall-pinboard-item].pinboard-item-hidden');
+          hidden.forEach(function (el) {
+            el.classList.remove('d-none');
+            el.classList.remove('pinboard-item-hidden');
+          });
+          wrapper.classList.add('d-none');
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPinboardViewMore);
+      } else {
+        initPinboardViewMore();
+      }
+    })();
+  </script>
+
+  @@include('../_includes/sections/footer.html')
+  @@include('../_includes/sections/pinboard.html')
+  @@include('../_includes/components/footer-scripts-account.html')
+
+</body>
+
+</html>

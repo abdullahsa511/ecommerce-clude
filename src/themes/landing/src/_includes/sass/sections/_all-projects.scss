@@ -1,0 +1,83 @@
+.th-projects-list {
+  row-gap: 50px;
+}
+
+.th-line-height {
+  line-height: 20px;
+}
+
+#th-project-app {
+  .th-card-footer {
+    .th-label {
+      font-size: 16px;
+      min-height: 28px;
+    }
+    p{
+      // font-size: 18px;
+    }
+  }
+}
+
+
+$gap-sizes: (
+  5,
+  7,
+  10,
+  13,
+  15,
+  17,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  75,
+  100
+);
+
+@each $gap in $gap-sizes {
+  .gap-#{$gap} {
+    display: flex;
+    flex-direction: column;
+    gap: #{$gap}px;
+  }
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+
+  .list-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; // keep consistent height for all images
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f6f6; // fallback background for small images
+
+    .img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; // prevents stretching
+      }
+    }
+  }
+
+  .th-card-footer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

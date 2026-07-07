@@ -1,0 +1,119 @@
+<style>
+
+.inline-gallery-container {
+  width: 700px;
+  height: 500px;
+  position: relative;
+}
+
+
+
+
+.lightGallery-captions {
+    h4 {
+        transform: translate3d(60px, 0, 0px);
+    }
+    p {
+        transform: translate3d(-60px, 0, 0px);
+    }
+    h4,
+    p {
+        opacity: 0;
+    }
+}
+
+.lg-current {
+    .lightGallery-captions {
+        h4,
+        p {
+            transform: translate3d(0, 0, 0px);
+        }
+        h4,
+        p {
+            opacity: 1;
+        }
+    }
+}
+.lg-slide-progress {
+    .lightGallery-captions {
+        h4 {
+            transform: translate3d(-60px, 0, 0px);
+        }
+        p {
+            transform: translate3d(60px, 0, 0px);
+        }
+        h4,
+        p {
+            opacity: 0;
+        }
+    }
+}
+
+.lightGallery-captions {
+    h4,
+    p {
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in;
+    }
+}
+.lg-current {
+    .lightGallery-captions {
+        h4,
+        p {
+            transition-delay: 500ms;
+        }
+    }
+    &.lg-slide-progress {
+        .lightGallery-captions {
+            h4,
+            p {
+                transition-delay: 0ms;
+            }
+        }
+    }
+}
+</style>
+<div id="inline-gallery-container" class="inline-gallery-container"></div>
+
+<script>
+    const lgContainer = document.getElementById("inline-gallery-container");
+    const inlineGallery = lightGallery(lgContainer, {
+    container: lgContainer,
+    dynamic: !0,
+    thumbnail: !0,
+    swipeToClose: !1,
+    addClass: 'lg-inline',
+    mode: 'lg-scale-up',
+    slideShowAutoplay: !0,
+    hash: !1,
+    pager: !1,
+    closable: !1,
+    showMaximizeIcon: !0,
+    rotate: !0,
+    download: !0,
+    slideDelay: 400,
+    thumbnailsPosition: 'left',
+    plugins: [lgZoom, lgAutoplay, lgFullscreen, lgShare, lgThumbnail, lgRotate],
+    appendSubHtmlTo: '.lg-item',
+    dynamicEl: [
+        {
+            src: 'img/image-1.avif',
+            thumb: 'img/thumb1.avif',
+            subHtml: `<div class="lightGallery-captions">
+                <h4>Caption 1</h4>
+                <p>Description of the slide 1</p>
+            </div>`,
+        },
+        {
+            src: 'img/image-2.avif',
+            thumb: 'img/thumb2.avif',
+            subHtml: `<div class="lightGallery-captions">
+                <h4>Caption 2</h4>
+                <p>Description of the slide 2</p>
+            </div>`,
+        }
+    ],
+});
+
+// Since we are using dynamic mode, we need to programmatically open lightGallery
+inlineGallery.openGallery();
+</script>

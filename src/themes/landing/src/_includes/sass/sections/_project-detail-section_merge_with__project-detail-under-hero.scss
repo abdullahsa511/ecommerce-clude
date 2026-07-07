@@ -1,0 +1,34 @@
+#project-brief {
+    .th-section-title {
+        line-height: 80px;
+        margin-bottom: 26px;
+    }
+}
+#project-detail-under-hero{
+    .under-hero-list{
+        .under-hero-item {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            &:last-child{
+                justify-content: end;
+            }
+            &:first-child{
+                justify-content: start;
+            }
+        }
+        &.under-hero-count-1 {
+            .under-hero-item {
+                justify-content: start !important;
+            }
+        }
+        &.under-hero-count-2 {
+            .under-hero-item:first-child {
+                justify-content: start !important;
+            }
+            .under-hero-item:last-child {
+                justify-content: center !important;
+            }
+        }
+    }
+}

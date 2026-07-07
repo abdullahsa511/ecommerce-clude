@@ -1,0 +1,210 @@
+<section id="design-resources">
+    <div id="pagination" style="display: none;">
+        <div id="current-page"></div>
+        <div id="per-page"></div>
+        <div id="offset"></div>
+        <div id="context"></div>
+        <div id="category"></div>
+        <div id="model_id"></div>
+        <div id="model_name"></div>
+        <div id="total"></div>
+    </div>
+    <div class="container th-container">
+        <div class="section-header mb-80">
+            <div class=" w-100">
+                <div class="th-bredcrum">
+                    <div aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Resources</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="th-head-tab-navigation-container d-flex justify-content-center mb-50 p-15">
+                            <!-- Flex container for centering -->
+                            <ul class="nav nav-tabs d-flex justify-content-between th-center-tab" id="th-tab-navigation"
+                                role="tablist">
+                                <li class="nav-item " role="presentation">
+                                    <button class="nav-link th-tab-color" data-method="loadMoreDesignResourceImages"
+                                        data-tab-method="loadImages" data-component="resource-images-tab"
+                                        id="images-tab" data-bs-toggle="tab" data-bs-target="#images" type="button"
+                                        role="tab" data-route="/resources/images">
+                                        IMAGES
+                                    </button>
+                                </li>
+
+                                <li class="nav-item " role="presentation">
+                                    <button class="nav-link th-tab-color" data-method="loadMoreDesignResourceModels"
+                                        data-tab-method="loadModels" data-component="resource-models-tab"
+                                        data-route="/resources/models" id="models-tab" data-bs-toggle="tab"
+                                        data-bs-target="#models" type="button" role="tab">
+                                        2D / 3D MODELS
+                                    </button>
+                                </li>
+
+                                <li class="nav-item " role="presentation">
+                                    <button class="nav-link th-tab-color" data-method="loadMoreDesignResourceDocuments"
+                                        data-tab-method="loadDocuments" data-component="resource-documents-tab"
+                                        data-route="/resources/documents" id="documents-tab"
+                                        data-bs-toggle="tab" data-bs-target="#documents" type="button" role="tab">
+                                        DOCUMENTS AND GUIDES
+                                    </button>
+                                </li>
+
+                                <li class="nav-item " role="presentation">
+                                    <button class="nav-link th-tab-color" data-method="loadMoreDesignResourceFinishes"
+                                        data-tab-method="loadFinishes" data-component="resource-finishes-tab"
+                                        data-route="/resources/finishes" id="finishes-tab" data-bs-toggle="tab"
+                                        data-bs-target="#finishes" type="button" role="tab">
+                                        FINISHES
+                                    </button>
+                                </li>
+                                <li class="nav-item " role="presentation">
+                                    <button class="nav-link th-tab-color" data-method="loadMoreDesignResourceTextiles"
+                                        data-tab-method="loadTextiles" data-component="resource-textiles-tab"
+                                        data-route="/resources/textiles" id="textiles-tab" data-bs-toggle="tab"
+                                        data-bs-target="#textiles" type="button" role="tab">
+                                        TEXTILES
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="row" id="vue-resource-app">
+                            <!-- <ResourceImagePage /> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .design-item {
+        .th-res-img-wraper img{
+            max-height: 213px!important;
+            object-fit: contain!important;
+        }
+    }
+</style>
+
+
+
+<!-- <style>
+    /* ============================================================
+    DESIGN RESOURCE TABS - MOBILE
+    ============================================================ */
+    @media (max-width:768px){
+        #design-resources{
+        .section-header{
+                margin-bottom: 25px!important;
+            }
+        }
+
+        /* Container */
+        .th-head-tab-navigation-container{
+            padding:0 !important;
+            margin-bottom:20px !important;
+            justify-content:flex-start !important;
+        }
+
+        /* Horizontal scroll */
+        .th-head-tab-navigation-container .nav-tabs{
+            display:flex !important;
+            flex-direction: row;
+            flex-wrap:nowrap !important;
+            justify-content:flex-start !important;
+            overflow-x:auto !important;
+            overflow-y:hidden !important;
+            gap:8px !important;
+            padding:12px !important;
+            border-bottom:none !important;
+            width:100% !important;
+
+            -webkit-overflow-scrolling:touch;
+            scrollbar-width:thin;
+            scrollbar-color:#cfccc9 transparent;
+        }
+
+        .th-head-tab-navigation-container .nav-tabs::-webkit-scrollbar{
+            height:4px;
+        }
+
+        .th-head-tab-navigation-container .nav-tabs::-webkit-scrollbar-track{
+            background:transparent;
+        }
+
+        .th-head-tab-navigation-container .nav-tabs::-webkit-scrollbar-thumb{
+            background:#cfccc9;
+            border-radius:2px;
+        }
+
+        /* Prevent shrinking */
+        .th-head-tab-navigation-container .nav-item{
+            flex:0 0 auto !important;
+        }
+
+        /* Tab button */
+        .th-head-tab-navigation-container .nav-link{
+            white-space:nowrap !important;
+            padding:10px 16px !important;
+
+            background:#fff !important;
+            border:1px solid #e8e8e8 !important;
+            border-radius:2px !important;
+
+            color:#33322f !important;
+            font-size:13px !important;
+            font-weight:500 !important;
+            line-height:1 !important;
+
+            transition:.2s ease;
+        }
+
+        .th-head-tab-navigation-container .nav-link:hover{
+            background:#f7f7f7 !important;
+        }
+
+        /* Active tab */
+        .th-head-tab-navigation-container .nav-link.active,
+        .th-head-tab-navigation-container .nav-link.show{
+            background:#231f20 !important;
+            color:#fff !important;
+            border-color:#231f20 !important;
+        }
+
+        /* Remove Bootstrap border */
+        .th-head-tab-navigation-container .nav-tabs .nav-link{
+            margin-bottom:0 !important;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        if (window.matchMedia("(max-width:768px)").matches) {
+
+            document.querySelectorAll("#th-tab-navigation .nav-link").forEach(function (tab) {
+
+                tab.addEventListener("shown.bs.tab", function () {
+                    this.scrollIntoView({
+                        behavior: "smooth",
+                        inline: "center",
+                        block: "nearest"
+                    });
+                });
+
+            });
+        }
+    })();
+</script> -->

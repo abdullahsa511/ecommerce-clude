@@ -1,0 +1,161 @@
+<section id="account-db-active-quotes">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+        <div id="account-navigation" class="col-12 col-md-3 border-right-gray th-remove-border pt-30"
+          data-v-component-accountnavigation>
+          <div class="row th-sidebard">
+            <div class="col-12">
+              <div class="profile-info">
+                <div class="profile-pic">
+                  <img data-v-account-profile-avatar class="rounded-circle" alt="avatar1"
+                    src="/img/account-dashboard/profile-pic.png" />
+                </div>
+                <div class="profile-text">
+                  <h6 data-v-account-profile-name>Cameron Williamson</h6>
+                  <p data-v-account-profile-desc>Lorem Ipsum</p>
+                </div>
+                <div class="sidebar-list">
+                  <div class="sidebar">
+                    <ul data-v-account-sidebar-nav class="sidebar-nav flex-column">
+                      <li class="sidebar-nav-item">
+                        <a data-v-account-sidebar-link href="#" class="nav-link active">
+                          <i class="fas fa-shopping-cart"></i> <span>Recent Orders</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-file"></i> Active Quotes
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-user"></i>Scheduled Services
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-heart"></i>Virtual Pinboard
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-gear"></i> Service Requests
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-truck"></i> Track your Order
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-12 d-flex justify-content-center">
+                    <div data-v-account-sidebar-actions class="th-card-btn d-flex flex-column align-items-cente">
+                      <div class="position-relative pb-3">
+                        <a data-v-account-sidebar-action-link href="contact.html" class="text-capitalize">
+                          <span class="mr-5">Visit Our Showroom</span>
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </a>
+                      </div>
+                      <div class="position-relative pb-3">
+                        <a href="contact.html" class="text-capitalize">
+                          <span class="mr-5">Contact Sales</span>
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div> -->
+          </div>
+        </div>
+        <div class="col-12 col-md-9 th-dashboard-main">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="th-dashboard-header th-pinboard-header">Project List</h2>
+            </div>
+            <div class="col-md-12">
+              <div class="th-dash-pinboard-devider border-bottom-gray"></div>
+            </div>
+          </div>
+
+
+          <!--================= Section pinboard List ==========================-->
+          <div id="account-pinboard-list" class="th-section" data-v-component-accountpinboardlist>
+
+            
+            <div class="section-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="th-dash-pinboard-devider border-bottom-gray"></div>
+                </div>
+
+                <div class="col-12 th-table-content">
+                  <div class="th-table th-table-col-7" data-v-pinboard-table>
+                    <!-- HEADER -->
+                    <div class="th-header-wrapper">
+                      <div class="th-row-wrapper">
+                        <div class="th-cell" data-v-pinboard-header="name">Project</div>
+                        <div class="th-cell" data-v-pinboard-header="customer">Name</div>
+                        <div class="th-cell" data-v-pinboard-header="email">Email</div>
+                        <div class="th-cell text-end" data-v-pinboard-header="items">Quantity</div>
+                        <div class="th-cell text-end" data-v-pinboard-header="total">Total</div>
+
+                        <!-- STATUS COLUMN -->
+                        <div class="th-cell text-center" data-v-pinboard-header="status">Status</div>
+
+                        <div class="th-cell text-center" data-v-pinboard-header="actions">Actions</div>
+                      </div>
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="th-body-wrapper" data-v-pinboard-rows>
+                      <div class="th-row-wrapper" data-v-pinboard-row>
+                        <div class="th-cell font-wight-700" data-v-pinboard-name>
+                          Workspace Refresh
+                        </div>
+                        <div class="th-cell" data-v-pinboard-customer-name>
+                          Cameron Williamson
+                        </div>
+                        <div class="th-cell" data-v-pinboard-customer-email>
+                          cameron.williamson@example.com
+                        </div>
+                        <div class="th-cell text-end" data-v-pinboard-item-count>
+                          8
+                        </div>
+                        <div class="th-cell text-end font-weight-600" data-v-pinboard-total>
+                          $12,480.00
+                        </div>
+
+                        <!-- STATUS VALUE -->
+                        <div class="th-cell text-center">
+                          <nobr data-v-pinboard-status class="d-inline-block"> 
+                              
+                          </nobr>
+                        </div>
+
+                        <div class="th-cell text-center" data-v-pinboard-link>
+                          <a href="/account/pinboards/1" class="th-btn-primary text-capitalize th-pinboard-action-btn"
+                            data-v-pinboard-view>
+                            View
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END BODY -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <!--================= End Section pinboard List ==========================-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,224 @@
+<!--==============================Header Area==============================-->
+<div class="th-header header-layout menu-white" data-v-component-header role="header">
+  <div class="th-topbar d-flex justify-content-center flex-column">
+    <div class="position-relative container th-container p-0 th-container-md">
+      <div class="d-flex align-items-center justify-content-center">
+        <a href="/catalogue#th-request-catalogue" class="font-white th-topbar-text" data-v-header-topbar_message>{{ header.topbar_message|default('') }}</a>
+      </div>
+      <div class="contact-sales d-flex align-items-center justify-content-center">
+        <i class="fal fa-envelope font-white" style="font-size: 18px;"></i>
+        <a href="{{ header.topbar_link|default('/catalogue') }}" data-v-header-topbar-link target="_blank" class="font-white th-topbar-link" data-v-header-topbar-link-text>{{ header.topbar_link_text|default('') }}</a>
+      </div>
+    </div>
+  </div>
+  <!--============================== Mobile Menu ============================== -->
+  <div class="th-menu-wrapper mobile-menu" role="navigation">
+    <div class="th-menu-area text-center">
+      <button class="th-menu-toggle">
+        <i class="fal fa-times"></i>
+      </button>
+      <div class="mobile-logo">
+        <a class="icon-masking" href="/">
+          <img src="/img/logo-white.png" alt="KROST">
+        </a>
+      </div>
+
+      <div class="th-mobile-menu">
+        <ul class="mobile-menu-list" data-v-header-mobile-menu-list>
+          {% for menu in header.mobile_menu|default([]) %}
+          <li class="{{ menu.class|default('') }} mobile-menu-item" data-v-header-mobile-menu-item>
+            <a href="{{ menu.href|default('') }}" data-v-header-mobile-menu-item-href>
+              <span data-v-header-mobile-menu-item-title>{{ menu.title|default('') }}</span>
+            </a>
+            {% if menu.has_children|default(false) %}
+            <ul class="sub-menu" data-v-header-mobilemenu-children>
+              {% for child in menu.children|default([]) %}
+              <li>
+                <a href="{{ child.href|default('') }}" data-v-header-mobilemenu-childitem>{{ child.title|default('') }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky-wrapper desktop-menu" role="navigation">
+    <div class="menu-area">
+      <div class="container th-container p-0 th-container-md">
+        <div class="row align-items-center justify-content-between ps-50 pe-50">
+          <div class="d-flex flex-6-md col-4 align-items-center justify-content-start th-nav-section-px">
+            <div class="main-menu d-none d-lg-inline-block">
+              <ul class="desktop-menu-list" data-v-header-desktop-menu-list>
+                {% for menu in header.desktop_menu|default([]) %}
+                <li class="{{ menu.class|default('desktop-menu-item') }}" data-v-header-desktop-menu-item>
+                  <a href="{{ menu.href|default('#') }}" class="th-nav-link th-nav-link-py">
+                    <span data-v-header-desktop-menu-item-title>{{ menu.title|default('') }}</span>
+                  </a>
+                  {% if menu.mega_menu|default(false) %}
+                  <ul class="mega-menu py-5" data-v-header-mega-menu>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-9" data-v-header-mega-menu-rows style="flex: 5">
+                          {% for key, row in menu.rows|default([]) %}
+                          <div class="row mega-menu-row category-list{% if key > 0 %} mt-50{% endif %}" data-v-header-mega-menu-row>
+                            {% for item in row %}
+                            <div class="col mega-menu-item category-item" data-v-header-mega-menu-item{% if item.style|default('') %} style="{{ item.style }}"{% endif %}>
+                              <a href="{{ item.href|default('') }}" class="category-link mega-menu-item-link" data-v-header-mega-submenu-item-link>
+                                <h5 class="hover" data-v-header-mega-menu-item-title>{{ item.title|default('') }}</h5>
+                              </a>
+                              <nobr>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  {% for link in item.links|default([]) %}
+                                  <a href="{{ link.href|default('') }}" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span class="hover" data-v-header-categorylink-title>{{ link.label_name|default('') }}</span>
+                                  </a>
+                                  {% endfor %}
+                                </span>
+                              </nobr>
+                            </div>
+                            {% endfor %}
+                          </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <a class="font-weight-700 hover" href="/categories">View All Categories</a>
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                  {% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <button type="button" class="th-menu-toggle d-block d-lg-none">
+              <i class="far fa-bars"></i>
+            </button>
+          </div>
+          <div class="d-flex flex-2-md col-4 align-items-center justify-content-center">
+            <div class="header-logo">
+              <a class="icon-masking" href="/">
+                <img src="/img/logo_black.png" alt="KROST">
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-6-md col-4 align-items-center justify-content-end th-nav-section-px">
+            <div class=" d-none d-lg-inline-block">
+              <a class="desktop-menu-link th-nav-link" href="/account/resources">
+                <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Resources</span>
+              </a>
+              <a class="desktop-menu-link th-nav-link" href="/contact-us">
+                <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Contact Us</span>
+              </a>
+            </div>
+            <div class="header-button  d-none d-lg-inline-block">
+              <a href="https://store.krost.com.au" class="h-btn d-flex align-items-center justify-content-center th-nav-link">
+                <span>Shop Now</span>
+              </a>
+            </div>
+
+            <div class="d-flex align-items-end gap-3 gap-3-ml" style="margin-bottom: 1px;">
+              <div class="th-header-search" id="th-header-global-search">
+                <a class="d-flex th-nav-link" href="" title="Search" role="button" data-bs-toggle="offcanvas" data-bs-target="#search_offcanvasRight" aria-controls="search_offcanvasRight">
+                  <i class="fa-regular fa-magnifying-glass" style="font-size: 26px;"></i>
+                </a>
+              </div>
+
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="search_offcanvasRight" aria-labelledby="search_offcanvasRightLabelLabel">
+                <div class="offcanvas-body" id="searchbar-app">
+                </div>
+
+                <div class="offcanvas-wrapper mobile-searchbar">
+                  <div class="offcanvas-header header-upper d-flex align-items-center justify-content-between">
+                    <h3 id="search_offcanvasRightLabelLabel">Search</h3>
+                    <i class="fa-solid fa-xmark" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                  </div>
+                  <div class="offcanvas-body">
+                    <div class="th-search-result-container">
+                      <div class="autocomplete">
+                        <div class="autocomplete-input-wrapper">
+                          <input type="text" class="form-control th-choices-select" id="search-product-name" placeholder="Search..." autocomplete="off" />
+                          <span class="icon search">
+                            <i class="fa-solid fa-search"></i>
+                          </span>
+                          <span class="icon clear" id="clearBtn">✕</span>
+                        </div>
+                        <ul class="autocomplete-list" id="autocompleteList"></ul>
+                      </div>
+
+                      <div class="th-search-result-content">
+                        <div class="th-search-result-count">
+                          <span>23</span> Products Found
+                        </div>
+
+                        <div class="d-flex gap-4">
+                          <div class="th-search-result-item">
+                            <div class="th-search-result-item-image">
+                              <img src="/img/category-seating/Archi.png" alt="Product Image">
+                              <h5>
+                                Configure Product
+                                <i class="fa-regular fa-arrow-right"></i>
+                              </h5>
+                            </div>
+                            <div class="th-item-details">
+                              <h3 class="th-item-title">Archi - <span class="th-item-subTitle">Next Level Flexibility</span>
+                              </h3>
+                              <p>Product</p>
+                            </div>
+                          </div>
+
+                          <div class="th-search-result-item">
+                            <div class="th-search-result-item-image">
+                              <img src="/media/Products/banner/krost-furniture-collection.png" alt="Product Image">
+                              <h5 class="text-white">
+                                Explore Project
+                                <i class="fa-regular fa-arrow-right"></i>
+                              </h5>
+                            </div>
+                            <div class="th-item-details">
+                              <h3 class="th-item-title">Krost Furniture Collection</h3>
+                              <p>Project</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="" id="pinboard-button th-nav-link" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-right: 1px; width: 26px;">
+                <span class="" style="position: relative;">
+                  <img src="/img/pinboard-icon.png" alt="Pinboard" style="width: 26px; height: 27px;">
+                  <span class="th-pinboard-count-badge" style="display: none;">
+                    <i id="pinboard-item-count"></i>
+                  </span>
+                </span>
+              </a>
+
+              <div class="dropdown th-user-dropdown" id="user-profile-info">
+                <a href="#" class="d-flex align-items-center dropdown-toggle th-nav-link" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" title="Account menu">
+                  <i class="fa-solid fa-user" style="font-size: 26px;"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" data-v-header-navigation-menus>
+                  {% for menu in header.account_menu|default([]) %}
+                  <li data-v-header-navigation-menu-item>
+                    <a class="dropdown-item" href="{{ menu.href|default('') }}" id="{{ menu.id|default('') }}">{{ menu.title|default('') }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" id="is-logged-in">window.__AUTH_PRESENT__ = {{ is_logged_in ? 'true' : 'false' }};</script>

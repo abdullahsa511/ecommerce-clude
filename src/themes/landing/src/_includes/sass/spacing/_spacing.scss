@@ -1,0 +1,591 @@
+// Padding
+@import 'padding';
+
+// Margin 
+@import 'margin';
+
+// Position
+@import "position";
+
+// Section Space
+@import 'section-space';
+
+// Topbar
+.th-topbar-text-p {
+    padding: 5px;
+}
+
+.th-nav-link-py {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.th-nav-section-px {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.th-nav-link-right-pr {
+    padding-right: 20px;
+}
+
+// Hero Section
+.th-hero-title-mb {
+    margin-bottom: 25px;
+}
+
+// .th-hero-subtitle-my {
+//     margin-top: 30px;
+//     margin-bottom: 25px;
+// }
+
+// Buttons
+.th-btn-text-mr {
+    margin-right: 5px;
+}
+
+// Sections
+.th-section-categories-py {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+// .th-section-title-mb {
+//     margin-bottom: 15px;
+// }
+
+// .th-section-subtitle-mb {
+//     margin-bottom: 13px;
+// }
+
+.th-section-link-mr {
+    margin-right: 12px;
+}
+
+.th-nav-item-pt-5 {
+    padding-top: 5px;
+}
+
+// Links
+.th-link-pr {
+    padding-right: 5px;
+}
+
+.th-link-sm-pt {
+    padding-top: 5px;
+}
+
+// Items
+// .th-title-mb-15 {
+//     margin-bottom:15px;
+// }
+
+.th-item-subtitle-my {
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+// Descriptions
+.th-description-my {
+    margin-top: 9px;
+    margin-bottom: 13px;
+}
+
+// Blog
+.th-blog-title{
+    margin-top: 20px;
+    margin-bottom: 12px;
+    min-height: 65px;
+    @include respond-to(md){
+        min-height: inherit;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}
+.th-blog-title-py {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+// Projects
+.th-link-pr-5 {
+    padding-right: 5px;
+}
+
+.th-pt-30 {
+    padding-top: 30px;
+}
+
+.th-pb-10 {
+    padding-bottom: 10px;
+}
+
+.th-pl-20 {
+    padding-left: 20px;
+}
+
+.th-mr-5 {
+    margin-right: 5px;
+}
+
+// Footer
+.th-footer-title-mb {
+    margin-bottom: 15px;
+}
+
+.th-footer-heading-mb {
+    margin-bottom: 15px;
+}
+
+.th-mb-20 {
+    margin-bottom: 20px;
+}
+
+.th-mb-30 {
+    margin-bottom: 30px;
+}
+
+// Hero Category
+.th-hero-category-mb {
+    margin-bottom: 15px;
+}
+
+.th-hero-subcategory-py {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+// Tags
+.th-tag-px-8 {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.th-tag-py-4 {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+// Story
+// .th-story-title {
+//     font-size: 56px;
+//     font-weight: 600;
+// }
+
+.th-story-subtitle-pr {
+    padding-top: 15px;
+}
+
+// Tabs
+.th-tab-title-px-16 {
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.th-tab-title-py-24 {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+// Under Hero
+.th-under-hero-title-mb {
+    margin-bottom: 15px;
+}
+
+// Hero Blog
+.th-hero-blog-title-mb {
+    margin-bottom: 15px;
+}
+
+// Value Subtitle
+.th-value-subtitle-mr {
+    margin-bottom: 15px;
+}
+
+// Process Title
+.th-process-title-mr {
+    margin-bottom: 15px;
+}
+
+// Padding Bottom
+.th-pb-80 {
+    padding-bottom: 80px;
+}
+
+// padding right 5px
+.th-pr-5 {
+    padding-right: 5px;
+}
+
+.th-pr-10 {
+    padding-right: 10px;
+}
+
+.th-pr-40 {
+    padding-right: 40px;
+}
+
+// mb-15
+.th-title-mb-15 {
+    margin-bottom: 15px;
+}
+
+.th-section-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.th-section-title-mb {
+    margin-bottom: 15px;
+}
+
+.th-section-subtitle-mb {
+    margin-bottom: 13px;
+}
+
+.th-footer-section-py {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.th-hero-style-category-mt {
+    margin-top: 50px
+}
+
+.th-hero-subtitle-my {
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+.th-hero-categories-list-mt {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 130px;
+    padding-right: 25px;
+}
+
+.th-mr-7 {
+    margin-right: 7px;
+}
+
+.th-category-hero-pb {
+    padding-bottom: 0px;
+}
+
+.th-product-image-mb {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.th-hero-style-mt {
+    margin-top: 50px;
+}
+
+.th-hero-style-mt-200 {
+    margin-top: 200px;
+}
+
+.th-projects-list-mb {
+    margin-bottom: 86px;
+}
+
+.th-projects-list-pt {
+    padding-top: 100px;
+}
+
+.th-title-pt-8 {
+    padding-top: 8px;
+}
+
+.th-title-mb-25 {
+    margin-bottom: 25px;
+}
+
+.th-project-under-hero-py {
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.th-under-hero-item-px {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.th-project-brief-section-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.th-pt-40 {
+    padding-top: 40px;
+}
+
+.th-main-des-three-mx {
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.th-main-des-three-px {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.th-pt-25 {
+    padding-top: 25px;
+}
+
+.th-title-mb-20 {
+    margin-bottom: 20px;
+}
+
+.th-mb-80 {
+    margin-bottom: 80px;
+}
+
+.th-mt-16 {
+    margin-top: 16px;
+}
+
+.th-mt-30 {
+    margin-top: 30px;
+}
+
+// .th-mb-15{
+//     margin-bottom:15px;
+// }
+
+.th-mt-115 {
+    margin-top: 115px;
+}
+
+.th-blog-detail-section-my {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.th-blog-main-content-px {
+    padding-right: 50px;
+    padding-left: 12px;
+}
+
+.th-showroom-item-py {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.th-mt-100 {
+    margin-top: 100px;
+}
+
+.th-pb-16 {
+    padding-bottom: 16px;
+}
+
+.th-pt-16 {
+    padding-top: 16px;
+}
+
+.th-section-header-pb-50 {
+    padding-bottom: 50px;
+}
+
+.th-pt-15 {
+    padding-top: 15px;
+}
+
+.th-pt-10 {
+    padding-top: 10px;
+}
+
+.th-pt-80 {
+    padding-top: 80px;
+}
+
+.th-pt-100 {
+    padding-top: 100px;
+}
+
+.th-mt-20 {
+    margin-top: 20px;
+}
+
+.th-mt-15 {
+    margin-top: 15px;
+}
+
+.th-mt-50 {
+    margin-top: 50px;
+}
+
+.th-prouct-title-my {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.th-mb-5 {
+    margin-bottom: 5px;
+}
+
+.th-blog-whats-happening-section-py {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.th-mb-8 {
+    margin-bottom: 8px;
+}
+
+.th-pb-60 {
+    padding-bottom: 60px;
+}
+
+.th-tag-p {
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.th-category-li-py {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.th-mb-10 {
+    margin-bottom: 10px;
+}
+
+.th-mb-40 {
+    margin-bottom: 40px;
+}
+
+.th-product-image-px {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.th-pb-40 {
+    padding-bottom: 40px;
+}
+
+.th-pb-50 {
+    padding-bottom: 50px;
+}
+
+.th-pb-20 {
+    padding-bottom: 20px;
+}
+
+.th-showroom-title-my {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.th-need-to-help-des-my {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.th-next-step-title-pb-mb {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.th-product-tabs-section-p {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.th-tabs-title-p {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-right: 8px;
+}
+
+.th-mb-60 {
+    margin-bottom: 60px;
+}
+
+.th-mb-60 {
+    margin-bottom: 60px;
+}
+
+.th-established-section-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.th-established-info-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.th-display-my {
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.th-item-number-card-text-py{
+    padding-top: 46px;
+    padding-bottom: 46px;
+    padding-left: 29px;
+    padding-right: 29px;
+}
+
+.th-our-history-section-py {
+    padding-bottom: 60px;
+}
+
+.th-section-bottom-border-py-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.th-design-process-items-py{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+}
+
+.th-pb-30{
+    padding-bottom: 30px;
+}
+
+.th-pr-25{
+    padding-right: 25px;
+}
+.th-booking-calendar-wrapper-px{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.th-pt-20{
+    padding-top: 20px;
+}
+
+.th-section-header-py{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.th-mt-40{
+    margin-top: 40px;
+}
+
+.th-gallery-section-py{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.th-section-custom-py{
+    padding-top: 95px;
+    padding-bottom: 95px;
+}
+.th-top-right-15{
+    top:15px;
+    right:15px;
+}

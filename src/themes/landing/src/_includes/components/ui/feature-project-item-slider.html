@@ -1,0 +1,18 @@
+<div class="swiper-slide">
+  <div class="th-item-project">
+      <div class="th-img-container @@itemProjectClass">
+          <img src="@@image @@if(typeof image === 'undefined') {/img/bg/home/home_feature_project_1.jpg}" />
+      </div>
+      <div class="th-add-to-pinboard position-absolute top-right-30 ">
+          <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="th-item-footer">
+          <div class="th-label">@@label</div>
+          <h3 class="th-title">@@if(typeof title !== "undefined"){@@title}@@if(typeof title === "undefined") { Archi }</h3>
+          <div class="th-description">@@description</div>
+          @@include("./all-btn/icon-link-small.html",{
+            "linkText": "Read More",
+          })
+      </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<li class="@@active">
+    <a href="#">
+        <h6><span>@@name</span></h6>
+    </a>
+    @@if(typeof submenu !== 'undefined'){
+    <ul class="sub-menu">
+        @@loop("./sector-submenu-item.html", @@submenu)
+        <li>
+            @@include('./all-btn/icon-link-small.html', {
+                "linkText": "View All",
+                "linkIcon": "fa-regular fa-arrow-up degree-60"
+            })
+        </li>
+    </ul>
+    }
+</li> 

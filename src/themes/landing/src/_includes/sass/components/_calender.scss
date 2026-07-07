@@ -1,0 +1,147 @@
+.booking-calendar-wrapper {
+  width: 100%;
+  padding: 0 60px;
+
+  @include respond-to(mds) {
+    padding: 70px 0;
+  }
+}
+
+// Inline pinboard booking calendar only (`.th-booking-calendar`). Popover date pickers
+// (e.g. time modal) stay on default flatpickr.min.css like a standard dropdown.
+.th-booking-calendar {
+
+  .flatpickr-calendar.open,
+  .flatpickr-calendar.inline {
+    max-height: 100%;
+    width: 100%;
+    background: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .flatpickr-months {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 45px;
+
+    .flatpickr-prev-month.flatpickr-prev-month,
+    .flatpickr-prev-month,
+    .flatpickr-prev-month.flatpickr-next-month,
+    .flatpickr-next-month {
+      position: relative;
+      left: inherit;
+    }
+
+    .flatpickr-month {
+      -webkit-box-flex: inherit;
+      -webkit-flex: inherit;
+      -ms-flex: inherit;
+      flex: inherit;
+      align-items: center;
+
+      .flatpickr-current-month {
+        display: flex;
+        text-align: center;
+        width: 250px;
+        position: relative;
+      }
+    }
+  }
+
+  .flatpickr-rContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .flatpickr-days {
+    width: 100%;
+  }
+
+  .dayContainer {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .flatpickr-day {
+    margin: 0;
+    text-align: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-weight: bolder;
+    width: 100%;
+    max-width: inherit;
+    max-height: inherit;
+    border-radius: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+// booking time modal calendar date picker
+#booking-form-container {
+  .flatpickr-calendar.open:not(.inline) {
+    max-height: 640px !important;
+    width: 307.875px !important;
+    background: #fff !important;
+    -webkit-box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6,
+      0 3px 13px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6,
+      0 3px 13px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .flatpickr-rContainer {
+    display: block !important;
+    flex-direction: initial !important;
+    width: auto !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .flatpickr-months {
+    width: auto !important;
+    justify-content: space-between !important;
+    padding-bottom: 0 !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .flatpickr-months .flatpickr-month .flatpickr-current-month {
+    width: auto !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .flatpickr-days {
+    width: auto !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .dayContainer {
+    display: inline-block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+  }
+
+  .flatpickr-calendar.open:not(.inline) .flatpickr-day {
+    font-weight: 400 !important;
+    border-radius: 4px !important;
+    height: 39px !important;
+    line-height: 39px !important;
+    display: inline-block !important;
+    flex: none !important;
+    width: 14.2857143% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+
+
+
+
+
+
+

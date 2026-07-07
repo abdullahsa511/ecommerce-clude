@@ -1,0 +1,34 @@
+<div class="col-6 col-sm-6 col-md-4 col-lg-4">
+    <div class="th-item-product">
+        <div class="th-img-container">
+            <img src="@@if(typeof image !== 'undefined') {@@image} @@if(typeof image === 'undefined') {/img/category-seating/Archi.png}" />
+        </div>
+        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="th-item-footer">
+            <!-- <div class="label">Build</div> -->
+            <h3 class="th-title mt-25">@@name @@if(typeof name === "undefined") { Archi }</h3>
+            <p class="th-description mb-10">@@description</p>
+            <div class="th-tag-name">
+                @@if(typeof tags !== "undefined") {
+                  @@loop("./item-tag.html", @@tags)
+                }
+                @@if(typeof tags === "undefined") {
+                    <div class="th-tag">AFRDI Certified</div>
+                    <div class="th-tag">OBP Certified</div>
+                }
+            </div>
+            <div class="th-item-finish-circle">
+                @@if(typeof finishes !== "undefined") {
+                    @@loop("./item-finish-circle.html", @@finishes)
+                }
+                @@if(typeof finishes === "undefined" && typeof showFinishCircle !== "undefined") {
+                    <div class="th-circle black-premium">Black Premium Polyurethane</div>
+                    <div class="th-circle mocha-premium">Mocha Premium Polyurethane</div>
+                    <div class="th-circle cream-premium">Cream Premium Polyurethane</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,689 @@
+<section id="account-db-active-quotes">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+
+        @@include('../account-leftside-manubar.html')
+
+        <div class="col-12 col-md-8 col-lg-9 th-dashboard-main" id="account-profile-data-container"
+          data-v-component-accountprofile>
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="text-weight-600" data-v-accountprofile-heading-label>Profile</h2>
+              <p class="th-profile-intro">
+                Tell us a bit about yourself. We already have your email — everything else is optional,
+                and only used to personalise your account and orders.
+              </p>
+              <div id="errors-message"></div>
+            </div>
+          </div>
+
+          <!--================= Section profile List ==========================-->
+          <div>
+            <div id="account-profile-list" class="th-section th-profile-section">
+              <form action="/update-profile" method="post" class="th-profile-form" id="account-profile-form">
+                <input type="hidden" name="nonce" value="" data-v-nonce>
+                <input type="hidden" id="recaptcha-site-key" value="" data-v-recaptcha_site_key aria-hidden="true">
+                <input type="hidden" id="recaptcha-action" value="" data-v-recaptcha_action aria-hidden="true">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value=""
+                  data-v-recaptcha_response>
+                <input type="hidden" id="profile-state-input" value="" data-v-accountprofile-state-input>
+                <input type="hidden" id="profile-notify_orders" value="" data-v-accountprofile-notify_orders>
+                <input type="hidden" id="profile-notify_quotes" value="" data-v-accountprofile-notify_quotes>
+                <input type="hidden" id="profile-notify_product_news" value=""
+                  data-v-accountprofile-notify_product_news>
+
+                <div class="th-profile-card">
+                  <div class="th-profile-identity">
+                    <h3 class="th-profile-identity__title" id="profile-display-name-hit"
+                      data-v-accountprofile-display-name-hint>Add your name</h3>
+                    <p class="th-profile-identity__email">
+                      <span data-v-accountprofile-email>ryan@krost.com.au</span>
+                      <span class="th-profile-verified" data-v-accountprofile-verified-badge>
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                        Verified
+                      </span>
+                    </p>
+                  </div>
+
+                  <hr class="th-profile-divider" />
+
+                  <div class="th-profile-fields">
+                    <div class="th-profile-row th-profile-row--2">
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-first-name">First name </label>
+                        <input type="text" id="profile-first-name" name="first_name"
+                          class="form-control th-profile-input" autocomplete="given-name" placeholder="Enter first name"
+                          data-v-accountprofile-first-name />
+                      </div>
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-last-name">Last name </label>
+                        <input type="text" id="profile-last-name" name="last_name" class="form-control th-profile-input"
+                          placeholder="Enter last name" autocomplete="family-name" data-v-accountprofile-last-name />
+                      </div>
+                    </div>
+
+                    <div class="th-profile-row th-profile-row--2">
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-display-name">Display name </label>
+                        <input type="text" id="profile-display-name" name="display_name"
+                          class="form-control th-profile-input" placeholder="Enter display name"
+                          data-v-accountprofile-display-name />
+                      </div>
+                      <!-- <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-phone">Phone </label>
+
+
+
+                        <div class="crm-dial-code">
+                          <svg class="crm-flag" viewBox="0 0 1200 600" aria-hidden="true" focusable="false">
+                            <rect width="1200" height="600" fill="#00008b"></rect>
+                            <svg x="0" y="0" width="600" height="300" viewBox="0 0 600 300">
+                              <g>
+                                <rect width="600" height="300" fill="#012169"></rect>
+                                <path d="M0 0L600 300M600 0L0 300" stroke="#fff" stroke-width="60"></path>
+                                <path d="M0 0L600 300M600 0L0 300" stroke="#c8102e" stroke-width="32"></path>
+                                <path d="M300 0V300M0 150H600" stroke="#fff" stroke-width="100"></path>
+                                <path d="M300 0V300M0 150H600" stroke="#c8102e" stroke-width="60"></path>
+                              </g>
+                            </svg>
+                            <path fill="#fff"
+                              d="M300 360l18 55 58-1-47 34 19 55-48-34-47 34 18-55-47-34 58 1zM900 120l13 39 41-1-33 24 13 39-34-24-33 24 13-39-33-24 41 1zM800 260l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM990 250l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM900 430l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM1060 340l8 24 25-1-20 15 8 24-21-15-20 15 8-24-20-15 25 1z">
+                            </path>
+                          </svg>
+                          <span class="crm-country">AU</span>
+                          <span class="crm-dial-code-text">+61</span>
+                        </div>
+                        <input type="tel" id="profile-phone" name="phone" class="form-control th-profile-input"
+                          placeholder="Enter phone" placeholder="04xx xxx xxx" autocomplete="tel"
+                          data-v-accountprofile-phone />
+
+
+
+
+
+
+                      </div> -->
+
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-phone">Phone</label>
+
+                        <div class="th-phone-input">
+                          <div class="th-phone-prefix">
+                           <div class="th-phone-icon-content">
+                            <svg class="crm-flag" viewBox="0 0 1200 600" aria-hidden="true">
+                              <rect width="1200" height="600" fill="#00008b"></rect>
+                              <svg x="0" y="0" width="600" height="300" viewBox="0 0 600 300">
+                                <rect width="600" height="300" fill="#012169"></rect>
+                                <path d="M0 0L600 300M600 0L0 300" stroke="#fff" stroke-width="60"></path>
+                                <path d="M0 0L600 300M600 0L0 300" stroke="#c8102e" stroke-width="32"></path>
+                                <path d="M300 0V300M0 150H600" stroke="#fff" stroke-width="100"></path>
+                                <path d="M300 0V300M0 150H600" stroke="#c8102e" stroke-width="60"></path>
+                              </svg>
+                              <path fill="#fff"
+                                d="M300 360l18 55 58-1-47 34 19 55-48-34-47 34 18-55-47-34 58 1zM900 120l13 39 41-1-33 24 13 39-34-24-33 24 13-39-33-24 41 1zM800 260l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM990 250l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM900 430l10 31 33-1-27 19 11 31-27-19-26 19 10-31-27-19 33 1zM1060 340l8 24 25-1-20 15 8 24-21-15-20 15 8-24-20-15 25 1z">
+                              </path>
+                            </svg>
+                            <span>+61</span>
+                           </div>
+                          </div>
+
+                          <input type="tel" id="profile-phone" name="phone" class="form-control th-profile-input"
+                            autocomplete="tel" data-v-accountprofile-phone>
+                        </div>
+                      </div>
+
+
+
+
+
+                    </div>
+
+                    <div class="th-profile-field th-profile-field--full">
+                      <label class="th-profile-label" for="profile-email">Email</label>
+                      <input type="email" id="profile-email" name="email"
+                        class="form-control th-profile-input th-profile-input--readonly" value="ryan@krost.com.au"
+                        readonly disabled data-v-accountprofile-email-input />
+                      <p class="th-profile-help">
+                        This is the email you signed in with. Contact support to change it.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h4 class="th-profile-section-title">Business details</h4>
+                  <div class="th-profile-fields">
+                    <div class="th-profile-row th-profile-row--2">
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-company">Company </label>
+                        <input type="text" id="profile-company" name="company" class="form-control th-profile-input"
+                          placeholder="Enter company name" autocomplete="organization" data-v-accountprofile-company />
+                      </div>
+                      <div class="th-profile-field">
+                        <label class="th-profile-label" for="profile-designation">Designation </label>
+                        <input type="text" id="profile-designation" name="designation"
+                          class="form-control th-profile-input" placeholder="e.g. Project Manager"
+                          data-v-accountprofile-designation />
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4 class="th-profile-section-title">Default delivery address</h4>
+                  <div class="th-profile-fields">
+                    <!-- <div class="th-profile-field th-profile-field--full">
+                      <label class="th-profile-label" for="profile-street">Street address </label>
+                      <input type="text" id="profile-street" name="street_address" class="form-control th-profile-input"
+                        placeholder="Enter street address" autocomplete="street-address" data-v-accountprofile-street />
+                    </div> -->
+
+
+                    <!-- try -->
+                    <div class="form-group" id="mailing-address-group">
+                      <div class="d-flex justify-content-between">
+                        <label class="th-profile-label" for="profile-street">Street address </label>
+                        <div style="display:flex; justify-content:flex-end; margin-top:5px;">
+                          <a href="#" id="toggle-map"
+                            style="font-size:13px; text-decoration:underline; text-underline-offset:2px;">
+                            Turn off auto-complete
+                          </a>
+                        </div>
+                      </div>
+
+                      <div id="autocomplete-card">
+                        <input type="text" id="address-input" class="form-control" placeholder="Enter street address"
+                          autocomplete="off" data-v-accountprofile-street />
+                        <div id="address-suggestions" class="address-suggestions d-none" role="listbox"
+                          aria-label="Address suggestions"></div>
+
+                        <input id="address-value" type="hidden" name="street_address" />
+                      </div>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                      <div id="map" style="height:240px; width:100%;"></div>
+                    </div>
+                    <!-- /try -->
+
+                    <div class="th-profile-row th-profile-row--address">
+                      <div class="th-profile-field th-profile-field--suburb">
+                        <label class="th-profile-label" for="profile-suburb">Suburb </label>
+                        <input type="text" id="profile-suburb" name="suburb" class="form-control th-profile-input"
+                          placeholder="Enter suburb" data-v-accountprofile-suburb />
+                      </div>
+                      <div class="th-profile-field th-profile-field--state">
+                        <label class="th-profile-label" for="profile-state">State</label>
+                        <select id="profile-state" name="state" class="form-select th-profile-input"
+                          data-v-accountprofile-state>
+                          <option value="">-</option>
+                          <option value="NSW">NSW</option>
+                          <option value="VIC">VIC</option>
+                          <option value="QLD">QLD</option>
+                          <option value="WA">WA</option>
+                          <option value="SA">SA</option>
+                          <option value="TAS">TAS</option>
+                          <option value="ACT">ACT</option>
+                          <option value="NT">NT</option>
+                        </select>
+                      </div>
+                      <div class="th-profile-field th-profile-field--postcode">
+                        <label class="th-profile-label" for="profile-postcode">Postcode</label>
+                        <input type="number" id="profile-postcode" name="postcode" class="form-control th-profile-input"
+                          placeholder="Enter postcode" inputmode="numeric" autocomplete="postal-code"
+                          data-v-accountprofile-postcode />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <h4 class="th-profile-section-title th-profile-section-title--notifications">Notifications</h4>
+                  <hr class="th-profile-divider th-profile-divider--compact" /> -->
+
+                  <!-- <ul class="th-profile-notifications" role="list">
+                    <li class="th-profile-notification">
+                      <div class="th-profile-notification__content">
+                        <p class="th-profile-notification__title">Order updates</p>
+                        <p class="th-profile-notification__desc">Status changes, dispatch and delivery notifications.
+                        </p>
+                      </div>
+                      <label class="th-profile-switch" for="profile-notify-orders">
+                        <input type="checkbox" id="profile-notify-orders" name="notify_orders" checked
+                          data-v-accountprofile-notify-orders />
+                        <span class="th-profile-switch__track" aria-hidden="true"></span>
+                        <span class="visually-hidden">Order updates notifications</span>
+                      </label>
+                    </li>
+                    <li class="th-profile-notification">
+                      <div class="th-profile-notification__content">
+                        <p class="th-profile-notification__title">Quote alerts</p>
+                        <p class="th-profile-notification__desc">Get notified when a quote expires or is ready for
+                          review.</p>
+                      </div>
+                      <label class="th-profile-switch" for="profile-notify-quotes">
+                        <input type="checkbox" id="profile-notify-quotes" name="notify_quotes" checked
+                          data-v-accountprofile-notify-quotes />
+                        <span class="th-profile-switch__track" aria-hidden="true"></span>
+                        <span class="visually-hidden">Quote alerts notifications</span>
+                      </label>
+                    </li>
+                    <li class="th-profile-notification">
+                      <div class="th-profile-notification__content">
+                        <p class="th-profile-notification__title">Product news</p>
+                        <p class="th-profile-notification__desc">New products, restocks, and occasional offers. No spam.
+                        </p>
+                      </div>
+                      <label class="th-profile-switch" for="profile-notify-product-news">
+                        <input type="checkbox" id="profile-notify-product-news" name="notify_product_news"
+                          data-v-accountprofile-notify-product-news />
+                        <span class="th-profile-switch__track" aria-hidden="true"></span>
+                        <span class="visually-hidden">Product news notifications</span>
+                      </label>
+                    </li>
+                  </ul> -->
+
+                  <hr class="th-profile-divider th-profile-divider--compact" />
+
+                  <div class="th-profile-actions">
+                    <button type="button" class="th-profile-btn th-profile-btn--cancel" data-v-accountprofile-cancel>
+                      Cancel
+                    </button>
+                    <!-- <button type="button" class="th-profile-btn th-profile-btn--save" data-v-accountprofile-save>
+                      Save changes
+                    </button> -->
+
+
+                    <div class="">
+                      <!-- <p id="recaptcha-feedback" class="text-danger small mb-2" role="alert" style="display: none;"></p> -->
+                      <button type="submit" class="th-profile-btn th-profile-btn--save" data-v-accountprofile-save>
+                        <span data-submit-label>Save changes</span>
+                        <span class="request-submit-spinner d-none" data-submit-spinner aria-hidden="true"></span>
+                      </button>
+                      <!-- <p class="recaptcha-disclaimer small text-muted mt-2 mb-0">
+                        This site is protected by reCAPTCHA and the Google
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                        and
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                        apply.
+                      </p> -->
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--================= End Section profile List ==========================-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq0nzu7khUsDR9cNr5nDaff0kwa29h5Nc&callback=initMap&libraries=places,marker&v=weekly&loading=async"
+  async></script>
+<style>
+  #profile-phone {
+    padding: 0px 0px 0px 95px!important;
+  }
+
+  .th-phone-input {
+    position: relative;
+  }
+  /* .th-phone-prefix {
+    position: absolute;
+  } */
+  .th-phone-icon-content{
+     position: absolute;
+    left: 14px;
+    top:0;
+    transform: translateY(43%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    color: #555;
+    font-weight: 500;
+    pointer-events: none;
+  }
+  .th-phone-icon-content::after {
+    content: "";
+    width: 1px;
+    height: 22px;
+    background: #ddd;
+    margin-left: 8px;
+  }
+
+  .crm-flag {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #ddd;
+    flex-shrink: 0;
+  }
+
+  .th-phone-input .th-profile-input {
+    padding-left: 95px;
+  }
+
+  #autocomplete-card {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .address-suggestions {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  .address-suggestions button {
+    width: 100%;
+    border: 0;
+    background: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .address-suggestions button:hover,
+  .address-suggestions button:focus {
+    background: #f5f5f5;
+    outline: none;
+  }
+
+  .request-submit-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    vertical-align: middle;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .th-profile-btn--save {
+    background-color: #231f20 !important;
+    border-color: #231f20 !important;
+    color: #fff !important;
+  }
+
+  .th-profile-btn--save.is-disabled {
+    background-color: #9b9b9b !important;
+    border-color: #9b9b9b !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+  }
+  .field-error{
+    color: red;
+  }
+</style>
+
+<script>
+  async function initMap() {
+    const mapEl = document.getElementById('map');
+    const placeAutocompleteEl = document.getElementById('address-input');
+    const addressValueEl = document.getElementById('address-value');
+    const suggestionsEl = document.getElementById('address-suggestions');
+    const toggleAutocompleteEl = document.getElementById('toggle-map');
+
+    if (!mapEl || !placeAutocompleteEl || !addressValueEl || !suggestionsEl) {
+      return;
+    }
+
+    const { Map, InfoWindow } = await google.maps.importLibrary('maps');
+    const { AdvancedMarkerElement } = await google.maps.importLibrary('marker');
+    await google.maps.importLibrary('places');
+
+    const map = new Map(mapEl, {
+      center: { lat: -25.2744, lng: 133.7751 },
+      zoom: 5,
+      mapId: 'DEMO_MAP_ID',
+      mapTypeControl: false,
+    });
+
+    const marker = new AdvancedMarkerElement({ map: null });
+    const infoWindow = new InfoWindow();
+
+    let sessionToken = new google.maps.places.AutocompleteSessionToken();
+    let lastRequestId = 0;
+    let isAutocompleteEnabled = true;
+
+    function updateToggleText() {
+      if (!toggleAutocompleteEl) return;
+
+      toggleAutocompleteEl.textContent = isAutocompleteEnabled
+        ? 'Turn off auto-complete'
+        : 'Turn on auto-complete';
+    }
+
+    function closeSuggestions() {
+      suggestionsEl.innerHTML = '';
+      suggestionsEl.classList.add('d-none');
+    }
+
+    async function selectSuggestion(placePrediction) {
+      const place = placePrediction.toPlace();
+
+      await place.fetchFields({
+        fields: [
+          'displayName',
+          'formattedAddress',
+          'location',
+          'addressComponents'
+        ]
+      });
+
+      const formattedAddress = place.formattedAddress || placeAutocompleteEl.value || '';
+      const displayName = place.displayName || 'Selected Place';
+      const location = place.location || null;
+
+      let suburb = '';
+      let state = '';
+      let postcode = '';
+      let country = '';
+
+      (place.addressComponents || []).forEach(function (component) {
+        const types = component.types || [];
+
+        if (types.includes('locality')) {
+          suburb = component.longText;
+        }
+
+        if (!suburb && types.includes('administrative_area_level_2')) {
+          suburb = component.longText;
+        }
+
+        if (types.includes('administrative_area_level_1')) {
+          state = component.shortText;
+        }
+
+        if (types.includes('postal_code')) {
+          postcode = component.longText;
+        }
+
+        if (types.includes('country')) {
+          country = component.longText;
+        }
+      });
+
+      console.log({
+        address: formattedAddress,
+        suburb,
+        state,
+        postcode,
+        country
+      });
+
+      placeAutocompleteEl.value = formattedAddress;
+      addressValueEl.value = formattedAddress;
+
+      const suburbEl = document.getElementById('profile-suburb');
+      const stateEl = document.getElementById('profile-state');
+      const postcodeEl = document.getElementById('profile-postcode');
+
+      if (suburbEl) suburbEl.value = suburb;
+      if (stateEl) stateEl.value = state;
+      if (postcodeEl) postcodeEl.value = postcode;
+
+      closeSuggestions();
+      sessionToken = new google.maps.places.AutocompleteSessionToken();
+
+      if (!location) {
+        return;
+      }
+
+      map.setCenter(location);
+      map.setZoom(16);
+
+      marker.position = location;
+      marker.map = map;
+
+      infoWindow.setContent(
+        '<strong>' + displayName + '</strong><br>' + formattedAddress
+      );
+
+      infoWindow.open({
+        anchor: marker,
+        map: map
+      });
+    }
+
+    placeAutocompleteEl.addEventListener('input', async function () {
+      const query = placeAutocompleteEl.value.trim();
+      addressValueEl.value = query;
+
+      if (!isAutocompleteEnabled) {
+        closeSuggestions();
+        return;
+      }
+
+      if (query.length < 3) {
+        closeSuggestions();
+        return;
+      }
+
+      const requestId = ++lastRequestId;
+
+      try {
+        const response =
+          await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+            input: query,
+            sessionToken: sessionToken,
+            includedRegionCodes: ['au'],
+          });
+
+        if (requestId !== lastRequestId) {
+          return;
+        }
+
+        const suggestions = response?.suggestions || [];
+
+        if (!suggestions.length) {
+          closeSuggestions();
+          return;
+        }
+
+        suggestionsEl.innerHTML = '';
+
+        suggestions.forEach(function (suggestion) {
+          const placePrediction = suggestion.placePrediction;
+
+          if (!placePrediction) {
+            return;
+          }
+
+          const optionButton = document.createElement('button');
+          optionButton.type = 'button';
+          optionButton.setAttribute('role', 'option');
+          optionButton.textContent = placePrediction.text?.text || '';
+
+          optionButton.addEventListener('click', function () {
+            selectSuggestion(placePrediction);
+          });
+
+          suggestionsEl.appendChild(optionButton);
+        });
+
+        suggestionsEl.classList.remove('d-none');
+
+      } catch (error) {
+        console.error(error);
+        closeSuggestions();
+      }
+    });
+
+    placeAutocompleteEl.addEventListener('blur', function () {
+      addressValueEl.value = placeAutocompleteEl.value.trim();
+    });
+
+    if (toggleAutocompleteEl) {
+      updateToggleText();
+
+      toggleAutocompleteEl.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        isAutocompleteEnabled = !isAutocompleteEnabled;
+
+        updateToggleText();
+
+        sessionToken = new google.maps.places.AutocompleteSessionToken();
+
+        closeSuggestions();
+
+        addressValueEl.value = placeAutocompleteEl.value.trim();
+      });
+    }
+
+    document.addEventListener('click', function (event) {
+      if (
+        !suggestionsEl.contains(event.target) &&
+        event.target !== placeAutocompleteEl
+      ) {
+        closeSuggestions();
+      }
+    });
+  }
+
+  window.initMap = initMap;
+</script>
+
+
+
+
+
+<script>
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const form = document.querySelector('form');
+  //   const submitBtn = document.querySelector('[data-v-accountprofile-save]');
+
+  //   if (!form || !submitBtn) return;
+
+  //   form.addEventListener('submit', () => {
+  //     const label = submitBtn.querySelector('[data-submit-label]');
+  //     const spinner = submitBtn.querySelector('[data-submit-spinner]');
+
+  //     if (label) {
+  //       label.textContent = 'Saving...';
+  //     }
+
+  //     if (spinner) {
+  //       spinner.classList.remove('d-none');
+  //       spinner.setAttribute('aria-hidden', 'false');
+  //     }
+
+  //     submitBtn.disabled = true;
+  //   });
+  // });
+</script>

@@ -1,0 +1,295 @@
+#about-established{
+  .th-about-established-images{
+    position: relative;
+    padding-top: 85px;
+    @include respond-to(xl){
+      padding-top: 44px !important;
+    }
+    @include respond-to(ml){
+      padding-top: 0px !important;
+    }
+    
+    .th-about-established-images-container{
+      position: absolute;
+      top: 0;
+
+      @include respond-to(mds){
+        position: relative;
+        top: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        text-align: center;
+        justify-self: center;
+        gap: 10px;
+        padding: 0;
+  
+      }
+
+      .th-about-established-image{
+        img{
+          width: 75%;
+          @include respond-to(mds){
+            width: 100%;
+          }
+        }
+        &:nth-child(2){
+          padding-top: 30px;
+        }
+      }
+    }
+    
+  }
+  .th-established-section-wrapper{
+    height: 572px !important;
+    @include respond-to(xxl){
+      height: 510px !important;
+    }
+    @include respond-to(xl){
+      height: 547px !important;
+    }
+    @include respond-to(ml){
+      height: 550px !important;
+    }
+    @include respond-to(lg){
+      height: inherit !important;
+    }
+    // @include respond-to(md){
+    //   height: 510px !important;
+    // }
+  }
+  // .th-about-established-images-container{
+  //   @include respond-to(mds){
+  //     position: relative;
+  //     display: none;
+  //   }
+  // }
+
+}
+
+@media (max-width: 767px) {
+  #th-gallery-manufacturingprocess {
+
+      // Reorder: video on top, text below
+      .th-overlay-video-section {
+          display: flex;
+          flex-direction: column;
+      }
+      .col-lg-4 {  padding-top: 20px; }
+
+      // Tighter container padding
+      .th-container {
+          padding: 20px 12px !important;
+          border-radius: 20px;
+      }
+
+      // Proportional title on mobile
+      h2.th-section-title {
+          font-size: 26px !important;
+      }
+      .th-section-header-wrapper {
+        padding: 15px;
+        .section-title-wrapper {
+          padding-bottom: 10px !important;
+        }
+
+        // Subtitle — smaller, left-aligned (justify is ragged at narrow widths)
+        .th-section-subtitle {
+            margin-top: 35px;
+            font-size: 16px !important;
+            line-height: 1.65;
+            text-align: left !important;
+        }
+      }
+
+      // Clean video wrapper edges on mobile
+      .th-video-wrapper {
+          border-radius: 16px;
+          overflow: hidden;
+      }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  // Fix 1: Stop established section images from bleeding into hero
+  #about-established {
+      .th-about-established-images{
+          display: none; // same behaviour as mobile (mds breakpoint)
+      }
+
+      .th-established-section-wrapper {
+        .col-12.col-md-6.mb-4{
+          display:none;
+        } 
+        .col-12.col-md-6{
+          width: 100%!important;
+        }
+      }
+
+      .th-about-established-images {
+          padding-top: 0 !important;
+      }
+  }
+  #about-who-you{
+    .col-12.col-md-5,
+    .col-12.col-md-7{
+      width: 100%!important;
+    }
+    .gr-bg8-sm {
+      background-image: linear-gradient(180deg, #eaeaec 32%, #fff 0, #fff);
+    }
+    .th-section-header-py{
+      padding-bottom: 0!important;
+    }
+    .th-mt-40{
+      margin-top: 0!important;
+      margin-bottom: 80px!important;
+    }
+  }
+  #our-history-masonary-section{
+    .col-12.col-md-6,
+    .col-12.col-md-6.d-flex{
+      width: 100%!important;
+    }
+  }
+  #about-our-sustainable-value{
+    .col-md-8.th-sustainable-border-right{
+      width: 100%!important;
+    }
+    .th-sustainable-value-right-item{
+      display:none!important;
+    }
+  }
+  .th-overlay-video-section{
+    .th-section-header-wrapper {
+        padding: 15px 30px 50px;
+    }
+  }
+}
+
+
+// about who we are section css start
+#about-who-you{
+  @include respond-to (sm){
+    .gr-bg8-sm {
+      background-image: linear-gradient(180deg, #eaeaec 16%, #fff 0, #fff);
+    }
+  }
+  .th-section-header-wrapper{
+    @include respond-to(sm){
+      .th-section-subtitle{
+        margin-top: 0!important;
+        padding-bottom: 40px;
+      }
+    }
+  }
+
+
+  /* 1. animation and scroll offset (Sticky Header) */
+  .about-who-you-anchor {
+    scroll-margin-top: 5.5rem;
+  }
+  
+  .about-who-you-anchor.about-who-you-anchor--flash .gr-bg8-sm {
+    animation: aboutWhoYouReveal 1.15s ease-out;
+  }
+  
+  @keyframes aboutWhoYouReveal {
+    0% { box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0); }
+    20% { box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.08); }
+    100% { box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0); }
+  }
+
+}
+// about who we are section css end
+
+/* Shared inline video gallery styles (Who We Are + Manufacturing Process) */
+.inline-video-gallery-container {
+  width: 100%;
+  height: 535px;
+  position: relative;
+}
+
+@media (max-width: 540px) {
+  .inline-video-gallery-container {
+    height: 400px;
+  }
+}
+
+#whoWeAre .lg-container,
+#whoWeAre .lg-inner,
+#whoWeAre .lg-item,
+#whoWeAre .lg-video-cont,
+#whoWeAre .lg-video-object,
+#whoWeAre .lg-object,
+#whoWeAre .lg-image,
+#manufacturingProcess .lg-container,
+#manufacturingProcess .lg-inner,
+#manufacturingProcess .lg-item,
+#manufacturingProcess .lg-video-cont,
+#manufacturingProcess .lg-video-object,
+#manufacturingProcess .lg-object,
+#manufacturingProcess .lg-image {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#whoWeAre .lg-video-cont,
+#whoWeAre .lg-video-object,
+#whoWeAre .lg-object,
+#whoWeAre .lg-image,
+#manufacturingProcess .lg-video-cont,
+#manufacturingProcess .lg-video-object,
+#manufacturingProcess .lg-object,
+#manufacturingProcess .lg-image {
+  height: 100% !important;
+}
+
+#whoWeAre .lg-counter,
+#whoWeAre .lg-maximize,
+#whoWeAre .lg-icon.lg-fullscreen,
+#whoWeAre .lg-actions,
+#manufacturingProcess .lg-counter,
+#manufacturingProcess .lg-maximize,
+#manufacturingProcess .lg-icon.lg-fullscreen,
+#manufacturingProcess .lg-actions {
+  display: none !important;
+}
+
+#whoWeAre .lg-video-play-button,
+#manufacturingProcess .lg-video-play-button {
+  width: 90px !important;
+  height: 90px !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  transition: transform 0.3s ease, background-color 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#whoWeAre .lg-video-play-button img,
+#whoWeAre .lg-video-play-button::before,
+#manufacturingProcess .lg-video-play-button img,
+#manufacturingProcess .lg-video-play-button::before {
+  display: block !important;
+  position: relative !important;
+  max-width: 40% !important;
+  height: auto !important;
+}
+
+#whoWeAre .lg-video-play-button:hover,
+#manufacturingProcess .lg-video-play-button:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.lg-video-play-icon,
+.lg-video-play-icon-bg {
+  opacity: 10 !important;
+}

@@ -1,0 +1,230 @@
+#account-pinboardList {
+    .profile-info {
+        .profile-pic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 19px;
+
+            .profile-pic-initials {
+                width: 133px;
+                height: 133px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #eaeaec;
+                color: #000000;
+                font-size: 48px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .profile-pic-edit-btn {
+                width: 34px;
+                height: 34px;
+                border: none;
+                border-radius: 50%;
+                background-color: var(--white-color);
+                color: #6c7580;
+                position: absolute;
+                right: 4px;
+                bottom: -2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+                padding: 0;
+                transition: color 0.2s ease-in-out;
+
+                @include respond-to(lg) {
+                    right: 30px !important;
+                }
+
+                @include respond-to(sm) {
+                    right: 140px !important;
+                }
+
+                &:hover {
+                    color: var(--theme-primary);
+                }
+            }
+        }
+    }
+
+    .th-sidebard {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        text-align: center;
+    }
+
+    .th-left-margin {
+        margin-left: 26px;
+    }
+
+    .profile-text {
+        margin-bottom: 63px;
+        color: var(--theme-primary);
+
+        h6 {
+            margin-bottom: 6px;
+            font-size: var(--body-font-size-16);
+        }
+
+        p {
+            color: var(--theme-primary);
+        }
+
+        @include respond-to(mds) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .th-bg-dark {
+        background-color: var(--black-color);
+        color: var(--white-color);
+    }
+
+    .sidebar {
+        padding: 0 0 0 46px;
+        border-radius: 8px;
+
+        @include respond-to(md) {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include respond-to(lg) {
+            padding-left: 0;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .sidebar-nav-item {
+                .nav-link {
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px !important;
+                    padding: 12px 0;
+                    color: var(--gray-darker);
+                    font-weight: 400;
+                    text-decoration: none;
+                    transition: 0.3s ease-in-out;
+
+                    i {
+                        width: 35px;
+                        font-size: 18px;
+                        text-align: left;
+
+                        &.text-indent-icon {
+                            text-indent: -5px;
+                        }
+                    }
+
+                    span {
+                        &.text-indent {
+                            text-indent: 0;
+                        }
+                    }
+
+                    &:hover,
+                    &.active {
+                        color: var(--black-color);
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .th-table-header {
+        background-color: var(--gray-color) !important;
+    }
+
+    .container-table-grid {
+        display: grid;
+        grid-template-columns: repeat(17, 1fr);
+        gap: 10px !important;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        align-items: center;
+
+        .th-qoute-table-gap {
+            font-size: 14px;
+            font-weight: 600;
+            color: #5a5a5a;
+        }
+
+        /* Custom grid column spans */
+        .grid-col-span-2 {
+            grid-column: span 2;
+            padding-left: 10px;
+        }
+
+        /* Legacy class name; span matches 8-column layout */
+        .grid-col-span-5 {
+            grid-column: span 8;
+        }
+
+        .grid-col-span-1 {
+            grid-column: span 1;
+        }
+
+        .grid-col-span-3 {
+            grid-column: span 2;
+        }
+
+        .grid-item {
+            padding: 37px 0;
+            background: transparent;
+        }
+    }
+
+
+    .offcanvas-header.th-header-upper {
+        padding-right: 20px;
+    }
+
+    /* Mobile-only header duplicate: full width + menu aligned under project row */
+    @include respond-to(sm) {
+        .offcanvas-header {
+            #offcanvasRightLabel2 {
+                font-size: 18px !important;
+            }
+        }
+
+        #manage_pinboard_offcanvasRight {
+            .th-header-upper {
+                display: flex;
+                flex-direction: column !important;
+                align-items: start !important;
+
+                .pinboard-header-info {
+                    justify-content: start !important;
+
+                    .pinboard-header-project-wrap {
+                        .pinboard-project-name {
+                            max-width: 100% !important;
+                            margin-left: 4px;
+                        }
+
+                        .pinboard-project-email {
+                            bottom: 37px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.th-account-profile-name{
+    margin-left: -35px;
+}

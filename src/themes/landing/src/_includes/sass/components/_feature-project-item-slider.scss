@@ -1,0 +1,49 @@
+#home-featured-projects {
+    .home-project-slider{
+      padding-bottom: 70px;
+    }
+    img{
+      padding-bottom: $image-space;
+    }
+  }
+
+/* Consistent image height for featured projects slider (product page, etc.) */
+#th-featured-projects-slider {
+  .th-item-project .th-img-container {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  // @include respond-to(sm){
+  //   .th-section-header.sectionHeaderClass {
+  //     position: relative;
+  //     padding-bottom: 60px;
+  //   }
+  //   .th-section-subtitle[data-v-productfeaturedprojectslider-section_subtitle] {
+  //     position: absolute;
+  //     left: 12px;
+  //     bottom: 30px;
+  //     width: 100% !important;
+  //     max-width: 100% !important;
+  //     text-align: left;
+  //   }
+  // }
+}

@@ -1,0 +1,74 @@
+<div class="bg-image"></div>
+
+<script type="text/javascript" src="/js/lib/jquery-3.7.1.min.js?v=1.0.1"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vuex@3/dist/vuex.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js" defer></script>
+<script src="https://unpkg.com/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js" defer></script>
+
+<script type="text/javascript" src="/js/lib/player.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lightgallery.min.js?v=1.0.1"></script>
+<script type="text/javascript" src="/js/lib/lg-thumbnail.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-zoom.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-autoplay.min.js" defer></script>
+<script type="text/javascript" src="/js/lib/lg-fullscreen.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-share.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-rotate.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-video.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-pager.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/choices.min.js?v=1.0.1" defer></script>
+
+
+<script src="/js/vue-universal-app.js" type="module" defer></script>
+<script src="/js/vue-comment-app.js" type="module" defer></script>
+<script src="/js/vue-account-app.js" type="module" defer></script>
+<script src="/js/vue-booking-app.js" type="module" defer></script>
+
+<script type="text/javascript" src="/js/lib/bootstrap.bundle.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/swiper-bundle.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/choices.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/flatpickr-4.6.13.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/bundle.js?v=1.0.1" defer></script>
+
+<script>
+    if(document.getElementById('account-db-active-quotes')) {
+(function () {
+    const profileInitialsEl = document.querySelector('[data-v-account-profile-initials]');
+    const profileUploadEl = document.querySelector('[data-v-account-profile-upload]');
+
+    if (!profileInitialsEl || !profileUploadEl) return;
+
+    const defaultInitials = (profileInitialsEl.textContent || '').trim();
+    let previewUrl = null;
+
+    profileUploadEl.addEventListener('change', function (event) {
+      const file = event.target.files && event.target.files[0];
+
+      if (!file) {
+        profileInitialsEl.textContent = defaultInitials;
+        profileInitialsEl.style.backgroundImage = '';
+        profileInitialsEl.style.backgroundSize = '';
+        profileInitialsEl.style.backgroundPosition = '';
+        profileInitialsEl.style.backgroundRepeat = '';
+        profileInitialsEl.style.backgroundColor = '';
+        return;
+      }
+
+      if (!file.type || !file.type.startsWith('image/')) return;
+
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+
+      previewUrl = URL.createObjectURL(file);
+      profileInitialsEl.textContent = '';
+      profileInitialsEl.style.backgroundImage = 'url("' + previewUrl + '")';
+      profileInitialsEl.style.backgroundSize = 'cover';
+      profileInitialsEl.style.backgroundPosition = 'center';
+      profileInitialsEl.style.backgroundRepeat = 'no-repeat';
+      profileInitialsEl.style.backgroundColor = 'transparent';
+    });
+  })();
+}
+</script>

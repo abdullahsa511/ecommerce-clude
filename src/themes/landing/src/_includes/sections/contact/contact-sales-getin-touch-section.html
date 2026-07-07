@@ -1,0 +1,358 @@
+<!--============================== Section Get IN Tourch Template ==============================-->
+<section id="contact-getin-touch" class="th-request-contact" data-v-component-getintouch>
+
+  <div class="d-flex justify-content-end th-pr-40 align-items-center position-absolute" style="right: 40px" data-v-getintouch-component-link>
+    <i class="fa-solid fa-pencil th-pr-5" style="font-size: .8rem"></i>
+    <a href="" target="_blank" class="">Edit</a>
+  </div>
+  
+  <div class="gr-bg8-get-in-touch">
+    <div class="container th-container">
+      <div class="th-section-header th-pt-20">
+        <div class="th-section-header-wrapper">
+          <h2 class="th-section-title th-section-title-mb" data-v-getintouch-section_title>Get in Touch</h2>
+          <div class="th-section-subtitle th-section-subtitle-mb mb-0" data-v-getintouch-section_subtitle>Have a specific project in mind? Submit your floorplans or project details below, and our team will be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-lg-7 col-sm-12">
+          
+          <div class="img-container th-get-in-touch-img">
+            <img src="/img/contact/contact-location-one.jpeg" alt="Sydney Showroom" data-v-getintouch-image />
+          </div>
+        </div>
+        <div class="col-lg-5 position-relative">
+          <div class="th-get-in-touch-form">
+            <div class="form-container th-cf-wrapper overlap th-bg-cf-white">
+              <form action="/contact-us" method="post" enctype="multipart/form-data" id="getin-touch-form">
+                <input type="hidden" name="nonce" value="" data-v-nonce>
+                <input type="hidden" name="form_type" value="contact-us" data-v-form_type>
+                <input type="hidden" id="recaptcha-site-key" value="" data-v-recaptcha_site_key aria-hidden="true">
+                <input type="hidden" id="recaptcha-action" value="" data-v-recaptcha_action aria-hidden="true">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="" data-v-recaptcha_response>
+                <div class="form-group">
+                  <!-- <label for="first-name">First Name*</label> -->
+                  <input type="text" name="first_name" id="first-name" class="form-control" placeholder="First Name*" required>
+                  <div class="invalid-feedback" id="first-name-feedback"></div>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="last-name">Last Name*</label> -->
+                  <input type="text" name="last_name" id="last-name" class="form-control" placeholder="Last Name*" required>
+                  <div class="invalid-feedback" id="last-name-feedback"></div>
+                </div>
+
+                <div class="form-group">
+                  <!-- <label for="email">Email*</label> -->
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email*" required>
+                  <div class="invalid-feedback" id="email-feedback"></div>
+                </div>
+                <div class="form-group">
+                  <!-- <label for="project_details">Project Details</label> -->
+                  <select name="project_details" id="project_details" class="form-control">
+                      <option value="" selected>Select Project Type</option>
+                      <option value="Office Upgrades & Refurbishments">Office Upgrades & Refurbishments</option>
+                      <option value="Full Office Fitout & Space Planning">Full Office Fitout & Space Planning</option>
+                      <option value="Multi-Level Commercial Projects">Multi-Level Commercial Projects</option>
+                      <option value="General Browsing & Inspiration">General Browsing & Inspiration</option>
+                      <option value="Home Office">Home Office</option>
+                  </select>
+              </div>
+              <div class="form-group" id="stateInput">
+                <select name="state" class="form-control">
+                  <option value="">Select State</option>
+                  <option value="NSW">NSW</option>
+                  <option value="VIC">VIC</option>
+                  <option value="QLD">QLD</option>
+                  <option value="SA">SA</option>
+                  <option value="TAS">TAS</option>
+                  <option value="WA">WA</option>
+                  <option value="NT">NT</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="invalid-feedback" id="state-feedback"></div>
+              </div>
+                
+                <!-- <div class="form-group">
+                  <label for="company">Company Name*</label>
+                  <input type="text" name="company" id="company" class="form-control" placeholder="Company Name*" required>
+                </div> -->
+                
+                <!-- <div class="form-group">
+                  <label for="type">Type</label>
+                  <select name="type" id="type" class="form-control" id="type">
+                    <option value="" disabled selected>Type</option>
+                    <option value="Workstations">Workstations</option>
+                    <option value="Complete Fit-Out">Complete Fit-Out</option>
+                    <option value="Seating">Seating</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                  </select>
+                </div> -->
+
+
+                <!-- File Upload Section -->
+                <div class="th-project-submission-modal th-contact-attachments">
+                  <div class="th-submission-field">
+                    <div class="th-submission-field-head">
+                      <label class="th-submission-label" for="attachments">Attachments</label>
+                      <span class="th-submission-optional">Optional · max 3 files · 15 MB each</span>
+                    </div>
+                    <div
+                      id="upload-zone"
+                      class="th-upload-dropzone"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Upload files"
+                    >
+                      <span class="th-upload-dropzone-icon">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                      </span>
+                      <p>Click to upload <span>or drag and drop</span></p>
+                      <small>.PDF, .PNG, .JPG, .DOCX, .CSV, .XLSX up to 15 MB each</small>
+                    </div>
+                    <input
+                      type="file"
+                      name="files[]"
+                      id="attachments"
+                      class="th-hidden-file-input"
+                      multiple
+                      accept="image/*,application/pdf,application/zip,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,.csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                      hidden
+                    />
+                    <ul id="upload-preview-list" class="th-uploaded-files" style="display:none;"></ul>
+                    <p id="files-feedback" class="th-upload-error text-danger" role="alert"></p>
+                  </div>
+                </div>
+
+
+                <!-- Text Area -->
+                <div class="form-group">
+                  <!-- <label for="message">Add Text</label> -->
+                  <div class="text-section">
+                    <textarea class="form-control" name="add_text" placeholder="Add Additional Details" id="add-text"></textarea>
+                  </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="form-group">
+                  <p id="recaptcha-feedback" class="text-danger small mb-2" role="alert" style="display: none;"></p>
+                  <button type="submit" class="th-btn-primary mt-30">
+                    <span data-submit-label>Submit</span>
+                    <span class="request-submit-spinner d-none" data-submit-spinner aria-hidden="true"></span>
+                  </button>
+                  <p class="recaptcha-disclaimer small text-muted mt-2 mb-0">
+                    This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    and
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    apply.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+</section>
+
+<style>
+  .th-request-contact .th-contact-attachments.th-project-submission-modal {
+    padding: 0;
+  }
+
+  .th-request-contact .th-contact-attachments .th-submission-field {
+    margin-bottom: 18px;
+  }
+
+  .th-request-contact .th-upload-dropzone.is-invalid {
+    border-color: #dc3545;
+  }
+
+  .th-request-contact #files-feedback {
+    text-align: left;
+    margin-top: 6px;
+  }
+
+  .th-request-contact input::placeholder,
+  .th-request-contact textarea::placeholder {
+    font-size: 14px;
+  }
+
+  #add-text::placeholder {
+    font-style: italic;
+  }
+
+  .request-submit-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 8px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    animation: requestSubmitSpin 0.75s linear infinite;
+  }
+
+  @keyframes requestSubmitSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const form = document.getElementById('getin-touch-form');
+    if (!form) {
+      return;
+    }
+
+    const actionInput = document.getElementById('recaptcha-action');
+    const RECAPTCHA_ACTION = actionInput
+      ? String(actionInput.value || '').trim() || 'contact_submit'
+      : 'contact_submit';
+    const siteKeyInput = document.getElementById('recaptcha-site-key');
+    const tokenInput = document.getElementById('g-recaptcha-response');
+    const recaptchaFeedback = document.getElementById('recaptcha-feedback');
+    const siteKey = siteKeyInput ? String(siteKeyInput.value || '').trim() : '';
+    const recaptchaEnabled = siteKey !== '';
+
+    if (!recaptchaEnabled) {
+      const disclaimer = form.querySelector('.recaptcha-disclaimer');
+      if (disclaimer) {
+        disclaimer.style.display = 'none';
+      }
+    }
+
+    function showRecaptchaError(message) {
+      if (!recaptchaFeedback) {
+        return;
+      }
+      recaptchaFeedback.textContent = message;
+      recaptchaFeedback.style.display = message ? 'block' : 'none';
+    }
+
+    function setSubmitLoading(visibleSubmitButton, isLoading) {
+      if (!visibleSubmitButton) {
+        return;
+      }
+      visibleSubmitButton.dataset.loading = isLoading ? 'true' : 'false';
+      visibleSubmitButton.disabled = isLoading;
+      const spinner = visibleSubmitButton.querySelector('[data-submit-spinner]');
+      if (spinner) {
+        spinner.classList.toggle('d-none', !isLoading);
+      }
+    }
+
+    function loadRecaptchaScript(key) {
+      return new Promise(function (resolve, reject) {
+        if (window.grecaptcha && typeof window.grecaptcha.execute === 'function') {
+          resolve();
+          return;
+        }
+
+        const existing = document.querySelector('script[data-recaptcha-v3]');
+        if (existing) {
+          if (existing.getAttribute('data-recaptcha-ready') === '1') {
+            resolve();
+            return;
+          }
+          existing.addEventListener('load', function () {
+            existing.setAttribute('data-recaptcha-ready', '1');
+            resolve();
+          });
+          existing.addEventListener('error', function () {
+            reject(new Error('reCAPTCHA failed to load'));
+          });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(key);
+        script.async = true;
+        script.defer = true;
+        script.setAttribute('data-recaptcha-v3', '1');
+        script.onload = function () {
+          script.setAttribute('data-recaptcha-ready', '1');
+          resolve();
+        };
+        script.onerror = function () {
+          reject(new Error('reCAPTCHA failed to load'));
+        };
+        document.head.appendChild(script);
+      });
+    }
+
+    function executeRecaptcha(key) {
+      return loadRecaptchaScript(key).then(function () {
+        return new Promise(function (resolve, reject) {
+          window.grecaptcha.ready(function () {
+            window.grecaptcha
+              .execute(key, { action: RECAPTCHA_ACTION })
+              .then(resolve)
+              .catch(reject);
+          });
+        });
+      });
+    }
+
+    if (recaptchaEnabled) {
+      loadRecaptchaScript(siteKey).catch(function () {
+        // Preload failure is non-fatal; submit will retry loading.
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      const visibleSubmitButton = form.querySelector('button[type="submit"]:not(.d-none)');
+
+      if (!visibleSubmitButton) {
+        return;
+      }
+
+      // Second pass after token is set — allow normal POST (do not block on loading flag).
+      if (form.dataset.recaptchaVerified === 'true') {
+        setSubmitLoading(visibleSubmitButton, true);
+        return;
+      }
+
+      if (visibleSubmitButton.dataset.loading === 'true') {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      showRecaptchaError('');
+
+      if (!recaptchaEnabled) {
+        form.dataset.recaptchaVerified = 'true';
+        form.requestSubmit(visibleSubmitButton);
+        return;
+      }
+
+      setSubmitLoading(visibleSubmitButton, true);
+
+      executeRecaptcha(siteKey)
+        .then(function (token) {
+          if (tokenInput) {
+            tokenInput.value = token;
+          }
+          form.dataset.recaptchaVerified = 'true';
+          setSubmitLoading(visibleSubmitButton, false);
+          form.requestSubmit(visibleSubmitButton);
+        })
+        .catch(function () {
+          setSubmitLoading(visibleSubmitButton, false);
+          showRecaptchaError('reCAPTCHA verification failed. Please refresh the page and try again.');
+        });
+    });
+  })();
+</script>

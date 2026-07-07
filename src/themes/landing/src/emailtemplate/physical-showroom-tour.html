@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internal Notification - New Showroom Booking</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+          <tr>
+            <td style="padding:28px 24px 10px 24px;">
+              <p style="margin:0 0 14px 0;">Email Subject: <strong style="color:#374151;">Internal Notification - New Showroom Booking</strong></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:8px 24px 0 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 14px 0;">Hi Krost Sales,</p>
+              <p style="margin:0 0 14px 0;">You have a new showroom tour booked. The event has been automatically added to your Google Calendar.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:10px 24px 0 8px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="">
+                <tr>
+                  <td style="padding:16px 16px 8px 16px;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; color:#374151;">Meeting Details:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 16px 16px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:22px;">
+                      <li><strong>Date:</strong> [Date]</li>
+                      <li><strong>Time:</strong> [9:00 - 9:30am]</li>
+                      <li><strong>Location:</strong> [Showroom Address]</li>
+                      <li><strong>Client Email:</strong> [Client's Email]</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:18px 24px 0 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 14px 0;">If you need to Reschedule or Cancel this meeting, please contact the client's email directly and Cancel directly via your Google Calendar.</p>
+              
+              <a href="{{ booking_link|default('#') }}"
+                style="background:#255793; color:#ffffff; padding:12px 24px; text-decoration:none; border-radius:6px; display:inline-block;">
+                Calendar Link
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 6px 0;">Best regards,</p>
+              <p style="margin:0;"><strong>Krost Website Booking System</strong></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

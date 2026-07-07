@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing you in...</title>
+    <style>
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f8fafc; font-family: Arial, sans-serif; }
+        .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 26px; width: min(460px, calc(100vw - 24px)); text-align: center; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #dbeafe; border-top-color: #2563eb; border-radius: 999px; margin: 0 auto 14px; animation: spin .8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        h1 { margin: 0 0 8px; font-size: 20px; }
+        p { margin: 0; color: #6b7280; }
+    </style>
+</head>
+<body>
+<main class="card">
+    <div class="spinner"></div>
+    <h1>Completing sign in</h1>
+    <p>Please wait while we prepare your account.</p>
+</main>
+
+<script id="oauth-payload" type="application/json">{{ {
+    'status': status|default(null),
+    'success': success|default(false),
+    'message': message|default(''),
+    'user': user|default(null),
+    'customer': customer|default(null),
+    'auth': auth|default(null),
+    'pinboard': pinboard|default(null)
+}|json_encode|raw }}</script>
+
+<script type="module">
+    import { Pinboard } from '/js/vue/models/Pinboard.js';
+
+    (function () {
+        function parseJson(value, fallback) {
+            try { return JSON.parse(value); } catch (e) { return fallback; }
+        }
+
+        const payloadNode = document.getElementById('oauth-payload');
+        const payload = payloadNode ? parseJson(payloadNode.textContent || '{}', null) : null;
+
+        function setUserAuthentication(auth) {
+            if (!auth || typeof auth !== 'object') {
+                throw new Error('Invalid login response payload');
+            }
+
+            if (auth.pinboard && typeof auth.pinboard === 'object') {
+                const pinboardModel = new Pinboard(auth.pinboard);
+                localStorage.setItem('pinboard', JSON.stringify(pinboardModel));
+            }
+
+            const encodedAuthKey = btoa('userAuthDetails');
+            const encodedAuthValue = btoa(JSON.stringify(auth));
+            localStorage.setItem(encodedAuthKey, encodedAuthValue);
+            const atobValue = atob(encodedAuthValue);
+            console.log(atobValue);
+
+            return parseJson(atobValue, null);
+        }
+
+        function redirectToLogin(message) {
+            window.location.href = '/login?' + new URLSearchParams({ error: message }).toString();
+        }
+
+        try {
+            if (!payload || payload.success !== true) {
+                throw new Error(payload && payload.message ? payload.message : 'Login failed');
+            }
+
+            setUserAuthentication(payload);
+            window.location.href = '/';
+        } catch (error) {
+            const message = error && error.message ? error.message : 'Login failed';
+            redirectToLogin(message);
+        }
+    })();
+</script>
+</body>
+</html>

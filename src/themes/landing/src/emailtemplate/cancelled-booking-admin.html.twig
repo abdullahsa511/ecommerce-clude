@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    CANCELLATION: {{ client_name }} – {{ showroom_location }}
+  </title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px 12px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:970px; background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+  <!-- Body -->
+  <tr>
+    <td style="padding:24px 24px 20px 24px; font-size:16px; line-height:16x; color:#374151;">
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        The following booking has been cancelled by the client and the time slot has been released back to the website.
+      </p>
+
+      <p style="font-weight:bold; margin:0 0 05px 0; line-height:16x;">Booking Details:</p>
+
+      <ul style="font-size:16px; margin:0; padding-left:30px; line-height:1.7;">
+        <li style="line-height:1.7;"><strong>Client:</strong> {{ client_email|default('N/A') }}</li>
+        <li style="line-height:1.7;"><strong>Time:</strong> {{ original_time|default('N/A') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+      </ul>
+
+      <p style="margin:20px 0 0 0; line-height:16x;">
+        <strong>Next Steps:</strong> The event has been automatically removed from the Google Calendar. No further action is required.
+      </p>
+
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+      <p style="margin:0 0 20px 0; line-height:16x;">Best regards,</p>
+      <p style="margin:0 0 20px 0; line-height:16x;"><strong>Krost Website Booking System</strong></p>
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

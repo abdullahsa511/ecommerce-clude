@@ -1,0 +1,30 @@
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header header-upper">
+    <!-- Left icon with Bootstrap offcanvas close functionality -->
+    <i
+      class="fa-solid fa-chevron-left left-icon"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></i>
+    <h3 id="offcanvasRightLabel">Virtual Pinboard</h3>
+    <!-- Change Pinboard text -->
+    <p class="change-pinboard">Change Pinboard</p>
+  </div>
+
+  <div class="offcanvas-header header-lower">
+    <h3 id="offcanvasRightLabel">Your List</h3>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row mb-40">
+      <div class="col-md-12">@@include('./search-without-icon.html')</div>
+    </div>
+    <div class="th-pinboard pinboard">
+      @@include('./tag.html') @@include('./img-top-icon.html')
+    </div>
+  </div>
+</div>

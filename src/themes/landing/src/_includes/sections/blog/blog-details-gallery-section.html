@@ -1,0 +1,86 @@
+<!--============================== Blog Gallery Section ==============================-->
+  <section id="blog-detail-gallery" class="pb-60 pt-0" data-v-component-bloggallery>
+      <div class="d-flex justify-content-end align-items-center edit-link" data-v-bloggallery-component-link style="z-index: 1000;">
+        <i class="fa-solid fa-pencil th-pr-5" style="font-size: .8rem"></i>
+        <a href="http://localhost:5173/components" target="_blank">Edit</a>
+      </div>
+      <div class="container th-container th-custom-container">
+        <div class="th-section-header th-section-header-pb-50" style="display: block">
+          <div class="th-section-header-wrapper">
+            <h2 class="th-section-title th-section-title-mb"> Gallery </h2>
+            <div class="th-section-subtitle th-section-subtitle-mb" style="font-size: 16px">
+  
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="section-body">
+          <div class="row">
+            <div class="col-md-2 col-sm-12 th-main-des-three-px">
+              <div 
+                class="d-flex flex-column th-gallery-blog-container" 
+                data-v-projectgallery-thumbs
+                id="gallery-tabs" role="tablist"
+                >
+                <button 
+                  data-v-projectgalleryitem-thumb
+                  class="th-gallery-thumb active" 
+                  id="img-1-tab" 
+                  data-bs-toggle="pill"
+                  data-bs-target="#img-1" 
+                  type="button" role="tab" 
+                  aria-controls="img-1" 
+                  aria-selected="active == 'active' ? 'true' : 'false'"
+                >
+                  <img  data-v-projectgalleryitem-thumb_image 
+                    src="/img/blog-detail/gallery-img-1.png" alt="gallery-img-1">
+                </button>
+  
+                <button class="th-gallery-thumb " id="img-2-tab" data-bs-toggle="pill" data-bs-target="#img-2" type="button" role="tab" aria-controls="img-2" aria-selected=" == 'active' ? 'true' : 'false'">
+                  <img src="/img/blog-detail/gallery-img-2.png" alt="gallery-img-2">
+                </button>
+                <button class="th-gallery-thumb " id="img-3-tab" data-bs-toggle="pill" data-bs-target="#img-3" type="button" role="tab" aria-controls="img-3" aria-selected=" == 'active' ? 'true' : 'false'">
+                  <img src="/img/blog-detail/gallery-img-3.png" alt="gallery-img-3">
+                </button>
+                <button class="th-gallery-thumb " id="img-4-tab" data-bs-toggle="pill" data-bs-target="#img-4" type="button" role="tab" aria-controls="img-4" aria-selected=" == 'active' ? 'true' : 'false'">
+                  <img src="/img/blog-detail/gallery-img-4.png" alt="gallery-img-4">
+                </button>
+                <button class="th-gallery-thumb " id="img-5-tab" data-bs-toggle="pill" data-bs-target="#img-5" type="button" role="tab" aria-controls="img-5" aria-selected=" == 'active' ? 'true' : 'false'">
+                  <img src="/img/blog-detail/gallery-img-5.png" alt="gallery-img-5">
+                </button>
+              </div>
+            </div>
+  
+            <div class="col-md-10" >
+              <div class="tab-content th-gallery-img-container" data-v-bloggallery-content>
+                <div 
+                  data-v-bloggallery-content-item
+                  class="tab-pane fade th-gallery-img th-gallery-img-preview active show d-none d-sm-block" 
+                  id="img-1" 
+                  role="tabpanel" 
+                  aria-labelledby="img-1-tab"
+                  >
+                  <img data-v-bloggallery-content-item-img src="/img/blog-detail/gallery-img-1.png" alt="gallery-img-1">
+                </div>
+
+
+                <div class="tab-pane fade th-gallery-img " id="img-2" role="tabpanel" aria-labelledby="img-2-tab">
+                  <img src="/img/blog-detail/gallery-img-2.png" alt="gallery-img-2">
+                </div>
+                <div class="tab-pane fade th-gallery-img " id="img-3" role="tabpanel" aria-labelledby="img-3-tab">
+                  <img src="/img/blog-detail/gallery-img-3.png" alt="gallery-img-3">
+                </div>
+                <div class="tab-pane fade th-gallery-img " id="img-4" role="tabpanel" aria-labelledby="img-4-tab">
+                  <img src="/img/blog-detail/gallery-img-4.png" alt="gallery-img-4">
+                </div>
+                <div class="tab-pane fade th-gallery-img " id="img-5" role="tabpanel" aria-labelledby="img-5-tab">
+                  <img src="/img/blog-detail/gallery-img-5.png" alt="gallery-img-5">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!--============================== End Blog Gallery Section ==============================-->

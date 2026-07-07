@@ -1,0 +1,20 @@
+<div class="row @@rowClass">
+  <div class="col-md-6 pb-mds-50">
+    <div class="th-img-container">
+      <img
+        src="@@stepImage @@if(typeof stepImage === 'undefined') { /img/contact-us/design-process-1.jpg }"
+        class="img-fluid"
+        alt="Planning"
+      />
+    </div>
+  </div>
+  <div class="col-md-6 text-content">
+    <span class="step-number @@stepNumberClass">@@stepNumber @@if(typeof stepNumber === 'undefined') { 01 }</span>
+    <div class="@@if(typeof stepContentClass !== 'undefined') { @@stepContentClass } th-sub-item">
+      <h4 class="th-sub-heading">@@stepTitle @@if(typeof stepTitle === 'undefined') { Planning }</h4>
+      <p class="th-sub-heading-details">
+        @@stepDescription @@if(typeof stepDescription === 'undefined') { Lorem ipsum dolor sit amet consectetur. Egestas orci gravida amet egestas et. Pellentesque libero donec sit egestas orci consequat est mauris duis. In viverra hac vestibulum pretium. }
+      </p>
+    </div>
+  </div>
+</div>

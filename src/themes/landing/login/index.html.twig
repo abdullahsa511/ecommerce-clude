@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-v-component-head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+
+  <!-- Preconnect to CDN origins used by footer scripts (saves DNS + TCP + TLS before first request) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="icon" type="image/x-icon" href="../../images/icons/Krost.ico" data-v-global-site.favicon="">
+  <link rel="canonical" href="{{ canonical }}" data-v-head-canonical="">
+  <base href="">
+
+  <title data-v-head-title>{{ title }}</title>
+
+  <meta name="title" content="{{ metaData.meta_title }}" data-v-head-meta-title="">
+  <meta name="description" content="{{ metaData.meta_description }}" data-v-head-meta-description="">
+  <meta name="keywords" content="{{ metaData.meta_keywords }}" data-v-head-meta-keywords="">
+  <meta name="author" content="Krost Business Furniture" data-v-head-meta-author="">
+
+  <meta property="og:type" content="{{ type }}" data-v-og-type="">
+  <meta property="og:title" content="{{ metaData.meta_title }}" data-v-og-title="">
+  <meta property="og:description" content="{{ metaData.meta_description }}" data-v-og-description="">
+  <meta property="og:url" content="{{ url }}" data-v-og-url="">
+  <meta property="og:image" content="{{ og_image }}" data-v-og-image="">
+  <meta property="og:site_name" content="Krost Business Furniture">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ metaData.meta_title }}" data-v-twitter-title="">
+  <meta name="twitter:description" content="{{ metaData.meta_description }}" data-v-twitter-description="">
+  <meta name="twitter:image" content="{{ og_image }}" data-v-twitter-image="">
+  <meta name="robots" content="noindex, nofollow">
+  <script id="product-schema" type="application/ld+json">
+      {{ product_schema|raw }}
+  </script>
+
+  <!-- Minimal critical CSS: above-the-fold basics so first paint isn't unstyled -->
+  <style>
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased
+    }
+  </style>
+  <!-- LCP: preload hero image so it's discoverable from initial document -->
+  <!-- <link rel="preload" fetchpriority="high" as="image" href="/img/bg/home/hero_home.jpg"> -->
+  <!-- Critical fonts: preload so they start early and don't wait for CSS (shortens chain) -->
+  <link rel="preload" href="/fonts/opensans/OpenSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+
+  <!-- Main stylesheet: non-blocking to avoid delaying LCP/FCP -->
+  <link rel="preload" href="/css/lib/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/css/stylesheet.min.css">
+  <link rel="stylesheet" href="/css/solid.min.css">
+
+
+  <link rel="preload" href="/css/lib/choices.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/flatpickr.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lightgallery-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lg-transitions.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <style>
+    .booking-calendar-wrapper {
+      width: 100%;
+      padding: 0 60px;
+
+      @include respond-to(mds) {
+        padding: 70px 0;
+      }
+    }
+
+    .flatpickr-calendar.open,
+    .flatpickr-calendar.inline {
+      max-height: 100%;
+      width: 100%;
+      background: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .flatpickr-months {
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 45px;
+
+      .flatpickr-prev-month.flatpickr-prev-month,
+      .flatpickr-prev-month,
+      .flatpickr-prev-month.flatpickr-next-month,
+      .flatpickr-next-month {
+        position: relative;
+        left: inherit;
+      }
+
+      .flatpickr-month {
+        -webkit-box-flex: inherit;
+        -webkit-flex: inherit;
+        -ms-flex: inherit;
+        flex: inherit;
+        align-items: center;
+
+        .flatpickr-current-month {
+          display: flex;
+          text-align: center;
+          width: 250px;
+          position: relative;
+        }
+      }
+    }
+
+    .flatpickr-rContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .flatpickr-days {
+      width: 100%;
+    }
+
+    .dayContainer {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .flatpickr-day {
+      margin: 0;
+      text-align: center;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      font-weight: bolder;
+      width: 100%;
+      max-width: inherit;
+      max-height: inherit;
+      border-radius: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+
+</head>
+
+<body class="bg-white">
+  <style>
+    .th-pinboard-count-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      top: -5px;
+      right: -10px;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.8;
+      color: #fff;
+      border-radius: 50%;
+      padding: 2px 5px;
+      font-size: 13px;
+      line-height: 12px;
+      font-weight: 700;
+    }
+
+    .th-pinboard-count-badge-text {
+      position: relative;
+      left: -2px;
+    }
+
+    /* User dropdown - shows on click of user icon */
+    .th-user-dropdown {
+      position: relative;
+    }
+
+    .th-user-dropdown .dropdown-toggle {
+      color: inherit;
+      text-decoration: none;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-toggle:hover {
+      opacity: 0.85;
+    }
+
+    .th-user-dropdown .dropdown-toggle::after {
+      display: none;
+      /* Hide default Bootstrap caret - icon is enough */
+    }
+
+    .th-user-dropdown .dropdown-menu {
+      min-width: 180px;
+      padding: 0px 0px;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .th-user-dropdown .dropdown-item {
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2E2E2E;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-item:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: #231F20;
+    }
+
+    .th-user-dropdown .dropdown-divider {
+      margin: 6px 0;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button {
+      color: #6B7280;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button:hover {
+      color: #DC2626;
+      background-color: rgba(220, 38, 38, 0.06);
+    }
+    .th-footer-navigation li {
+        padding-left: 20px !important; 
+    }
+  </style>
+  {% include '_navigation.html.twig' %}
+
+
+  <!--============================== Start Login Page ==============================-->
+  <section id="login-page" class="th-login pt-0" data-v-component-login>
+    <div class="container th-container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="th-img-container">
+            <img src="/media/login/login.png" alt="" data-v-login-image>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="th-login-form-container pt-100 w-100">
+            <div class="th-login-form-header">
+              <h2>Access your Portal</h2>
+            </div>
+            <div class="th-login-form-body">
+              <form class="th-form needs-validation was-validated" id="login-form" action="/login" method="POST">
+                <input type="hidden" name="nonce" value="{{ nonce|default('') }}" data-v-nonce>
+                <input type="hidden" name="email" id="signup-email-value" data-v-login-email-value>
+                <div class="form-group ">
+                  <!-- <label data-v-login-email_input_label for="email" class="form-label">Enter Your Email*</label> -->
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email*" value="{{ data.email|default('') }}" data-v-login-email required>
+                  <div class="invalid-feedback" id="email-feedback"></div>
+                </div>
+                {% if error is defined and error %}
+                <div class="invalid-feedback d-block text-left mb-2">{{ error }}</div>
+                {% endif %}
+                {% if errors is defined and errors %}
+                {% for key, err in errors %}
+                <div class="invalid-feedback d-block text-left mb-2">{{ err }}</div>
+                {% endfor %}
+                {% endif %}
+                {% if message is defined and message %}
+                <div class="valid-feedback d-block text-left mb-2">{{ message }}</div>
+                {% endif %}
+
+                <!-- <div class="form-group">
+                                    <label data-v-login-email_input_label for="email">Email*</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Email*" data-v-login-email required>
+                                    <div class="invalid-feedback" id="email-feedback"></div>
+                                </div> -->
+
+
+                <div class="th-pt-20">
+                  <button type="submit" id="send-otp-button" class="th-btn-primary w-100 text-capitalize">
+                    <span id="send-otp-text">Send OTP</span>
+                    <span id="send-otp-loader" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </form>
+              <div class="text-center pt-20 text-danger" id="login-error-message"></div>
+              <div class="th-login-form-footer text-center pt-20">
+                <p>Are you new? <a class="th-underline th-bold" href="/signup">Create an account</a>
+                </p>
+              </div>
+              <div class="text-center my-3">
+                <span class="text-muted font-weight-600">Or,</span>
+              </div>
+              <div class="d-grid gap-2">
+                <form id="google-login-form" method="POST" action="/auth/google" style="display: contents;">
+                  <input type="hidden" name="pinboard" id="google-login-pinboard-value" value="">
+                  <button type="submit" id="google-login-link" class="btn th-btn-gray text-capitalize border d-flex align-items-center justify-content-center gap-2 w-100">
+                  <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                    <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303C33.653 32.657 29.203 36 24 36c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.27 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+                    <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.27 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
+                    <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.143 35.091 26.715 36 24 36c-5.182 0-9.617-3.316-11.283-7.946l-6.523 5.025C9.505 39.556 16.227 44 24 44z" />
+                    <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.793 2.239-2.231 4.166-4.084 5.571l.003-.002 6.19 5.238C37.007 38.469 44 33 44 24c0-1.341-.138-2.65-.389-3.917z" />
+                  </svg>
+                  <span>Login with Google</span>
+                </button>
+                </form>
+                <form id="microsoft-login-form" method="POST" action="/auth/microsoft" style="display: contents;">
+                  <input type="hidden" name="pinboard" id="microsoft-login-pinboard-value" value="">
+                  <button type="submit" id="microsoft-login-link" class="btn th-btn-gray text-capitalize border d-flex align-items-center justify-content-center gap-2 w-100">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="1" y="1" width="10" height="10" fill="#F25022" />
+                    <rect x="13" y="1" width="10" height="10" fill="#7FBA00" />
+                    <rect x="1" y="13" width="10" height="10" fill="#00A4EF" />
+                    <rect x="13" y="13" width="10" height="10" fill="#FFB900" />
+                  </svg>
+                  <span>Login with Microsoft</span>
+                </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="modal fade backdrop-static" id="verifyEmailModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="false" style="position:fixed; inset:0; background-color: rgba(0,0,0,0.5); z-index:1040;">
+
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modelBorderRadius">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form id="verify-email-form" class="guest-signup-form" action="/login/verify-email" method="POST">
+              <input type="hidden" name="nonce" value="{{ nonce|default('') }}">
+              <input type="hidden" name="email" id="verify-email-value" value="{{ data.email|default('') }}">
+              <input type="hidden" name="otp" id="verify-email-otp-value" value="">
+              <input type="hidden" name="pinboard" id="verify-email-pinboard-value" value="">
+              <div class="text-center py-10 mb-20">
+                <h6>Verify it's you</h6>
+                <p>
+                  We've sent a verification code to
+                  <strong id="verify-email-display"></strong>.
+                  <br>
+                  Please enter the code below to verify your email.
+                </p>
+              </div>
+
+              <!-- OTP BOXES -->
+              <div class="otp-wrapper mb-20">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="0" inputmode="numeric" autocomplete="one-time-code">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="1" inputmode="numeric">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="2" inputmode="numeric">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="3" inputmode="numeric">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="4" inputmode="numeric">
+                <input type="text" maxlength="1" class="otp-input" data-otp-index="5" inputmode="numeric">
+              </div>
+
+              <!-- PRIMARY BUTTON -->
+              <button type="submit" class="th-btn-primary text-capitalize w-100 mt-15" id="verify-email-button">
+                Verify & Continue
+              </button>
+
+              <!-- OTP TIMER TEXT -->
+              <div class="text-center mt-15">
+                <span id="otp-timer-text">
+                  Resend in 00:00
+                </span>
+              </div>
+
+              <!-- RESEND LINK -->
+              <div class="text-center mt-15">
+                <small>
+                  Didn't receive the code?
+                  <a href="#" class="resend-link" id="resend-otp-button">
+                  <span class="spinner-border spinner-border-sm ms-2 d-none" id="resend-otp-loader" role="status" aria-hidden="true"></span>
+                    Resend OTP
+                  </a>
+                </small>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+  <!--============================== End Login Page ==============================-->
+
+
+
+  {% include '_footer.html.twig' %}
+
+  <!-- Virtual Pinboard Section -->
+  <div class="offcanvas offcanvas-end pinboard" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div id="pinboard-app">
+
+    </div>
+    <!-- End Virtual Pinboard Section -->
+
+    <style>
+      /* new pinboard sidebar section start */
+
+      /* .pinboard {
+          width: 350px;
+          margin: 20px auto;
+      } */
+
+      .pinboard.offcanvas {
+        z-index: 1055;
+      }
+
+      .card-item {
+        display: flex;
+        background: #fff;
+        border-radius: 3px;
+        padding: 12px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        align-items: self-start;
+      }
+
+      .card-left {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 3px;
+        }
+      }
+
+      .card-content {
+        flex: 1;
+        margin-left: 12px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .card-header h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .type {
+        margin: 2px 0 0;
+        font-size: 12px;
+        color: var(--gray-600);
+        letter-spacing: 1px;
+      }
+
+      .card-actions {
+        margin-top: -25px;
+        display: flex;
+        align-items: center;
+      }
+
+      .card-actions i {
+        margin-left: 10px;
+        color: #999;
+        cursor: pointer;
+      }
+
+      .card-actions i:hover {
+        color: #333;
+      }
+
+      .card-footer {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+        cursor: pointer;
+      }
+
+      .card-footer:hover {
+        color: #000;
+      }
+
+      .pinboard-header-info {
+        gap: 10px;
+      }
+
+      .pinboard-offcanvas-close {
+        line-height: 1;
+        text-decoration: none !important;
+      }
+
+      .pinboard-offcanvas-close:focus {
+        box-shadow: none;
+      }
+
+      .pinboard-offcanvas-close:focus-visible {
+        outline: 2px solid rgba(0, 0, 0, 0.25);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      /* Project name + chevron dropdown (logged-in header; desktop) */
+      .pinboard-header-project-wrap {
+        min-width: 0;
+        max-width: min(100%, 280px);
+      }
+
+      /* Mobile-only header duplicate: full width + menu aligned under project row */
+      .pinboard-header-project-wrap--mobile {
+        max-width: 100%;
+      }
+
+      .pinboard-project-menu--mobile {
+        left: 0;
+        right: auto;
+      }
+
+      .pinboard-project-name {
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .pinboard-project-email {
+        font-size: 14px;
+        margin-top: 2px;
+      }
+
+      /* .pinboard-project-chevron-btn {
+  line-height: 1;
+  text-decoration: none !important;
+}
+.pinboard-project-chevron-btn:focus {
+  box-shadow: none;
+  outline: none;
+}
+.pinboard-project-chevron-btn:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.25);
+  outline-offset: 2px;
+  border-radius: 2px;
+} */
+      .pinboard-project-chevron {
+        font-size: 12px;
+        transition: transform 0.2s ease;
+        display: inline-block;
+      }
+
+      .pinboard-project-chevron.is-open {
+        transform: rotate(180deg);
+      }
+
+      /* .pinboard-project-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 260px;
+  max-width: min(92vw, 320px);
+  z-index: 1060;
+  padding: 8px 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: left;
+} */
+      .pinboard-project-menu-item {
+        display: block;
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 14px;
+        line-height: 1.35;
+        color: #212529;
+        background: transparent;
+        border: 0;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.15s ease;
+      }
+
+      .pinboard-project-menu-item:hover,
+      .pinboard-project-menu-item:focus {
+        background: #f3f4f6;
+        outline: none;
+      }
+
+      .pinboard-project-menu-item.is-active {
+        background: #eceff1;
+      }
+
+      .pinboard-project-menu-create {
+        font-weight: 500;
+      }
+
+      .pinboard-project-menu-divider {
+        height: 1px;
+        margin: 6px 0;
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      .pinboard-project-check {
+        font-size: 13px;
+        color: #212529;
+      }
+
+      .pinboard-project-menu-label {
+        min-width: 0;
+      }
+
+      .pinboard-info {
+        text-align: end;
+
+        h5 {
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0
+        }
+
+        h6 {
+          font-size: 12px;
+          font-weight: 400;
+          margin: 0
+        }
+      }
+
+      .user-profile-img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+
+      /* new pinboard sidebar section end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      .th-pinboard-edit-wrapper {
+        border: 1px solid #dee2e6;
+        border-radius: 10px !important;
+        font-size: 14px !important;
+      }
+
+      /* Keep consistent height when switching between view and edit mode */
+      .th-pinboard-edit-content .item-comment-box {
+        min-height: 46px !important;
+        resize: none;
+      }
+
+      /* textarea.form-control,
+    textarea {
+      min-height: 154px !important;
+      padding-top: 16px !important;
+      padding-bottom: 17px !important;
+      font-size: 14px !important;
+    } */
+
+      .th-display-pre-line {
+        white-space: pre-line !important;
+      }
+
+      .th-pinboard-view-text {
+        padding-top: 0 !important;
+        margin-top: -15px !important;
+      }
+
+      .th-pinboard-item-comment>.item-comment-box,
+      .th-pinboard-item-edit .item-comment-box {
+        /* min-height: 62px !important;
+      max-height: 150px !important; */
+        overflow-y: auto !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+      }
+
+      /* New comment textarea - empty/placeholder state */
+      .th-pinboard-item-comment .item-comment-box {
+        min-height: 90px !important;
+        scrollbar-width: thin;
+        line-height: 25px;
+        font-size: 14px;
+        padding: 5px 5px;
+        border-radius: 10px !important;
+      }
+
+      /* Thin scrollbar in editing mode, remove inner border */
+      .th-pinboard-item-edit .item-comment-box {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        line-height: 25px;
+      }
+
+      .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .th-pinboard-item-edit .item-comment-box::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+      }
+
+      /* textarea.form-control,
+    textarea {
+      min-height: 70px;
+      padding-top: 16px;
+      padding-bottom: 17px;
+    } */
+
+
+
+      .th-btn-primary-post {
+        width: 50px !important;
+        height: 35px !important;
+        background-color: #000;
+        color: #fff !important;
+        font-size: 14px !important;
+        font-weight: 400 !important;
+        border: none;
+        margin-right: 10px;
+
+        &:hover {
+          background-color: rgb(9, 7, 7);
+          text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      #save-pinboard-form {
+        @media screen and (max-width: 500px) {
+          .th-modal-body-padding {
+            padding: 0px !important;
+          }
+        }
+      }
+
+      .otp-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .otp-input {
+        width: 48px;
+        height: 55px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        transition: all 0.2s ease;
+      }
+
+      .otp-input:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        outline: none;
+      }
+
+      .resend-link {
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      /* Pinboard drag & drop placeholder and preview */
+      .pinboard-ghost {
+        opacity: 0.9;
+        height: 150px;
+        margin: 0 0 12px 0 !important;
+        border: 1px dashed #cfcfcf;
+        background: var(--gray-light) !important;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .pinboard-ghost>* {
+        opacity: 0 !important;
+      }
+
+      .pinboard-drag-preview {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        max-width: 280px;
+      }
+
+      .pinboard-drag-preview .thumb {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .pinboard-drag-preview .title {
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .pinboard-drag-preview .close-icon {
+        margin-left: auto;
+        font-size: 14px;
+        color: #999;
+      }
+
+      /* Add Comment (toggle button + panel) */
+      .th-add-comment-toggle-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+        background: var(--gray-200);
+        border: none;
+        border-radius: 999px;
+        color: #4a4a4a;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: 1;
+        position: relative;
+      }
+
+      .th-add-comment-toggle-btn::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 2px dashed var(--gray-400);
+        border-radius: 999px;
+        pointer-events: none;
+      }
+
+      .th-add-comment-toggle-plus {
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .th-add-comment-panel {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        padding: 18px 18px 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      .th-add-comment-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* margin-bottom: 14px; */
+        gap: 12px;
+      }
+
+      .th-add-comment-panel-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #111;
+      }
+
+      .th-add-comment-panel-collapse {
+        color: #6f6f6f;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .th-add-comment-textarea {
+        width: 100%;
+        border: 1px solid #d7d7d7 !important;
+        border-radius: 3px !important;
+        padding: 16px 16px !important;
+        min-height: 110px !important;
+        font-size: 16px !important;
+        color: #222;
+        resize: none;
+        outline: none;
+      }
+
+      .th-add-comment-textarea::placeholder {
+        color: #9a9a9a;
+        opacity: 1;
+      }
+
+      .th-add-comment-preview-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+
+      .th-add-comment-bottom-row {
+        margin-top: 14px;
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .th-add-comment-upload-label {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d7d7d7;
+        border-radius: 12px;
+        padding: 12px 10px;
+        background: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        color: #000;
+        text-decoration: none;
+        line-height: 1;
+      }
+
+      .th-add-comment-upload-label input {
+        display: none;
+      }
+
+      .th-add-comment-submit-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        padding: 12px 10px;
+        background: #000;
+        color: #fff !important;
+        font-size: 16px !important;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        border: 1px solid #000;
+      }
+
+      #send-otp-button:disabled,
+      #send-otp-button:disabled:hover {
+        background-color: #9ca3af !important;
+        border-color: #9ca3af !important;
+        color: #f9fafb !important;
+        cursor: not-allowed !important;
+      }
+    </style>
+
+    <script>
+      var countdownInterval = null;
+
+      function startOTPTimer(durationInSeconds) {
+        var timerText = document.getElementById('otp-timer-text');
+        var resendButton = document.getElementById('resend-otp-button');
+        var resendLoader = document.getElementById('resend-otp-loader');
+
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+        }
+
+        var timeRemaining = durationInSeconds;
+
+      
+        if (resendButton) {
+          resendButton.style.pointerEvents = 'none';
+          resendButton.style.color = 'gray';
+          resendButton.classList.add('disabled');
+          resendButton.setAttribute('aria-disabled', 'true');
+        }
+        
+        if (resendLoader) {
+          resendLoader.classList.add('d-none');
+        }
+
+        countdownInterval = setInterval(function () {
+          var minutes = Math.floor(timeRemaining / 60);
+          var seconds = timeRemaining % 60;
+
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+          seconds = seconds < 10 ? '0' + seconds : seconds;
+
+          if (timerText) {
+            timerText.textContent = 'Resend in ' + minutes + ':' + seconds;
+          }
+
+          if (timeRemaining <= 0) {
+            clearInterval(countdownInterval);
+            if (timerText) {
+              timerText.textContent = '';
+            }
+            if (resendButton) {
+              resendButton.style.pointerEvents = 'auto';
+              resendButton.style.color = ''; 
+              resendButton.classList.remove('disabled');
+              resendButton.removeAttribute('aria-disabled');
+            }
+          }
+
+          timeRemaining--;
+        }, 1000);
+      }
+
+      function showOtpModal(modal, attempt) {
+        if (!modal) return;
+
+        if (window.bootstrap && window.bootstrap.Modal) {
+          var verifyModal = window.bootstrap.Modal.getOrCreateInstance(modal);
+          verifyModal.show();
+          return;
+        }
+
+        if ((attempt || 0) < 8) {
+          window.setTimeout(function () {
+            showOtpModal(modal, (attempt || 0) + 1);
+          }, 120);
+          return;
+        }
+
+        modal.classList.add('show');
+        modal.style.display = 'block';
+        modal.removeAttribute('aria-hidden');
+        document.body.classList.add('modal-open');
+      }
+
+      function getLocalPinboardPayload() {
+        var pinboardParsed = null;
+        try {
+          pinboardParsed = JSON.parse(localStorage.getItem('pinboard') || 'null');
+        } catch (jsonError) {
+          pinboardParsed = null;
+        }
+
+        var pinboardItems = Array.isArray(pinboardParsed && pinboardParsed.pinboard_items)
+          ? pinboardParsed.pinboard_items
+          : [];
+
+        return {
+          job_title: (pinboardParsed && pinboardParsed.pinboard_name) || 'Project Name',
+          pinboard_description: (pinboardParsed && pinboardParsed.pinboard_description) || '',
+          form_type: 'web_login',
+          pinboard_items: pinboardItems
+        };
+      }
+
+      function initLoginPage() {
+        var otpRequested = {{ otp_requested|default(false) ? 'true' : 'false' }};
+        var modal = document.getElementById('verifyEmailModal');
+        var verifyEmailDisplay = document.getElementById('verify-email-display');
+        var verifyEmailValue = document.getElementById('verify-email-value');
+        var otpHiddenInput = document.getElementById('verify-email-otp-value');
+        var verifyForm = document.getElementById('verify-email-form');
+        var verifyButton = document.getElementById('verify-email-button');
+        var loginErrorMessage = document.getElementById('login-error-message');
+        var pinboardHiddenInput = document.getElementById('verify-email-pinboard-value');
+        var otpInputs = Array.prototype.slice.call(document.querySelectorAll('.otp-input'));
+        var emailInput = document.getElementById('email');
+        var loginForm = document.getElementById('login-form');
+        var sendOtpButton = document.getElementById('send-otp-button');
+        var sendOtpText = document.getElementById('send-otp-text');
+        var sendOtpLoader = document.getElementById('send-otp-loader');
+        
+        var params = new URLSearchParams(window.location.search || '');
+        var queryEmail = (params.get('email') || '').trim().toLowerCase();
+        var queryOtpRequested = (params.get('otp_requested') || '').trim();
+        var queryMessage = (params.get('message') || '').trim();
+        var inputEmail = (emailInput && emailInput.value ? emailInput.value : '').trim().toLowerCase();
+        
+        var shouldAutoOpenModal = (
+          otpRequested === true &&
+          queryOtpRequested === '1' &&
+          queryMessage === 'OTP sent successfully.' &&
+          queryEmail !== '' &&
+          inputEmail !== '' &&
+          queryEmail === inputEmail
+        );
+
+        if (verifyEmailDisplay && emailInput) {
+          verifyEmailDisplay.textContent = emailInput.value || 'email@example.com';
+        }
+
+        if (verifyEmailValue && emailInput) {
+          verifyEmailValue.value = emailInput.value || '';
+        }
+
+        if (loginForm && sendOtpButton) {
+          loginForm.addEventListener('submit', function () {
+            sendOtpButton.disabled = true;
+            if (sendOtpText) {
+              sendOtpText.textContent = 'Sending...';
+            }
+            if (sendOtpLoader) {
+              sendOtpLoader.classList.remove('d-none');
+            }
+          });
+        }
+
+        if (shouldAutoOpenModal) {
+          showOtpModal(modal, 0);
+          startOTPTimer(120);
+        }
+
+        otpInputs.forEach(function (input, idx) {
+          input.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '').slice(0, 1);
+            if (this.value && otpInputs[idx + 1]) {
+              otpInputs[idx + 1].focus();
+            }
+          });
+
+          input.addEventListener('keydown', function (event) {
+            if (event.key === 'Backspace' && !this.value && otpInputs[idx - 1]) {
+              otpInputs[idx - 1].focus();
+            }
+          });
+
+          input.addEventListener('paste', function (event) {
+            event.preventDefault();
+            var clipboardData = (event.clipboardData || window.clipboardData);
+            var raw = clipboardData ? clipboardData.getData('text') : '';
+            var digits = (raw || '').replace(/\D/g, '').slice(0, otpInputs.length);
+            if (!digits) return;
+
+            digits.split('').forEach(function (digit, index) {
+              if (otpInputs[index]) {
+                otpInputs[index].value = digit;
+              }
+            });
+
+            var firstEmpty = otpInputs.find(function (el) { return !el.value; });
+            (firstEmpty || otpInputs[otpInputs.length - 1]).focus();
+          });
+        });
+
+
+        if (verifyForm) {
+          verifyForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var otp = otpInputs.map(function (el) { return el.value || ''; }).join('');
+            
+            if (otp.length !== 6) {
+              if (loginErrorMessage) {
+                loginErrorMessage.textContent = 'Please enter the 6-digit OTP code.';
+              }
+              return;
+            }
+
+            if (!emailInput || !emailInput.value) {
+              if (loginErrorMessage) {
+                loginErrorMessage.textContent = 'Email is missing.';
+              }
+              return;
+            }
+
+            if (verifyButton) {
+              verifyButton.disabled = true;
+              verifyButton.textContent = 'Verifying...';
+            }
+
+            if (otpHiddenInput) {
+              otpHiddenInput.value = otp;
+            }
+
+            if (pinboardHiddenInput) {
+              pinboardHiddenInput.value = JSON.stringify(getLocalPinboardPayload());
+            }
+
+            verifyForm.submit();
+          });
+        }
+
+        var googleLoginForm = document.getElementById('google-login-form');
+        var googleLoginPinboardInput = document.getElementById('google-login-pinboard-value');
+        if (googleLoginForm && googleLoginPinboardInput) {
+          googleLoginForm.addEventListener('submit', function () {
+            googleLoginPinboardInput.value = JSON.stringify(getLocalPinboardPayload());
+          });
+        }
+
+        var microsoftLoginForm = document.getElementById('microsoft-login-form');
+        var microsoftLoginPinboardInput = document.getElementById('microsoft-login-pinboard-value');
+        if (microsoftLoginForm && microsoftLoginPinboardInput) {
+          microsoftLoginForm.addEventListener('submit', function () {
+            microsoftLoginPinboardInput.value = JSON.stringify(getLocalPinboardPayload());
+          });
+        }
+
+        var resendButton = document.getElementById('resend-otp-button');
+        if (resendButton) {
+          resendButton.addEventListener('click', async (event) => {
+            event.preventDefault();
+            
+            if (resendButton.classList.contains('disabled')) {
+              return;
+            }
+
+            const resendLoader = document.getElementById('resend-otp-loader');
+            const emailInputEl = document.getElementById('email');
+            const email = emailInputEl ? emailInputEl.value : '';
+            if (!email) return;
+
+            resendButton.style.pointerEvents = 'none';
+            resendButton.setAttribute('aria-disabled', 'true');
+            resendButton.classList.add('disabled');
+            if (resendLoader) {
+              resendLoader.classList.remove('d-none');
+            }
+
+            try {
+              const res = await fetch('/api/send-email-verification', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, subject: 'Login Verification Code with Krost' }),
+              });
+              const data = await res.json();
+              console.log("data", data);
+              
+              if (data) {
+                startOTPTimer(120);  
+              } else {
+                if (resendLoader) resendLoader.classList.add('d-none');
+                resendButton.style.pointerEvents = '';
+                resendButton.removeAttribute('aria-disabled');
+                resendButton.classList.remove('disabled');
+              }
+            } catch (error) {
+              console.error("Error resending OTP:", error);
+              if (resendLoader) resendLoader.classList.add('d-none');
+              resendButton.style.pointerEvents = '';
+              resendButton.removeAttribute('aria-disabled');
+              resendButton.classList.remove('disabled');
+            }
+          });
+        }
+      }
+
+      if (document.readyState === 'complete') {
+        initLoginPage();
+      } else {
+        window.addEventListener('load', initLoginPage);
+      }
+    </script>
+
+    <!-- Defer all scripts so they run after parse; reduces blocking and moves forced reflows (jQuery/Swiper) off critical path -->
+    <script type="text/javascript" src="/js/lib/jquery-3.7.1.min.js?v=1.0.1" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js?v=1.0.1" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@3/dist/vuex.min.js?v=1.0.1" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js" defer></script>
+    <script src="https://unpkg.com/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js?v=1.0.1" defer></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js?v=1.0.1" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+
+
+    <script type="text/javascript" src="/js/lib/bootstrap.bundle.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/swiper-bundle.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/flatpickr-4.6.13.min.js?v=1.0.1" defer></script>
+
+
+    <!-- <script type="text/javascript" src="/js/solid.min.js?v=1.0.1"></script> -->
+
+    <script type="text/javascript" src="/js/lib/player.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lightgallery.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-thumbnail.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-zoom.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-autoplay.min.js" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-fullscreen.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-share.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-rotate.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-video.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/lg-pager.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/lib/choices.min.js?v=1.0.1" defer></script>
+    <script type="text/javascript" src="/js/bundle.js?v=1.0.1" defer></script>
+    <script src="/js/vue-universal-app.js?v=1.0.1" type="module" defer></script>
+
+    <!-- Load app scripts after first paint to move jQuery/Swiper reflows off critical path -->
+
+
+
+
+
+</body>
+
+</html>

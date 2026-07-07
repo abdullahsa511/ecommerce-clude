@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signing you in...</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --primary: #2563eb;
+            --primary-soft: #bfdbfe;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 55%, #eef2ff 100%);
+            color: var(--text);
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .loader-card {
+            width: min(460px, 100%);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .spinner-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(145deg, #eff6ff, #dbeafe);
+        }
+
+        .spinner {
+            width: 42px;
+            height: 42px;
+            border: 4px solid var(--primary-soft);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.85s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .title {
+            margin: 0 0 8px;
+            font-size: 1.12rem;
+            font-weight: 650;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+<main class="loader-card">
+    <div class="spinner-wrap">
+        <div class="spinner" aria-hidden="true"></div>
+    </div>
+    <h1 class="title">Completing sign in</h1>
+    <p class="subtitle">Please wait while we prepare your account and pinboard.</p>
+</main>
+
+<script id="oauth-payload" type="application/json">{{ {
+    'status': status|default(null),
+    'success': success|default(false),
+    'message': message|default(''),
+    'user': user|default(null),
+    'customer': customer|default(null),
+    'auth': auth|default(null),
+    'pinboard': pinboard|default(null)
+}|json_encode|raw }}</script>
+
+<script>
+    (function () {
+
+        function safeJsonParse(value, fallback) {
+            try {
+                return JSON.parse(value);
+            } catch (e) {
+                return fallback;
+            }
+        }
+
+        const payloadNode = document.getElementById('oauth-payload');
+        const payload = payloadNode
+            ? safeJsonParse(payloadNode.textContent || '{}', null)
+            : null;
+
+        function setUserAuthentication(authData) {
+            if (!authData || typeof authData !== 'object') {
+                throw new Error('Invalid login response payload');
+            }
+
+            const activePinboard = safeJsonParse(localStorage.getItem('pinboard') || 'null', null);
+            if (authData.pinboard && activePinboard?.pinboard_id && activePinboard.pinboard_id !== authData.pinboard.pinboard_id) {
+                localStorage.setItem('pinboard', JSON.stringify(authData.pinboard));
+            } else if (authData.pinboard && !activePinboard?.pinboard_id) {
+                localStorage.setItem('pinboard', JSON.stringify(authData.pinboard));
+            }
+
+            localStorage.setItem('customer', JSON.stringify(authData.customer || {}));
+
+            const encodedAuthKey = btoa('userAuthDetails');
+            const encodedAuthValue = btoa(JSON.stringify(authData));
+            localStorage.setItem(encodedAuthKey, encodedAuthValue);
+
+            return safeJsonParse(atob(encodedAuthValue), null);
+        }
+
+        function syncPinboardFromPayload(authData) {
+            let pinboardParsed = safeJsonParse(localStorage.getItem('pinboard') || 'null', null);
+            const pinboardItems = pinboardParsed?.pinboard_items;
+
+            if (Array.isArray(pinboardItems) && pinboardItems.length > 0) {
+                const pinboardData = {
+                    customer_id: authData.customer?.customer_id || null,
+                    user_id: authData.user?.user_id || null,
+                    pinboard_id: pinboardParsed?.pinboard_id || null
+                };
+
+                if (!pinboardData.customer_id || !pinboardData.user_id) {
+                    console.warn('Missing customer/user id, skipping pinboard sync');
+                    return;
+                }
+
+                if (!pinboardData.pinboard_id && authData.pinboard && typeof authData.pinboard === 'object') {
+                    localStorage.setItem('pinboard', JSON.stringify(authData.pinboard));
+                }
+                return;
+            }
+
+            if (authData.pinboard && typeof authData.pinboard === 'object') {
+                localStorage.setItem('pinboard', JSON.stringify(authData.pinboard));
+            }
+        }
+
+        try {
+            if (!payload || payload.success !== true) {
+                throw new Error(payload?.message || 'OAuth login failed');
+            }
+
+            setUserAuthentication(payload);
+            syncPinboardFromPayload(payload);
+
+            window.setTimeout(function () {
+                window.location.href = '/';
+            }, 500);
+        } catch (error) {
+            const message = error && error.message ? error.message : 'OAuth login failed';
+            window.location.href = '/admin/login?' + new URLSearchParams({ error: message }).toString();
+        }
+    })();
+</script>
+</body>
+</html>

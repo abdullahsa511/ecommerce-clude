@@ -1,0 +1,608 @@
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRR9X3MQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<div
+  id="krost-recaptcha-config"
+  class="d-none"
+  aria-hidden="true"
+  data-recaptcha-site-key=""
+  data-recaptcha-action-contact=""
+  data-recaptcha-action-service=""
+  data-recaptcha-action-project=""
+  data-recaptcha-action-booking=""
+></div>
+
+<style>
+
+.th-pinboard-count-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  right: -10px;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.8;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.th-pinboard-count-badge #pinboard-item-count {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.th-pinboard-count-badge-text {
+  position:relative;
+  left:-2px;
+}
+
+/* User dropdown - shows on click of user icon */
+.th-user-dropdown {
+  position: relative;
+}
+.th-user-dropdown .dropdown-toggle {
+  color: inherit;
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.th-user-dropdown .dropdown-toggle:hover {
+  opacity: 0.85;
+}
+.th-user-dropdown .dropdown-toggle::after {
+  display: none; /* Hide default Bootstrap caret - icon is enough */
+}
+.th-user-dropdown .dropdown-menu {
+  min-width: 180px;
+  padding: 0px 0px;
+  margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.th-user-dropdown .dropdown-item {
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2E2E2E;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.th-user-dropdown .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #231F20;
+}
+.th-user-dropdown .dropdown-divider {
+  margin: 6px 0;
+}
+.th-user-dropdown .dropdown-item#logout-button {
+  color: #6B7280;
+}
+.th-user-dropdown .dropdown-item#logout-button:hover {
+  color: #DC2626;
+  background-color: rgba(220, 38, 38, 0.06);
+}
+</style>
+<!--==============================Header Area==============================-->
+  <div class="th-header header-layout menu-white" data-v-component-header role="header">
+    <!-- edit link  -->
+    <div class="d-flex justify-content-end pr-40 align-items-center position-absolute" data-v-header-component-link style="right: 40px; color: #fff;">
+      <i class="fa-solid fa-pencil pr-5" style="font-size: .8rem"></i>
+      <a href="http://localhost:5173/components" target="_blank" style="color: #fff;">Edit</a>
+    </div>
+
+    <div class="th-topbar d-flex justify-content-center flex-column">
+      <div class="position-relative container th-container p-0 th-container-md">
+        <div class="d-flex align-items-center justify-content-center">
+          <a href="/catalogue#th-request-catalogue" class="font-white th-topbar-text" data-v-header-top_header_middle_text>Experience the Future of Workspace: The 2026 Catalogue is Out Now</a>
+        </div>
+        <div class="contact-sales d-flex align-items-center justify-content-center">
+          <i class="fal fa-envelope font-white" style="font-size: 18px;"></i>
+          <a href="/catalogue" target="_blank" class="font-white th-topbar-link" data-v-header-top_header_right_text>Get Your Copy</a>
+        </div>
+      </div>
+    </div>
+    <!--============================== Mobile Menu ============================== -->
+    <div class="th-menu-wrapper mobile-menu" role="navigation">
+      <div class="th-menu-area text-center">
+        <div class="th-mobile-menu-head">
+          <div class="mobile-logo">
+            <a class="icon-masking" href="/">
+              <img src="/img/logo-white.png" alt="KROST">
+            </a>
+          </div>
+          <button class="th-menu-toggle">
+            <i class="fal fa-times"></i>
+          </button>
+        </div>
+        <div class="th-mobile-menu">
+          <ul class="mobile-menu-list" data-v-header-mobile-menu-list>
+            <li class="mobile-menu-item" data-v-header-mobile-menu-item>
+              <a href="/" data-v-header-mobile-menu-item-href>
+                <span data-v-header-mobile-menu-item-title>Home</span>
+              </a>
+              <ul class="sub-menu" data-v-header-mobilemenu-children>
+                <li>
+                  <a href="#" data-v-header-mobilemenu-childitem></a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="about.html">About Us</a>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Services</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="service.html">Services</a>
+                </li>
+                <li>
+                  <a href="service-details.html">Services Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Pages</a>
+              <ul class="sub-menu">
+                <li class="menu-item-has-children">
+                  <a href="#">Shop</a>
+                  <ul class="sub-menu">
+                    <li>
+                      <a href="shop.html">Shop</a>
+                    </li>
+                    <li>
+                      <a href="shop-details.html">Shop Details</a>
+                    </li>
+                    <li>
+                      <a href="cart.html">Cart Page</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html">Checkout</a>
+                    </li>
+                    <li>
+                      <a href="wishlist.html">Wishlist</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="team.html">Team</a>
+                </li>
+                <li>
+                  <a href="team-details.html">Team Details</a>
+                </li>
+                <li>
+                  <a href="project.html">Project</a>
+                </li>
+                <li>
+                  <a href="project-details.html">Project Details</a>
+                </li>
+                <li>
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                  <a href="pricing.html">Pricing</a>
+                </li>
+                <li>
+                  <a href="faq.html">Faq Page</a>
+                </li>
+                <li>
+                  <a href="error.html">Error Page</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Blog</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                  <a href="blog-details.html">Blog Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-wrapper desktop-menu" role="navigation">
+      <!-- Main Menu Area -->
+      <div class="menu-area">
+        <div class="container th-container p-0 th-container-md">
+          <div class="row align-items-center justify-content-between ps-50 pe-50">
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-start th-nav-section-px">
+              <div class="main-menu d-none d-lg-inline-block">
+                <ul class="desktop-menu-list" data-v-header-desktop-menu-list>
+                  <li class="menu-item-has-children mega-menu-wrap desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a href="#" class="th-nav-link th-nav-link-py">
+                      <span data-v-header-desktop-menu-item-title>Products</span>
+                    </a>
+                    <ul class="mega-menu py-5" data-v-header-mega-menu>
+                      <!-- <div class="row justify-content-center"> -->
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-9" data-v-header-mega-menu-rows style="flex: 5">
+
+                            <div class="row mega-menu-row category-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <a href="" class="category-link mega-menu-item-link" data-v-header-mega-submenu-item-link>
+                                  <h5 class="hover" data-v-header-mega-menu-item-title>Workstations</h5>
+                                </a>
+                                <nobr>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a 
+                                    href="" 
+                                    class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                      <span class="hover" data-v-header-categorylink-title>Workstations</span>
+                                  </a>
+                                  <!-- <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>screens</span>
+                                  </a> -->
+                                </span>
+                              </nobr>
+                              </div>
+                              <!-- <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Screens</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Acoustic booths</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Perspex screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Desks</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Executive desks</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Desk system</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Modesty panels</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>tables</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Meeting tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Counter Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Training Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Cafe Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Coffee Tables</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Storage</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>In-office storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                  <span>Universal storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>steel storage units</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Shelving</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Custom joinery</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            </div>
+
+                            <!-- <div class="row mega-menu-row mt-50 category-two-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5 data-v-header-categorytwoitem-title>Seating</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="/shofiul-categories-seating.html" class="category-two-link mega-menu-item-link" data-v-header-categorytwolink-href>
+                                    <span data-v-header-categorytwolink-title>All seating</span>
+                                  </a>
+                                  <a href="/shofiul-category-products.html" class="category-two-link mega-menu-item-link">
+                                    <span>Task seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>executive seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>training seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Occasional seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Stools</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Lounges</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                              <!-- <div class="col mega-menu-item category-two-item">
+                                <h5>Accessories</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Computer accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Power accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                  <span>General office
+                                    accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Acoustic solutions</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Training</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Communication
+                                      boards</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>screen partitions</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Finishes</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Materials</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Fabrics</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Counters</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            <!-- </div> -->
+                          </div>
+                          <!-- Sidebar Images -->
+                          <!-- <div class="col-3 d-flex flex-column gap-3 side-image-list" style="flex: 1;">
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/book-metting.png" alt="boot-meetting">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/contact-sells.png" alt="contact-sells">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/request-catalog.png" alt="request-catalog">
+                            </div>
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="row">
+                              <div class="col"> 
+                                <a class="font-weight-700 hover" href="/categories">View All Categories</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ul>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="shofiul-projects.html">
+                      <span data-v-header-desktop-menu-item-title>Projects</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="tuhin-blogs.html">
+                      <span data-v-header-desktop-menu-item-title>Blog</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="th-nav-link th-nav-link-py" href="/zahidul-about.html">
+                      <span class="manu-name" data-v-header-desktop-menu-item-title>About</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="th-menu-toggle d-block d-lg-none">
+                <i class="far fa-bars"></i>
+              </button>
+            </div>
+            <div  class="d-flex flex-2-md col-4 align-items-center justify-content-center">
+              <div class="header-logo">
+                <a class="icon-masking" href="/">
+                  <img src="/img/logo_black.png" alt="KROST">
+                </a>
+              </div>
+              
+            </div>
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-end th-nav-section-px">
+              <div class=" d-none d-lg-inline-block">
+                <a class="th-nav-link th-nav-link" href="/resources">
+                  <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Resources</span>
+                </a>
+                <a class="th-nav-link th-nav-link" href="/contact-us">
+                  <span class="manu-name hover pr-20 pr-20-ml th-nav-link-right-pr">Contact Us</span>
+                </a>
+              </div>
+              <div class="header-button  d-none d-lg-inline-block">
+                <a href="https://store.krost.com.au" class="h-btn d-flex align-items-center justify-content-center th-nav-link">
+                  <span>Shop Now</span>
+                </a>
+              </div>
+
+              <div class="d-flex align-items-end gap-3 gap-3-ml" style="margin-bottom: 1px;">
+
+                <!-- search section  -->
+                <!-- <div class="th-header-search" id="th-header-global-search">
+                  <a 
+                    class="d-flex th-nav-link"
+                    href=""
+                    title="Search"
+                    role="button"
+                    aria-label="Search"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#search_offcanvasRight"
+                    aria-controls="search_offcanvasRight">
+                    <i class="fa-regular fa-magnifying-glass" style="font-size: 26px;"></i>
+                  </a>
+                </div> -->
+                <div class="th-header-search" id="th-header-global-search">
+                  <button 
+                    type="button"
+                    class="btn p-0 border-0 d-flex th-nav-link"
+                    title="Search"
+                    aria-label="Search"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#search_offcanvasRight"
+                    aria-controls="search_offcanvasRight">
+                    <i class="fa-regular fa-magnifying-glass" style="font-size: 26px;"></i>
+                  </button>
+                </div>
+
+                @@include('../sections/searchbar.html')
+
+                <!-- <a href="" id="pinboard-button th-nav-link" 
+                role="button" 
+                aria-label="Pinboard"
+                data-bs-toggle="offcanvas" 
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-right: 1px; width: 26px;">
+                  <span class="" style="position: relative;">
+                    <img src="/img/pinboard-icon.png" alt="Pinboard" loading="lazy" style="width: 26px; height: 27px;">
+                    <div class="th-pinboard-count-badge" style="display: none;">
+                      <span id="pinboard-item-count" ></span>
+                    </div>
+                  </span>
+                </a> -->
+                <button 
+                  type="button"
+                  id="pinboard-button" 
+                  class="btn p-0 border-0 th-nav-link" 
+                  aria-label="Pinboard"
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvasRight" 
+                  aria-controls="offcanvasRight" 
+                  style="margin-right: 1px; width: 26px;">
+                  <span class="" style="position: relative;">
+                    <img src="/img/pinboard-icon.png" alt="Pinboard" loading="lazy" style="width: 26px; height: 27px;">
+                    <div class="th-pinboard-count-badge" style="display: none;">
+                      <span id="pinboard-item-count"></span>
+                    </div>
+                  </span>
+                </button>
+
+                <!-- <div class="dropdown th-user-dropdown" id="user-profile-info">
+                  <a href="#" class="d-flex align-items-center dropdown-toggle th-nav-link" aria-label="Account menu" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" title="Account menu">
+                    <i class="fa-solid fa-user" style="font-size: 26px;"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" data-v-header-navigation-menus>
+                    <li data-v-header-navigation-menu-item><a class="dropdown-item" href="/login">Login</a></li>
+                    <li data-v-header-signup-menu><a class="dropdown-item" href="/signup">Sign Up</a></li>
+                    <li data-v-header-account-menu><a class="dropdown-item" href="/account/recent-orders">Account</a></li>
+                    <li data-v-header-logout-menu><a class="dropdown-item" href="/logout" >Logout</a></li>
+                  </ul>
+                </div> -->
+
+                <div class="dropdown th-user-dropdown" id="user-profile-info">
+                  <button 
+                    type="button"
+                    class="btn p-0 border-0 d-flex align-items-center dropdown-toggle th-nav-link" 
+                    aria-label="Account menu" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false" 
+                    aria-haspopup="true" 
+                    title="Account menu">
+                    <i class="fa-solid fa-user" style="font-size: 26px;"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" data-v-header-navigation-menus>
+                    <li data-v-header-navigation-menu-item><a class="dropdown-item" href="/login">Login</a></li>
+                    <li data-v-header-signup-menu><a class="dropdown-item" href="/signup">Sign Up</a></li>
+                    <li data-v-header-account-menu><a class="dropdown-item" href="/account/recent-orders">Account</a></li>
+                    <li data-v-header-logout-menu><a class="dropdown-item" href="/logout">Logout</a></li>
+                  </ul>
+                </div>
+
+                <!-- <div data-v-header-account-menu-admin id="header-is-admin" style="display: none;"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" id="is-logged-in"></script>
+
+
+  

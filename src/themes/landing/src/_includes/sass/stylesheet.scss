@@ -1,0 +1,279 @@
+/*
+Template Name: SA Technology
+Template URL: https://satechnology.com.au
+Description: Integrated Customised Ecommerce Solution
+Author: Shofiul Alam
+Author URI: https://satechnology.com.au
+Version: 1.0.0
+*/
+/*=================================
+    CSS Index Here
+==================================*/
+/*
+01. Theme Base
+    1.1. Mixin
+    1.2. Function
+    1.3. Variable
+    1.5. Bootstrap
+    1.5. Extend
+    1.6. themes
+    1.6. Typography
+02. Reset
+    2.1. Container
+    2.2. Grid
+    2.3. Input
+    2.5. Slider
+    2.5. Mobile Menu
+03. Utilities
+    3.1. Preloader
+    3.2. Buttons
+    3.3. Titles
+    3.5. Common
+    3.6. Font
+    3.7. Background
+    3.8. Text Color
+    3.9. Overlay
+    3.10. Animation
+
+04. Components -> (Alphabetical Order)
+    4.1. Asidebar Selector Form
+    4.2. Block Quotes
+    4.3. Blog Slider Item
+    4.4. Book Now Form
+    4.5. Breadcrumb
+    4.6. Calendar
+    4.7. Contact Us Form
+    4.8. Design Resource
+    4.9. Feature Project Item Slider
+    4.10. Finishes Item Card
+    4.11. Footer Address
+    4.12. Form
+    4.13. Head Tab Navigation
+    4.14. Header
+    4.15. Image Top Icon
+    4.16. Input Select
+    4.17. Item Card
+    4.18. Item Finish Circle
+    4.19. Item Help
+    4.20. Item Image Circle
+    4.21. Item Instagram Slider
+    4.22. Item Member
+    4.23. Item Number Card
+    4.24. Item Number Column
+    4.25. Item Product
+    4.26. Item Project
+    4.27. Item Showroom
+    4.28. Login
+    4.29. Masonry
+    4.30. Masonry Item
+    4.31. Offcanvas Comment
+    4.32. Offcanvas Pinboard Item
+    4.33. Order Modal
+    4.34. Payment Tab Navigation
+    4.35. Pinboard Comment
+    4.36. Pinboard Item
+    4.37. Pinboard Offcanvas
+    4.38. Search With Icon
+    4.39. Search Without Icon
+    4.40. Tag
+    4.41. Way Point (it import from style.scss line 478)
+    
+05. Sections -> pages (Page Name Order)
+    -----------------------------------
+    Home Page
+    -----------------------------------
+    5.1. Hero Section
+    5.2. Categories Slider Nav Section
+    5.3. Feature Project Masonry Section
+    5.4. Categories Masonry Section
+    5.5. Product Sustainability Section
+    5.6. Need Help Section
+    5.7. Connect Us Section
+    5.8. Footer Section
+
+    -----------------------------------
+    About Page
+    -----------------------------------
+    5.9. Our Principles Section
+    5.10. Our History Section
+    5.11. About Established Section
+    5.12. About Manufacturing Process Section
+    5.13. About Government Process Section
+    5.14. About Our Sustainable Value Section
+    5.15. Our Design Process Section
+
+    -----------------------------------
+    Products Page
+    -----------------------------------
+    5.16. Product Filters Section
+    5.17. Nav Tab Section
+    5.18. Product Details Tabs Section
+    5.19. Product Configurator Section
+
+    -----------------------------------
+    Projects Page
+    -----------------------------------
+    5.20. All Projects Section
+    5.21. Project Gallery Section
+    5.22. Project Detail Under Hero Section
+    5.23. Project Detail Section
+    5.24. Project Detail Main Section
+
+    -----------------------------------
+    Blogs Page
+    -----------------------------------
+    5.25. Blogs Section
+    5.26. Blog Detail Section
+
+    -----------------------------------
+    Contact Us Page
+    -----------------------------------
+    5.27. Contact Get In Touch Section
+
+    -----------------------------------
+    Contact Sales Page
+    -----------------------------------
+    5.28. Contact Sales Book Now Section
+
+    -----------------------------------
+    Login Page
+    -----------------------------------
+    5.29. Header Section
+
+    -----------------------------------
+    Catalogue Page
+    -----------------------------------
+    5.30. Request Catalogue Section
+
+    -----------------------------------
+    Account Dashboard
+    -----------------------------------
+    5.31. Dashboard Masonry Section
+    5.32. Delivery Install Section
+    5.33. Create Request Section
+    5.34. Track Order Section
+    5.35. Active Quotes Section
+    5.36. Comment Right Sidebar
+
+    -----------------------------------
+    Showroom Details Section
+    -----------------------------------
+    5.37. Showroom Details Section
+    5.38. Showroom Hero Section (it import from style.scss line 469-476)
+    5.39. Showroom Interactive Tour Section (it import from style.scss line 469-476)
+
+    -----------------------------------
+    Resource Section
+    -----------------------------------
+    5.40. Model 3D Section
+    5.41. Resource Model Item Section (it import from style.scss line 478)
+
+    -----------------------------------
+    Pinboard Booking Section
+    -----------------------------------
+    5.42. Pinboard Booking Section (it import from style.scss line 469-476)
+
+    ---------- other sections ---------
+    5.43. Our Sector Carousel Section
+    5.44. Our History Masonry Section
+
+05. Spacing
+
+*/
+/*=================================
+    CSS Index End
+==================================*/
+
+/*=================================
+   01. Theme Base
+==================================*/
+/*------------------- 1.0. Bootstrap -------------------*/
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+/*------------------- 1.1. Variables -------------------*/
+@import "base/variable";
+
+/*------------------- 1.2. Mixin -------------------*/
+@import "base/mixin";
+
+/*------------------- 1.3. Functions-------------------*/
+@import "base/function";
+
+/*------------------- 1.6. Typography ------------------- WFF*/
+@import "base/typography";
+
+/*------------------- 1.7. Extend -------------------*/
+@import "base/extend";
+
+/*------------------- 1.8. Theme -------------------*/
+@import "base/themes";
+
+
+
+/*=================================
+    02. Reset
+==================================*/
+/*------------------- 2.1. Grid -------------------*/
+@import "reset/grid";
+
+/*------------------- 2.2. Container -------------------*/
+@import "reset/container";
+
+/*------------------- 2.3. Input -------------------*/
+@import "reset/input";
+
+/*------------------- 2.5. Slider -------------------*/
+@import "reset/slider";
+
+/*------------------- 2.5. Mobile Menu -------------------*/
+@import "reset/thmenu";
+
+/*=================================
+    03. Utilities
+==================================*/
+/*------------------- 3.1. Preloader -------------------*/
+@import "utilities/preloader";
+
+/*------------------- 3.10. Animation -------------------*/
+@import "utilities/animation";
+
+/*------------------- 3.2. Buttons -------------------*/
+@import "utilities/btns";
+
+/*------------------- 3.3. Titles -------------------*/
+@import "utilities/titles";
+
+/*------------------- 3.5. Common -------------------*/
+@import "utilities/common";
+
+/*------------------- 3.6. Font -------------------*/
+@import "utilities/font";
+
+/*------------------- 3.7. Background -------------------*/
+@import "utilities/background";
+
+/*------------------- 3.8. Text Color -------------------*/
+@import "utilities/text-color";
+
+/*------------------- 3.9. Overlay -------------------*/
+@import "utilities/overlay";
+
+
+/*=================================
+    04. Components
+==================================*/
+
+@import "components/components";
+
+
+/*=================================
+    05. Sections
+==================================*/
+
+@import "sections/sections";
+
+/*=================================
+    05. Spacing
+==================================*/
+@import "spacing/spacing";
+

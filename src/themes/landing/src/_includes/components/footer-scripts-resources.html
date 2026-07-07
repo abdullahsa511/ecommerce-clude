@@ -1,0 +1,114 @@
+<div class="bg-image"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuex@3/dist/vuex.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
+<script src="https://unpkg.com/vuedraggable@2.20.0/dist/vuedraggable.umd.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/lib/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="/js/lib/choices.min.js"></script>
+
+<script type="text/javascript" src="/js/lib/lightgallery.min.js?v=1.0.1"></script>
+<script type="text/javascript" src="/js/lib/lg-zoom.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-fullscreen.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-share.min.js?v=1.0.1" defer></script>
+<script type="text/javascript" src="/js/lib/lg-rotate.min.js?v=1.0.1" defer></script>
+
+<script src="/js/vue-universal-app.js" type="module"></script>
+<script src="/js/vue-resources-app.js" type="module"></script>
+
+
+<script>
+    $(document).ready(function () {
+        // Open / Close Mobile Menu
+        $('.th-menu-toggle').on('click', function (e) {
+            e.preventDefault();
+            $('.th-menu-wrapper').toggleClass('th-body-visible');
+        });
+    
+        // Prepare submenu
+        $('.mobile-menu li').each(function () {
+            var submenu = $(this).children('ul');
+            if (submenu.length) {
+                submenu.hide();
+                $(this).addClass('th-item-has-children');
+                if ($(this).children('a').find('.th-mean-expand').length === 0) {
+                    $(this).children('a').append('<span class="th-mean-expand"></span>');
+                }
+            }
+        });
+    
+        // Accordion
+        $('.mobile-menu').on('click', '.th-item-has-children > a', function (e) {
+            e.preventDefault();
+            var parent = $(this).parent();
+            var submenu = $(this).next('ul');
+            // Close others
+            // $('.mobile-menu .th-item-has-children')
+            //     .not(parent)
+            //     .removeClass('th-active')
+            //     .children('ul')
+            //     .slideUp(400)
+            //     .removeClass('th-open');
+            // Toggle current
+            parent.toggleClass('th-active');
+            submenu.stop(true, true).slideToggle(400).toggleClass('th-open');
+        });
+    });
+
+    //mobile section 
+    (function () {
+        if (window.innerWidth > 768) {
+            return;
+        }
+        const nav = document.getElementById("th-tab-navigation");
+        if (!nav) return;
+        const items = nav.querySelectorAll(".nav-item");
+        function updateActive(){
+            items.forEach(function(item){
+                item.classList.remove("active-mobile");
+            });
+
+            let active=nav.querySelector(".nav-link.active");
+
+            if(!active){
+                active=nav.querySelector(".nav-link");
+            }
+
+            active.closest(".nav-item").classList.add("active-mobile");
+
+        }
+        window.addEventListener("load", function () {
+            setTimeout(updateActive, 50);
+        });
+
+        // Click the active item -> open menu
+        nav.addEventListener("click", function (e) {
+            const btn = e.target.closest(".nav-link");
+            if (!btn) return;
+            // If menu is closed, DON'T switch tabs.
+            if (!nav.classList.contains("th-open")) {
+                e.preventDefault();
+                e.stopPropagation();
+                nav.classList.add("th-open");
+                return false;
+            }
+            // Menu already open -> allow Bootstrap to switch tabs
+            setTimeout(function () {
+                nav.classList.remove("th-open");
+                updateActive();
+            }, 50);
+
+        }, true);
+
+        // Close if clicked outside
+        document.addEventListener("click", function (e) {
+            if (!nav.contains(e.target)) {
+                nav.classList.remove("th-open");
+                updateActive();
+            }
+        });
+
+    })();
+</script>

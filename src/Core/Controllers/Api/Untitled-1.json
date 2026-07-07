@@ -1,0 +1,43 @@
+[
+    {
+        "id": null,
+        "file": {
+            "name": "AceWS_FeatureThree.jpg",
+            "size": 50051,
+            "type": "image/jpeg",
+            "error": 0,
+            "tmp_name": "/var/www/html/public/media/Products/feature/AceWS_FeatureThree.jpg",
+            "full_path": "AceWS_FeatureThree.jpg"
+        },
+        "name": "AceWS_FeatureThree.jpg",
+        "size": 50051,
+        "type": "image/jpeg",
+        "image": "/media/Products/feature/AceWS_FeatureThree.jpg",
+        "status": {
+            "name": "Uploaded",
+            "severity": "success"
+        },
+        "media_id": null,
+        "objectURL": "/media/Products/feature/AceWS_FeatureThree.jpg",
+        "created_at": "",
+        "description": "",
+        "post_image_id": null,
+        "project_image_id": null
+    }
+]
+
+[
+    {
+        "file": {
+            "objectURL": "blob:http://localhost:5173/79e2beb6-169e-476b-9308-2a93ecc1787c"
+        },
+        "name": "conference.png",
+        "size": 128301,
+        "type": "image/png",
+        "status": {
+            "name": "Uploaded",
+            "severity": "success"
+        },
+        "objectURL": "blob:http://localhost:5173/79e2beb6-169e-476b-9308-2a93ecc1787c"
+    }
+]

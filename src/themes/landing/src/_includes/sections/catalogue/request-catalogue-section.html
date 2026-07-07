@@ -1,0 +1,697 @@
+<section id="th-request-catalogue" class="th-request-contact p-0" data-v-component-requestcatalogue
+  style="scroll-margin-top: 10vh;">
+  <div class="gr-bg8-request-catalogue pt-40">
+    <div class="container th-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="th-requset-catalouge-content pt-15">
+            <h2 data-v-requestcatalogue-section_title>Request Catalogue</h2>
+            <p data-v-requestcatalogue-section_subtitle>Lorem ipsum dolor sit amet consectetur. Egestas orci gravida
+              amet
+              <br> egestas et. Pellentesque libero donec sit egestas orci.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-7">
+          <div class="th-img-container th-request-catalouge-img">
+            <img src="/img/contact/contact-location-one.jpeg" alt="" data-v-requestcatalogue-image>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-5">
+          <div class="th-request-catalouge-form">
+
+            <div id="request-catalogue-alert-message" style="display: none; color: green; font-weight: bold;"></div>
+            <div class="form-container th-cf-wrapper overlap th-bg-cf-white">
+
+              <form action="/catalogue" method="post" id="request-catalogue-form">
+                <input type="hidden" name="nonce" value="" data-v-nonce>
+                <input type="hidden" name="form_type" value="physical_catalogue" data-v-form_type>
+                <input type="hidden" id="recaptcha-site-key" value="" data-v-recaptcha_site_key aria-hidden="true">
+                <input type="hidden" id="recaptcha-action" value="" data-v-recaptcha_action aria-hidden="true">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value=""
+                  data-v-recaptcha_response>
+                <div class="form-group">
+                  <!-- <label for="catalogue-format" >Format*</label> -->
+                  <select name="catalogue_format" class="form-control" id="catalogue-format" required
+                    onchange="document.querySelector('input[name=form_type]').value = this.value;">
+                    <option value="physical_catalogue" selected>Physical Copy</option>
+                    <option value="online_catalogue">Digital Version</option>
+                  </select>
+
+                  <div class="invalid-feedback" id="catalogue-format-feedback"></div>
+                </div>
+
+                <div class="form-group custom-input">
+                  <label for="first-name">First Name <span class="required">*</span></label>
+                  <input type="text" name="first_name" id="first-name" class="form-control" placeholder="First Name"
+                    required>
+                  <div class="invalid-feedback" id="first-name-feedback"></div>
+                </div>
+                <div class="form-group custom-input">
+                  <label for="email">Last Name <span class="required">*</span></label>
+                  <input type="text" name="last_name" id="last-name" class="form-control" placeholder="Last Name"
+                    required>
+
+                  <div class="invalid-feedback" id="last-name-feedback"></div>
+                </div>
+
+                <div class="form-group custom-input">
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+
+                  <div class="invalid-feedback" id="email-feedback"></div>
+                </div>
+
+                <div class="form-group d-none custom-input" id="stateInput">
+                  <label for="state">State <span class="required">*</span></label>
+                  <select name="state" id="stateSelect" class="form-control">
+                    <option value="">Select State </option>
+                    <option value="NSW">NSW</option>
+                    <option value="VIC">VIC</option>
+                    <option value="QLD">QLD</option>
+                    <option value="SA">SA</option>
+                    <option value="TAS">TAS</option>
+                    <option value="WA">WA</option>
+                    <option value="NT">NT</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="invalid-feedback" id="state-feedback"></div>
+                </div>
+
+                <div class="form-group" id="phone-number-group">
+                  <label for="phone-number">Phone Number <span class="required">*</span></label>
+                  <input type="text" name="phone_number" id="phone-number" class="form-control"
+                    placeholder="Phone Number">
+                  <div class="invalid-feedback" id="phone-number-feedback"></div>
+                </div>
+
+                <div class="form-group custom-input" id="company-group">
+                  <label for="company">Company Name <span class="required">*</span></label>
+                  <input type="text" name="company" id="company" class="form-control" placeholder="Company Name"
+                    required>
+
+                  <div class="invalid-feedback" id="company-feedback"></div>
+                </div>
+
+                <!-- source of enquiry with select dropdown-->
+                <div class="form-group custom-input">
+                  <label for="source-of-enquiry">How did you hear about us? <span class="required">*</span></label>
+                  <select name="source_of_enquiry" class="form-control" required>
+                    <option value="">How did you hear about us?</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Search Engine (Google, Yahoo, etc)">Search Engine (Google, Yahoo, etc)</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Online/Print Publication">Online/Print Publication</option>
+                    <option value="Returning Customers">Returning Customers</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div class="invalid-feedback" id="source-of-enquiry-feedback"></div>
+                </div>
+
+                <div class="form-group custom-input" id="mailing-address-group">
+                  <div class="d-flex justify-content-between">
+                    <label for="address-input">Mailing Address <span class="required">*</span></label>
+                    <div style="display:flex; justify-content:flex-end; margin-top:5px;">
+                      <span id="toggle-map"
+                        style="font-size:13px;cursor: pointer; text-decoration:underline; text-underline-offset:2px;">
+                        Can't find your address? Enter it manually
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <div id="autocomplete-card">
+                    <input type="text" id="address-input" class="form-control" placeholder="Enter your address"
+                      autocomplete="off" required />
+
+                    <div id="address-suggestions" class="address-suggestions d-none" role="listbox"
+                      aria-label="Address suggestions"></div>
+
+                    <input id="address-value" type="hidden" name="mailing_address" />
+                  </div>
+                </div>
+                <div class="form-group" style="display: none;">
+                  <div id="map" style="height:240px; width:100%;"></div>
+                </div>
+
+
+                <div class="form-group mb-0">
+                  <div class="crm-agree-row d-flex align-items-center">
+                    <input type="checkbox" id="agreetocheckbox" class="form-check-input crm-agree-input me-2" required>
+
+                    <label for="agreetocheckbox" class="form-check-label crm-agree-label mb-0">
+                      <span class="">
+                        We'll use your details to send your catalogue and relevant updates. See our
+                        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer"
+                          onclick="event.stopPropagation();">
+                          Privacy Policy
+                        </a>.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+
+
+                <!-- /source of enquiry with checkbox-->
+                <!-- Submit Button -->
+                <div class="form-group">
+                  <p id="recaptcha-feedback" class="text-danger small mb-2" role="alert" style="display: none;"></p>
+                  <button type="submit" class="th-btn-primary mt-30" id="request-my-copy-button">
+                    <span data-submit-label>Request My Copy</span>
+                    <span class="request-submit-spinner d-none" data-submit-spinner aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="th-btn-primary mt-30 d-none" id="requestCatalogueSubmitButton">
+                    <span data-submit-label>View Instantly</span>
+                    <span class="request-submit-spinner d-none" data-submit-spinner aria-hidden="true"></span>
+                  </button>
+                  <p class="recaptcha-disclaimer small text-muted mt-2 mb-0">
+                    <!-- This site is protected by reCAPTCHA and the Google
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    and
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                    apply. -->
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq0nzu7khUsDR9cNr5nDaff0kwa29h5Nc&callback=initMap&libraries=places,marker&v=weekly&loading=async"
+  async></script>
+
+<style>
+  .crm-agree-input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 1px solid var(--theme-secondary) !important;
+    border-radius: 0;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: none !important;
+    padding: 10px !important;
+  }
+
+  .crm-agree-input:checked {
+    background-color: var(--theme-secondary) !important;
+    border-color: var(--theme-secondary) !important;
+  }
+
+  .crm-agree-label::before {
+    content: '' !important;
+  }
+
+  .crm-agree-input:checked::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  #mailing-address-group {
+    margin-bottom: 10px !important;
+  }
+
+  .crm-agree-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .crm-agree-input {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .crm-agree-label {
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>
+
+<style>
+  #autocomplete-card {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .address-suggestions {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  .address-suggestions button {
+    width: 100%;
+    border: 0;
+    background: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .address-suggestions button:hover,
+  .address-suggestions button:focus {
+    background: #f5f5f5;
+    outline: none;
+  }
+
+  /* Fix broken global select chevron (invalid stroke='%23$text' in _input.scss) */
+  #th-request-catalouge #request-catalogue-form select.form-select,
+  #th-request-catalouge #request-catalogue-form select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 48px;
+    background-image: url("/images/icons/down-arrow.svg");
+    background-position: right 26px center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    cursor: pointer;
+  }
+
+  #th-request-catalouge #request-catalogue-form select.form-select:focus,
+  #th-request-catalouge #request-catalogue-form select.form-control:focus {
+    background-image: url("/images/icons/down-arrow.svg");
+    background-position: right 26px center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+  }
+
+  .request-submit-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 8px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    vertical-align: middle;
+    animation: requestSubmitSpin 0.75s linear infinite;
+  }
+
+  @keyframes requestSubmitSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<style>
+  /* .custom-input {
+    position: relative;
+  }
+
+  .custom-placeholder {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    transition: opacity .2s ease;
+  }
+
+.required {
+    color: #dc3545;
+  }
+
+  .custom-input.has-value .custom-placeholder,
+  .custom-input:focus-within .custom-placeholder {
+    opacity: 0;
+    visibility: hidden;
+  } */
+
+  .required {
+    color: #dc3545;
+  }
+</style>
+<script>
+
+  // (() => {
+
+  //   function togglePlaceholder(input) {
+  //     input.closest('.custom-input')
+  //       ?.classList.toggle('has-value', input.value.trim() !== '');
+  //   }
+
+  //   function initCustomPlaceholders() {
+  //     document.querySelectorAll('.custom-input .form-control').forEach(input => {
+
+  //       // Initial state
+  //       togglePlaceholder(input);
+
+  //       // Prevent duplicate event listeners
+  //       if (input.dataset.placeholderInit) return;
+  //       input.dataset.placeholderInit = "1";
+
+  //       ['input', 'change', 'blur', 'focus'].forEach(event => {
+  //         input.addEventListener(event, () => togglePlaceholder(input));
+  //       });
+  //     });
+  //   }
+
+  //   document.addEventListener('DOMContentLoaded', initCustomPlaceholders);
+  //   window.addEventListener('pageshow', initCustomPlaceholders);
+
+  // })();
+</script>
+
+<script>
+  async function initMap() {
+    const mapEl = document.getElementById('map');
+    const placeAutocompleteEl = document.getElementById('address-input');
+    const addressValueEl = document.getElementById('address-value');
+    const suggestionsEl = document.getElementById('address-suggestions');
+    const toggleAutocompleteEl = document.getElementById('toggle-map');
+
+    if (!mapEl || !placeAutocompleteEl || !addressValueEl || !suggestionsEl) {
+      return;
+    }
+
+    const { Map, InfoWindow } = await google.maps.importLibrary('maps');
+    const { AdvancedMarkerElement } = await google.maps.importLibrary('marker');
+    await google.maps.importLibrary('places');
+
+    const map = new Map(mapEl, {
+      center: { lat: -25.2744, lng: 133.7751 },
+      zoom: 5,
+      mapId: 'DEMO_MAP_ID',
+      mapTypeControl: false,
+    });
+
+    const marker = new AdvancedMarkerElement({ map: null });
+    const infoWindow = new InfoWindow();
+    let sessionToken = new google.maps.places.AutocompleteSessionToken();
+    let lastRequestId = 0;
+    let isAutocompleteEnabled = true;
+
+    // টগল টেক্সট আপডেট করার জন্য ফিক্সড ফাংশন
+    function updateToggleText() {
+      if (!toggleAutocompleteEl) return;
+      toggleAutocompleteEl.textContent = isAutocompleteEnabled
+        ? `Can't find your address? Enter it manually`
+        : `Switch back to address auto-complete`;
+    }
+
+    function closeSuggestions() {
+      suggestionsEl.innerHTML = '';
+      suggestionsEl.classList.add('d-none');
+    }
+
+    // সাজেশন সিলেক্ট করার লজিক
+    async function selectSuggestion(placePrediction) {
+      const place = placePrediction.toPlace();
+      await place.fetchFields({ fields: ['displayName', 'formattedAddress', 'location'] });
+
+      const formattedAddress = place.formattedAddress || placeAutocompleteEl.value || '';
+      const displayName = place.displayName || 'Selected Place';
+      const location = place.location || null;
+
+      placeAutocompleteEl.value = formattedAddress;
+      addressValueEl.value = formattedAddress;
+      closeSuggestions();
+      sessionToken = new google.maps.places.AutocompleteSessionToken();
+
+      if (!location) return;
+
+      map.setCenter(location);
+      map.setZoom(16);
+      marker.position = location;
+      marker.map = map;
+
+      infoWindow.setContent(
+        '<strong>' + displayName + '</strong><br />' + (formattedAddress || '')
+      );
+      infoWindow.open({ anchor: marker, map: map });
+    }
+
+    // ইনপুট টাইপ ইভেন্ট লিসেনার
+    placeAutocompleteEl.addEventListener('input', async function () {
+      const query = placeAutocompleteEl.value.trim();
+      addressValueEl.value = query;
+
+      if (!isAutocompleteEnabled) {
+        closeSuggestions();
+        return;
+      }
+
+      if (query.length < 3) {
+        closeSuggestions();
+        return;
+      }
+
+      const requestId = ++lastRequestId;
+      try {
+        const response = await google.maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+          input: query,
+          sessionToken: sessionToken,
+          includedRegionCodes: ['au'],
+        });
+
+        if (requestId !== lastRequestId) return;
+
+        const suggestions = response?.suggestions || [];
+        if (!suggestions.length) {
+          closeSuggestions();
+          return;
+        }
+
+        suggestionsEl.innerHTML = '';
+        suggestions.forEach(function (suggestion) {
+          const placePrediction = suggestion.placePrediction;
+          if (!placePrediction) return;
+
+          const optionButton = document.createElement('button');
+          optionButton.type = 'button';
+          optionButton.setAttribute('role', 'option');
+          optionButton.textContent = placePrediction.text?.text || '';
+          optionButton.addEventListener('click', function () {
+            selectSuggestion(placePrediction);
+          });
+          suggestionsEl.appendChild(optionButton);
+        });
+
+        if (suggestionsEl.childElementCount > 0) {
+          suggestionsEl.classList.remove('d-none');
+        } else {
+          closeSuggestions();
+        }
+      } catch (error) {
+        closeSuggestions();
+      }
+    });
+
+    placeAutocompleteEl.addEventListener('blur', function () {
+      addressValueEl.value = placeAutocompleteEl.value.trim();
+    });
+
+    // ম্যানুয়াল এবং অটোমোড টগল ইভেন্ট লিসেনার (ডুপ্লিকেট রিমুভড ও ক্লিন করা)
+    if (toggleAutocompleteEl) {
+      updateToggleText();
+      toggleAutocompleteEl.addEventListener('click', function (event) {
+        event.preventDefault();
+        placeAutocompleteEl.focus();
+        isAutocompleteEnabled = !isAutocompleteEnabled;
+        updateToggleText(); // রিয়েল টাইমে টেক্সট চেইঞ্জ হবে
+        sessionToken = new google.maps.places.AutocompleteSessionToken();
+        closeSuggestions();
+        addressValueEl.value = placeAutocompleteEl.value.trim();
+      });
+    }
+
+    // ড্রপডাউনের বাইরে ক্লিক করলে ক্লোজ হওয়ার লজিক
+    document.addEventListener('click', function (event) {
+      if (!suggestionsEl.contains(event.target) && event.target !== placeAutocompleteEl) {
+        closeSuggestions();
+      }
+    });
+  }
+
+  window.initMap = initMap;
+</script>
+<script>
+  (function () {
+    const form = document.getElementById('request-catalogue-form');
+    if (!form) {
+      return;
+    }
+
+    const actionInput = document.getElementById('recaptcha-action');
+    const RECAPTCHA_ACTION = actionInput
+      ? String(actionInput.value || '').trim() || 'catalogue_request'
+      : 'catalogue_request';
+    const siteKeyInput = document.getElementById('recaptcha-site-key');
+    const tokenInput = document.getElementById('g-recaptcha-response');
+    const recaptchaFeedback = document.getElementById('recaptcha-feedback');
+    const siteKey = siteKeyInput ? String(siteKeyInput.value || '').trim() : '';
+    const recaptchaEnabled = siteKey !== '';
+
+    if (!recaptchaEnabled) {
+      const disclaimer = form.querySelector('.recaptcha-disclaimer');
+      if (disclaimer) {
+        disclaimer.style.display = 'none';
+      }
+    }
+
+    if (recaptchaFeedback && recaptchaFeedback.textContent.trim()) {
+      recaptchaFeedback.style.display = 'block';
+    }
+
+    function showRecaptchaError(message) {
+      if (!recaptchaFeedback) {
+        return;
+      }
+      recaptchaFeedback.textContent = message;
+      recaptchaFeedback.style.display = message ? 'block' : 'none';
+    }
+
+    function setSubmitLoading(visibleSubmitButton, isLoading) {
+      if (!visibleSubmitButton) {
+        return;
+      }
+      visibleSubmitButton.dataset.loading = isLoading ? 'true' : 'false';
+      visibleSubmitButton.disabled = isLoading;
+      const spinner = visibleSubmitButton.querySelector('[data-submit-spinner]');
+      if (spinner) {
+        spinner.classList.toggle('d-none', !isLoading);
+      }
+    }
+
+    function loadRecaptchaScript(key) {
+      return new Promise(function (resolve, reject) {
+        if (window.grecaptcha && typeof window.grecaptcha.execute === 'function') {
+          resolve();
+          return;
+        }
+
+        const existing = document.querySelector('script[data-recaptcha-v3]');
+        if (existing) {
+          if (existing.getAttribute('data-recaptcha-ready') === '1') {
+            resolve();
+            return;
+          }
+          existing.addEventListener('load', function () {
+            existing.setAttribute('data-recaptcha-ready', '1');
+            resolve();
+          });
+          existing.addEventListener('error', function () {
+            reject(new Error('reCAPTCHA failed to load'));
+          });
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=' + encodeURIComponent(key);
+        script.async = true;
+        script.defer = true;
+        script.setAttribute('data-recaptcha-v3', '1');
+        script.onload = function () {
+          script.setAttribute('data-recaptcha-ready', '1');
+          resolve();
+        };
+        script.onerror = function () {
+          reject(new Error('reCAPTCHA failed to load'));
+        };
+        document.head.appendChild(script);
+      });
+    }
+
+    function executeRecaptcha(key) {
+      return loadRecaptchaScript(key).then(function () {
+        return new Promise(function (resolve, reject) {
+          window.grecaptcha.ready(function () {
+            window.grecaptcha
+              .execute(key, { action: RECAPTCHA_ACTION })
+              .then(resolve)
+              .catch(reject);
+          });
+        });
+      });
+    }
+
+    if (recaptchaEnabled) {
+      loadRecaptchaScript(siteKey).catch(function () {
+        // Preload failure is non-fatal; submit will retry loading.
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      const visibleSubmitButton = form.querySelector('button[type="submit"]:not(.d-none)');
+
+      if (!visibleSubmitButton) {
+        return;
+      }
+
+      if (form.dataset.recaptchaVerified === 'true') {
+        setSubmitLoading(visibleSubmitButton, true);
+        return;
+      }
+
+      if (visibleSubmitButton.dataset.loading === 'true') {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      showRecaptchaError('');
+
+      if (!recaptchaEnabled) {
+        form.dataset.recaptchaVerified = 'true';
+        form.requestSubmit(visibleSubmitButton);
+        return;
+      }
+
+      setSubmitLoading(visibleSubmitButton, true);
+
+      executeRecaptcha(siteKey)
+        .then(function (token) {
+          if (tokenInput) {
+            tokenInput.value = token;
+          }
+          form.dataset.recaptchaVerified = 'true';
+          setSubmitLoading(visibleSubmitButton, false);
+          form.requestSubmit(visibleSubmitButton);
+        })
+        .catch(function () {
+          setSubmitLoading(visibleSubmitButton, false);
+          showRecaptchaError('reCAPTCHA verification failed. Please refresh the page and try again.');
+        });
+    });
+  })();
+</script>

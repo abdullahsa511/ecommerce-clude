@@ -1,0 +1,365 @@
+@@include('../_includes/components/html-head.html')
+<body class="bg-white">
+  <!--==============================Header Area==============================-->
+  @@include('../_includes/sections/navigation.html')
+  @@include('../_includes/sections/category/category-workstation-hero-section.html')
+  
+  <div id="workstations-categories" data-v-component-categoryworkstationdetails class="pt-60">
+    <!--==============================
+    Product Slider Section
+    ==============================-->
+    <section id="th-product-slider" class="th-section-py pt-0" data-v-category>
+      <div class="container th-container">
+        <div class="row">
+          <div class="th-section-header @@sectionHeaderClass th-section-header-pb-50">
+            <div class="th-section-header-wrapper left flex-1">
+              <h2 class="th-section-title th-section-title-mb" data-v-category-title> Products Slider </h2>
+              <div class="th-section-subtitle th-section-subtitle-mb" style="font-size: 16" data-v-category-subtitle>
+                Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+              </div>
+            </div>
+
+
+            <div class="right">
+              <a class="th-section-header-link th-link" href="" data-v-category-link>
+                <span class="th-view-all-btn View All ProductsClass th-mr-7">View All Products</span>
+                <span class="th-section-header-link-btn">
+                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="th-section-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="swiper th-featured-products-slider">
+                  <div class="swiper-wrapper" data-v-category-products>
+
+                    <div class="swiper-slide" data-v-category-product>
+                      <div class="th-item-product">
+                        <div class="th-img-container th-product-image th-product-image-px">
+                          <a href="/products/workstation/keywork" data-v-category-product-url target="_blank">
+                            <img src="/img/category-workstation/Keywork.png" data-v-category-product-image />
+                          </a>
+                        </div>
+                        <div
+                          data-v-category-product-add-to-pinboard
+                          data-id="1" 
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title=""
+                          role="button"
+                          tabindex="0"
+                          data-bs-original-title="Add to Pinboard"
+                          data-original-title="Add to Pinboard"
+                          data-model="product" 
+                          data-title="Keywork" 
+                          data-description="Keywork installation." 
+                          data-image="/img/category-workstation/Keywork.png"                     
+                          class="th-add-to-pinboard th-pinboard-tooltip position-absolute top-right-30"
+                        >
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <a href="/products/workstation/keywork" data-v-category-product-url target="_blank">
+                              <h3 class="th-title th-item-title th-link th-prouct-title-my" data-v-category-product-name>Keywork </h3>
+                           </a>
+
+                           <p class="th-description th-mb-10" data-v-category-product-description> Active working, simplified </p>
+
+                          <div class="th-tag-name" data-v-category-product-tags>
+                            <div class="th-tag th-tag-p" data-v-category-product-tag>AFRDI Certified</div>
+                            <div class="th-tag th-tag-p">OBP Certified</div>
+                            <div class="th-tag th-tag-p">Some Tag Name Here</div>
+                            <div class="th-tag th-tag-p">Tag Name Here</div>
+                            <div class="th-tag th-tag-p">Tag Name Here As Well</div>
+                          </div>
+                          <div data-v-category-product-finishes class="th-item-finish-circle">
+                            <div class="th-circle black-fabric">Black Fabric</div>
+                            <div class="th-circle black-premium">Black Premium Polyurethane</div>
+                            <div class="th-circle mocha-premium">Mocha Premium Polyurethane</div>
+                            <div class="th-circle white" data-bg-src="/img/finishes/finish-2.jpg">Cream Premium Polyurethane</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container th-product-image">
+                          <img src="/img/category-workstation/Keywork Spine.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link th-mt-20">Keywork Spine </h3>
+                          <div class="th-tag-name">
+                            <div class="th-tag th-tag-p">AFRDI Certified</div>
+                            <div class="th-tag th-tag-p">OBP Certified</div>
+                            <div class="th-tag th-tag-p">Some Tag Name Here</div>
+                            <div class="th-tag th-tag-p">Tag Name Here</div>
+                            <div class="th-tag th-tag-p">Tag Name Here As Well</div>
+                          </div>
+                          <div class="th-item-finish-circle">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container th-product-image">
+                          <img src="/img/category-workstation/Benchwork.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Benchwork </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container @@itemProductClass">
+                          <img src="/img/category-workstation/Benchwork Spine.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Benchwork Spine </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==============================
+    End Product Slider Section
+    ==============================-->
+
+    <!--==============================
+    Product Slider Section
+    ==============================-->
+    <section id="th-product-slider" class="">
+      <div class="container th-container">
+        <div class="row">
+          <div class="th-section-header @@sectionHeaderClass">
+            <div class="th-section-header-wrapper left flex-1">
+              <h2 class="  th-section-title th-section-title-mb"> Products Slider </h2>
+              <div class="th-section-subtitle th-section-subtitle-mb">
+                Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+              </div>
+            </div>
+
+            <div class="right">
+              <div class="th-section-header-link">
+                <span class="th-view-all-btn View All ProductsClass">View All Products</span>
+                <span class="th-section-header-link-btn">
+                  <i class="fa-regular fa-arrow-up degree-60"></i>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="th-section-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="swiper th-featured-products-slider">
+                  <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container @@itemProductClass">
+                          <img src="/img/category-workstation/Arc Screen.png " />
+                        </div>
+                        <div                        
+                        data-v-category-product-add-to-pinboard
+                        data-id="1" 
+                        data-model="product" 
+                        data-title="Arc Screen" 
+                        data-description="Arc Screen installation." 
+                        data-image="/img/category-workstation/Arc Screen.png"                     
+                        class="th-add-to-pinboard position-absolute top-right-30"
+                        >
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Arc Screen </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container @@itemProductClass">
+                          <img src="/img/category-workstation/Daily Screen.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Daily Screen </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container @@itemProductClass">
+                          <img src="/img/category-workstation/Vast Screen.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Vast Screen </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="th-item-product">
+                        <div class="th-img-container @@itemProductClass">
+                          <img src="/img/category-workstation/Trak Screen.png " />
+                        </div>
+                        <div class="th-add-to-pinboard position-absolute top-right-30 ">
+                          <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="th-item-footer">
+                          <!-- <div class="label">Build</div> -->
+                          <h3 class="th-title th-item-title th-link mt-20">Trak Screen </h3>
+                          <div class="th-tag-name">
+
+                            <div class="th-tag">AFRDI Certified</div>
+                            <div class="th-tag">OBP Certified</div>
+                            <div class="th-tag">Some Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here</div>
+                            <div class="th-tag">Tag Name Here As Well</div>
+
+
+                          </div>
+                          <div class="th-item-finish-circle">
+
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==============================
+    End Product Slider Section
+    ==============================-->
+  </div>
+
+  @@include('../_includes/sections/footer.html')
+  @@include('../_includes/sections/pinboard.html')
+  @@include('../_includes/components/footer-scripts-products.html')  
+</body>
+
+</html>

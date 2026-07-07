@@ -1,0 +1,136 @@
+html,
+body {
+	scroll-behavior: auto !important;
+}
+
+body {
+    // Default Theme styles (using the "default" theme from the map)
+    background-color: map-get(map-get($themes, "default"), 'body');
+    // color: map-get(map-get($themes, "default"), 'text');
+    font-family: map-get($fontMap, 'body');
+    // font-size: $body-font-size;
+    // font-weight: $body-font-weight;
+    // line-height: $body-line-height;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+
+  // This dynamci themes variable is not used yet. Instead we manually defined them in _variable.scss
+  
+    @each $theme-name, $theme-values in $themes {
+      &.theme-#{$theme-name} { // Dynamic class names
+        @each $property, $value in $theme-values {
+          --theme-#{$property}: #{$value};  // Set CSS variables for each property
+        }
+      }
+    }
+  
+  }
+
+iframe {
+	border: none;
+	width: 100%;
+}
+
+// /* Apply to the entire document */
+// ::-webkit-scrollbar {
+//   width: 5px; /* Thin scrollbar */
+// }
+
+// /* Track (background) - Apply to html and body for better specificity */
+// html::-webkit-scrollbar-track,
+// body::-webkit-scrollbar-track,
+// ::-webkit-scrollbar-track {
+//   background-color: #000000; /* Black track */
+//   background: #000000; /* Fallback */
+// }
+// /* Handle (scroll thumb) */
+// ::-webkit-scrollbar-thumb {
+//   background: #929090; /* Soft gray with transparency */
+//   border-radius: 10px;
+//   transition: background 0.3s ease;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #929090; /* Darker on hover */
+// }
+
+// /* Optional: Hide scrollbar when not in use (only for WebKit browsers) */
+// ::-webkit-scrollbar-thumb:window-inactive {
+//   background: #929090;
+// }
+
+// /* Firefox scrollbar customization */
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: #929090; /* thumb color, track color (black) */
+// }
+
+/* Target all category menu containers */
+.th-categories-slider-nav .th-categories-menu,
+.th-categories-slider-nav .th-sector-menu,
+.th-our-sector-slider-nav .th-categories-menu,
+.th-our-sector-slider-nav .th-sector-menu,
+.th-menu-container,
+.th-gallery-thumb-container {
+  /* Hide scrollbar track by default - remove all borders and outlines */
+  &::-webkit-scrollbar {
+    width: 5px;
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    background: transparent !important;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: transparent !important; /* Invisible track */
+    background: transparent !important; /* Fallback */
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-image: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  }
+  
+  /* Hide scrollbar thumb by default */
+  &::-webkit-scrollbar-thumb {
+    background: transparent !important; /* Invisible thumb */
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-image: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  /* Show scrollbar thumb on hover */
+  &:hover::-webkit-scrollbar-thumb {
+    background: rgba(146, 144, 144, 0.5) !important; /* Visible on hover */
+  }
+  
+  /* Show scrollbar thumb when scrolling */
+  &:active::-webkit-scrollbar-thumb,
+  &:focus::-webkit-scrollbar-thumb {
+    background: rgba(146, 144, 144, 0.5) !important; /* Visible when active */
+  }
+  
+  /* Firefox - hide scrollbar by default */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent !important; /* Both thumb and track transparent */
+  }
+  
+  /* Firefox - show scrollbar on hover (limited support) */
+  &:hover * {
+    scrollbar-color: rgba(146, 144, 144, 0.5) transparent !important;
+  }
+}

@@ -1,0 +1,777 @@
+[
+    {
+        "name": "contact_email",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "sales@krost.com.au",
+        "imagesData": []
+    },
+    {
+        "name": "contact_phone",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "1800 1KROST",
+        "imagesData": []
+    },
+    {
+        "name": "sydney_office_name",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Sydney Office",
+        "imagesData": []
+    },
+    {
+        "name": "sydney_office_address",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "33 Ricketty St <br/>Mascot NSW, 2020",
+        "imagesData": []
+    },
+    {
+        "name": "social_media",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": [
+            {
+                "url": "https://www.linkedin.com/company/krost-business-furniture/",
+                "icon": "fa-brands fa-linkedin-in",
+                "platform": "LinkedIn"
+            },
+            {
+                "url": "https://www.facebook.com/krostfurniture/",
+                "icon": "fa-brands fa-facebook-f",
+                "platform": "Facebook"
+            },
+            {
+                "url": "https://www.instagram.com/krostfurniture/",
+                "icon": "fa-brands fa-instagram",
+                "platform": "Instagram"
+            },
+            {
+                "url": "https://www.pinterest.com/krostfurniture/",
+                "icon": "fa-brands fa-pinterest-p",
+                "platform": "Pinterest"
+            }
+        ],
+        "imagesData": []
+    },
+    {
+        "name": "copyright_year",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "2025",
+        "imagesData": []
+    },
+    {
+        "name": "subscription_title",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Get krost product updates",
+        "imagesData": []
+    },
+    {
+        "name": "copyright_terms_url",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "content/page.html",
+        "imagesData": []
+    },
+    {
+        "name": "sydney_office_hours",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Mon-Fri, 8AM-5PM",
+        "imagesData": []
+    },
+    {
+        "name": "sydney_office_phone",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "02 9557 3055",
+        "imagesData": []
+    },
+    {
+        "name": "copyright_privacy_url",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "content/page.html",
+        "imagesData": []
+    },
+    {
+        "name": "melbourne_office_name",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Melbourne Office",
+        "imagesData": []
+    },
+    {
+        "name": "copyright_company_name",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "KROST",
+        "imagesData": []
+    },
+    {
+        "name": "melbourne_office_hours",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Mon-Fri, 9AM-5PM",
+        "imagesData": []
+    },
+    {
+        "name": "melbourne_office_phone",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "03 9682 8280",
+        "imagesData": []
+    },
+    {
+        "name": "copyright_powered_by_url",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "https://krost.com.au",
+        "imagesData": []
+    },
+    {
+        "name": "melbourne_office_address",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "617-643 Spencer St <br/>West Melbourne VIC, 3000",
+        "imagesData": []
+    },
+    {
+        "name": "brisbane_office_name",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Brisbane Office",
+        "imagesData": []
+    },
+    {
+        "name": "brisbane_office_address",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "936 Stanley St E <br/>East Brisbane QLD, 4169",
+        "imagesData": []
+    },
+    {
+        "name": "brisbane_office_phone",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "07 3338 6000",
+        "imagesData": []
+    },
+    {
+        "name": "brisbane_office_hours",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Mon-Fri, 8:30AM-5PM",
+        "imagesData": []
+    },
+    {
+        "name": "subscription_button_text",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Subscribe Now",
+        "imagesData": []
+    },
+    {
+        "name": "subscription_description",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Receive the latest news and updates from Krost",
+        "imagesData": []
+    },
+    {
+        "name": "subscription_placeholder",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Your Email Address Please",
+        "imagesData": []
+    },
+    {
+        "name": "copyright_powered_by_text",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Powered by Krost",
+        "imagesData": []
+    },
+    {
+        "name": "footer_navigation_visit_us",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Visit Us",
+        "imagesData": []
+    },
+    {
+        "name": "footer_navigation_our_store",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Our Store",
+        "imagesData": []
+    },
+    {
+        "name": "footer_navigation_contact_us",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "Contact Us",
+        "imagesData": []
+    },
+    {
+        "name": "footer_navigation_contact_us_url",
+        "type": {
+            "type": {
+                "max": 100,
+                "min": 0,
+                "mask": "",
+                "name": "InputText",
+                "step": 1,
+                "type": "InputText",
+                "value": "",
+                "length": 0,
+                "options": [],
+                "required": false,
+                "keyfilter": "",
+                "placeholder": "InputText",
+                "suggestions": [],
+                "treeOptions": [],
+                "editorConfig": [],
+                "cascadeOptions": []
+            }
+        },
+        "isNew": true,
+        "value": "#",
+        "imagesData": []
+    }
+]

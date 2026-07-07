@@ -1,0 +1,21 @@
+<div class="@@class">
+  <div class="th-item-card">
+    <div class="th-img-container">
+      <img src="@@if(typeof img !== 'undefined') { @@img } 
+      @@if(typeof img === 'undefined') { /img/bg/home/home_dr-fabrics.jpg }" alt="@@alt" />
+    </div>
+    <div class="th-item-card-content mt-15">
+      <div class="th-link mb-10">
+        <h6 class="th-link-text pr-5 th-title-20">@@title</h6>
+        @@if(typeof icon_link !== 'undefined') {
+        <div class="th-link-icon">
+          <i class="fa-regular fa-arrow-right"></i>
+        </div>
+        }
+      </div>
+      <div class="th-description">
+        @@description
+      </div>
+    </div>
+  </div>
+</div>

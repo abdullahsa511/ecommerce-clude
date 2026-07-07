@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Request</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+  <!-- Body -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:1.7; color:#374151;">
+
+      <p style="margin:20px 0 05px 0;">
+        The following information has been submitted from the Krost Business Furniture:
+      </p>
+
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td style="padding:0px 16px 20px 24px; font-size:16px; line-height:1.7; color:#374151;">
+              <p style="margin:0; line-height:1.7;"><strong>How would you like to view the catalogue?:</strong> {{ view_type|default('Online') }}</p>
+              <p style="margin:0; line-height:1.7;"><strong>First Name:</strong> {{ first_name|default('') }}</p>
+              <p style="margin:0; line-height:1.7;"><strong>Last Name:</strong> {{ last_name|default('') }}</p>
+              <p style="margin:0; line-height:1.7;"><strong>Email:</strong> {{ email|default('') }}</p>
+              <p style="margin:0; line-height:1.7;"><strong>How did you hear about us?:</strong> {{ hear_about_us|default('') }}</p>
+              <p style="margin:0; line-height:1.7;"><strong>State:</strong> {{ state|default('') }}</p>
+            </td>
+          </tr>
+      </table>
+
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:1.7; color:#374151;">
+      <p style="margin:0 0 20px 0;">Kind regards,</p>
+      <p style="margin:0 0 20px 0;"><strong>The Krost Team</strong></p>
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

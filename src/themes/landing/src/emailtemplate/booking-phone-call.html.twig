@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Request for a phone call') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+              
+          <tr>
+            <td style="padding:24px 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:1.6;">Hi {{ team_name|default('Sales Team') }},</p>
+              <p style="margin:0 0 20px 0; line-height:1.6;">A client has requested a call back regarding their Virtual Pinboard project. Please ensure a team member is allocated to contact them as soon as possible.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0px 0px 8px 0px;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:1.6; color:#374151;">Contact Details:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:10px;">
+                      <li style="line-height:1.7;"><strong>Email:</strong> {{ client_email|default("[Client's email]") }}</li>
+                      <li style="line-height:1.7;"><strong>Phone Number:</strong> {{ phone|default(pinboard_phone|default('N/A')) }}</li>
+                      <li style="line-height:1.7;"><strong>Project Name:</strong> {{ project_name|default('[Dynamic Project Name]') }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 8px 0; font-size:16px; font-weight:bold; line-height:1.6;">Additional Notes:</p>
+              <p style="margin:0 0 20px 0; line-height:1.7;">"{{ client_notes|default('None provided') }}"</p>
+              <p style="margin:20px 0 20px 0; line-height: 16px;"><strong>Next Steps: </strong> Please allocate this lead to a consultant and ensure the client is contacted within our standard response timeframe.</p>
+
+            </td>
+          </tr>
+          
+           <tr>
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;" align="center">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <td align="center" style="border-radius:6px; background-color:#2563eb;">
+                    <a href="{{ dashboard_project_url|default('#') }}" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:12px 24px; font-size:16px; font-weight:bold; color:#ffffff; text-decoration:none;">View Project in Dashboard</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:1.6;">Best Regards,</p>
+              <p style="margin:0 0 20px 0; line-height:1.6;"><strong>Krost Website Booking System</strong></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

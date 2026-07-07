@@ -1,0 +1,44 @@
+.footer-left-content{
+    @include respond-to(sm){
+       .grid-col-3{
+            gap:15px;
+        }
+    }
+
+}
+
+.th-showroom-address{
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    padding-top: 50px;
+    @include respond-to(sm){
+        padding-top: 20px;
+        .address-title{
+            margin-bottom: 5px!important;
+        }
+        .th-opening-hours{
+            margin-top: 5px!important;
+        }
+    }
+    .th-address-line{
+        line-height: 1.5;
+        min-height: 0;
+    }
+    .th-opening-hours{
+        margin-top: 10px;
+        white-space: nowrap;
+    }
+}
+
+.th-footer-copyright{
+    @include media-breakpoint-up(xxl) {
+        .copyright-text-right{
+            margin-right: -130px;
+        }
+    }
+}
+.th-footer-copyright-content{
+    @include respond-to(sm){
+       text-align: center!important;
+    }
+}

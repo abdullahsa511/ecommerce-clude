@@ -1,0 +1,39 @@
+#our-design-process{
+    .th-design-process-items{
+        border-top: 2px solid var(--gray-600);
+        padding: 10px 0;
+        &:last-child{
+            border-bottom: 2px solid var(--gray-600);
+        }
+        .th-design-process-item-title{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            h6{
+                
+                font-size: 22px;
+                color: var(--gray-600);
+            }
+            h5{
+                font-weight: 500;
+            }
+        }
+    }
+
+    @include respond-to(sm){
+        .th-section-header-pb-50{
+            padding-bottom: 20px !important;
+        }
+        .sectionHeaderClass{
+            padding-top: 0!important;
+        }
+        .th-design-process-items{
+            gap: 15px;
+        }
+        .th-design-process-items{
+            .th-desing-process-item-container{
+              padding-top: 20px!important;
+            }
+        }
+    }
+}

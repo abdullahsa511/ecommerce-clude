@@ -1,0 +1,188 @@
+.th-section-header-link-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    .th-section-header-icon-btn {
+      text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+.th-section-detail-container{
+  // Slide down animation
+    animation: slideDownShowroomDetail 0.5s ease-out forwards;
+    overflow: hidden;
+    max-height: 0;
+
+  @keyframes slideDownShowroomDetail {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      max-height: 2000px;
+      transform: translateY(0);
+    }
+  }
+}
+
+.th-showroom-product-item {
+  border-bottom: 1px solid $gray;
+  padding-bottom: 24px;
+  // margin-bottom: 24px;
+
+  .th-showroom-img {
+    width: 161px;
+    height: 169px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray;
+    .itemProjectClass{
+      width: 100%;
+      height: 100%;
+      img {
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    
+    @include respond-to(sm) {
+      width: 100%;
+      height: 100%;
+    }
+    @include respond-to(md) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .fabric-img {
+    img {
+      width: 58px;
+      height: 58px;
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .sectionHeaderClass {
+    padding-top: 20px;
+  }
+
+  .th-showroom-product-details {
+    padding-top: 24px;
+  }
+  .leg-powder-coat-textile {
+    text-align: justify;
+  }
+}
+
+.th-showroom-details-body {
+  padding-left: 0;
+}
+
+@include respond-to(md) {
+  .th-showroom-img {
+    width: 100%;
+    height: 169px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray;
+    img {
+      padding: 0;
+    }
+  }
+}
+
+@include respond-to(xl) {
+  .th-showroom-img {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray;
+    img {
+      padding: 0;
+    }
+  }
+}
+
+.th-showroom-details-button {
+  @include button-style(
+    $gray-lighter,
+    $gray-darker,
+    $primary,
+    50%,
+    1px,
+    27px,
+    16px
+  );
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  @include respond-to(md) {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+
+    &.top-right-30 {
+      top: 10px;
+      right: 10px;
+    }
+  }
+}
+
+.afrdi-certified,
+.obp-certified {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 157%;
+  opacity: 1;
+  margin-right: 5px;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  color: rgba(90, 90, 90, 1);
+  background: #eaeaec;
+}
+
+.leg-powder-coat-textile {
+  font-family: Open Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px !important;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+// ############# left side image gallery scss #############
+.th-img-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-auto-rows: minmax(40px, auto); // let grid grow vertically
+  gap: 9px;
+  min-height: unset;
+}
+
+#th-showroom-section-products{
+  .th-showroom-details-body{
+    justify-content: start;
+  }
+}

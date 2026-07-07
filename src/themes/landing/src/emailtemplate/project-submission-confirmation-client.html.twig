@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ subject|default('Project saved - Krost') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#ffffff; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  {% set item_count = items_count is defined ? items_count : items|length %}
+  {% set count_label = '%02d'|format(item_count) %}
+
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#ffffff;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:640px; margin:0 auto;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding:0 0 28px 0;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td valign="middle" style="padding:0 12px 0 0;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td align="center" valign="middle" bgcolor="#000000" style="width:20px; height:20px; background-color:#000000; border-radius:14px; font-size:14px; line-height:20px; color:#ffffff; font-family:Helvetica, Arial, sans-serif;">&#10003;</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td valign="middle" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; letter-spacing:0.12em; color:#999999; text-transform:uppercase;">Project saved</td>
+                </tr>
+              </table>
+              <h1 style="margin:18px 0 14px 0; font-family:Helvetica, Arial, sans-serif; font-size:28px; line-height:1.2; font-weight:bold; color:#000000;">{{ project_title|default('Executive Office, Level 14') }}</h1>
+              <p style="margin:0; font-family:Helvetica, Arial, sans-serif; font-size:16px; line-height:1.6; color:#444444;">
+                Your new project, {{ project_name|default(project_title|default('Executive Office, Level 14')) }}, has been successfully saved to your Krost account. You can access, edit, and add to this selection at any time by logging into your Virtual Pinboard.
+              </p>
+            </td>
+          </tr>
+
+          <!-- summery -->
+          <tr>
+            <td style="border-top:1px solid #cccccc; border-bottom:1px solid #cccccc; padding:20px 0;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td width="50%" valign="top" style="padding:0 16px 0 0; border-right:1px solid #cccccc;">
+                    <p style="margin:0 0 6px 0; font-family:Helvetica, Arial, sans-serif; font-size:11px; letter-spacing:0.12em; color:#999999; text-transform:uppercase;">Saved</p>
+                    <p style="margin:0; font-family:Helvetica, Arial, sans-serif; font-size:16px; line-height:1.4; font-weight:bold; color:#000000;">{{ saved_at|default('7 May 2026, 10:42 AM AEST') }}</p>
+                  </td>
+                  <td width="50%" valign="top" style="padding:0 0 0 16px;">
+                    <p style="margin:0 0 6px 0; font-family:Helvetica, Arial, sans-serif; font-size:11px; letter-spacing:0.12em; color:#999999; text-transform:uppercase;">Items</p>
+                    <p style="margin:0; font-family:Helvetica, Arial, sans-serif; font-size:16px; line-height:1.4; font-weight:bold; color:#000000;">{{ item_count }}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+           <!-- image table header -->
+          <tr>
+            <td style="padding:28px 0 0 0;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="font-family:Helvetica, Arial, sans-serif; font-size:13px; font-weight:bold; color:#000000; padding:0 10px 8px 0; white-space:nowrap; vertical-align:bottom;">{{ count_label }}</td>
+                  <td width="100%" valign="bottom" style="border-top:1px solid #cccccc; font-size:0; line-height:0;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- image table -->
+          <tr>
+            <td style="padding:0 0 20px 0;">
+              {% for row in items|batch(2) %}
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-top:1px solid #e6e6e6;{% if loop.last %} border-bottom:1px solid #e6e6e6;{% endif %} ">
+                <tr>
+                  {% for item in row %}
+                  <td width="50%" valign="top" style="{% if not loop.last %}border-right:1px solid #e6e6e6;{% endif %} padding:14px 12px; vertical-align:top;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="62" valign="top" style="padding:0 12px 0 0;">
+                          {% if item.photo is defined and item.photo %}
+                          {% set photo_src = item.photo starts with 'http' ? item.photo : (app_url|default('') ~ item.photo) %}
+                          <img src="{{ photo_src }}" alt="" width="54" height="54" style="display:block; width:54px; height:54px; object-fit:cover; border:0;">
+                          {% else %}
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="54" style="width:54px;">
+                            <tr>
+                              <td align="center" valign="middle" bgcolor="#ececea" width="54" height="42" style="width:54px; height:42px; background-color:#ececea; font-family:Helvetica, Arial, sans-serif; font-size:9px; color:#9b9b9b;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td align="center" valign="middle" bgcolor="#f3f3f2" width="54" height="12" style="width:54px; height:12px; border-top:1px solid #d7d7d7; font-family:Helvetica, Arial, sans-serif; font-size:8px; letter-spacing:0.08em; color:#8e8e8e;">IMG - {{ '%02d'|format(loop.parent.loop.index0 * 2 + loop.index) }}</td>
+                            </tr>
+                          </table>
+                          {% endif %}
+                        </td>
+                        <td valign="top" style="font-family:Helvetica, Arial, sans-serif;">
+                          <p style="margin:0 0 4px 0; font-size:14px; line-height:1.3; font-weight:bold; color:#2f2f2f;">{{ item.title }}</p>
+                          <p style="margin:0; font-size:12px; line-height:1.35; letter-spacing:0.05em; color:#8b8b8b;">{{ item.description }}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  {% endfor %}
+                  {% if row|length < 2 %}
+                  <td width="50%">&nbsp;</td>
+                  {% endif %}
+                </tr>
+              </table>
+              {% endfor %}
+            </td>
+          </tr>
+
+          <!-- button links -->
+          <tr>
+            <td style="padding:0px 0 20px 0;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0 24px 12px 0; vertical-align:middle;">
+                    <a href="{{ pinboard_url|default('#') }}" style="display:inline-block; padding:14px 22px; font-family:Helvetica, Arial, sans-serif; font-size:14px; font-weight:bold; color:#ffffff; text-decoration:none; background-color:#000000; border-radius:4px;">View Pinboard</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- next steps -->
+          <tr>
+            <td style="padding:0 0 20px 0;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#f7f7f7" style="background-color:#f7f7f7;">
+                <tr>
+                  <td style="padding:20px 20px 22px 20px; font-family:Helvetica, Arial, sans-serif;">
+                    <p style="margin:0 0 10px 0; font-size:10px; letter-spacing:0.1em; color:#999999; text-transform:uppercase;">Next steps</p>
+                    <p style="margin:0 0 18px 0; font-size:16px; line-height:1.5; font-weight:bold; color:#333333;">{{ next_steps_intro|default('Ready to see these pieces in person? Book a showroom tour or request a consultation directly through your dashboard.') }}</p>
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="50%" valign="top" style="padding:16px 14px 0 0; border-top:1px solid #eaeaea; border-right:1px solid #eaeaea;">
+                          <a href="{{ showroom_tour_url|default('#') }}" style="color:#333333; text-decoration:none;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                              <tr>
+                                <td valign="top" style="padding:0 10px 0 0;"><img src="{{ icon_chat_src_briefcase }}" width="24" height="24" alt="" style="display:block; border:0;"></td>
+                                <td valign="top">
+                                  <span style="display:block; font-size:14px; font-weight:bold; line-height:1.3;">Book a showroom tour</span>
+                                  <span style="display:block; margin-top:4px; font-size:12px; line-height:1.4; color:#999999;">{{ showroom_locations_text|default('Sydney - Melbourne - Brisbane') }}</span>
+                                </td>
+                              </tr>
+                            </table>
+                          </a>
+                        </td>
+                        <td width="50%" valign="top" style="padding:16px 0 0 14px; border-top:1px solid #eaeaea;">
+                          <a href="{{ consultation_url|default('#') }}" style="color:#333333; text-decoration:none;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                              <tr>
+                                <td valign="top" style="padding:0 10px 0 0;"><img src="{{ icon_chat_src_message }}" width="24" height="24" alt="" style="display:block; border:0;"></td>
+                                <td valign="top">
+                                  <span style="display:block; font-size:14px; font-weight:bold; line-height:1.3;">Request a consultation</span>
+                                  <span style="display:block; margin-top:4px; font-size:12px; line-height:1.4; color:#999999;">{{ consultation_subtext|default('Spec advice from our specialists') }}</span>
+                                </td>
+                              </tr>
+                            </table>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+           <!-- footer -->
+          <tr>
+            <td style="padding:20px 0 20px 0;">
+              <p style="margin:0 0 20px 0; font-family:Helvetica, Arial, sans-serif; font-size:16px; line-height:1.6; color:#444444;">Best regards,</p>
+              <p style="margin:0; font-family:Helvetica, Arial, sans-serif; font-size:16px; line-height:1.6; font-weight:bold; color:#000000;">{{ sender_name|default('Krost Sales Team') }}</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

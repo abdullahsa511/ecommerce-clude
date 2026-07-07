@@ -1,0 +1,341 @@
+@include respond-to(sm) {
+  .th-footer {
+    font-size: 12px !important;
+  }
+}
+.th-footer-navigation,
+.th-footer-follow {
+  padding-left: 20px;
+  @include respond-to(lg) {
+    padding-left: 10px !important;
+  }
+  @include respond-to(md) {
+    padding-top: 20px;
+    padding-left: 0px !important;
+  }
+  @include respond-to(sm) {
+    padding-top: 0!important;
+  }
+}
+
+.th-subscription {
+  @include respond-to(lg) {
+    padding-left: 10px !important;
+  }
+  @include respond-to(md) {
+    padding-top: 50px;
+    padding-left: 0px !important;
+  }
+  @include respond-to(sm) {
+    padding-top: 20px;
+  }
+
+  .th-subscription-heading {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    .th-subscription-icon {
+      font-size: 50px;
+      line-height: 50px;
+    }
+    .th-subscription-details {
+      .description {
+        padding-top: 10px;
+        @include respond-to(lg) {
+          font-size: 16px !important;
+        }
+      }
+    }
+    @include respond-to(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .th-subscription-form {
+    margin-bottom: 30px;
+    label {
+      width: 100% !important;
+    }
+    button{
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      &:hover{
+        font-weight: 600;
+        color: $primary;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
+      }
+    }
+    @include xxl {
+      display: flex;
+      input {
+        width: 345px;
+      }
+    }
+    @include respond-to(lg) {
+      display: flex;
+      flex-direction: column;
+      label {
+        padding-right: 0px !important;
+        width: 100% !important;
+      }
+      input {
+        width: 100% !important;
+        height: 48px;
+        font-size: 16px;
+      }
+      .link {
+        display: column;
+        .link-text {
+          font-size: 16px;
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+
+  @include respond-to(sm) {
+    .th-subscription-details {
+      .sub-title {
+        font-size: 17px;
+      }
+      .description {
+        font-size: 14px;
+      }
+    }
+    .th-subscription-form {
+      // flex-direction: row;
+      margin-bottom: 15px!important;
+      .pr-15 {
+        padding-right: 5px;
+      }
+      .link {
+        .link-text {
+          font-size: 13px;
+        }
+      }
+      input {
+        width: 175px;
+        font-size: 13px;
+        padding: 5px;
+        height: 40px;
+      }
+    }
+    .th-footer-navigation {
+      ul {
+        li {
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+.th-footer-navigation {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; // new
+    flex-wrap: wrap; // new
+    // display: ruby-text;
+    // @include respond-to(lg){
+    //   display: ruby-text;
+    // }
+    li {
+      display: inline-block;
+      // padding: 0 20px; // old 
+      padding: 0 8px; // new add
+      border-right: 1px solid $border;
+      @include respond-to(xl) {
+        padding: 0 10px;
+      }
+    }
+  }
+}
+.social-media {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+}
+
+
+/* ==========================================================================
+      Mobile View Fixes for Client Request (Add this to a new CSS/SCSS file)
+   ========================================================================== */
+#footer-section-container .th-subscription .th-subscription-heading {
+  margin-bottom: 12px !important; 
+}
+
+#footer-section-container .th-subscription .th-description.description {
+  font-size: 14px;
+  margin-top: -2px; 
+}
+
+#footer-section-container .footer-left-content .d-flex.align-items-center {
+  align-items: center !important;
+  margin-bottom: 8px;
+}
+
+#footer-section-container .footer-left-content .d-flex.align-items-center i {
+  width: 20px !important;
+  text-align: left !important;
+  flex-shrink: 0 !important;
+}
+
+#footer-section-container .footer-left-content .d-flex.align-items-center p {
+  margin: 0 !important;
+}
+
+@include respond-to(sm) {
+  
+  #footer-section-container .d-grid.grid-col-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px !important; 
+  }
+
+  #footer-section-container .th-showroom-address {
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  #footer-section-container .th-showroom-address p,
+  #footer-section-container .th-showroom-address a {
+    white-space: normal !important;
+  }
+}
+
+@include respond-to(sm) {
+  
+  #footer-section-container .th-subscription .th-description.description {
+    font-size: 12px !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form label {
+    width: 50% !important;
+    margin-bottom: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form input {
+    width: 100% !important;
+    font-size: 12px !important; 
+    padding: 5px 10px !important;
+    height: 40px !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form input::placeholder {
+    font-size: 12px !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form .link {
+    margin-top: 0 !important;
+  }
+
+  #footer-section-container .th-subscription .th-subscription-form .link-text {
+    font-size: 13px !important;
+    white-space: nowrap !important; 
+  }
+}
+
+/* ==========================================================================
+   Tablet View Fixes for Client Request (Add to your new/custom CSS file)
+   ========================================================================== */
+
+   @media (min-width: 768px) and (max-width: 1024px) {
+    #footer-section-container .th-showroom-address .th-address-line {
+      display: block !important;
+      white-space: normal !important;
+      word-spacing: normal !important; 
+      max-width: 130px; 
+    }
+  
+    #footer-section-container .d-grid.grid-col-3 {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 20px !important; 
+      align-items: stretch !important; 
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-heading {
+      margin-bottom: 2px !important; 
+    }
+    
+    #footer-section-container .th-subscription .th-description.description {
+      margin-top: 0 !important;
+      line-height: 1.2 !important;
+      padding-top: 0 !important;
+    }
+  
+    #footer-section-container .th-subscription #subscription-form {
+      width: 100% !important;
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-form {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 10px !important;
+      width: 100% !important;
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-form label {
+      width: 55% !important;
+      margin-bottom: 0 !important;
+      padding-right: 0 !important;
+      display: block !important;
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-form input {
+      width: 100% !important;
+      height: 38px !important;
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-form .link {
+      margin-top: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+  
+    #footer-section-container .th-subscription .th-subscription-form .link-text {
+      white-space: nowrap !important;
+    }
+  
+    #footer-section-container .component-footer {
+      display: flex !important;
+      flex-direction: row !important;
+    }
+  
+    #footer-section-container .col-lg-4.d-flex.flex-column {
+      justify-content: space-between !important;
+    }
+  
+    #footer-section-container .th-footer-follow {
+      margin-top: auto !important;
+    }
+  
+    #footer-section-container .th-showroom-address {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      height: 100% !important;
+    }
+  
+    #footer-section-container .th-opening-hours {
+      margin-top: auto !important;
+      padding-top: 8px !important;
+    }
+  }

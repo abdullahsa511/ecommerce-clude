@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Our Online Consultation is Tomorrow') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+          <tr>
+            <td style="padding:24px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">Hi {{ recipient_name|default('Salesteam') }},</p>
+              <p style="margin:0 0 0px 0;">We’re looking forward to connecting with you tomorrow for your Online Consultation!</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 8px; color: #374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:20px 16px 5px 16px; color: #374151;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; color:#374151;">Meeting Details:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0px 16px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:22px;">
+                      <li style="line-height: 1.7;"><strong>Date:</strong> {{ meeting_date|default('[Date]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Time:</strong> {{ meeting_time|default('[9:00 - 9:30am]') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+                      <li style="line-height: 1.7;"><strong>Meeting Link:</strong> <a href="{{ meeting_url|default('#') }}" style="color:#0097a7; text-decoration:underline;">{{ meeting_link_label|default('Click here to join the Microsoft Teams meeting') }}</a></li>
+                      <li style="line-height: 1.7;"><strong>Your Consultant:</strong> {{ consultant_name|default('[Salesperson Name]') }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 0px 0;"><strong>Need to change your time?</strong> We understand that plans can change. If the original time no longer works for you, feel free to pick a new slot that fits your schedule better:</p>
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="padding:20px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <strong><a href="{{ reschedule_url|default('#') }}" style="color:#0097a7; text-decoration:underline;">{{ reschedule_label|default('Reschedule or Cancel your Booking') }}</a></strong>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px 24px 20px 24px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">See you tomorrow,</p>
+              <p style="margin:0;">{{ recipient_name|default("[Customer's name]") }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

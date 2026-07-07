@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry we missed you!</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="600" style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+  <!-- Body -->
+  <tr>
+    <td style="padding:30px 24px 0 24px; font-size:16px; line-height:24px; color:#374151;">
+
+      <p style="margin:0; padding:0px 0 0 0;">
+        Hi <strong>{{ client_name|default('Valued Customer') }}</strong>,
+      </p>
+
+      <p style="margin:0; padding:20px 0 0 0;">
+        We note that we were unable to connect for our scheduled consultation earlier today.
+        We understand that calendars can fluctuate, and we remain ready to assist you whenever you are prepared to resume.
+      </p>
+
+      <p style="margin:0; padding:20px 0 0 0;">
+        In the meantime, feel free to explore our latest workspace designs and furniture applications in our <a href="{{ project_link|default('#') }}"> Featured Projects </a> collection for layout inspiration.
+      </p>
+
+      <p style="margin:0; padding:20px 0 0 0;">
+        When you are ready to secure an alternative time slot, you can easily schedule a new session using the link below:
+      </p>
+
+    </td>
+  </tr>
+
+  <!-- CTA -->
+  <tr>
+    <td align="center" style="padding:20px;">
+      <a href="{{ booking_link|default('#') }}"
+         style="background:#255793; color:#ffffff; padding:12px 24px; text-decoration:none; border-radius:6px; display:inline-block;">
+        Reschedule Consultation
+      </a>
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding:0 24px 20px; font-size:16px; line-height:24px; color:#374151;">
+
+      <p style="margin:0;">
+        Alternatively, if you have any immediate questions regarding our product ranges or showroom locations, please feel free to reply directly to this email.
+      </p>
+
+      <p style="margin:0; padding:20px 0 0 0;">
+        Best regards,
+      </p>
+
+      <p style="margin:0; padding:20px 0 0 0;">
+        <strong>{{ sender_name|default('Krost Sales Team') }}</strong>
+      </p>
+
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

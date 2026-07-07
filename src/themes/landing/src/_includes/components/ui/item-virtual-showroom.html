@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <div class="th-item-showroom pb-0">
+    <div class="th-img-container">
+      <img
+        src="@@showroomImage @@if(typeof showroomImage === 'undefined') { /img/contact/contact-location-two.png }"
+        alt="Showroom Location"
+      />
+    </div>
+    <div class="th-item-showroom-information">
+      <h3 class="title th-showroom-title">@@showroomTitle @@if(typeof showroomTitle === 'undefined') { Melbourne Showroom }</h3>
+      <div class="th-call-to-action d-flex mt-30">
+        <div class="link pr-40">
+          <div class="link-text pr-5">@@showroomBookBtn @@if(typeof showroomBookBtn === 'undefined') { Book a Virtual Tour }</div>
+          <div class="link-icon">
+            <i class="fa-regular fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="link">
+          <div class="link-text pr-5">@@showroomViewBtn @@if(typeof showroomViewBtn === 'undefined') { View Tour }</div>
+          <div class="link-icon">
+            <i class="fa-regular fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

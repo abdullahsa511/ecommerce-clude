@@ -1,0 +1,131 @@
+<div class="col-12 col-md-9 pt-30" data-v-component-accountrecentorders>
+    <div class="row th-mar th-res-remove mb-80 d-flex justify-content-center align-items-center">
+      <div class="col-md-9">
+        <h2 class="text-weight-600" data-v-recent-orders-title>Recent Orders</h2>
+      </div>
+      <div class="col-md-3">
+        <div class="dropdown">
+          <button class="btn th-custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            - Sort By -
+          </button>
+          <ul class="dropdown-menu" data-v-recent-orders-sort-options>
+            <li>
+              <a data-v-recent-orders-sort-option class="dropdown-item" href="#">Action 1</a>
+            </li>
+            <li>
+              <a data-v-recent-orders-sort-option class="dropdown-item" href="#">Action 2</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Action 3</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-v-recent-orders-list>
+        <div class="row th-mar">
+            <div class="col-12 col-sm-12 col-md-4 text-center text-md-start">
+                <div class="recent-order-img">
+                     <img data-v-recent-order-image src="/img/account-dashboard/recent-order1.png" alt="order1-img" />
+                </div>
+            </div>
+            <!-- Content Column -->
+            <div class="col-12 col-sm-12 col-md-8">
+                <div class="card-body th-ordercard-info py-3">
+                <div class="th-reccard-heading">
+                    <h5 class="fw-semibold">Order Number</h5>
+                    <h2 class="th-order-number fw-light" data-v-recent-order-number>#907526</h2>
+                </div>
+                <div class="th-rs-card-text">
+                    <h4 class="th-mior" data-v-recent-order-product-name>
+                    Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                    </h4>
+                    <h4 class="th-code-gap th-rs-text">
+                    Item Code: <span data-v-recent-order-item-code>MM200K</span>
+                    </h4>
+                    <h4 class="th-color-gap th-rs-text">
+                    Color: <span data-v-recent-order-color>Black</span>
+                    </h4>
+                    <h4 class="th-rs-text">Quantity: <span data-v-recent-order-quantity>7</span>
+                    </h4>
+                </div>
+
+                <!-- button and offcanvase -->
+                <div class="th-card-btn d-flex flex-wrap gap-2 mt-3">
+                    <a data-v-recent-order-track-link href="#" class="th-btn text-capitalize" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTop">
+                    <span class="me-2">Track Order</span>
+                    <i class="fa-solid fa-arrow-up degree-60"></i>
+                    </a>
+                    <a data-v-recent-order-details-link href="#" class="th-btn text-capitalize bt_dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTop">
+                    <span>View Details</span>
+                    </a>
+                </div>
+                <!-- Offcanvas (Right-Top Positioned) -->
+                <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" data-v-recent-order-offcanvas id="offcanvasRightTop">
+                    <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devider -->
+        <div class="d-flex justify-content-center my-60">
+           <div class="col-md-10 border-bottom"></div>
+        </div>
+
+        <div class="row th-mar">
+        <div class="col-12 col-sm-12 col-md-4 text-center text-md-start">
+            <div class="recent-order-img">
+            <img src="/img/account-dashboard/recent-order2.png" alt="order1-img" />
+            </div>
+        </div>
+        <!-- Content Column -->
+        <div class="col-12 col-sm-12 col-md-8">
+            <div class="card-body th-ordercard-info py-3">
+            <div class="th-reccard-heading">
+                <h5 class="fw-semibold">Order Number</h5>
+                <h2 class="th-order-number fw-light">#907526</h2>
+            </div>
+            <div class="th-rs-card-text">
+                <h4 class="th-mior">
+                Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                </h4>
+                <h4 class="th-code-gap th-rs-text">
+                Item Code: <span>MM200K</span>
+                </h4>
+                <h4 class="th-color-gap th-rs-text">
+                Color: <span>Black</span>
+                </h4>
+                <h4 class="th-rs-text">Quantity: <span>7</span> </h4>
+            </div>
+            <!-- button and offcanvase -->
+            <div class="th-card-btn d-flex flex-wrap gap-2 mt-3">
+                <a href="#" class="th-btn text-capitalize" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTop">
+                <span class="me-2">Track Order</span>
+                <i class="fa-solid fa-arrow-up degree-60"></i>
+                </a>
+                <a href="#" class="th-btn text-capitalize bt_dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTop">
+                <span>View Details</span>
+                </a>
+            </div>
+            <!-- Offcanvas (Right-Top Positioned) -->
+            <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasRightTop-2">
+                <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Order Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>

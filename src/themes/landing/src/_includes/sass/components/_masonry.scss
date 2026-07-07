@@ -1,0 +1,105 @@
+.th-masonry-col-2 .th-masonry-grid{
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(3, auto);
+    column-gap: 108px;
+    @include respond-to(xxl){
+      column-gap: 80px;
+    }
+    @include respond-to(xl){
+      column-gap: 54px;
+    }
+    @include respond-to(md){
+      column-gap: 0;
+    }
+    .product-item-img{
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+// Our History Masonry — responsive grid item (Mobile, Tablet, Laptop, Desktop)
+#our-history-masonary-section {
+  .th-masonry-col-2 .th-masonry-grid {
+    // Tablet: reduce gap, keep 13-col grid
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      column-gap: 0;
+    }
+    @include respond-to(mds) {
+      row-gap: 20px;
+    }
+    @include respond-to(sm) {
+      row-gap: 16px;
+    }
+    @include respond-to(xs) {
+      row-gap: 12px;
+    }
+  }
+
+  .th-our-history-item,
+  .th-masonry-grid-item {
+    // Desktop (xl, xxl): default span 7
+    @include respond-to(xl) {
+      grid-column: span 7;
+      transform: translateY(0);
+    }
+    // Laptop (lg, ml): full width for single column layout when stacked
+    @include respond-to(lg) {
+      grid-column: span 13 !important;
+      transform: translateY(0) !important;
+      padding-top: 40px !important;
+      &:first-child {
+        padding-top: 0 !important;
+      }
+    }
+    // Tablet (md, mds): full width, no transform
+    @include respond-to(md) {
+      grid-column: span 1 !important;
+      transform: translateY(0) !important;
+      padding-top: 24px !important;
+      &:first-child {
+        padding-top: 0 !important;
+      }
+    }
+    @include respond-to(mds) {
+      padding-top: 20px !important;
+      &:first-child {
+        padding-top: 0 !important;
+      }
+    }
+    // Mobile (sm, xs): full width, tighter spacing
+    @include respond-to(sm) {
+      padding-top: 16px !important;
+      &:first-child {
+        padding-top: 0 !important;
+      }
+      .th-item-info {
+        margin-top: 12px;
+      }
+      .th-item-description {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .withOutArrow.mt-20 {
+        margin-top: 12px !important;
+      }
+    }
+    @include respond-to(xs) {
+      padding-top: 12px !important;
+      &:first-child {
+        padding-top: 0 !important;
+      }
+      .th-item-description {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// our history masonary section
+.withOutArrow{
+  font-size: var(--h6-20-font-size)!important;
+}

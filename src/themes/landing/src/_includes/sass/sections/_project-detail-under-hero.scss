@@ -1,0 +1,70 @@
+#project-detail-under-hero {
+    .th-sub-title {
+        font-size: var(--h6-20-font-size);
+        font-weight: 400;
+        color: #231F20
+    }
+}
+
+.th-hero-section {
+    .top-right-133 {
+        right: 133px;
+    }
+
+    .top-48 {
+        top: 48px;
+    }
+}
+
+// .th-hero-main-title {
+//     margin-top: 200px!important;
+// }
+.th-item-designer {
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+// it is project detail section
+#project-brief {
+    .th-section-title {
+        line-height: 80px;
+        margin-bottom: 26px;
+    }
+}
+
+#project-detail-under-hero {
+    .under-hero-list {
+        .under-hero-item {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            &:last-child {
+                justify-content: end;
+            }
+
+            &:first-child {
+                justify-content: start;
+            }
+        }
+
+        &.content-center {
+            .under-hero-item {
+                &:last-child {
+                    justify-content: center !important;
+                }
+
+                &:first-child {
+                    justify-content: center !important;
+                }
+            }
+        }
+    }
+}
+
+// project details brief section 
+.th-project-customer-container {
+    @include respond-to(sm) {
+        padding: 0 80px;
+    }
+}

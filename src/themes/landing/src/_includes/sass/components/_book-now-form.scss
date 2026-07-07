@@ -1,0 +1,160 @@
+.th-booking-member-avatar {
+  width: 480px;
+  height: 350px;
+  
+  img {
+    border-radius: 5%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.th-input-group {
+  display: flex;
+  align-items: center;
+
+  label {
+    flex: 5;
+    font-size: 18px;
+  }
+  .choices {
+    flex: 12;
+    .choices__inner {
+      border: none;
+      background-color: transparent;
+      &.inp-rm-padding {
+        padding-left: 0;
+      }
+    }
+  }
+}
+.th-input-group {
+  border-bottom: 1px solid $gray;
+  // padding-left: 20px;
+  padding-left: 0px;
+  &.rm-padding {
+    padding-left: 0;
+  }
+}
+
+#booking-form-container {
+  .th-form-row {
+      display: flex;
+      align-items: center;
+      /* gap: 16px;
+  margin-bottom: 16px; */
+  }
+
+  .th-form-row label {
+      width: 140px;
+      min-width: 120px;
+      font-weight: 600;
+      color: #222;
+  }
+
+  .th-form-row .th-field {
+      flex: 1;
+  }
+
+  .th-consultant-name {
+      display: inline-block;
+      padding: 8px 0;
+  }
+
+  .th-duration-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #e6e6e6;
+      background: #fff;
+      cursor: pointer;
+  }
+
+  .th-duration-options {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 8px;
+  }
+
+  .th-input-icon {
+      color: #6b6b6b;
+      margin-right: 10px;
+  }
+
+  /* Ensure selects/inputs inside our rows fill the available space */
+  .th-form-row .form-control,
+  .th-form-row select {
+      width: 100%;
+  }
+
+  .th-input-group {
+      position: relative;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding-left: 35px;
+      background: #fff;
+  }
+
+  .th-input-icon {
+      position: absolute;
+      left: 10px;
+      color: #888;
+      font-size: 14px;
+  }
+
+  .th-date-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 10px 8px;
+      background: transparent;
+      font-size: 14px;
+  }
+
+  /* Hide default ugly date icon (optional) */
+  .th-date-input::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+  }
+
+  .th-date-input {
+      position: relative;
+      z-index: 2;
+  }
+
+  /* Keep native picker clickable but invisible */
+  .th-date-input::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+  }
+}
+
+#timeSlotsModalContactSales {
+  .modal-custom-width {
+    max-width: 879px !important;
+  }
+}
+
+.invalid-email {
+  border-color: red !important;
+}
+#th-booking-choices .choices {
+  width: 100%;
+}
+#th-booking-choices .choices__inner {
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+}
+#th-booking-choices .choices__list--single {
+  padding-left: 0 !important;
+}

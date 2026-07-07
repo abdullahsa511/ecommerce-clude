@@ -1,0 +1,27 @@
+/* Custom CSS to override automatic th-item-has-children class addition */
+
+/* Remove th-item-has-children class from menu items that shouldn't have it */
+.mobile-menu-list li.mobile-menu-item:not(.menu-item-has-children) {
+    /* Override any automatic th-item-has-children class */
+}
+
+/* Ensure only menu items with the menu-item-has-children class get the th-item-has-children class */
+.mobile-menu-list li.mobile-menu-item.menu-item-has-children {
+    /* This will be the only way to get th-item-has-children class */
+}
+
+/* Remove th-item-has-children from items that don't have menu-item-has-children */
+.mobile-menu-list li.mobile-menu-item:not(.menu-item-has-children).th-item-has-children {
+    /* Remove the automatic class */
+    /* This is a workaround - we'll use JavaScript to handle this */
+}
+
+/* Custom class to prevent automatic class addition */
+.no-auto-th-class {
+    /* This class will be used to prevent automatic th-item-has-children addition */
+}
+
+.th-login-form-container {
+  width: 60%;
+  margin: 0 auto;
+} 

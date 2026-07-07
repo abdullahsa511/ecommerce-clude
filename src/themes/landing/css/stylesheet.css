@@ -1,0 +1,18 @@
+/* Error: Can't find stylesheet to import.
+ *    ,
+ * 49 | @import "components/asidebar-sellector-form";
+ *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   src/_includes/sass/components/_components.scss 49:9  @import
+ *   src/_includes/sass/stylesheet.scss 266:9             root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 49 \2502  @import \"components/asidebar-sellector-form\";\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src/_includes/sass/components/_components.scss 49:9  @import\a   src/_includes/sass/stylesheet.scss 266:9             root stylesheet";
+}

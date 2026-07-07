@@ -1,0 +1,110 @@
+<section id="account-db-active-quotes">
+    <div class="container th-container">
+        <div class="section-body">
+            <div class="row">
+                <!-- Profile pic aside bar -->
+                @@include('../account-leftside-manubar.html')
+                <div class="col-12 col-md-8 col-lg-9 dashboard-main">
+                    <div id="account-db-create-request" class="th-login-form-container pt-30 gap-5"
+                        style="width: 50%; margin: 0 auto;" data-v-component-accountcreaterequest>
+                        <div class="th-login-form-header text-center">
+                            <h2 data-v-accountcreaterequest-page_title>Submit a Service Request</h2>
+                            <p data-v-accountcreaterequest-description>Need assistance with a recent order? Submit a
+                                service request below, and a member of our customer service team will reach out to help.
+                            </p>
+                        </div>
+                        <!-- form -->
+                        <div class="th-login-form-body">
+                            <form class="th-form" id="createRequestForm" novalidate>
+                                <input type="hidden" id="recaptcha-site-key" value="" data-v-recaptcha_site_key
+                                    aria-hidden="true">
+                                <input type="hidden" id="recaptcha-action" value="" data-v-recaptcha_action
+                                    aria-hidden="true">
+                                <input type="hidden" name="g-recaptcha-response"
+                                    id="g-recaptcha-response-create-request" value="" data-v-recaptcha_response>
+                                <div class="form-group mb-30">
+                                    <label for="name" data-v-accountcreaterequest-order_number>Order Number*</label>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        placeholder="Enter your order number" required>
+                                </div>
+
+                                <div class="form-group mb-30">
+                                    <label for="description" data-v-accountcreaterequest-description_of_issue>Issue
+                                        Description*</label>
+                                    <textarea name="description" id="description" rows="4" class="form-control"
+                                        placeholder="Please describe the product and the specific issue you are experiencing."
+                                        required></textarea>
+                                </div>
+
+                                <div class="th-project-submission-modal" style="padding:0;">
+                                    <div class="th-submission-field">
+                                        <div class="th-submission-field-head">
+                                            <label class="th-submission-label" for="attachments"
+                                                data-v-accountcreaterequest-upload_of_attachments>Attachments</label>
+                                            <span class="th-submission-optional">Optional · max 3 files · 15 MB
+                                                total</span>
+                                        </div>
+                                        <div id="attachments-dropzone" class="th-upload-dropzone" role="button"
+                                            tabindex="0" aria-label="Upload files">
+                                            <span class="th-upload-dropzone-icon">
+                                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                            </span>
+                                            <p>Click to upload <span>or drag and drop</span></p>
+                                            <small>PDF, PNG, JPG, DWG, DOCX up to 15 MB total</small>
+                                        </div>
+                                        <input id="attachments" name="attachments" type="file"
+                                            class="th-hidden-file-input" multiple />
+
+                                        <ul id="attachments-list" class="th-uploaded-files" style="display:none;"></ul>
+                                        <p id="upload-error" class="th-upload-error" style="display:none;"></p>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="form-group my-20 ">
+                                    <p id="recaptcha-feedback-create-request" class="text-danger small" role="alert"
+                                        style="display: none;"></p>
+                                    <button type="submit" class="th-profile-btn th-service-btn--save w-100"
+                                        id="submitRequestButton" data-v-accountcreaterequest-submit_request>
+                                        Submit Request
+                                        <i class="fa-solid fa-arrow-right-long degree-60"></i>
+                                    </button>
+                                    <div id="success-message" class="text-success"
+                                        style="display:none; margin-top: 10px;"></div>
+                                    <div id="error-message" class="th-upload-error"
+                                        style="display:none; margin-top: 10px;"></div>
+                                    <p class="recaptcha-disclaimer small text-muted mt-2 mb-0">
+                                        This site is protected by reCAPTCHA and the Google
+                                        <a href="https://policies.google.com/privacy" target="_blank"
+                                            rel="noopener noreferrer">Privacy Policy</a>
+                                        and
+                                        <a href="https://policies.google.com/terms" target="_blank"
+                                            rel="noopener noreferrer">Terms of Service</a>
+                                        apply.
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .th-service-btn--save {
+        background-color: #231f20 !important;
+        border-color: #231f20 !important;
+        color: #fff !important;
+    }
+
+    .th-service-btn--save.is-disabled {
+        background-color: #9b9b9b !important;
+        border-color: #9b9b9b !important;
+        color: #fff !important;
+        cursor: not-allowed !important;
+    }
+</style>

@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * SA Technology
+ *
+ * Copyright (C) 2025  Shofiul Alam
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+namespace App\Core\Components;
+
+use App\Core\System\Component\ComponentBase;
+use App\Core\System\Event;
+use App\Core\Repositories\Component\ComponentRepositoryInterface;
+
+use function App\Core\System\utils\config;
+
+class Aboutestablished extends ComponentBase {
+    public static $defaultOptions = [
+        'site_id'     => null,
+        'language_id' => null,
+    ];
+
+    protected $options = [];
+
+    public $cacheExpire = 0; //seconds
+
+    private ComponentRepositoryInterface $componentRepository;
+
+    public function __construct(
+        ComponentRepositoryInterface $componentRepository,
+        array $options = []
+    ) {
+        parent::__construct($options);
+        $this->componentRepository = $componentRepository;
+    }
+
+    function cacheKey() {
+        //disable caching
+        return false;
+    }
+    public static function getComponentMeta()
+    {
+        return [
+            'name' => 'aboutestablished',
+            'class' => self::class,
+            'validOptions' => [
+                'component_id'
+            ],
+            'filePath' => __FILE__,
+            'cacheKey' => null,
+            'data' => [],
+            'designOnly' => false
+        ];
+    }
+
+    function results() {
+        $results = [];
+        
+        $component = $this->componentRepository->getComponentByName('aboutestablished');
+        $results['image'] = isset($component->image[0]['objectURL'])? $component->image[0]['objectURL'] : '';
+        $results['items'] = $this->componentRepository->getComponentItems($component);
+        list($component) = Event::trigger(__CLASS__,__FUNCTION__, $component);
+        $results['options'] = $this->options;
+        $results['section_title'] = $component->section_title ?? '';
+        $results['description'] = $component->description ?? '';
+        $results['images'] = [];
+        if (!empty($results['items'][0])) {
+            $item = $results['items'][0];
+            $imageOne = $item['imageOne'] ?? $item['image_one'] ?? '';
+            $imageTwo = $item['imageTwo'] ?? $item['image_two'] ?? '';
+            if ($imageOne) {
+                $results['images'][] = ['objectURL' => $imageOne];
+            }
+            if ($imageTwo) {
+                $results['images'][] = ['objectURL' => $imageTwo];
+            }
+        }
+        if (empty($results['images'])) {
+            $results['images'] = [
+                ['objectURL' => '/media/about/established-1.png'],
+                ['objectURL' => '/media/about/established-2.png'],
+            ];
+        }
+        $results['buttons'] = $component->buttons ?? [];
+        // if (empty($results['buttons'])) {
+        //     $results['button_link'] = '/about#about-who-you';
+        //     $results['button_text'] = 'Discover Who We Are';
+        // }
+        $config = config('APP_ADMIN_URL');
+        $results['component_link'] = $config."/components/{$component->component_id}/items";
+        return $results;
+    }
+}

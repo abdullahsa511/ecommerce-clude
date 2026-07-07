@@ -1,0 +1,182 @@
+<section id="account-db-active-quotes">
+    <div class="container th-container">
+        <div class="section-body">
+            <div class="row">
+                <!-- Profile pic aside bar -->
+                @@include('../account-leftside-manubar.html')
+
+
+                <div class="col-12 col-md-8 col-lg-9 pt-30 dashboard-main" id="active-quotes-section"
+                    data-v-component-accountactivequotes>
+
+                    <div data-v-active-quotes-list-container>
+                        <div class="row th-mar th-res-remove mb-80 d-flex justify-content-center align-items-center">
+                            <div class="col-6 col-md-8">
+                                <h2 class="text-weight-600 th-active-quotes-title ml-10" data-v-active-quotes-title>Active Quotes
+                                </h2>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <div class="dropdown text-end" style="margin-right: 116px;">
+                                    <button class="btn th-custom-btn-outline dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false" data-v-active-quotes-sort-button>
+                                        - Sort By -
+                                    </button>
+                                    <ul class="dropdown-menu" data-v-active-quotes-sort-options>
+                                        <li>
+                                            <a data-v-active-quotes-sort-option class="dropdown-item" href="#">Action 1</a>
+                                        </li>
+                                        <li>
+                                            <a data-v-active-quotes-sort-option class="dropdown-item" href="#">Action 2</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Action 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="th-documents-list" data-v-active-quotes-list>
+                            <!-- new design start -->
+                            <div class="row th-mar th-quotes-carg-gap mb-0 mr-0" data-v-active-quote-item>
+                                <div class="col-12 col-sm-12 col-md-5 text-center text-md-start  th-active-quote-media-col">
+                                    <div class="recent-order-img th-quotes-card bg-black">
+                                        <div class="quote-info">
+                                            <div class="quote-content text-center text-white">
+                                                <h4 data-v-quote-card-title>Quote Title</h4>
+                                                <p data-v-active-quote-number-card class="qute-number font-weight-500">
+                                                    #907526</p>
+                                                <p data-v-quote-card-description class="quote-para font-weight-400">
+                                                    Lorem ipsum dolor sit amet will nec consectetur. Quis ut
+                                                    consectetur sed nec cursus orci
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 pl-0 th-active-quote-details-col">
+                                    <div class="card-body th-ordercard-info th-quote-oredr-info">
+                                        <div class="th-rs-card-text">
+                                            <h6 class="th-code-gap font-size-16">
+                                                Account: <span class="font-weight-400 th-order-item-data"
+                                                    data-v-active-quote-account>org</span>
+                                            </h6>
+                                            <h6 class="th-color-gap font-size-16">
+                                                Amount: <span class="font-weight-400 text-gray th-order-item-data"
+                                                    data-v-active-quote-amount>$260</span>
+                                            </h6>
+                                            <h6 class="font-size-16">
+                                                Created Date: <span class="th-order-item-data"
+                                                    data-v-active-quote-created-date>June 11th, 2024</span>
+                                            </h6>
+                                        </div>
+                                        <div class="th-document-actions">
+                                            <!-- Comment Button -->
+                                            <div class="th-qoute-comment-btn pt-20">
+                                                <!-- class="text-capitalize th-btn-outline-black th-btn-comment" -->
+                                                <a href="#" id="'comment-view-right-sidebar"
+                                                    class="add-comment-button th-btn-outline-black w-100 text-capitalize"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTop"
+                                                    class="text-capitalize th-btn-outline-black w-100" data-v-comment-quote
+                                                    data-model-type="Quote" data-model-id="123" data-model-uuid="123" data-model-ref="org">
+                                                    <span class="me-2">Add Comment</span>
+                                                    <i class="fa-regular fa-comment-medical"></i>
+                                                </a>
+                                            </div>
+
+                                            <div class="th-card-btn th-qout-dubblebtn d-flex flex-wrap gap-2 mt-2">
+                                                <a href="contact.html" class="th-btn-gray text-capitalize view-quote-btn"
+                                                    data-v-active-quote-details-link>
+                                                    <span class="me-2">View quote</span>
+                                                </a>
+                                                <a data-v-active-quote-track-link
+                                                    class="th-btn-primary text-capitalize accept-quote-btn">
+                                                    <span data-v-active-quote-track-text class="accept-quote-text">Accept
+                                                        Quote</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- offcanvas start -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- new design end -->
+
+
+                            <!-- Devider -->
+                            <div class="d-flex justify-content-center my-60" data-v-active-quotes-divider>
+                                <div class="col-md-10 border-bottom"></div>
+                            </div>
+
+                            <div class="row th-mar">
+                                <div class="col-12 col-sm-12 col-md-4 text-center text-md-start">
+                                    <div class="recent-order-img">
+                                        <img src="/img/account-dashboard/recent-order2.png" alt="order1-img" />
+                                    </div>
+                                </div>
+                                <!-- Content Column -->
+                                <div class="col-12 col-sm-12 col-md-8">
+                                    <div class="card-body th-ordercard-info py-3">
+                                        <div class="th-reccard-heading">
+                                            <h5 class="fw-semibold">Order Number</h5>
+                                            <h2 class="th-order-number fw-light">#907526</h2>
+                                        </div>
+                                        <div class="th-rs-card-text">
+                                            <h4 class="th-mior">
+                                                Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                                            </h4>
+                                            <h4 class="th-code-gap th-rs-text">
+                                                Item Code: <span>MM200K</span>
+                                            </h4>
+                                            <h4 class="th-color-gap th-rs-text">
+                                                Color: <span>Black</span>
+                                            </h4>
+                                            <h4 class="th-rs-text">Quantity: <span>7</span> </h4>
+                                        </div>
+                                        <!-- button and offcanvase -->
+                                        <div class="th-card-btn d-flex flex-wrap gap-2 mt-3">
+                                            <a href="#" class="th-btn text-capitalize" data-bs-toggle="offcanvas"
+                                                data-bs-target="#offcanvasRightTop">
+                                                <span class="me-2">Track Order</span>
+                                            </a>
+                                            <a href="#" class="th-btn text-capitalize" data-bs-toggle="offcanvas"
+                                                data-bs-target="#offcanvasRightTop">
+                                                <span>View Details</span>
+                                            </a>
+                                        </div>
+                                        <!-- Offcanvas (Right-Top Positioned) -->
+                                        <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1"
+                                            id="offcanvasRightTop-2">
+                                            <div class="offcanvas-header">
+                                                <h5 class="offcanvas-title">Order Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="offcanvas-body">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="th-recent-orders-view-more-wrap d-flex justify-content-center mt-4">
+                            <button id="recent-documents-expand-toggle" class="th-btn text-capitalize bg-black text-white"
+                                data-v-active-quotes-view-more>View More</button>
+                        </div>
+                    </div>
+
+
+
+                    <div data-v-no-active-quotes>
+                        <h1 class="text-center">You have no active quotes</h1>
+                        <p class="text-center">Please check back later or contact your sales representative for more information.</p>
+                        <!-- <div class="text-center">
+                         <a href="#" class="th-btn text-capitalize bg-black text-white">Contact Sales</a>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

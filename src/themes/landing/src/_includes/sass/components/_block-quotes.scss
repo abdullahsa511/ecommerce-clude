@@ -1,0 +1,261 @@
+#th-block-quote {
+    border-bottom: 1px solid $border-color;
+    position: relative;
+
+    .th-block-quote__edit {
+        top: 16px;
+        right: 80px;
+        z-index: 2;
+        padding-right: 0;
+        font-size: 16px;
+
+        a {
+            padding-left: 5px;
+        }
+
+        @include respond-to(md) {
+            right: 24px;
+            top: 12px;
+        }
+
+        @include respond-to(mds) {
+            right: 16px;
+            top: 10px;
+            font-size: 0.8125rem;
+        }
+
+        @include respond-to(sm) {
+            right: 12px;
+            top: 8px;
+            font-size: 0.75rem;
+        }
+    }
+
+    .th-block-quote__edit-icon {
+        font-size: 0.8rem;
+        padding-right: 5px;
+    }
+
+    @include respond-to(mds) {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    @include respond-to(sm) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+.th-block-quote {
+    text-align: center;
+    font-style: italic;
+    max-width: 860px;
+    margin: 30px auto;
+    position: relative;
+    padding: 0 16px;
+
+    p {
+        font-size: 30px;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.6;
+        padding: 0 20px;
+    }
+
+    img {
+        width: 170px;
+        height: auto;
+    }
+
+    .th-quote-author {
+        display: block;
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #000;
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    &::before,
+    &::after {
+        content: '“';
+        font-size: 120px;
+        font-weight: bold;
+        line-height: 40px;
+        color: #ccc;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '”';
+        right: 130px;
+        bottom: 30px;
+    }
+
+    @include respond-to(lg) {
+        margin: 28px auto;
+        padding: 0 20px;
+
+        p {
+            font-size: 28px;
+            padding: 0 18px;
+        }
+
+        .th-quote-author {
+            font-size: 23px;
+            margin-top: 36px;
+        }
+
+        img {
+            width: 155px;
+        }
+
+        &::before,
+        &::after {
+            font-size: 100px;
+            line-height: 36px;
+        }
+
+        &::after {
+            right: 145px;
+            bottom: 30px;
+            // right: 100px;
+            // bottom: 26px;
+        }
+    }
+
+    @include respond-to(md) {
+        margin: 24px auto;
+        padding: 0 12px;
+
+        p {
+            font-size: 24px;
+            line-height: 1.55;
+            padding: 0 25px;
+        }
+
+        .th-quote-author {
+            font-size: 20px;
+            margin-top: 32px;
+        }
+
+        img {
+            width: 140px;
+        }
+
+        &::before,
+        &::after {
+            font-size: 80px;
+            line-height: 32px;
+        }
+
+        &::before {
+            left: 4px;
+            top: -4px;
+        }
+
+        &::after {
+            // right: 48px;
+            // bottom: 22px;
+            right: 115px;
+            bottom: 35px;
+        }
+    }
+
+    @include respond-to(mds) {
+        margin: 20px auto;
+        padding: 0 8px;
+
+        p {
+            font-size: 20px;
+            padding: 0px 25px;
+        }
+
+        .th-quote-author {
+            font-size: 18px;
+            margin-top: 28px;
+        }
+
+        img {
+            width: 120px;
+        }
+
+        &::before,
+        &::after {
+            font-size: 56px;
+            line-height: 1;
+        }
+
+        &::before {
+            left: 0;
+            top: -8px;
+        }
+
+        &::after {
+            // right: 12px;
+            // bottom: 16px;
+            right: 99px;
+            bottom: 17px;
+        
+        }
+    }
+
+    @include respond-to(sm) {
+        margin: 16px auto;
+
+        p {
+            // font-size: 18px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .th-quote-author {
+            font-size: 16px;
+            margin-top: 24px;
+        }
+
+        img {
+            width: 108px;
+        }
+
+        &::before,
+        &::after {
+            font-size: 44px;
+        }
+
+        &::before {
+            top: -4px;
+        }
+
+        &::after {
+            right: 72px;
+            bottom: 28px;
+            
+        }
+    }
+
+    @include respond-to(xs) {
+        p {
+            font-size: 15px;
+        }
+
+        &::before,
+        &::after {
+            font-size: 36px;
+        }
+      
+        // @media (min-width: 413px) and (max-width: 415px) {
+        //     &::after {
+        //         right: 15px !important;
+        //         bottom: 27px !important;
+        //     }
+        // }
+    }
+}
+

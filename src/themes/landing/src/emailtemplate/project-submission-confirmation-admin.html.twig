@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ subject|default('Krost Website | Email a Consultant') }}</title>
+
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+  {% set notes_text = client_notes|default('')|trim %}
+
+  {% set attachment_labels = attachment_labels|default([]) %}
+
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+
+    <tr>
+
+      <td align="center">
+
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+          <tr>
+
+            <td style="padding:24px 24px 0px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">Hi Team,</p>
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">A new project brief has been submitted via the website. Please review the details below and ensure a consultant is allocated to manage this request.</p>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+                <tr>
+
+                  <td style="padding:0px 0px 8px 0px;">
+
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:1.4; color:#374151;">Project Overview:</p>
+
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:1.7;">
+
+                    <ul style="margin:0; padding-left:10px;">
+
+                      <li style="line-height:1.7;"><strong>Email:</strong> {{ client_email|default('[Client email]') }}</li>
+
+                      <li style="line-height:1.7;"><strong>Project Name:</strong> {{ project_name|default('[Project Name]') }}</li>
+
+                      <li style="line-height:1.7;"><strong>Total Items:</strong> {{ items_count|default('0') }} items</li>
+
+                      <li style="line-height:1.7;"><strong>Submission Date:</strong> {{ submission_date_short|default(submission_date) }}</li>
+
+                    </ul>
+
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+
+          </tr>
+          <tr>
+
+            <td style="padding:20px 24px 0px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 5px 0; font-size:16px; font-weight:bold; line-height:1.6;">What happens next?</p>
+
+              <p style="margin:0px 0 20px 0; line-height:1.7;">Please review the full selection and any attachments to ensure the allocated consultant has the necessary context before contacting the client.</p>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;" align="center">
+
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+
+                <tr>
+
+                  <td align="center" style="border-radius:6px; background-color:#2563eb;">
+
+                    <a href="{{ dashboard_project_url|default('#') }}" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:12px 24px; font-size:16px; font-weight:bold; color:#ffffff; text-decoration:none;">View Project in Dashboard</a>
+
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">Best Regards,</p>
+
+              <p style="margin:0 0 0 0; line-height:1.4;"><strong>The Krost Team</strong></p>
+
+            </td>
+
+          </tr>
+
+        </table>
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</body>
+
+</html>
+

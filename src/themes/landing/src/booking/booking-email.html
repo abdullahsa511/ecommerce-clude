@@ -1,0 +1,324 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="home bg-white">
+
+    @@include('../_includes/sections/navigation.html')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+
+
+
+    <section id="booking-email" class="py-0" data-v-component-bookingemail>
+        <div class="bg-gray">
+            <div class="container th-container">
+                <div class="section-body py-50">
+                    <h1 class="th-section-title" data-v-bookingemail-title>Discuss Your Project with a Consultant</h1>
+                    <p class="th-section-subtitle" data-v-bookingemail-subtitle>Ready to bring your idea to life? Feel
+                        free to add any optional notes or files befour submitting. Our specialists will review your <br>
+                        pinboard selection adn get back to you shortly</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container th-container">
+            <div class="row project-details-wrapper">
+                <div class="col-md-6">
+                    <div class="th-virtual-meeting-image">
+                        <img src="/media/Blogs/Feature/Redefining-Hybrid-Workspaces_feature.jpg" alt="Executive Office">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="">
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span>Project Name: </span> <span data-v-bookingemail-project-name></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-solid fa-cube"></i>
+                                <span data-v-bookingemail-item-count>3 items</span>
+
+                            </div>
+                            <div class="meta-item price">
+                                <i class="fa-solid fa-tag"></i>
+                                <span data-v-bookingemail-total-price class="font-size-16 font-weight-400">$6,723.00</span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="th-form-wrapper py-30">
+                        <div id="booking-email-alert-message" class="text-success" style="display: none;"></div>
+                        <div id="existing-data" style="display: none;" data-v-bookingemail-existing></div>
+                        <form action="">
+
+                            <input type="hidden" class="form-control" placeholder="Enter your Pinboard" value="nazmul@gmail.com"
+                                id="booking-customer-email" data-v-bookingemail-pinboard-input data-pinboard-id>
+
+                            <div class="th-form">
+                            <div class="form-group">
+                                    <label for="note">Additional Notes (Optional)</label>
+                                    <div id="note" data-v-bookingemail-note-content></div>
+                                </div>
+                            </div>
+
+                            <div class="th-form">
+                                <div class="form-group mb-5">
+                                    <label for="image-upload">Attachments (Optional)</label>
+                                    <div class="invalid-feedback" id="files-feedback"></div>
+                                </div>
+                                <div class="upload-section form-control" id="upload-zone">
+                                    <input type="file" name="files[]" id="image-upload" accept="image/*" multiple hidden>
+
+                                    <div class="upload-content" id="upload-content">
+                                        <p id="upload-text" class="font-weight-700">Drag & Drop or Click to Upload</p>
+                                        <p class="text-center extra-small-text">Upload floorplans, design briefs, or
+                                            RFQs
+                                        </p>
+                                        <div id="upload-preview-list" class="upload-preview-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="th-form-submit-btn">
+                                <button type="submit" class="th-btn-primary" id="booking-service-request-submit"
+                                    data-v-bookingemail-submit-button>
+                                    <span class="request-submit-spinner d-none" data-submit-spinner aria-hidden="true"></span>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <!-- Include the Quill library -->
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script>
+        // quill editor init
+        document.addEventListener('DOMContentLoaded', function () {
+            window.quill = new Quill('#note', {
+                theme: 'snow'
+            });
+        });
+        // existing data
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const existingData = document.getElementById('existing-data');
+            const serviceRequestId = existingData?.getAttribute('data-service-request-id');
+            // alert
+            if (serviceRequestId) {
+                // submit button disabled
+                const submitButton = document.getElementById('booking-service-request-submit');
+                submitButton.disabled = true;
+                submitButton.classList.add('th-btn-disabled');
+
+                // booking-email-alert-message
+                const bookingEmailAlertMessage = document.getElementById('booking-email-alert-message');
+                bookingEmailAlertMessage.style.display = 'block';
+                bookingEmailAlertMessage.innerText = 'Service request already exists';
+            }
+
+            //image upload start here
+            const uploadZone = document.getElementById('upload-zone');
+            const fileInput = document.getElementById('image-upload');
+            const previewList = document.getElementById('upload-preview-list');
+            const feedback = document.getElementById('files-feedback');
+
+            const MAX_FILES = 3;
+            let files = [];
+
+            // Sync files to input
+            const syncFiles = () => {
+                const dt = new DataTransfer();
+                files.forEach(f => dt.items.add(f));
+                fileInput.files = dt.files;
+            };
+
+            // Show error message
+            const showError = (msg = '') => {
+                feedback.textContent = msg;
+                feedback.style.display = msg ? 'block' : 'none';
+            };
+
+            // Render previews
+            const render = () => {
+                previewList.innerHTML = '';
+
+                if (!files.length) {
+                    uploadZone.classList.remove('has-image');
+                    return;
+                }
+
+                uploadZone.classList.add('has-image');
+
+                files.forEach((file, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'upload-preview-item';
+
+                    item.innerHTML = `
+                        <img src="${URL.createObjectURL(file)}" class="upload-preview-image" />
+                        <button type="button" class="preview-remove-btn">✕</button>
+                        <span class="upload-preview-name">${file.name}</span>
+                    `;
+
+                    item.querySelector('button').onclick = (e) => {
+                        e.stopPropagation();
+                        files.splice(i, 1);
+                        syncFiles();
+                        render();
+                    };
+
+                    previewList.appendChild(item);
+                });
+            };
+
+            // Open file picker
+            uploadZone.onclick = () => fileInput.click();
+
+            // Handle file selection
+            fileInput.onchange = () => {
+                const incoming = Array.from(fileInput.files);
+
+                if (!incoming.length) return;
+
+                // Validate images only
+                if (incoming.some(f => !f.type.startsWith('image/'))) {
+                    showError('Only image files allowed');
+                    fileInput.value = '';
+                    return;
+                }
+
+                const spaceLeft = MAX_FILES - files.length;
+
+                if (spaceLeft <= 0) {
+                    showError(`Max ${MAX_FILES} images allowed`);
+                    return;
+                }
+
+                const newFiles = incoming.slice(0, spaceLeft);
+                files = [...files, ...newFiles];
+
+                showError(incoming.length > spaceLeft ? `Only ${MAX_FILES} images allowed` : '');
+
+                syncFiles();
+                render();
+            };
+            //image upload end here
+        });
+
+    </script>
+
+
+
+    @@include('../_includes/sections/footer.html')
+    @@include('../_includes/sections/pinboard.html')
+    @@include('../_includes/components/footer-scripts-account.html')
+
+
+    <style>
+        .upload-section {
+            width: 100%;
+            height: 220px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-content {
+            .extra-small-text {
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+                font-weight: 400;
+                line-height: 1.5;
+            }
+        }
+
+        .upload-section.has-image .upload-content p {
+            display: none !important;
+        }
+
+        .upload-preview-list {
+            display: none;
+            width: 100%;
+            height: 100%;
+            gap: 10px;
+            padding: 12px;
+            align-content: center;
+            justify-content: center;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-auto-rows: minmax(0, 1fr);
+        }
+
+        .upload-section.has-image .upload-preview-list {
+            display: grid;
+        }
+
+        .upload-preview-item {
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            min-height: 120px;
+        }
+
+        .upload-preview-image {
+            width: 100%;
+            height: 85px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .upload-preview-name {
+            display: block;
+            padding: 6px;
+            font-size: 11px;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .preview-remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .disabled-content {
+            pointer-events: none;
+            cursor: not-allowed;
+            opacity: 0.5;
+            background: #f5f5f5;
+        }
+
+        .ql-editor {
+            min-height: 150px;
+        }
+    </style>
+
+</body>
+
+</html>

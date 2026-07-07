@@ -1,0 +1,58 @@
+#filter-resource-form{
+    .choices__inner{
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+    }
+}
+#choose-context-type+.choices .choices__item--disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#choose-product-name+.choices.is-disabled .choices__inner {
+    background-color: #f5f5f5;
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#choose-product-name+.choices.is-disabled .choices__list--single .choices__item {
+    color: #9ca3af;
+}
+
+/*------------------- 1.1. Resource Model Item Section -------------------*/
+.th-res-info {
+    .th-resourece-subtitle {
+        font-size: 18px;
+        font-weight: 600;
+        color: #9D9D9D;
+        padding-top: 6px;
+        padding-bottom: 20px;
+    }
+
+    .link {
+        .link-text {
+            font-size: 16px !important;
+        }
+    }
+
+}
+
+// it is model 3d section
+.th-btn-gap {
+    margin-top: 105px;
+
+}
+
+.th-3d-models-title-gap {
+    margin-bottom: 25px;
+}
+
+#design-resources{
+    .form-control, .form-select, input, select, textarea {
+      max-height: 60px!important;
+    }
+  }
+

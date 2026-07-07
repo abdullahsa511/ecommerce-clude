@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="240" height="240" viewBox="0 0 240 240" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <!-- Small stacked boards to suggest multiple items/list - moved to back -->
+  <g transform="translate(50, 70) rotate(-5)">
+    <rect x="0" y="0" width="120" height="140" rx="6" ry="6" fill="#e6e6e6" stroke="#555555" stroke-width="3"/>
+  </g>
+  <g transform="translate(45, 75) rotate(-10)">
+    <rect x="0" y="0" width="120" height="140" rx="6" ry="6" fill="#d9d9d9" stroke="#666666" stroke-width="3"/>
+  </g>
+  
+  <!-- Main board background -->
+  <rect x="60" y="60" width="120" height="140" rx="6" ry="6" fill="#f5f5f5" stroke="#333333" stroke-width="6"/>
+  
+  <!-- Content lines representing items in the list -->
+  <line x1="80" y1="100" x2="160" y2="100" stroke="#555555" stroke-width="6"/>
+  <line x1="80" y1="130" x2="160" y2="130" stroke="#555555" stroke-width="6"/>
+  <line x1="80" y1="160" x2="160" y2="160" stroke="#555555" stroke-width="6"/>
+  
+  <!-- Main pin - moved to front and made larger -->
+  <g transform="translate(120, 35)">
+    <!-- Pin head - increased size -->
+    <circle cx="0" cy="0" r="32" fill="#333333"/>
+    <circle cx="-10" cy="-10" r="8" fill="#ffffff"/>
+    
+    <!-- Pin body/shaft - increased thickness -->
+    <path d="M0,32 L0,55" stroke="#333333" stroke-width="14" stroke-linecap="round"/>
+    
+    <!-- Pin shadow -->
+    <ellipse cx="0" cy="55" rx="16" ry="5" fill="#aaaaaa" opacity="0.6"/>
+  </g>
+  
+  <!-- Notification indicator - with doubled font size -->
+  <g transform="translate(170, 170)">
+    <circle cx="0" cy="0" r="50" fill="#333333"/> <!-- Large circle positioned more inside -->
+    <text x="0" y="28" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">3</text> <!-- Doubled font size from 40px to 80px -->
+  </g>
+</svg> 

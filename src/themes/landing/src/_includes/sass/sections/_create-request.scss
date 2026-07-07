@@ -1,0 +1,35 @@
+.th-form .form-group textarea {
+  border: 1px solid var(--theme-primary);
+  border-radius: 0;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--theme-primary);
+  background-color: #fff;
+}
+
+.th-form .form-group .upload-file-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #231F20;
+  border-radius: 0;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--theme-primary);
+  background-color: #F3F3F3;
+  ;
+  label {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    margin-bottom: 0px !important;
+    background: #5A5A5A;
+    color: #fff !important;
+
+  }
+}
+#account-db-create-request #description::placeholder {
+  color: #666;
+  opacity: 1;
+}

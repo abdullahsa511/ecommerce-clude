@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Thank you for browsing our catalogue online') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+          <tr>
+            <td style="padding:20px 24px 0px 24px; color:#374151;">
+              <p style="margin:0 0 20px 0;">Email Subject: <strong>{{ subject|default('Thank you for browsing our catalogue online') }}</strong></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">Dear <span style="font-style:italic;">{{ client_name|default("[Client's name]") }}</span></p>
+
+              <p style="margin:0 0 20px 0;">Thank you for browsing our catalogue online.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">For your information, we’ve been operating in Australia for over 30 years. Our mission is to offer the best service and the highest quality products at competitive prices. We manufacture in Australia and hold unparalleled stock levels, which enables us to provide the fastest lead times in the industry.</p>
+              <p style="margin:0 0 20px 0;">We welcome you to view our entire range in our world class showroom at 33 Ricketty Street, Mascot or take our <a href="{{ showroom_tour_url|default('http://54.252.147.60:8089/contact-us') }}" style="color:#255793; text-decoration:underline;">showroom virtual tour</a> now. </p>
+              <p style="margin:0;">Please browse through some of our recent <a href="{{ projects_url|default('https://www.krost.com.au/Projects') }}" style="color:#255793; text-decoration:underline;">projects</a>.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px 24px 20px 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">Should you have any questions please don’t hesitate to call us on {{ phone|default('02 9557 3055') }} or email at {{ sales_email|default('sales@krost.com.au') }}.</p>
+              <p style="margin:0 0 20px 0;">Kind regards,</p>
+              <p style="margin:0 0 3px 0;;">Kind regards,</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

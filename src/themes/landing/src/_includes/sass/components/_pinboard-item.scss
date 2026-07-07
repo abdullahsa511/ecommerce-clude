@@ -1,0 +1,1052 @@
+.th-circle-items {
+  padding: 17px 0;
+
+  img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+  }
+}
+
+.th-blockquote-txt {
+  p {
+    font-size: var($body-font-size);
+    font-weight: var($body-font-size);
+    color: #808080;
+  }
+}
+
+.th-pinboard-item-edit {
+  margin-bottom: 17px;
+  padding-right: 7px;
+
+  .th-pinboard-item-blockquote {
+    padding: 14px;
+  }
+}
+
+.th-pinboard-item-info {
+  @include respond-to(mds) {
+    padding-top: 30px;
+  }
+}
+
+.th-pinbord-item-comment {
+  margin-top: 22px;
+}
+
+.th-pinboard-item {
+  position: relative;
+
+  .btn-close {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    border: none;
+    color: #929292;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    width: inherit;
+  }
+}
+
+.grid-view-btn {
+  font-size: 20px;
+  color: #929292;
+  cursor: pointer;
+  padding: 5px 10px;
+  width: inherit;
+}
+
+.remove-pinboard-btn {
+  font-size: 20px;
+  color: #929292;
+}
+
+.pinboard-quantity-container {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 20px 10px;
+  width: 100%;
+
+  span {
+    margin: 0 10px;
+  }
+}
+
+.modelBorderRadius {
+  border-radius: 0 !important;
+}
+
+.guest-signup-form {
+  padding: 15px 80px 80px;
+  border-radius: 0;
+
+  .form-group {
+    input {
+      border-radius: 0;
+      border: 2px solid #e0e0e0;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      height: 50px;
+      width: 100%;
+
+      &:focus {
+        border-color: #000;
+        outline: none;
+      }
+    }
+  }
+
+  @include respond-to(xl) {
+    padding: 15px;
+  }
+
+}
+
+.booking-modal-content {
+  padding: 0 20px;
+
+  .th-booking-left-section {
+    border-right: 1px solid #050505;
+    margin: 20px;
+
+    .th-booking-selected-member-image {
+      border-bottom: 1px solid #050505;
+
+      // margin:10px;
+      img {
+        padding: 42px 43px;
+        width: 100%;
+        height: 100%;
+        // object-fit: cover;
+      }
+    }
+
+    .th-booking-location-details {
+      padding: 15px;
+      border-bottom: 1px solid #050505;
+
+      h4 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+
+      }
+
+      .th-booking-tour-option {
+        gap: 30px;
+
+        input {
+          width: 14px;
+          height: 14px;
+        }
+
+        label {
+          font-size: 14px;
+          color: #6E7279;
+
+          &:active {
+            color: #33322F;
+          }
+        }
+      }
+    }
+
+    .th-booking-description {
+      padding: 15px;
+
+      p {
+        font-size: 14px;
+        color: #231F20;
+
+      }
+    }
+
+  }
+
+  .th-booking-calendar-section {
+    h3 {
+      font-size: 26px;
+    }
+
+    .th-booking-timezone {
+      h3 {
+        font-size: 20px;
+      }
+
+      .th-input-group {
+        .choices__list--single .choices__item {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+}
+
+
+// account pinboard list section
+#account-pinboard-list {
+  font-size: 12px;
+
+  .th-table.th-table-col-7[data-v-pinboard-table] {
+    grid-template-columns: minmax(210px, 2.8fr) minmax(130px, 1.25fr) minmax(200px, 1.1fr) minmax(70px, 0.61fr) minmax(88px, 0.8fr) minmax(125px, 1fr) minmax(105px, 0.85fr);
+  }
+
+  .th-table-content {
+    .th-header-wrapper .th-row-wrapper {
+      background: #f7f8fa;
+    }
+
+    .th-header-wrapper .th-cell {
+      min-height: 60px;
+      padding-top: 0.55rem;
+      padding-bottom: 0.55rem;
+    }
+
+    .th-body-wrapper .th-row-wrapper {
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background: #fcfcfd;
+      }
+    }
+
+    .th-body-wrapper .th-cell {
+      min-height: 60px;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+  }
+
+  .th-pinboard-col-project {
+    // white-space: nowrap;
+  }
+
+  .th-pinboard-col-qty,
+  .th-pinboard-col-total {
+    padding-left: 10px;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  .th-pinboard-col-status,
+  .th-pinboard-col-actions {
+    white-space: nowrap;
+  }
+
+  .th-pinboard-status-pill {
+    border: 1px solid #dfdfdf;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 13px;
+    line-height: 1.35;
+    color: #525252;
+    background: #fafafa;
+  }
+
+  .th-pinboard-action-btn {
+    min-width: 88px;
+    padding: 8px 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .th-table.th-table-col-6[data-v-pinboard-table] {
+    grid-template-columns: minmax(110px, 1.5fr) minmax(120px, 1.5fr) minmax(160px, 2fr) minmax(80px, 1fr) minmax(90px, 1fr) minmax(110px, 1fr);
+  }
+
+  .th-header-wrapper {
+    .th-cell[data-v-pinboard-header="actions"] {
+      text-align: center;
+    }
+  }
+
+  .th-body-wrapper {
+    .th-cell[data-label="Actions"] {
+      align-items: center;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+    }
+  }
+
+  @media (max-width: 1199px) and (min-width: 769px) {
+    .th-table.th-table-col-7[data-v-pinboard-table] {
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      column-gap: 20px;
+    }
+
+    .th-table.th-table-col-6[data-v-pinboard-table] {
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      column-gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .th-table.th-table-col-7[data-v-pinboard-table] {
+      grid-template-columns: 1fr;
+    }
+
+    .th-table.th-table-col-6[data-v-pinboard-table] {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.th-table-content {
+  .th-table {
+    row-gap: 0;
+
+    .th-cell {
+      // border-bottom: 2px solid var(--gray-lighter);
+      border: 1px solid var(--gray-lighter);
+    }
+  }
+}
+
+.th-pinboard-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  min-width: 95px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .th-pinboard-action-btn {
+    width: 100%;
+  }
+}
+
+// account pinboard details section
+.th-pinbaoder-item-title {
+  .th-pinboard-details-header {
+    display: flex;
+    gap: 7px;
+    padding-left: 15px;
+
+    span {
+      font-size: 18px;
+      padding: 0 5px;
+    }
+  }
+
+  .th-pinboard-input-group {
+    input {
+      border-radius: 0;
+      border: 2px solid var(--gray-lighter);
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    button.th-btn-primary {
+      min-width: 45px !important;
+    }
+
+    button {
+      border-radius: 0;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
+
+.th-pinboard-coment-box {
+  textarea {
+    border-radius: 0;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.sendToSell-modal-body {
+  h4 {
+    font-size: 22px;
+  }
+
+  .button-group {
+
+    button,
+    a {
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      border: 2px solid #d1d1d1;
+      color: inherit;
+      text-decoration: none;
+      background-color: var(--theme-background);
+
+      &:hover {
+        background-color: #f8f8f8;
+        transition: all 0.3s ease;
+        color: #333;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.sendToSellCancleBtn {
+  button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #d1d1d1;
+    width: 20%;
+  }
+}
+
+.th-cursor-pointer {
+  cursor: pointer;
+}
+
+.th-add-image-modal {
+
+  input.form-control.form-control-sm,
+  textarea.form-control.form-control-sm {
+    font-size: 14px;
+  }
+}
+
+#dashboard-pinboard-item {
+  .th-pinboard-item {
+    padding-bottom: 40px;
+  }
+}
+
+
+// --------------------manage pinboard css start here------------------------
+#manage_pinboard_offcanvasRight {
+  .offcanvas-body {
+    height: auto !important;
+    flex: 1 1 auto;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pinboard-main {
+    max-height: 74vh;
+    overflow-y: auto;
+  }
+
+  .th-pinboard {
+    .th-pinboard-bottom {
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--bs-offcanvas-padding-x) + 5px) var(--bs-offcanvas-padding-x);
+      background: var(--gray-100);
+      border-radius: 5px;
+    }
+  }
+}
+
+// --------------------manage pinboard css end here------------------------
+
+
+
+
+// -----------------------------------------------------------------------------
+// Pinboard project list — semantic <table> (Vue: table.th-pinboard-project-table)
+// Tokens: tweak colours/spacing here only; column widths via <colgroup> + col.*
+// -----------------------------------------------------------------------------
+$th-pbl-ref-border: #e4e5e8;
+$th-pbl-ref-header-bg: #f1f3f5;
+$th-pbl-ref-pill-draft-bg: #e2e3e5;
+$th-pbl-ref-pill-draft-text: #41464b;
+$th-pbl-ref-pill-quote-bg: #d1e7dd;
+$th-pbl-ref-pill-quote-text: #0f5132;
+$th-pbl-ref-pill-order-bg: #198754;
+$th-pbl-ref-pill-order-text: #ffffff;
+$th-pbl-ref-cta-bg: #3a3d41;
+$th-pbl-ref-cta-text: #ffffff;
+$th-pbl-ref-icon-muted: #6c757d;
+
+#account-pinboard-list .th-pinboard-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#account-pinboard-list table.th-pinboard-project-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #fff;
+  border: 1px solid $th-pbl-ref-border;
+
+  col.th-pinboard-col-project {
+    width: 30%;
+  }
+
+  col.th-pinboard-col-saved {
+    width: 5%;
+  }
+
+  col.th-pinboard-col-updated {
+    width: 10%;
+  }
+
+  col.th-pinboard-col-status {
+    width: 15%;
+  }
+
+  col.th-pinboard-col-actions {
+    width: 15%;
+  }
+
+  // col.th-pinboard-col-testColumn {
+  //   width: 10%;
+  // }
+
+  thead th {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: #212529;
+    background: $th-pbl-ref-header-bg;
+    border: 1px solid $th-pbl-ref-border;
+    padding: 14px 12px;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  thead th.text-center,
+  tbody td.text-center {
+    text-align: center;
+  }
+
+  tbody td {
+    border: 1px solid $th-pbl-ref-border;
+    padding: 14px 12px;
+    vertical-align: middle;
+    background: #fff;
+  }
+
+  tbody tr:hover td {
+    background: #fcfcfd;
+  }
+
+  /* visibility false: row reads as disabled; only the eye control stays active to re-enable */
+  tbody tr.th-pinboard-row--disabled td {
+    color: #868e96;
+    background: #e9ecef;
+
+    a:not(.th-pinboard-actions-icon-btn--toggle) {
+      color: #868e96;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .th-pinboard-status-pill {
+      opacity: 0.8;
+      filter: grayscale(0.4);
+    }
+
+    .th-pinboard-actions-cta {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .th-pinboard-actions-icon-btn:not(.th-pinboard-actions-icon-btn--toggle) {
+      opacity: 0.55;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    .th-pinboard-actions-icon-btn--toggle {
+      pointer-events: auto;
+      cursor: pointer;
+      color: #495057;
+    }
+  }
+
+  tbody tr.th-pinboard-row--disabled:hover td {
+    background: #e2e5e9;
+  }
+
+  td.th-pinboard-col-project a {
+    cursor: pointer;
+    text-decoration: underline !important;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  .th-pinboard-col-status {
+    white-space: normal;
+  }
+
+  td.th-pinboard-col-actions.th-pinboard-actions-cell {
+    white-space: normal;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .th-pinboard-actions-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .th-pinboard-status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.25;
+    border-radius: 999px;
+    border: none;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .th-pinboard-status-pill--draft {
+    background: $th-pbl-ref-pill-draft-bg;
+    color: $th-pbl-ref-pill-draft-text;
+  }
+
+  .th-pinboard-status-pill--quote-requested {
+    background: $th-pbl-ref-pill-quote-bg;
+    color: $th-pbl-ref-pill-quote-text;
+  }
+
+  .th-pinboard-status-pill--order {
+    background: $th-pbl-ref-pill-order-bg;
+    color: $th-pbl-ref-pill-order-text;
+  }
+
+  .th-pinboard-actions-cell .th-pinboard-actions-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    min-height: 20px;
+  }
+
+  .th-pinboard-actions-icon-btn {
+    flex: 1 1 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20px;
+    padding: 6px 8px;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: $th-pbl-ref-icon-muted;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: #212529;
+      background: rgba(0, 0, 0, 0.04);
+      outline: none;
+    }
+
+    i {
+      font-size: 15px;
+      line-height: 1;
+    }
+  }
+
+  .th-pinboard-actions-divider {
+    align-self: stretch;
+    width: 2px;
+    min-width: 1px;
+    margin: 0px 0;
+    background: $th-pbl-ref-border;
+  }
+
+  .th-pinboard-actions-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: $th-pbl-ref-cta-text !important;
+    background: $th-pbl-ref-cta-bg !important;
+    border: 1px solid darken($th-pbl-ref-cta-bg, 6%);
+    transition: filter 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      filter: brightness(1.06);
+      color: $th-pbl-ref-cta-text !important;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($th-pbl-ref-pill-order-bg, 0.65);
+      outline-offset: 2px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-width: 640px;
+
+    .th-pinboard-actions-icons {
+      justify-content: flex-start;
+    }
+  }
+}
+
+// --------------------project submission modal css start here------------------------
+.th-project-submission-modal {
+  padding: 8px 30px 41px 30px;
+  color: #1f2328;
+
+  .th-project-submission-title {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .th-project-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #e9ecef;
+    background: #fafafa;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+  }
+
+  .th-project-summary-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: #dfe3e8;
+    color: #434a54;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  // .th-project-summary-content {
+  //   // flex: 1 1 auto;
+  //   // min-width: 0;
+  //   text-align: center;
+  // }
+
+  .th-project-summary-name {
+    margin: 0;
+    font-size: 16px;
+    // line-height: 1.2;
+    // font-weight: 600;
+  }
+
+  .th-project-summary-meta {
+    margin: 3px 0 0;
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .th-project-summary-tag {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #9aa0a6;
+    font-weight: 600;
+    margin-left: auto;
+  }
+
+  .th-submission-field {
+    margin-bottom: 18px;
+    .th-comment-editor{
+      .ql-editor {
+        min-height: 150px!important;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .th-submission-field-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .th-submission-label {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  .th-submission-optional {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9aa0a6;
+    font-weight: 600;
+  }
+
+  .th-upload-dropzone {
+    border: 1px dashed #d5d9df;
+    background: #fff;
+    text-align: center;
+    padding: 16px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &.is-drag-over {
+      border-color: #7d8694;
+      background: #f7f9fc;
+    }
+
+    .th-upload-dropzone-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid #d8dbe0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b919b;
+      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #2e343b;
+
+      span {
+        color: #6a717d;
+      }
+    }
+
+    small {
+      display: block;
+      // margin-top: 4px;
+      font-size: 12px;
+      color: #8d949f;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  .th-hidden-file-input {
+    display: none;
+  }
+
+  .th-uploaded-files {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e8ebef;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .th-file-type {
+    min-width: 40px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #868d98;
+    background: #f1f3f6;
+    border: 1px solid #e0e4e9;
+    border-radius: 2px;
+    padding: 10px 4px;
+    text-transform: uppercase;
+  }
+
+  .th-file-content {
+    flex: 1;
+    min-width: 0;
+
+    strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.2;
+      color: #30353c;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    small {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: #8b919b;
+    }
+  }
+
+  .th-uploaded-files button {
+    border: 0;
+    background: transparent;
+    color: #9198a3;
+    font-size: 22px;
+    line-height: 1;
+    padding: 2px 4px;
+    cursor: pointer;
+  }
+
+  .th-upload-error {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #c62828;
+  }
+
+  .th-submission-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #f0f1f4;
+  }
+
+  .th-btn-cancel,
+  .th-btn-submit {
+    border: 1px solid transparent;
+    padding: 12px 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .th-btn-cancel {
+    background: #fff;
+    border-color: #dde1e6;
+    color: #4b5563;
+  }
+
+  .th-btn-submit {
+    background: #181a1f;
+    color: #fff;
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 4px 16px 20px;
+
+    .th-project-submission-title {
+      font-size: 26px;
+    }
+
+    .th-submission-actions {
+      flex-direction: column-reverse;
+    }
+
+    .th-btn-cancel,
+    .th-btn-submit {
+      width: 100%;
+    }
+  }
+}
+
+// --------------------project submission modal css end here------------------------
+#account-pinboardlist-success {
+
+  // Account pinboard list — flash message (e.g. request cancelled)
+  .th-pinboard-flash-success {
+    text-align: center;
+    padding: 2rem 1rem 2.5rem;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    color: #1a1a1a;
+
+    &__status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    &__icon {
+      display: inline-flex;
+      line-height: 0;
+    }
+
+    &__sep {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      flex-shrink: 0;
+    }
+
+    &__badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: #8a8f98;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #0d0d0d;
+      margin-top: 0;
+    }
+
+    &__subtext {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+  }
+}
+
+#th-featured-projects-slider .th-add-to-pinboard.th-tooltip {
+  cursor: pointer;
+}

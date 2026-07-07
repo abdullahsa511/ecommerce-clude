@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updated Confirmation: Your New Appointment with Krost</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px 12px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:970px; background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+  <!-- Body -->
+  <tr>
+    <td style="padding:24px 24px 0px 24px; font-size:16px; line-height: 16px; color:#374151;">
+
+      <p style="margin:0 0 20px 0; line-height: 1.6;">
+        Hi <strong>{{ client_firstname|default(client_name|default('Customer')) }}</strong>,
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height: 1.6;">
+        This email confirms that your appointment has been successfully rescheduled. We have updated our calendar to reflect your new time.
+      </p>
+
+      <p style="font-weight:bold; margin:0 0 5px 0; line-height: 1.6;">Your New Appointment Details:</p>
+
+      <ul style="margin:0; padding-left:30px; font-size:16px; line-height:1.7">
+        <li style="line-height:1.7;"><strong>Date:</strong> {{ appointment_date|default('16/05/2026') }}</li>
+        <li style="line-height:1.7;"><strong>Time:</strong> {{ appointment_time|default('4:30 pm - 5:00 pm') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+        <li style="line-height:1.7;"><strong>Location:</strong> 
+            <a href="{{ google_map_link|default('#') }}" style="color:#255793; text-decoration:underline;">{{ appointment_location|default('33 Ricketty St, Mascot NSW 2020') }}</a>
+        </li>        
+      </ul>
+
+      <p style="margin:20px 0 20px 0; line-height: 1.6;">
+        We have attached a calendar invitation to this email so you can easily add this to your schedule.
+      </p>
+
+      <p style="font-weight:bold; margin:0 0 5px 0; line-height: 1.6;">What happens next?</p>
+
+      <p style="margin:0px 0 20px 0; line-height: 1.6;">
+        A member of the Krost Team has been allocated to your request and will be ready to assist you at the time above.
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height: 1.6;">
+        If you have specific projects to discuss, feel free to reply to this email or if you need to make changes, you can
+        <a href="{{ reschedule_link|default('#') }}" style="color:#255793; font-weight:bold; text-decoration:underline;">Reschedule</a>
+        or
+        <a href="{{ cancel_link|default('#') }}" style="color:#255793; font-weight:bold; text-decoration:underline;">Cancel your booking</a> here.
+      </p>
+
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height: 1.6; color:#374151;">
+      <p style="margin:0 0 20px 0; line-height: 1.6;">Best regards,</p>
+      <p style="margin:0 0 20px 0; line-height: 1.6;"><strong>The Krost Team</strong></p>
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

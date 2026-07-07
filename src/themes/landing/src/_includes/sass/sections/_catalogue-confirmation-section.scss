@@ -1,0 +1,33 @@
+#th-catalogue-confirmation{
+  .catalogue-confirmation-left-image{
+    // height: 600px; // for <iframe> tag.
+    // height: 300px;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    .catalogue-confirmation-pdf{
+      height: 100%;
+      width: 100%;
+      min-height: 500px;
+    }
+  }
+  .catalogue-confirmation-right-content{
+    padding: 0px 35px;
+    @include respond-to(md){
+      padding: 35px 0px;
+    }
+    .confirmation-explore-btn{
+      @include respond-to(lg){
+          text-align: center;
+      }
+      @include respond-to(sm){
+        a{
+          width: 100%;
+        }
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject|default('Krost Website | Service Request') }}</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+{% set attachment_labels = attachment_labels|default([]) %}
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+        <td align="center">
+
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+            <tr>
+                <td style="padding:24px 24px 0 24px; font-size:16px; line-height:1.4; color:#374151;">
+                    <p style="margin:0 0 20px 0;">Hi,</p>
+
+                    <p style="margin:0 0 20px 0;">
+                        You have received a new service request.
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:0 24px; font-size:16px; color:#374151;">
+                    <p style="margin:0 0 5px 0; font-size:16px; font-weight:bold;">
+                        See details below:
+                    </p>
+
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td style="padding:0 24px; font-size:16px; line-height:1.7;">
+                                <ul style="margin:0; padding-left:10px;">
+                                    <li style="line-height:1.7;">
+                                        <strong>Order Number:</strong>
+                                        {{ order_number|default('#1') }}
+                                    </li>
+
+                                    <li style="line-height:1.7;">
+                                        <strong>Issue Description:</strong>
+                                        {{ issue_description|default('#3') }}
+                                    </li>
+
+                                    <li style="line-height:1.7;">
+                                        <strong>Attachments:</strong>
+
+                                        {% if attachment_links is defined and attachment_links is iterable and attachment_links|length > 0 %}
+                                            {% for file_link in attachment_links %}
+                                                <a href="{{ file_link }}"
+                                                download
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style="color:#2563eb; text-decoration:underline;">
+                                                    {{ attachment_labels[loop.index0]|default('File ' ~ loop.index) }}
+                                                </a>{% if not loop.last %}, {% endif %}
+                                            {% endfor %}
+
+                                        {% elseif attachment_link is defined and attachment_link %}
+                                            <a href="{{ attachment_link }}"
+                                            download
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style="color:#2563eb; text-decoration:underline;">
+                                                {{ attachment_label|default('File 1') }}
+                                            </a>
+
+                                        {% elseif attachments is defined and attachments %}
+                                            {{ attachments }}
+
+                                        {% elseif attachment_labels is defined and attachment_labels|length %}
+                                            {{ attachment_labels|join(', ') }}
+
+                                        {% else %}
+                                            none
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+             <tr>
+                <td style="padding:20px 24px 20px 24px; font-size:16px; color:#374151;">
+                    <p style="margin:0 0 5px 0; font-size:16px;">
+                        See contact details below if you'd like to follow up with the client:
+                    </p>
+
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td style="padding:0 24px; font-size:16px; line-height:1.7;">
+                                <ul style="margin:0; padding-left:10px;">
+                                    <li style="line-height:1.7;">
+                                           <strong>User Email Address:</strong>
+                                            {{ client_email|default('#2') }}
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:0 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;">
+                    <p style="margin:0 0 20px 0;">Best Regards,</p>
+                    <p style="margin:0;"><strong>Krost System</strong></p>
+                </td>
+            </tr>
+
+        </table>
+
+    </td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

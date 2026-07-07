@@ -1,0 +1,1159 @@
+(function () {
+  const cfg = window.__PAYMENT__ || {};
+  const payDebug = !!cfg.paymentDebug;
+
+  function plog(step, data) {
+    if (!payDebug) return;
+    if (data !== undefined) console.log('[payment]', step, data);
+    else console.log('[payment]', step);
+  }
+
+  plog('init', {
+    slug: cfg.slug,
+    mock: !!cfg.mock,
+    nabEnvironment: cfg.nabEnvironment || 'test',
+    paymentDebug: payDebug
+  });
+
+  const UC_CONTAINER_ID = 'uc-paymentSelection';
+  const UC_HOLD_ID = 'uc-hold';
+  const UC_HOLD_ANCHOR_ID = 'uc-hold-anchor';
+  const CARD_BACK_ANCHOR_ID = 'card-back-anchor';
+  let ucPayments = null;
+  let ucAccept = null;
+  let ucIframeWatchStop = null;
+  let ucLoaderHideTimer = null;
+  let ucLoaderDismissed = false;
+
+  function resetUcLoaderState() {
+    ucLoaderDismissed = false;
+    if (ucLoaderHideTimer) {
+      window.clearTimeout(ucLoaderHideTimer);
+      ucLoaderHideTimer = null;
+    }
+  }
+
+  function ucFormHasContent() {
+    const hold = document.getElementById(UC_HOLD_ID);
+    const container = document.getElementById(UC_CONTAINER_ID);
+    const iframe = hold && hold.querySelector('iframe');
+    if (iframe && iframe.offsetHeight > 0) return true;
+    if (!container) return false;
+    return container.querySelector('input, button, [role="button"]') !== null;
+  }
+
+  function dismissUcLoader() {
+    if (ucLoaderDismissed || state.screen !== 'card') return;
+    ucLoaderDismissed = true;
+    if (ucLoaderHideTimer) {
+      window.clearTimeout(ucLoaderHideTimer);
+      ucLoaderHideTimer = null;
+    }
+    state.loading = false;
+    syncUcLoader();
+    syncCardBackButton();
+  }
+
+  function forceClearUcLoader() {
+    ucLoaderDismissed = true;
+    if (ucLoaderHideTimer) {
+      window.clearTimeout(ucLoaderHideTimer);
+      ucLoaderHideTimer = null;
+    }
+    state.loading = false;
+    const anchor = document.getElementById(UC_HOLD_ANCHOR_ID);
+    if (anchor) {
+      anchor.querySelectorAll('.screenLoaderWrap--overlay').forEach(function (el) {
+        el.remove();
+      });
+    }
+    syncCardBackButton();
+  }
+
+  function hideUcLoaderSoon(delay) {
+    if (ucLoaderDismissed) return;
+    if (ucLoaderHideTimer) window.clearTimeout(ucLoaderHideTimer);
+    ucLoaderHideTimer = window.setTimeout(function () {
+      ucLoaderHideTimer = null;
+      dismissUcLoader();
+    }, delay == null ? 350 : delay);
+  }
+
+  function setLoading(active, message) {
+    state.loading = active;
+    if (message !== undefined) state.loadingMessage = message;
+    if (state.screen === 'card') {
+      if (active) {
+        ucLoaderDismissed = false;
+      } else {
+        ucLoaderDismissed = true;
+      }
+      syncUcAnchorVisibility();
+      syncUcLoader();
+      syncCardBackButton();
+      return;
+    }
+    render();
+  }
+
+  function loadingOverlay(message) {
+    const text = message || state.loadingMessage || 'Loading…';
+    return `<div class="screenLoaderWrap screenLoaderWrap--overlay" role="status" aria-live="polite" aria-busy="true">
+      <div class="screenLoader">
+        <span class="spinner spinner--dark" aria-hidden="true"></span>
+        <p class="screenLoader__text">${esc(text)}</p>
+      </div>
+    </div>`;
+  }
+
+  function stopNabIframeWatch() {
+    if (typeof ucIframeWatchStop === 'function') {
+      ucIframeWatchStop();
+      ucIframeWatchStop = null;
+    }
+  }
+
+  function startNabIframeWatch() {
+    stopNabIframeWatch();
+    const hold = document.getElementById(UC_HOLD_ID);
+    const anchor = document.getElementById(UC_HOLD_ANCHOR_ID);
+    const roots = [hold, anchor, document.body].filter(Boolean);
+
+    const seen = new WeakSet();
+    const observers = [];
+    let pollId = null;
+
+    function isUcIframe(iframe) {
+      if (!(iframe instanceof HTMLIFrameElement)) return false;
+      if ((hold && hold.contains(iframe)) || (anchor && anchor.contains(iframe))) return true;
+      if (!state.ucMounting) return false;
+      const src = String(iframe.src || iframe.getAttribute('src') || '');
+      if (/cybersource|nab\./i.test(src)) return true;
+      return iframe.parentElement === document.body;
+    }
+
+    function bindIframe(iframe) {
+      if (!isUcIframe(iframe) || seen.has(iframe)) return;
+      seen.add(iframe);
+      hideUcLoaderSoon(300);
+      iframe.addEventListener('load', function () { hideUcLoaderSoon(200); }, { once: true });
+      iframe.addEventListener('error', function () { hideUcLoaderSoon(200); }, { once: true });
+    }
+
+    function scan(root) {
+      root.querySelectorAll('iframe').forEach(bindIframe);
+    }
+
+    function scanAll() {
+      roots.forEach(scan);
+    }
+
+    scanAll();
+    roots.forEach(function (root) {
+      const observer = new MutationObserver(function () {
+        scanAll();
+      });
+      observer.observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['src']
+      });
+      observers.push(observer);
+    });
+
+    pollId = window.setInterval(function () {
+      if (ucLoaderDismissed || !state.ucMounting || state.screen !== 'card') return;
+      scanAll();
+      if (ucFormHasContent()) dismissUcLoader();
+    }, 400);
+
+    const timeout = window.setTimeout(function () {
+      dismissUcLoader();
+    }, 8000);
+
+    ucIframeWatchStop = function () {
+      observers.forEach(function (observer) {
+        observer.disconnect();
+      });
+      window.clearTimeout(timeout);
+      if (pollId) window.clearInterval(pollId);
+      pollId = null;
+      ucIframeWatchStop = null;
+    };
+  }
+
+  function parkUcHold() {
+    const hold = document.getElementById(UC_HOLD_ID);
+    const anchor = document.getElementById(UC_HOLD_ANCHOR_ID);
+    if (hold && anchor && hold.parentElement !== anchor) {
+      anchor.appendChild(hold);
+    }
+  }
+
+  function syncUcAnchorVisibility() {
+    const anchor = document.getElementById(UC_HOLD_ANCHOR_ID);
+    if (!anchor) return;
+    anchor.classList.toggle('uc-hold-anchor--visible', state.screen === 'card' && !state.ucError);
+  }
+
+  function syncCardBackButton() {
+    const anchor = document.getElementById(CARD_BACK_ANCHOR_ID);
+    if (!anchor) return;
+    if (state.screen === 'card') {
+      anchor.hidden = false;
+      let btn = anchor.querySelector('#backBtn');
+      if (!btn) {
+        anchor.innerHTML = '<button id="backBtn" class="btn-ghost" type="button">Back to edit</button>';
+        btn = anchor.querySelector('#backBtn');
+      }
+      if (btn) {
+        btn.disabled = !!state.loading;
+        btn.onclick = () => backToDetails();
+      }
+    } else {
+      anchor.hidden = true;
+      anchor.innerHTML = '';
+    }
+  }
+
+  function syncUcLoader() {
+    if (state.screen !== 'card') return;
+    const anchor = document.getElementById(UC_HOLD_ANCHOR_ID);
+    if (!anchor) return;
+    const existing = anchor.querySelector('.screenLoaderWrap--overlay');
+    const showLoader = state.loading && !ucLoaderDismissed;
+    if (showLoader) {
+      if (!existing) {
+        anchor.insertAdjacentHTML('beforeend', loadingOverlay());
+      } else {
+        const text = existing.querySelector('.screenLoader__text');
+        if (text) text.textContent = state.loadingMessage || 'Loading…';
+      }
+    } else if (existing) {
+      existing.remove();
+    }
+    syncCardBackButton();
+  }
+
+  const state = {
+    screen: cfg.screen || 'details',
+    slug: cfg.slug || 'pay',
+    currency: cfg.currency || 'AUD',
+    requireEmail: cfg.requireEmail !== false,
+    mock: !!cfg.mock,
+    intentId: cfg.intentId || '',
+    amount: cfg.amount || '',
+    reference: cfg.reference || '',
+    email: cfg.email || '',
+    readonlyFields: !!cfg.readonlyFields,
+    nonce: cfg.nonce || '',
+    captureSessionId: '',
+    idempotencyKey: '',
+    cardName: '', cardNumber: '', expiry: '', cvc: '',
+    token: '', last4: '', txnId: '', payError: '', ucError: '',
+    errors: {}, processing: false, loading: false, loadingMessage: '', ucMounted: false, ucMounting: false,
+    ucCompleteMandate: false,
+    ucPortalProcessing: false,
+    ucAwaitingCheckout: false,
+    ucPortalFallback: false
+  };
+
+  function money(v) {
+    const n = parseFloat(String(v).replace(/[^0-9.]/g, ''));
+    return isNaN(n) ? '0.00' : n.toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  function err(field) {
+    return state.errors[field] ? `<span class="errorText">${esc(state.errors[field])}</span>` : '';
+  }
+
+  function brandOf(num) {
+    const n = (num || '').replace(/\D/g, '');
+    if (/^4/.test(n)) return 'visa';
+    if (/^(5[1-5]|2[2-7])/.test(n)) return 'mastercard';
+    if (/^3[47]/.test(n)) return 'amex';
+    return '';
+  }
+
+  function brandMark(b) {
+    if (b === 'visa') return '<span class="brand-visa">VISA</span>';
+    if (b === 'mastercard') return '<span class="brand-mc"><span class="brand-mc__a"></span><span class="brand-mc__b"></span></span>';
+    if (b === 'amex') return '<span class="brand-amex">AMEX</span>';
+    return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5" stroke="#C9C2B8" stroke-width="1.6"/><path d="M2.5 9.5h19" stroke="#C9C2B8" stroke-width="1.6"/></svg>';
+  }
+
+  function base64url(value) {
+    return btoa(unescape(encodeURIComponent(value))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+
+  function formatCardNumber(value) {
+    return value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
+  }
+
+  function formatExpiry(value) {
+    const digits = value.replace(/\D/g, '').slice(0, 4);
+    if (digits.length <= 2) {
+      return digits.length === 2 ? digits + '/' : digits;
+    }
+    return digits.slice(0, 2) + '/' + digits.slice(2);
+  }
+
+  function validateAmount(value) {
+    const raw = String(value || '').trim().replace(/[$,\s]/g, '');
+    if (!raw) return 'Enter an amount';
+    if (!/^\d+(\.\d{1,2})?$/.test(raw)) return 'Enter a valid amount (e.g. 1250.00)';
+    const num = parseFloat(raw);
+    if (!Number.isFinite(num) || num <= 0) return 'Amount must be greater than zero';
+    if (num > 1000000) return 'Amount exceeds the maximum allowed';
+    return null;
+  }
+
+  function validateReference(value) {
+    const ref = String(value || '').trim();
+    if (!ref) return 'Enter a reference';
+    if (ref.length > 50) return 'Reference is too long';
+    return null;
+  }
+
+  function validateEmail(value) {
+    if (!state.requireEmail) return null;
+    const email = String(value || '').trim();
+    if (!email) return 'Enter a valid email';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Enter a valid email';
+    return null;
+  }
+
+  function validateExpiry(value) {
+    if (!/^\d{2}\/\d{2}$/.test(String(value || ''))) {
+      return 'Enter expiry as MM/YY';
+    }
+    const [mmStr, yyStr] = String(value).split('/');
+    const mm = parseInt(mmStr, 10);
+    const yy = parseInt(yyStr, 10);
+    if (mm < 1 || mm > 12) return 'Enter a valid month (01–12)';
+    const expEnd = new Date(2000 + yy, mm, 0, 23, 59, 59, 999);
+    const now = new Date();
+    if (expEnd < now) return 'This card has expired';
+    return null;
+  }
+
+  function validateCardNumber(value) {
+    const pan = String(value || '').replace(/\D/g, '');
+    const brand = brandOf(pan);
+    const minLen = brand === 'amex' ? 15 : 16;
+    if (pan.length < minLen) return 'Enter a valid card number';
+    return null;
+  }
+
+  function validateCvc(value, cardNumber) {
+    const cvc = String(value || '').replace(/\D/g, '');
+    const brand = brandOf(String(cardNumber || '').replace(/\D/g, ''));
+    const len = brand === 'amex' ? 4 : 3;
+    if (cvc.length < len) return brand === 'amex' ? 'Enter 4-digit CVC' : 'Enter CVC';
+    return null;
+  }
+
+  function setFieldError(id, field, message) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const fieldWrap = el.closest('.field') || el.closest('.amountWrap');
+    if (!fieldWrap) return;
+    if (message) {
+      state.errors[field] = message;
+      el.classList.add('input--invalid');
+      el.setAttribute('aria-invalid', 'true');
+    } else {
+      delete state.errors[field];
+      el.classList.remove('input--invalid');
+      el.removeAttribute('aria-invalid');
+    }
+    let errEl = fieldWrap.querySelector('.errorText');
+    if (message) {
+      if (!errEl) {
+        errEl = document.createElement('span');
+        errEl.className = 'errorText';
+        fieldWrap.appendChild(errEl);
+      }
+      errEl.textContent = message;
+    } else if (errEl) {
+      errEl.remove();
+    }
+  }
+
+  function validateOrderFields() {
+    const next = {};
+    const amountMsg = validateAmount(state.amount);
+    const refMsg = validateReference(state.reference);
+    const emailMsg = validateEmail(state.email);
+    if (amountMsg) next.amount = amountMsg;
+    if (refMsg) next.reference = refMsg;
+    if (emailMsg) next.email = emailMsg;
+    state.errors = next;
+    return Object.keys(next).length === 0;
+  }
+
+  function validateCardFields() {
+    const next = {};
+    if (!state.cardName.trim()) next.cardName = 'Enter the name on card';
+    const cardMsg = validateCardNumber(state.cardNumber);
+    if (cardMsg) next.cardNumber = cardMsg;
+    const expiryMsg = validateExpiry(state.expiry);
+    if (expiryMsg) next.expiry = expiryMsg;
+    const cvcMsg = validateCvc(state.cvc, state.cardNumber);
+    if (cvcMsg) next.cvc = cvcMsg;
+    state.errors = next;
+    return Object.keys(next).length === 0;
+  }
+
+  function tokenLast4(jwt) {
+    try {
+      const part = jwt.split('.')[1];
+      if (!part) return '0000';
+      const payload = JSON.parse(decodeURIComponent(atob(part.replace(/-/g, '+').replace(/_/g, '/')).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')));
+      const card = payload?.content?.paymentInformation?.card;
+      const masked = card?.number?.maskedValue ?? card?.number?.bin ?? payload?.data?.number ?? '';
+      const match = String(masked).match(/(\d{4})(?!.*\d)/);
+      return match ? match[1] : '0000';
+    } catch (e) { return '0000'; }
+  }
+
+  function loadLibrary(src, integrity) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[data-nab-uc]');
+      if (existing) {
+        if (window.Accept) resolve();
+        else existing.addEventListener('load', () => resolve());
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.dataset.nabUc = '1';
+      if (integrity) { script.integrity = integrity; script.crossOrigin = 'anonymous'; }
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('Could not load the secure payment library.'));
+      document.head.appendChild(script);
+    });
+  }
+
+  function ensureUcContainer() {
+    parkUcHold();
+    syncUcAnchorVisibility();
+    const hold = document.getElementById(UC_HOLD_ID);
+    if (!hold) throw new Error('Payment container is unavailable.');
+    hold.innerHTML = '<div id="' + UC_CONTAINER_ID + '"></div>';
+    if (!document.getElementById(UC_CONTAINER_ID)) {
+      throw new Error('Payment container could not be created.');
+    }
+    return UC_CONTAINER_ID;
+  }
+
+  async function mountUnifiedCheckout(options) {
+    plog('uc.mount.start', {
+      ucCompleteMandate: state.ucCompleteMandate,
+      ucPortalProcessing: state.ucPortalProcessing,
+      skipBrowserComplete: shouldSkipBrowserComplete()
+    });
+    await loadLibrary(options.clientLibrary, options.clientLibraryIntegrity);
+    if (!window.Accept) throw new Error('The secure payment library is unavailable.');
+    plog('uc.accept.init', { library: options.clientLibrary || null });
+    ucAccept = await window.Accept(options.captureContext);
+    ucPayments = await ucAccept.unifiedPayments();
+    const containerId = ensureUcContainer();
+    await new Promise(function (resolve) { requestAnimationFrame(resolve); });
+    plog('uc.show.call', { container: containerId });
+    const showOptions = { containers: { paymentSelection: '#' + containerId } };
+    if (!shouldSkipBrowserComplete()) showOptions.autoProcessing = false;
+    const showPromise = ucPayments.show(showOptions);
+    hideUcLoaderSoon(600);
+    window.setTimeout(function () {
+      if (!ucLoaderDismissed && ucFormHasContent()) dismissUcLoader();
+    }, 0);
+    try {
+      const token = await showPromise;
+      plog('uc.show.result', { token: describeJwt(token) });
+      return token;
+    } catch (e) {
+      plog('uc.show.error', {
+        reason: e && e.reason,
+        name: e && e.name,
+        message: e instanceof Error ? e.message : String(e)
+      });
+      throw e;
+    }
+  }
+
+  function resolveCompleteFn() {
+    if (ucPayments && typeof ucPayments.complete === 'function') return ucPayments.complete.bind(ucPayments);
+    if (ucAccept && typeof ucAccept.complete === 'function') return ucAccept.complete.bind(ucAccept);
+    return null;
+  }
+
+  function decodeJwtPayload(jwt) {
+    try {
+      const part = String(jwt || '').split('.')[1];
+      if (!part) return {};
+      return JSON.parse(atob(part.replace(/-/g, '+').replace(/_/g, '/')));
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function describeJwt(jwt) {
+    const payload = decodeJwtPayload(jwt);
+    return {
+      kind: isPaymentResultJwt(jwt) ? 'payment_result' : (isTransientTokenJwt(jwt) ? 'transient' : 'unknown'),
+      type: payload.type || null,
+      status: extractPaymentStatus(payload),
+      transactionId: payload.id || (payload.details && payload.details.id) || (payload.processorInformation && payload.processorInformation.transactionId) || (payload.completeResponse && payload.completeResponse.id) || null,
+      exp: payload.exp || null,
+      jti_prefix: payload.jti ? String(payload.jti).slice(0, 8) : null
+    };
+  }
+
+  function isCompleteNotAllowedError(e) {
+    const reason = e && (e.reason || '');
+    const msg = e instanceof Error ? e.message : String(e);
+    return reason === 'COMPLETE_NOT_ALLOWED' || /complete not allowed/i.test(msg);
+  }
+
+  async function finalizeAfterShow(token) {
+    plog('uc.finalize.start', {
+      token: describeJwt(token),
+      ucCompleteMandate: state.ucCompleteMandate,
+      ucPortalProcessing: state.ucPortalProcessing,
+      skipBrowserComplete: shouldSkipBrowserComplete()
+    });
+
+    if (isPaymentResultJwt(token)) {
+      plog('uc.finalize.skip', { reason: 'already_payment_result' });
+      return token;
+    }
+
+    if (shouldSkipBrowserComplete()) {
+      plog('uc.finalize.fail', { reason: 'auto_processing_expected_payment_result' });
+      throw new Error(ucIncompleteCheckoutError());
+    }
+
+    const complete = resolveCompleteFn();
+    if (!complete) {
+      plog('uc.finalize.fail', { reason: 'complete_fn_unavailable' });
+      throw new Error('Payment could not be completed. Refresh the page and try again.');
+    }
+
+    let result;
+    try {
+      plog('uc.complete.call', { input: describeJwt(token) });
+      result = await complete(token);
+      plog('uc.complete.result', { output: describeJwt(result) });
+    } catch (e) {
+      plog('uc.complete.error', {
+        reason: e && e.reason,
+        name: e && e.name,
+        message: e instanceof Error ? e.message : String(e)
+      });
+      if (isCompleteNotAllowedError(e)) {
+        markPortalAutoProcessing();
+        plog('uc.complete.blocked', { reason: 'COMPLETE_NOT_ALLOWED', token: describeJwt(token) });
+        if (isPaymentResultJwt(token)) return token;
+        // Portal auto-processing is active but we could not classify the token.
+        // Pass through to the server — parseCompletionResult() will determine the outcome.
+        state.ucPortalFallback = true;
+        plog('uc.complete.portal_fallback', { token: describeJwt(token) });
+        return token;
+      }
+      throw e;
+    }
+
+    if (isPaymentResultJwt(result)) return result;
+    plog('uc.finalize.fail', { reason: 'complete_returned_non_payment_result', result: describeJwt(result) });
+    throw new Error('Payment could not be finalized in secure checkout. Go back and complete the card form, then try again.');
+  }
+
+  function isTransientTokenJwt(jwt) {
+    if (isPaymentResultJwt(jwt)) return false;
+    const payload = decodeJwtPayload(jwt);
+    if (!payload || Object.keys(payload).length === 0) return true;
+    const type = String(payload.type || '').toLowerCase();
+    if (type && (type.indexOf('gda') >= 0 || type.indexOf('transient') >= 0)) return true;
+    return !!(payload.content && payload.content.paymentInformation);
+  }
+
+  function extractPaymentStatus(payload) {
+    const cr = payload.completeResponse;
+    const candidates = [
+      payload.status,
+      payload.outcome,
+      payload.paymentStatus,
+      payload.details && payload.details.status,
+      payload.content && payload.content.status,
+      cr && cr.status,
+      cr && cr.outcome
+    ];
+    for (let i = 0; i < candidates.length; i++) {
+      if (typeof candidates[i] === 'string' && candidates[i]) return candidates[i];
+    }
+    return null;
+  }
+
+  function isPaymentResultJwt(jwt) {
+    const payload = decodeJwtPayload(jwt);
+    if (!payload || Object.keys(payload).length === 0) return false;
+
+    // completeResponse is a definitive payment-result signal. Check BEFORE the type filter
+    // because portal-level auto-processing JWTs may carry a type field alongside completeResponse.
+    const cr = payload.completeResponse;
+    if (cr && typeof cr === 'object' && (cr.status || cr.outcome || cr.id || (cr.details && cr.details.id))) {
+      return true;
+    }
+
+    const type = String(payload.type || '').toLowerCase();
+    if (type && (type.indexOf('gda') >= 0 || type.indexOf('transient') >= 0 || type.indexOf('flex/') >= 0)) {
+      return false;
+    }
+
+    if (payload.content && payload.content.paymentInformation && extractPaymentStatus(payload) === null) {
+      return false;
+    }
+
+    if (extractPaymentStatus(payload) !== null) return true;
+
+    const crFallback = payload.completeResponse || {};
+    const txnId = payload.id
+      || (payload.details && payload.details.id)
+      || (payload.processorInformation && payload.processorInformation.transactionId)
+      || crFallback.id
+      || (crFallback.details && crFallback.details.id);
+    return !!(txnId && !payload.type);
+  }
+
+  function captureContextData(jwt) {
+    const payload = decodeJwtPayload(jwt);
+    const ctx = payload.ctx;
+    if (Array.isArray(ctx) && ctx[0] && ctx[0].data && typeof ctx[0].data === 'object') {
+      return ctx[0].data;
+    }
+    return {};
+  }
+
+  function captureContextHasCompleteMandate(jwt) {
+    const payload = decodeJwtPayload(jwt);
+    if (!payload || typeof payload !== 'object') return false;
+    if (payload.completeMandate) return true;
+    const ctx = payload.ctx;
+    if (Array.isArray(ctx)) {
+      for (let i = 0; i < ctx.length; i++) {
+        const entry = ctx[i];
+        if (entry && entry.data && entry.data.completeMandate) return true;
+        if (entry && entry.completeMandate) return true;
+      }
+    }
+    return false;
+  }
+
+  /** Portal has payment processing published (paymentConfigurations non-empty). */
+  function captureContextHasPortalProcessing(jwt) {
+    const configs = captureContextData(jwt).paymentConfigurations;
+    return !!(configs && typeof configs === 'object' && Object.keys(configs).length > 0);
+  }
+
+  function syncUcSessionFlags(captureContext) {
+    state.ucCompleteMandate = captureContextHasCompleteMandate(captureContext);
+    state.ucPortalProcessing = captureContextHasPortalProcessing(captureContext);
+  }
+
+  function shouldSkipBrowserComplete() {
+    return state.ucCompleteMandate || state.ucPortalProcessing;
+  }
+
+  function markPortalAutoProcessing() {
+    state.ucPortalProcessing = true;
+  }
+
+  function ucIncompleteCheckoutError() {
+    return 'Payment was not completed in secure checkout. Click Checkout with card, enter your card details in the NAB window, then click Continue to review.';
+  }
+
+  function nabPortalProcessingError() {
+    return 'Unified Checkout payment processing is not enabled for this merchant. In the NAB test portal open Payment Configuration → Unified Checkout, enable payment processing, publish, then try again.';
+  }
+
+  function resetUnifiedCheckout() {
+    stopNabIframeWatch();
+    if (ucPayments && typeof ucPayments.dispose === 'function') {
+      try { ucPayments.dispose(); } catch (e) { /* ignore */ }
+    }
+    ucPayments = null;
+    ucAccept = null;
+    const hold = document.getElementById(UC_HOLD_ID);
+    if (hold) hold.innerHTML = '';
+    parkUcHold();
+  }
+
+  function capturePayload() {
+    return {
+      slug: state.slug,
+      intent_id: state.intentId,
+      amount: state.amount,
+      reference: state.reference,
+      email: state.requireEmail ? state.email : undefined,
+      nonce: state.nonce
+    };
+  }
+
+  async function startCaptureContext() {
+    plog('api.capture_context.request', capturePayload());
+    const res = await fetch(cfg.captureContextUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(capturePayload())
+    });
+    const data = await res.json();
+    plog('api.capture_context.response', {
+      ok: res.ok,
+      status: res.status,
+      mock: data.mock,
+      complete_mandate: data.complete_mandate,
+      debug: data.debug || null,
+      error: data.error || null
+    });
+    if (!res.ok || !data.captureContext) throw new Error(data.error || 'Could not start a secure payment session.');
+    state.nonce = data.nonce || state.nonce;
+    state.captureSessionId = data.capture_session_id || '';
+    syncUcSessionFlags(data.captureContext);
+    // Debug: decode capture context JWT to see full structure NAB returns
+    (function() {
+      try {
+        var ccPayload = decodeJwtPayload(data.captureContext);
+        var ccKeys = Object.keys(ccPayload || {});
+        var ctxArr = ccPayload.ctx || [];
+        var ctxSummary = ctxArr.map(function(c, i) {
+          var d = (c && c.data) || {};
+          return { i: i, type: c && c.type, data_keys: Object.keys(d), has_cm: 'completeMandate' in d, has_pc: 'paymentConfigurations' in d, cm_val: d.completeMandate, pc_val: d.paymentConfigurations };
+        });
+        var flx = ccPayload.flx || {};
+        plog('uc.capture_context.decoded', {
+          payload_keys: ccKeys,
+          flx_keys: Object.keys(flx),
+          flx_completePath: flx.completePath || null,
+          flx_tokenPath: flx.tokenPath || null,
+          ctx_count: ctxArr.length,
+          ctx_summary: ctxSummary,
+          has_complete_mandate: captureContextHasCompleteMandate(data.captureContext),
+          has_portal_processing: captureContextHasPortalProcessing(data.captureContext)
+        });
+      } catch(debugErr) { plog('uc.capture_context.decode_err', { err: String(debugErr) }); }
+    })();
+    plog('uc.session', {
+      ucCompleteMandate: state.ucCompleteMandate,
+      ucPortalProcessing: state.ucPortalProcessing,
+      skipBrowserComplete: shouldSkipBrowserComplete(),
+      requestedCompleteMandate: data.debug && data.debug.requested_complete_mandate,
+      sessionCompleteMandate: data.debug && data.debug.session_complete_mandate,
+      sessionPortalProcessing: data.debug && data.debug.session_portal_processing
+    });
+    return data;
+  }
+
+  async function submitManualEntry() {
+    if (!validateOrderFields()) { render(); return; }
+    state.payError = '';
+    state.processing = true;
+    setLoading(true, 'Preparing your payment…');
+    const intentPayload = {
+      slug: state.slug,
+      amount: state.amount,
+      reference: state.reference,
+      email: state.requireEmail ? state.email : undefined,
+      nonce: state.nonce
+    };
+    plog('api.intent.request', intentPayload);
+    try {
+      const res = await fetch(cfg.intentUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify(intentPayload)
+      });
+      const data = await res.json();
+      plog('api.intent.response', { ok: res.ok, status: res.status, redirect: data.redirect || null, error: data.error || null });
+      if (!res.ok || !data.redirect) throw new Error(data.error || 'Could not start payment.');
+      window.location.href = data.redirect;
+    } catch (e) {
+      plog('api.intent.error', { message: e instanceof Error ? e.message : String(e) });
+      state.processing = false;
+      setLoading(false);
+      state.payError = e instanceof Error ? e.message : 'Could not start payment.';
+      render();
+    }
+  }
+
+  async function goConfirmMock() {
+    if (!validateOrderFields()) { render(); return; }
+    if (!validateCardFields()) { render(); return; }
+
+    const pan = state.cardNumber.replace(/\D/g, '');
+    const tail = pan.slice(-4);
+    state.token = base64url(JSON.stringify({ mock: true, last4: tail, brand: brandOf(state.cardNumber) || 'card', declined: pan.endsWith('0000') }));
+    state.last4 = tail;
+    state.payError = '';
+    state.idempotencyKey = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+    if (state.mock) {
+      setLoading(true, 'Starting secure session…');
+      try {
+        await startCaptureContext();
+      } catch (e) {
+        setLoading(false);
+        state.payError = e instanceof Error ? e.message : 'Could not start payment.';
+        render();
+        return;
+      }
+      setLoading(false);
+    }
+    state.screen = 'confirm';
+    render();
+  }
+
+  async function proceedAfterUcCheckout() {
+    if (state.processing || state.loading) return;
+    state.ucError = '';
+    state.processing = true;
+    setLoading(true, 'Securing your payment…');
+    try {
+      const token = await finalizeAfterShow(state.token);
+      state.token = token;
+      state.last4 = tokenLast4(token);
+      state.ucAwaitingCheckout = false;
+      state.idempotencyKey = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+      parkUcHold();
+      state.screen = 'confirm';
+      render();
+    } catch (e) {
+      plog('uc.proceed.error', { message: e instanceof Error ? e.message : String(e) });
+      state.ucError = e instanceof Error ? e.message : 'Could not complete secure checkout.';
+      render();
+    } finally {
+      state.processing = false;
+      setLoading(false);
+    }
+  }
+
+  async function continueToCard() {
+    if (!validateOrderFields()) { render(); return; }
+    plog('continueToCard.start', { slug: state.slug, amount: state.amount, reference: state.reference });
+    state.ucError = '';
+    state.payError = '';
+    state.ucAwaitingCheckout = false;
+    state.ucMounted = false;
+    state.ucMounting = false;
+    resetUcLoaderState();
+    state.screen = 'card';
+    parkUcHold();
+    render();
+    syncUcAnchorVisibility();
+    setLoading(true, 'Starting secure session…');
+    try {
+      const ctx = await startCaptureContext();
+      syncUcSessionFlags(ctx.captureContext);
+      state.ucMounting = true;
+      parkUcHold();
+      syncUcAnchorVisibility();
+      setLoading(true, 'Loading secure payment…');
+      startNabIframeWatch();
+      const tokenFromShow = await mountUnifiedCheckout({
+        captureContext: ctx.captureContext,
+        clientLibrary: ctx.clientLibrary,
+        clientLibraryIntegrity: ctx.clientLibraryIntegrity
+      });
+      stopNabIframeWatch();
+      state.ucMounting = false;
+      forceClearUcLoader();
+      state.token = tokenFromShow;
+      state.last4 = tokenLast4(tokenFromShow);
+      state.idempotencyKey = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+
+      if (isPaymentResultJwt(tokenFromShow)) {
+        plog('uc.show.payment_result', { token: describeJwt(tokenFromShow) });
+        parkUcHold();
+        state.screen = 'confirm';
+        render();
+        return;
+      }
+
+      // show() returned a transient token (card entry opened). Keep UC mounted and let
+      // the customer finish in the NAB sidebar before we call complete().
+      plog('uc.show.transient_pending', { token: describeJwt(tokenFromShow) });
+      state.ucAwaitingCheckout = true;
+      render();
+    } catch (e) {
+      plog('continueToCard.error', {
+        reason: e && e.reason,
+        name: e && e.name,
+        message: e instanceof Error ? e.message : String(e)
+      });
+      stopNabIframeWatch();
+      state.ucMounted = false;
+      state.ucMounting = false;
+      state.ucAwaitingCheckout = false;
+      forceClearUcLoader();
+      state.ucError = e instanceof Error ? e.message : 'Could not load the payment form.';
+      render();
+    }
+  }
+
+  async function pay() {
+    if (state.processing) return;
+    state.processing = true;
+    state.payError = '';
+    setLoading(true, 'Confirming your payment…');
+    try {
+      let paymentToken = state.token;
+      if (!state.mock && !paymentToken) {
+        throw new Error('Payment details are missing. Go back and enter your card again.');
+      }
+      if (!state.mock) {
+        // When portal auto-processing fired, finalizeAfterShow() already set ucPortalFallback
+        // and returned the token; skip calling it again to avoid a second COMPLETE_NOT_ALLOWED.
+        if (!state.ucPortalFallback && !isPaymentResultJwt(paymentToken)) {
+          setLoading(true, 'Securing your payment…');
+          paymentToken = await finalizeAfterShow(paymentToken);
+        }
+        if (!state.ucPortalFallback && !isPaymentResultJwt(paymentToken)) {
+          throw new Error('Payment was not completed in secure checkout. Go back and enter your card again.');
+        }
+      }
+      const paymentMode = state.mock ? 'mock' : (state.ucPortalFallback ? 'uc_auto' : 'uc_complete');
+      setLoading(true, 'Finalising payment…');
+      const payPayload = {
+        slug: state.slug,
+        intent_id: state.intentId,
+        capture_session_id: state.captureSessionId,
+        idempotency_key: state.idempotencyKey,
+        token: describeJwt(paymentToken),
+        payment_mode: paymentMode,
+        nonce: state.nonce
+      };
+      plog('api.pay.request', payPayload);
+      const res = await fetch(cfg.payUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          slug: state.slug,
+          intent_id: state.intentId,
+          capture_session_id: state.captureSessionId,
+          idempotency_key: state.idempotencyKey,
+          token: paymentToken,
+          payment_mode: paymentMode,
+          nonce: state.nonce
+        })
+      });
+      const data = await res.json();
+      plog('api.pay.response', {
+        ok: res.ok,
+        status: res.status,
+        approved: data.ok,
+        transactionId: data.transactionId || null,
+        error: data.error || data.message || null,
+        debug: data.debug || null
+      });
+      if (data.ok) {
+        state.txnId = data.transactionId || '';
+        state.screen = 'success';
+      } else {
+        state.payError = data.error || data.message || '';
+        state.screen = 'failure';
+      }
+    } catch (e) {
+      plog('api.pay.error', { message: e instanceof Error ? e.message : String(e) });
+      state.payError = e instanceof Error ? e.message : 'We could not reach the payment service. No funds have been taken.';
+      state.screen = 'failure';
+    } finally {
+      state.processing = false;
+      state.loading = false;
+      render();
+    }
+  }
+
+  function backToDetails() {
+    stopNabIframeWatch();
+    forceClearUcLoader();
+    resetUcLoaderState();
+    state.ucMounted = false;
+    state.ucError = '';
+    state.ucAwaitingCheckout = false;
+    state.ucPortalFallback = false;
+    state.captureSessionId = '';
+    state.token = '';
+    resetUnifiedCheckout();
+    state.screen = 'details';
+    state.processing = false;
+    state.loading = false;
+    render();
+  }
+
+  function continueBtnContent() {
+    if (state.processing || state.loading) {
+      return '<span class="spinner"></span> Preparing…';
+    }
+    const label = state.readonlyFields ? 'Continue to payment' : 'Review payment';
+    return label + '<svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  }
+
+  function readonlyAttr() { return state.readonlyFields ? 'readonly' : ''; }
+
+  function render() {
+    const root = document.getElementById('screen');
+    if (!root) return;
+    const s = state;
+    let html = '';
+
+    if (s.screen === 'details') {
+      html = `<div class="screen">
+        <div class="eyebrow">Amount due</div>
+        <div class="amountWrap">
+          <span class="amountPrefix">$</span>
+          <input id="amount" inputmode="decimal" class="amountInput" value="${esc(s.amount)}" placeholder="0.00" aria-label="Amount due" ${readonlyAttr()} />
+          ${err('amount')}
+        </div>
+        <div class="fieldStack">
+          <div class="field">
+            <label class="label">Reference / Invoice number</label>
+            <input id="reference" class="input" value="${esc(s.reference)}" placeholder="INV-00000" ${readonlyAttr()} />
+            ${err('reference')}
+          </div>
+          ${s.requireEmail ? `<div class="field"><label class="label">Email for receipt</label><input id="email" type="email" class="input" value="${esc(s.email)}" placeholder="you@company.com.au" ${readonlyAttr()} />${err('email')}</div>` : ''}
+        </div>
+        ${s.mock ? `<div class="divider"><div class="divider__line"></div><span class="divider__text">Card details</span><div class="divider__line"></div></div>
+        <div class="fieldStack">
+          <div class="field"><label class="label">Name on card</label><input id="cardName" class="input" value="${esc(s.cardName)}" placeholder="J. Smith" />${err('cardName')}</div>
+          <div class="field"><label class="label">Card number</label><div class="inputWrap"><input id="cardNumber" inputmode="numeric" class="input input--card" value="${esc(s.cardNumber)}" placeholder="0000 0000 0000 0000" /><div class="cardMark">${brandMark(brandOf(s.cardNumber))}</div></div>${err('cardNumber')}</div>
+          <div class="row"><div class="field"><label class="label">Expiry</label><input id="expiry" inputmode="numeric" class="input" value="${esc(s.expiry)}" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp" />${err('expiry')}</div><div class="field"><label class="label">CVC</label><input id="cvc" inputmode="numeric" class="input" value="${esc(s.cvc)}" placeholder="123" maxlength="4" autocomplete="cc-csc" />${err('cvc')}</div></div>
+        </div>` : ''}
+        ${s.payError ? `<div class="alert">${esc(s.payError)}</div>` : ''}
+        <button id="continueBtn" class="btn-primary btn-primary--spaced" ${s.processing || s.loading ? 'disabled' : ''}>${continueBtnContent()}</button>
+        ${s.loading ? loadingOverlay() : ''}
+      </div>`;
+    } else if (s.screen === 'card') {
+      html = `<div class="screen"><div class="eyebrow">Card details</div>
+        <div class="totalRow" style="margin:0 2px 18px"><span class="totalRow__label">Amount</span><span class="totalRow__value" style="font-size:22px">$${money(s.amount)}</span></div>
+        ${s.ucError ? `<div class="alert">${esc(s.ucError)}</div>` : '<p class="subheading" style="margin-bottom:4px">Enter your card details securely below.</p>'}
+        ${s.ucAwaitingCheckout ? `<p class="subheading" style="margin-top:12px">When you have finished entering your card in the NAB window, click Continue to review.</p><button id="ucContinueBtn" class="btn-primary btn-primary--spaced" ${s.processing || s.loading ? 'disabled' : ''}>Continue to review</button>` : ''}
+        </div>`;
+    } else if (s.screen === 'confirm') {
+      html = `<div class="screen"><div class="heading" style="font-size:21px">Review your payment</div><div class="subheading">Please confirm the details below before paying.</div>
+        <div class="panel"><div class="panel__row"><span class="panel__label">Reference</span><span class="panel__value">${esc(s.reference || '—')}</span></div>
+        ${s.requireEmail ? `<div class="panel__row"><span class="panel__label">Receipt to</span><span class="panel__value">${esc(s.email)}</span></div>` : ''}
+        <div class="panel__row"><span class="panel__label">Card</span><span class="panel__value">•••• ${esc(s.last4 || '0000')}</span></div></div>
+        <div class="totalRow"><span class="totalRow__label">Total</span><span class="totalRow__value">$${money(s.amount)}</span></div>
+        <div class="totalNote">${esc(s.currency)} · No surcharge applied</div>
+        <button id="payBtn" class="btn-primary" ${s.processing || s.loading ? 'disabled' : ''}>${s.processing || s.loading ? '<span class="spinner"></span> Processing…' : '<span>Pay $' + money(s.amount) + '</span>'}</button>
+        <button id="backBtn" class="btn-ghost" ${s.processing || s.loading ? 'disabled' : ''}>Back to edit</button>
+        ${s.loading || s.processing ? loadingOverlay() : ''}</div>`;
+    } else if (s.screen === 'success') {
+      html = `<div class="screen screen--center"><div class="statusIcon statusIcon--success"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#1C7C54" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="heading">Payment successful</div><div class="subheading">${s.requireEmail ? 'A receipt has been sent to your email.' : 'Thank you — your payment is complete.'}</div>
+        <div class="panel panel--left"><div class="panel__row"><span class="panel__label">Amount paid</span><span class="panel__value panel__value--strong">$${money(s.amount)}</span></div>
+        <div class="panel__row"><span class="panel__label">Reference</span><span class="panel__value">${esc(s.reference || '—')}</span></div>
+        <div class="panel__row"><span class="panel__label">Transaction ID</span><span class="panel__value">${esc(s.txnId)}</span></div>
+        <div class="panel__row"><span class="panel__label">Date</span><span class="panel__value">${new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div></div>
+        <button id="printBtn" class="btn-outline no-print">Download receipt</button></div>`;
+    } else if (s.screen === 'failure') {
+      html = `<div class="screen screen--center"><div class="statusIcon statusIcon--error"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10M17 7L7 17" stroke="#C13B2E" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+        <div class="heading">Payment declined</div><div class="subheading subheading--narrow">${esc(s.payError || 'Your card issuer declined this transaction.')}</div>
+        <button id="retryBtn" class="btn-primary">Try again</button></div>`;
+    } else if (s.screen === 'invalid') {
+      html = `<div class="screen screen--center"><div class="statusIcon statusIcon--neutral"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#A39C92" stroke-width="2"/><path d="M12 7.5v5" stroke="#A39C92" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="16.3" r="1.2" fill="#A39C92"/></svg></div>
+        <div class="heading">This payment link is no longer valid</div><div class="subheading subheading--narrow">The link may have expired or already been paid. Please use the link on your most recent invoice or statement, or contact us for a new one.</div>
+        <a class="btn-outline" href="mailto:${esc(cfg.supportEmail)}">Contact ${esc(cfg.supportEmail)}</a></div>`;
+    }
+
+    root.innerHTML = html;
+    wire();
+  }
+
+  function bindInput(id, key, transform, validate) {
+    const el = document.getElementById(id);
+    if (!el || state.readonlyFields) return;
+    el.addEventListener('input', () => {
+      const formatted = transform ? transform(el.value) : el.value;
+      state[key] = formatted;
+      if (transform && el.value !== formatted) {
+        el.value = formatted;
+      }
+      if (validate) {
+        setFieldError(id, key, validate(formatted));
+      } else {
+        setFieldError(id, key, null);
+      }
+    });
+    el.addEventListener('blur', () => {
+      if (validate) {
+        setFieldError(id, key, validate(state[key]));
+      }
+    });
+  }
+
+  function bindExpiryInput() {
+    const el = document.getElementById('expiry');
+    if (!el || state.readonlyFields) return;
+    el.addEventListener('input', () => {
+      const formatted = formatExpiry(el.value);
+      state.expiry = formatted;
+      el.value = formatted;
+      if (formatted.length < 5) {
+        setFieldError('expiry', 'expiry', null);
+      } else {
+        setFieldError('expiry', 'expiry', validateExpiry(formatted));
+      }
+    });
+    el.addEventListener('blur', () => {
+      setFieldError('expiry', 'expiry', validateExpiry(state.expiry));
+    });
+  }
+
+  function wire() {
+    bindInput('amount', 'amount', v => v.replace(/[^0-9.]/g, ''), validateAmount);
+    bindInput('reference', 'reference', null, validateReference);
+    bindInput('email', 'email', null, validateEmail);
+    bindInput('cardName', 'cardName', null, v => !String(v || '').trim() ? 'Enter the name on card' : null);
+    bindInput('cardNumber', 'cardNumber', formatCardNumber, validateCardNumber);
+    bindExpiryInput();
+    bindInput('cvc', 'cvc', v => v.replace(/\D/g, '').slice(0, 4), v => validateCvc(v, state.cardNumber));
+
+    const continueBtn = document.getElementById('continueBtn');
+    if (continueBtn) continueBtn.onclick = () => {
+      if (!state.readonlyFields) {
+        state.mock ? goConfirmMock() : submitManualEntry();
+      } else {
+        state.mock ? goConfirmMock() : continueToCard();
+      }
+    };
+
+    const payBtn = document.getElementById('payBtn');
+    if (payBtn) payBtn.onclick = () => pay();
+
+    const ucContinueBtn = document.getElementById('ucContinueBtn');
+    if (ucContinueBtn) ucContinueBtn.onclick = () => proceedAfterUcCheckout();
+
+    const backBtn = document.getElementById('backBtn');
+    if (backBtn) backBtn.onclick = () => backToDetails();
+
+    const retryBtn = document.getElementById('retryBtn');
+    if (retryBtn) retryBtn.onclick = () => backToDetails();
+
+    const printBtn = document.getElementById('printBtn');
+    if (printBtn) printBtn.onclick = () => window.print();
+
+    syncUcAnchorVisibility();
+    syncCardBackButton();
+  }
+
+  render();
+})();

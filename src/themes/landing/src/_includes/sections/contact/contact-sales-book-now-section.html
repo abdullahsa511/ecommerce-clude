@@ -1,0 +1,53 @@
+<!--============================== Book Now and calender ==============================-->
+<section id="book-now" class="position-relative th-section-py" style="scroll-margin-top: 100px;" data-v-component-booknow>
+    <div id="booking-vue-app"></div>
+</section>
+<!--======== End Book Now Section ========-->
+<script>
+(function () {
+    var h = window.__bookNowRestoreHash || window.location.hash || '';
+    if (h !== '#book-now' && h.indexOf('#book-now') !== 0) return;
+    var offset = 100;
+    var el = document.getElementById('book-now');
+    if (el) {
+        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo(0, Math.max(0, top));
+    }
+    if (window.__bookNowRestoreHash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search + window.__bookNowRestoreHash);
+        delete window.__bookNowRestoreHash;
+    }
+})();
+</script>
+
+<style>
+    .otp-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .otp-input {
+        width: 48px;
+        height: 55px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        transition: all 0.2s ease;
+    }
+
+    .otp-input:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        outline: none;
+    }
+
+    .resend-link {
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+</style>

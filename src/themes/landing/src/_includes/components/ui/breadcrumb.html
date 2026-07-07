@@ -1,0 +1,9 @@
+<div class="th-breadcrumb">  
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb @@class">
+          @@if(typeof items !== 'undefined') {
+            @@loop('./breadcrumb-item.html', @@items)
+          }
+        </ol>
+      </nav>  
+</div>

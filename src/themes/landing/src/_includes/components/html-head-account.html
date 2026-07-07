@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-v-component-head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <base href="">
+  <title data-v-head-title>Krost Landing - Homepage</title>
+  <meta name="description" content="" data-v-head-meta-description />
+  <meta name="keywords" content="" data-v-head-meta-keywords/>
+  <meta name="author" content="Krost Business Furniture" data-v-head-meta-author>
+  <link rel="canonical" href="" data-v-head-canonical />
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" data-v-og-type>
+  <meta property="og:title" content="" data-v-og-title>
+  <meta property="og:description" content="" data-v-og-description>
+  <meta property="og:url" content="" data-v-og-url>
+  <meta property="og:image" content="" data-v-og-image>
+  <meta property="og:site_name" content="Krost Business Furniture">
+  <!-- /Open Graph -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="" data-v-twitter-title>
+  <meta name="twitter:description" content="" data-v-twitter-description>
+  <meta name="twitter:image" content="" data-v-twitter-image>
+  <!-- /Twitter -->
+  <link rel="preload" fetchpriority="high" as="image" href="/media/Components/hero_home.webp">
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+  <link rel="icon" type="image/x-icon" href="../../media/favicon.ico" data-v-global-site.favicon>
+  <!-- <link rel="preload" href="/css/fontawesome.min.css" as="style" onload="this.rel='stylesheet'"> -->
+  <!-- <link rel="stylesheet" href="/css/stylesheet.css"> -->
+  <link rel="stylesheet" href="/css/stylesheet.min.css">
+  <link rel="preload" href="/css/solid.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/choices.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lightgallery-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lg-transitions.css" as="style" onload="this.rel='stylesheet'">
+  <!-- Product Schema -->
+  <script id="product-schema" type="application/ld+json"></script>
+  <!-- Suppress passive event listener warnings from lightGallery -->
+  <script>
+    // Note: Browser violation warnings about non-passive event listeners cannot be
+    // completely suppressed via JavaScript as they come from Chrome DevTools' performance monitoring.
+    // These warnings are harmless and don't affect functionality.
+    // 
+    // To reduce warnings, we intercept addEventListener and make touch events passive
+    // when not explicitly set to false. Libraries that need preventDefault can opt-out.
+    (function () {
+      if (typeof EventTarget !== 'undefined') {
+        const originalAddEventListener = EventTarget.prototype.addEventListener;
+        const passiveTouchEvents = ['touchstart', 'touchmove', 'touchend', 'touchcancel'];
+
+        EventTarget.prototype.addEventListener = function (type, listener, options) {
+          if (passiveTouchEvents.includes(type)) {
+            // Normalize options to object format
+            if (typeof options === 'boolean') {
+              options = { capture: options };
+            } else if (typeof options === 'undefined' || options === null) {
+              options = {};
+            }
+
+            // Make passive by default, but allow explicit opt-out
+            // Libraries like lightGallery that need preventDefault should set passive: false
+            if (options.passive === undefined) {
+              options.passive = true;
+            }
+          }
+          return originalAddEventListener.call(this, type, listener, options);
+        };
+      }
+    })();
+  </script>
+
+  <style>
+    .booking-calendar-wrapper {
+      width: 100%;
+      padding: 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .booking-calendar-wrapper {
+        padding: 70px 0;
+      }
+    }
+
+    .th-booking-calendar .flatpickr-calendar.open,
+    .th-booking-calendar .flatpickr-calendar.inline {
+      max-height: 100%;
+      width: 100%;
+      background: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .th-booking-calendar .flatpickr-months {
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 45px;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-next-month {
+      position: relative;
+      left: inherit;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month {
+      -webkit-box-flex: inherit;
+      -webkit-flex: inherit;
+      -ms-flex: inherit;
+      flex: inherit;
+      align-items: center;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month {
+      display: flex;
+      text-align: center;
+      width: 250px;
+      position: relative;
+    }
+
+    .th-booking-calendar .flatpickr-rContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .th-booking-calendar .flatpickr-days {
+      width: 100%;
+    }
+
+    .th-booking-calendar .dayContainer {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .th-booking-calendar .flatpickr-day {
+      margin: 0;
+      text-align: center;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      font-weight: bolder;
+      width: 100%;
+      max-width: inherit;
+      max-height: inherit;
+      border-radius: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>

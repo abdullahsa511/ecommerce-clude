@@ -1,0 +1,143 @@
+<!-- Modal -->
+<div
+  class="modal fade th-order-modal"
+  id="myModal"
+  tabindex="-1"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog th-order-modal-width">
+    <div class="modal-content th-order-modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header mb-30">
+        <!-- Font Awesome Lock Icon -->
+        <h3 class="th-order-modal-title" id="myModalLabel">
+          <i class="fa fa-lock me-2 mr-10"></i>Your Order
+        </h3>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- devider -->
+        <div class="row mb-50 th-order-modal-header-divider">
+          <div class="col-md-8 col-sm-12">
+            <div class="border-bottom-gray"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="th-order-number-wrapper">
+              <div class="col-md-12">
+                <div class="th-order-number-wrapper d-flex">
+                  <div class="th-order-number-item-left">
+                    <h6 class="th-title-18">Order Number</h6>
+                    <h2 class="font-weight-300">#907526</h2>
+                  </div>
+                  <div class="th-order-number-item-right">
+                    <h6 class="th-title-20">
+                      Sub Total:<span class="gray-color"
+                        >&nbsp;&nbsp;59.89 $</span
+                      >
+                    </h6>
+                    <h6 class="th-title-20 th-order-number-item-right-gst">
+                      GST:
+                      <span class="gray-color">&nbsp;&nbsp;9.89 $</span>
+                    </h6>
+                    <h6 class="th-title-20">
+                      Total (inc. GST):
+                      <span class="gray-color">&nbsp;&nbsp;59.89 $</span>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-50 th-modal-order-payment-top-gap">
+          <h3 class="mb-30">Payment</h3>
+          @@include('./payment-tab-navigation.html')
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8 col-md-12 col-sm-12">
+            <h3 class="th-order-contact-title-gap">contact information</h3>
+            <div class="border-bottom-gray my-30"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="th-order-contact-info-wrapper d-flex">
+              <div class="th-order-contact-info-left">
+                <p>Contact Name</p>
+                <p>Courtney Henry</p>
+              </div>
+              <div class="th-order-contact-info-right ml-50">
+                <p>Contact Email</p>
+                <p>courtney.henry@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- devider -->
+        <div class="row">
+          <div class="col-md-8">
+            <div class="border-bottom-gray my-30"></div>
+          </div>
+        </div>
+        <!-- shipping -->
+        <div class="row">
+          <div class="col-md-12">
+            <h6>Shipping</h6>
+            <div class="th-shpiining-info-wrapper d-flex">
+              <div class="th-shpiining-info-left">
+                <p>Site Contact</p>
+                <p>street address</p>
+                <p>Suburb</p>
+                <p>State</p>
+                <p>Country</p>
+              </div>
+              <div class="th-shpiining-info-right ml-50">
+                <p>(207) 555-0119</p>
+                <p>3890 Poplar Dr.</p>
+                <p>Preston</p>
+                <p>NC</p>
+                <p>united states</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-sm-12">
+            <div class="border-bottom-gray my-30"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h6>Billing</h6>
+            <div class="th-shpiining-info-wrapper d-flex">
+              <div class="th-billing-info-left">
+                <p>street address</p>
+
+                <p>Suburb</p>
+                <p>State</p>
+                <p>Country</p>
+              </div>
+              <div class="th-billing-info-right ml-50">
+                <p>(207) 555-0119</p>
+                <p>Preston</p>
+                <p>NC</p>
+                <p>united states</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

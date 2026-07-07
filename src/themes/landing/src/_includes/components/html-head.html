@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-v-component-head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <!-- Preconnect to CDN origins used by footer scripts (saves DNS + TCP + TLS before first request) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="canonical" href="https://krost.com.au/projects" data-v-head-canonical />
+  <base href="">
+  <title data-v-head-title>Krost Business Furniture</title>
+  <meta name="title" content="Krost Business Furniture" data-v-head-meta-title>
+  <meta name="description" content="Krost Business Furniture" data-v-head-meta-description />
+  <meta name="keywords" content="Krost Business Furniture, Business Furniture, Office Furniture, Home Furniture, Furniture" data-v-head-meta-keywords />
+  <meta name="author" content="Krost Business Furniture" data-v-head-meta-author>
+  <!-- Open Graph -->
+  <meta property="og:type" content="product" data-v-og-type>
+  <meta property="og:title" content="" data-v-og-title>
+  <meta property="og:description" content="" data-v-og-description>
+  <meta property="og:url" content="" data-v-og-url>
+  <meta property="og:image" content="" data-v-og-image>
+  <meta property="og:site_name" content="Krost Business Furniture">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="" data-v-twitter-title>
+  <meta name="twitter:description" content="" data-v-twitter-description>
+  <meta name="twitter:image" content="" data-v-twitter-image>
+  <meta name="robots" content="noindex, follow" data-v-robots>
+  
+  <style>
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased
+    }
+  </style>
+  <!-- LCP: preload hero image so it's discoverable from initial document -->
+  <!-- <link rel="preload" fetchpriority="high" as="image" href="/img/bg/home/hero_home.jpg"> -->
+  <!-- Critical fonts: preload so they start early and don't wait for CSS (shortens chain) -->
+  <link rel="preload" href="/fonts/opensans/OpenSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+  <link rel="icon" type="image/x-icon" href="../../images/icons/Krost.ico" data-v-global-site.favicon>
+  <!-- <link rel="icon" type="image/x-icon" href="../../media/favicon.ico" sizes="32x32" data-v-global-site.favicon> -->
+
+  <!-- Main stylesheet: non-blocking to avoid delaying LCP/FCP -->
+  <link rel="preload" href="/css/lib/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link id="stylesheet-min" rel="stylesheet" href="/css/stylesheet.min.css">
+  <link rel="stylesheet" href="/css/solid.min.css">
+
+  <link rel="preload" href="/css/lib/choices.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/flatpickr.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lightgallery-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lg-transitions.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <style>
+    .booking-calendar-wrapper {
+      width: 100%;
+      padding: 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .booking-calendar-wrapper {
+        padding: 70px 0;
+      }
+    }
+
+    .th-booking-calendar .flatpickr-calendar.open,
+    .th-booking-calendar .flatpickr-calendar.inline {
+      max-height: 100%;
+      width: 100%;
+      background: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .th-booking-calendar .flatpickr-months {
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 45px;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
+    .th-booking-calendar .flatpickr-months .flatpickr-next-month {
+      position: relative;
+      left: inherit;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month {
+      -webkit-box-flex: inherit;
+      -webkit-flex: inherit;
+      -ms-flex: inherit;
+      flex: inherit;
+      align-items: center;
+    }
+
+    .th-booking-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month {
+      display: flex;
+      text-align: center;
+      width: 250px;
+      position: relative;
+    }
+
+    .th-booking-calendar .flatpickr-rContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .th-booking-calendar .flatpickr-days {
+      width: 100%;
+    }
+
+    .th-booking-calendar .dayContainer {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .th-booking-calendar .flatpickr-day {
+      margin: 0;
+      text-align: center;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      font-weight: bolder;
+      width: 100%;
+      max-width: inherit;
+      max-height: inherit;
+      border-radius: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+  <!-- Product Schema -->
+  <script id="product-schema" type="application/ld+json"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H02GVWQGKP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-H02GVWQGKP');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NRR9X3MQ');
+  </script>
+
+</head>

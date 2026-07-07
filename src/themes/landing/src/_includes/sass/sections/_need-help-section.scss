@@ -1,0 +1,171 @@
+#need-help-section {
+    background-color: $white;
+    .th-need-help-container{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin: 0 28px;
+      gap:70px;
+
+      &.grid-3{
+        grid-template-columns: repeat(3, 1fr);
+        @include respond-to(sm){
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      &.grid-4{
+        grid-template-columns: repeat(4, 1fr);
+        @include respond-to(sm){
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @include respond-to(lg){
+        gap: 20px;
+        @include respond-to(sm){
+          gap: 10px;
+        }
+      }
+      @include respond-to(md){
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+      }
+      @include respond-to(sm){
+        grid-template-columns: repeat(1, 1fr);
+        margin: 17px;
+      }
+  
+      @include respond-to(xs){
+        margin: 0;
+      }
+    }
+    img{
+      padding-bottom: $image-space;
+    }
+    .th-needhelp-title-custom-height{
+      min-height: 65px;
+      margin-bottom: 0;
+    }
+  }
+  
+  
+  /* ============================================================
+   10. TAKE THE NEXT STEP (NEED HELP SECTION)
+   ============================================================ */
+@media (max-width: 768px) {
+  #need-help-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    background: #ffffff !important;
+  }
+
+  // #need-help-section .container {
+  //   padding-left: 20px !important;
+  //   padding-right: 20px !important;
+  // }
+
+  /* Section header — centred */
+  #need-help-section .th-section-header {
+    display: block !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  #need-help-section .th-section-header-wrapper.text-center {
+    text-align: center !important;
+  }
+
+  #need-help-section .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+    font-weight: 700;
+  }
+
+  #need-help-section .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* 2-column grid for help items */
+  .th-need-help-container {
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+  }
+  .th-need-help-container.grid-5 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 20px !important;
+  }
+  .th-need-help-container.grid-4 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 20px !important;
+  }
+  .th-need-help-container.grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 20px !important;
+  }
+
+  /* 5th orphan item — centre it across both columns */
+  .th-need-help-container.grid-5 .th-item-help:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    max-width: calc(50% - 10px) !important;
+    margin: 0 auto !important;
+  }
+
+  .th-item-help {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Circle icon — override stylesheet.css min/max-width: 115px */
+  .th-item-help .th-btn-circle-icon {
+    width: 72px !important;
+    min-width: 72px !important;
+    max-width: 72px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    border-radius: 50% !important;
+    background: #f0efed !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 14px !important;
+    color: #231f20 !important;
+    aspect-ratio: 1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .th-item-help .th-btn-circle-icon i {
+    font-size: 28px !important;
+  }
+
+  /* Title */
+  .th-item-help h6.th-item-title-bold {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    min-height: auto !important;
+    color: #231f20 !important;
+  }
+
+  /* Description */
+  .th-item-help .th-description.th-need-to-help-des-my {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 10px !important;
+    color: #33322f !important;
+  }
+
+  /* Link */
+  .th-item-help .th-link a {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #231f20 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+  }
+}

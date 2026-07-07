@@ -1,0 +1,267 @@
+<section id="account-db-active-quotes">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+     
+        @@include('../account-leftside-manubar.html')
+
+
+        <div id="account-show-quote" class="col-12 col-md-8 col-lg-9 th-dashboard-main" data-v-component-accountshowquote>
+          <div class="row d-none">
+            <div class="col-md-12">
+              <h2 class="th-dashboard-header" data-v-active-quotes-title>Show Quote</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="th-dashboard-doc-summary">
+                <div class="th-doc-info">
+                  <h4 class="th-doc-title" data-v-quote-summary-title>Quote Title</h4>
+                  <h1 class="th-doc-id" data-v-quote-summary-id>#907526</h1>
+                  <p class="th-doc-details" data-v-quote-summary-description>
+                    Lorem ipsum dolor sit amet will nec consectetur. Quis ut
+                    consectetur sed nec cursus orci
+                  </p>
+                </div>
+
+                <div class="th-doc-details">
+                  <h4 class="th-title-16">Account: <span data-v-quote-summary-account>Org</span>
+                  </h4>
+                  <h4 class="th-title-16">Amount: <span data-v-quote-summary-amount>$260</span>
+                  </h4>
+                  <h4 class="th-title-16">Created Date: <span data-v-quote-summary-created-date>June 11th, 2024</span>
+                  </h4>
+                </div>
+                <div class="th-quote-actions" data-v-quote-summary-actions>
+
+                  <a href="#" id="'comment-view-right-sidebar" 
+                      class="add-comment-button th-btn-outline-black w-20 text-capitalize mr-5" 
+                      data-bs-toggle="offcanvas" 
+                      data-bs-target="#offcanvasRightTop" 
+                      data-v-comment-quote 
+                      data-model-type="Quote" 
+                      data-model-id="19" 
+                      data-model-uuid="ead52320-f58f-11f0-ba98-2aa9c6d64a43" 
+                      data-model-ref="QT-2025-0004">
+                    <span class="me-2">Add Comment</span>
+                    <i class="fa-regular fa-comment-medical"></i>
+                  </a>
+                  <a class="th-btn-primary text-capitalize accept-quote-btn ml-5" data-v-quote-summary-action>
+                    <span class="accept-quote-text mr-5" data-v-quote-summary-action-text>Accept Quote</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="th-table th-table-col-8">
+            <!-- Table Header -->
+            <div class="th-header-wrapper">
+              <div class="th-row-wrapper" data-v-table-headers>
+                <div class="th-cell" data-v-table-header>Item</div>
+                <div class="th-cell th-col-span-3" data-v-table-header>Description</div>
+                <div class="th-cell text-end" data-v-table-header>QTY</div>
+                <div class="th-cell text-end">Unit Price</div>
+                <div class="th-cell text-end">Item Total</div>
+                <div class="th-cell text-end">Section Total</div>
+              </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="th-section-wrapper">
+              <div class="th-row-wrapper">
+                <!-- You can span multiple columns by styling or a separate approach -->
+                <div class="th-cell" style="grid-column: 1 / 8; font-weight: bold;" data-v-table-section-title>Items
+                </div>
+                <div class="th-cell text-end" style="font-weight: bold;" data-v-table-section-total>$9,821.00</div>
+              </div>
+            </div>
+
+            <!-- Table Body -->
+            <div class="th-body-wrapper" data-v-table-items>
+              <div class="th-row-wrapper">
+                <div class="th-cell" data-label="Item">
+                  <img data-v-table-item-image src="/img/datatable/miro.png" alt="Miro" width="56" />
+                </div>
+                <div class="th-cell th-col-span-3" data-label="Description">
+                  <span data-v-table-item-description>Miro Task Chair Black Fabric Seat / Black Mesh Black</span>
+                </div>
+                <div data-v-table-item-quantity class="th-cell text-end" data-label="QTY">2</div>
+                <div data-v-table-item-unit-price class="th-cell text-end" data-label="Unit Price">$143.21</div>
+                <div data-v-table-item-total class="th-cell text-end" data-label="Item Total">$286.42</div>
+                <div class="th-cell text-end align-items-end d-none d-lg-block" data-label="">
+                  <img data-v-table-item-comment-icon src="/img/datatable/comment-icon.png" alt="Comment Icon"
+                    width="30" height="30" />
+                </div>
+              </div>
+              <div class="th-row-wrapper">
+                <div class="th-cell" data-label="Item">
+                  <img src="/img/datatable/keywork-spine.png" alt="Miro" width="56" />
+                </div>
+                <div class="th-cell th-col-span-3" data-label="Description">Black Fabric Seat / Black Mesh Black</div>
+                <div class="th-cell text-end" data-label="QTY">2</div>
+                <div class="th-cell text-end" data-label="Unit Price">$143.21</div>
+                <div class="th-cell text-end" data-label="Item Total">$286.42</div>
+                <div class="th-cell text-end align-items-end" data-label="">
+                  <img src="/img/datatable/comment-icon.png" alt="Comment Icon" width="30" height="30" />
+                </div>
+              </div>
+              <div class="th-row-wrapper">
+                <div class="th-cell" data-label="Item">
+                  <img src="/img/datatable/keywork.png" alt="Miro" width="56" />
+                </div>
+                <div class="th-cell th-col-span-3" data-label="Description">Black Fabric Seat / Black Mesh Black</div>
+                <div class="th-cell text-end" data-label="QTY">2</div>
+                <div class="th-cell text-end" data-label="Unit Price">$143.21</div>
+                <div class="th-cell text-end" data-label="Item Total">$286.42</div>
+                <div class="th-cell text-end align-items-end" data-label="">
+                  <img src="/img/datatable/comment-icon.png" alt="Comment Icon" width="30" height="30" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Table Footer -->
+            <div class="th-footer-wrapper">
+              <div class="th-row-wrapper">
+                <div class="th-cell mt-70" style="grid-column: 6 / 9; font-weight: bold; padding: 0px !important; margin-left: 40px !important;">
+                  <p class="th-description th-footer-title">
+                    <span class="font-weight-400">Sub Total:<span data-v-table-footer-subtotal
+                        class="total-calculation-title">$8,561.00</span></span>
+                  </p>
+                  <p class="th-description th-footer-title">
+                    <span class="font-weight-400">GST:<span data-v-table-footer-gst
+                        class="total-calculation-title">$987.00</span></span>
+                  </p>
+                  <div class="border-bottom"></div>
+                  <p class="th-description th-footer-title">
+                    <span class="font-weight-400">Total (inc. GST):<span data-v-table-footer-total
+                        class="total-calculation-title">$9,821.00</span></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- TEAM MEMBERS -->
+          <div class="row th-members-row th-quote-member ml-0" style="display: none;">
+            <h2 class="title th-member-title">Team Managers</h2>
+            <div class="row th-members-row th-quote-member mt-0" data-v-team-managers>
+              <div class="col-sm-6 col-lg-4">
+                <div class="th-member" data-v-team-member data-bg-src="/img/contact/member-1.png">
+                  <div class="th-member-icons">
+                    <span>
+                      <i data-v-team-member-phone-icon class="fa-solid fa-phone"></i>
+                    </span>
+                    <span>
+                      <i data-v-team-member-email-icon class="fa-solid fa-envelope"></i>
+                    </span>
+                  </div>
+                  <div class="th-member-info-container gr-bg6">
+                    <div class="th-member-info">
+                      <p data-v-team-member-name class="th-member-name">Devon Lane</p>
+                      <p data-v-team-member-position class="th-member-position">Software Developer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="th-member" data-bg-src="/img/contact/member-avatar.png">
+                  <div class="th-member-icons">
+                    <span>
+                      <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <span>
+                      <i class="fa-solid fa-envelope"></i>
+                    </span>
+                  </div>
+                  <div class="th-member-info-container gr-bg6">
+                    <div class="th-member-info">
+                      <p class="th-member-name">Devon Lane</p>
+                      <p class="th-member-position">Software Developer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END TEAM MEMBERS -->
+          <!-- DEVIDER -->
+          <div class="row d-flex justify-content-center my-60" style="display: none;">
+            <div class="col-md-10 border-bottom"></div>
+          </div>
+          <!-- END DEVIDER -->
+
+          <!-- ORDER CARD -->
+          <div id="th-documents-list" class="row th-quotes-carg-gap" style="display: none;">
+            <div class="col-12">
+              <div class="card th-ordercard-info border-0 overflow-hidden h-100">
+                <div class="row g-0 h-100">
+
+                  <!-- LEFT SIDE -->
+                  <div class="col-12 col-md-4">
+                    <div class="h-100 bg-black d-flex align-items-center">
+                      <div class="recent-order-img th-quotes-card w-100 p-4">
+                        <div class="quote-content text-center text-white">
+                          <h4 data-v-quote-card-title>Order Title</h4>
+                          <p class="qute-number fw-medium" data-v-quote-card-id>#907526</p>
+                          <p class="quote-para" data-v-quote-card-description>
+                            Lorem ipsum dolor sit amet will nec consectetur.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RIGHT SIDE -->
+                  <div class="col-12 col-md-8">
+                    <div class="card-body h-100 d-flex flex-column justify-content-between">
+                      <div class="th-rs-card-text">
+                        <h6 class="th-code-gap th-rs-text th-title-20">Account: <span
+                            data-v-quote-card-account>org</span></h6>
+                        <h6 class="th-code-gap th-rs-text th-title-20">Amount: <span
+                            data-v-quote-card-amount>$260</span></h6>
+                        <h6 class="th-code-gap th-rs-text th-title-20">Created date: <span
+                            data-v-quote-card-created-date>June 11th, 2024</span></h6>
+                      </div>
+
+                      <!-- Buttons -->
+                      <div class="th-document-actions">
+                        <!-- Comment Button -->
+                        <div class="th-qoute-comment-btn pt-20">
+                          <!-- class="text-capitalize th-btn-outline-black th-btn-comment" -->
+                          <a href="#" id="comment-view-right-sidebar" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRightTop" class="text-capitalize th-btn-outline-black w-100"
+                            data-v-comment-quote data-v-quoteId data-v-quote-account>
+                            <span class="me-2">Add Comment</span>
+                            <i class="fa-regular fa-comment-medical"></i>
+                          </a>
+                        </div>
+
+                        <div class="th-card-btn th-qout-dubblebtn d-flex flex-wrap gap-2 mt-2">
+                          <a href="contact.html" class="th-btn-gray text-capitalize view-quote-btn"
+                            data-v-active-quote-details-link>
+                            <span class="me-2">View quote</span>
+                            <i class="fa-solid fa-arrow-up degree-60"></i>
+                          </a>
+                          <a data-v-active-quote-track-link class="th-btn-primary text-capitalize quote-track-btn">
+                            <span data-v-active-quote-track-text class="accept-quote-text">Accept Quote</span>
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END ORDER CARD -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

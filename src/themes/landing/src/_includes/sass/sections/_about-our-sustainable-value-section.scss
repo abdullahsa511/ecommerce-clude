@@ -1,0 +1,66 @@
+#about-our-sustainable-value{
+    .th-sustainable-border-right {
+        position: relative;
+        padding-right: 40px;
+      }
+      .th-sustainable-border-right::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        left: 30%;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 80%;
+        background: #e0e0e0;
+        @include respond-to(md){
+            display: none;
+        }
+      }
+    
+    .th-sustainable-value-logo{
+        height: 100%;
+        width: 140px;
+        padding: 12px 0;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            max-height: 100px;
+            max-width: 120px;
+        }
+    }
+    .th-sustainable-value-right-item{
+        // padding-top: 60px;
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include respond-to(sm){
+            padding-bottom: 20px;
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    [data-v-aboutoursustainablevalue-right-content]{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .th-sustainable-value-title {
+        font-size: 22px;
+        line-height: 1.25;
+    }
+    .th-value-subtitle {
+        font-size: 20px!important;
+    }
+}

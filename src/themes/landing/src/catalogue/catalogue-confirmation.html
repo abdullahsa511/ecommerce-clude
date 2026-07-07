@@ -1,0 +1,126 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="bg-white">
+    @@include('../_includes/sections/navigation.html')
+
+
+
+
+    <section id="th-catalogue-confirmation" data-v-component-catalogueconfirmation>
+        <div class="d-flex justify-content-end th-pr-40 align-items-center position-absolute" style="right: 40px" data-v-catalogueconfirmation-component-link>
+            <i class="fa-solid fa-pencil th-pr-5" style="font-size: .8rem"></i>
+            <a href="" target="_blank" class="">Edit</a>
+          </div>
+        <div class="container th-container">
+            <div class="section-body">
+                <div class="th-catalogue-confirmation-content">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="catalogue-confirmation-left-image" data-v-catalogueconfirmation-media>
+                                <!-- PDF or image injected by template -->
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6" data-v-catalogueconfirmation-contact-us-get-touch-section>
+                            <div class="catalogue-confirmation-right-content gap-15" style="margin-top: -7px;">
+                                <!-- <div data-v-catalogueconfirmation-title>Catalogue Request</div> -->
+            
+                                <h3 class="">Your enquiry has been <br> received.</h3>
+
+                                <div>
+                                    Thank you, 
+                                    <span class="font-weight-700" data-v-catalogueconfirmation-first_name_last_name >[First Name] [Last Name]</span>. 
+                                    Our team is reviewing your project details and will be in touch shortly.
+                                </div>
+                              
+                                <div class="th-sending-to-email">
+                                    <strong>Enquiry Summary:</strong>
+                                    <div> 
+                                        <strong>Name:</strong> <span data-v-catalogueconfirmation-first_name_last_name>[First Name] [Last Name] </span> 
+                                    </div>
+                                    <div> 
+                                        <strong>Email Address:</strong> <span data-v-catalogueconfirmation-email_address>[Email Address] </span> 
+                                    </div>
+                                    <div> 
+                                        <strong>Project Details:</strong> <span data-v-catalogueconfirmation-project_details>[Project Details] </span> 
+                                    </div>
+                                    <div> 
+                                        <strong>State:</strong> <span data-v-catalogueconfirmation-state>[State] </span> 
+                                    </div>
+                                    <!-- <div>
+                                        <strong>Enquiry Type:</strong> <span data-v-catalogueconfirmation-enquiry_type>[Enquiry Type] </span> 
+                                    </div> -->
+                                </div>
+                               
+                                <div class="th-sending-to-email-button pb-15">
+                                    While you wait, discover how our furniture
+                                    comes to life in real commercial spaces.
+                                </div>
+                                <div class="th-sending-to-email-button pb-15" data-v-catalogueconfirmation-additional-notes-section>
+                                    <strong>Additional Notes:</strong>
+                                    <div data-v-catalogueconfirmation-notes_text></div>
+                                </div>
+
+                                <div class="pt-15 confirmation-explore-btn">
+                                    <a class="th-btn-primary text-capitalize" href="/projects">Explore Featured Projects</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6" data-v-catalogueconfirmation-catalogue-request-section>
+                            <div class="catalogue-confirmation-right-content gap-15">
+                                <div data-v-catalogueconfirmation-title>Catalogue Request</div>
+            
+                                <h3 class="pt-20">Your 2026 Catalogue is
+                                    <br> on its way </h3>
+
+                                <div class="th-sending-to-email">
+                                    <strong>Sending to:</strong>
+                                    <div> <span data-v-catalogueconfirmation-first_name_last_name>[First Name] [Last Name]</span> </div>
+                                    <!-- <div> <span data-v-catalogueconfirmation-company_name>[Company Name]</span> </div> -->
+                                    <div> <span data-v-catalogueconfirmation-email_address>[Email Address]</span> </div>
+                                </div>
+
+                                <p class="py-25">A confirmation has been sent to <span class="text-italic" data-v-catalogueconfirmation-email_address> [Email Address] </span>.</p>
+
+                                <div class="th-sending-to-email-button pb-15">
+                                    <span>Can’t wait? Explore our interactive digital</span><br>
+                                    <span>catalogue now.</span>
+                                </div>
+
+                                <div class="pt-15">
+                                    <a class="th-btn-primary text-capitalize" href="https://www.krost.com.au/MultiMediaFiles/krost26/Krost2026Catalogue.html#p=1" target="_blank">View Digital Catalogue</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6" data-v-catalogueconfirmation-digital-catalogue-section>
+                            <div class="catalogue-confirmation-right-content gap-15">
+                                <div data-v-catalogueconfirmation-digital-catalogue-title>Catalogue Request</div>
+            
+                                <h3 class="pt-20">Access Your <br> Digital Catalogue </h3>
+
+                                <div class="th-sending-to-email">
+                                    <div> Thank you, <span data-v-catalogueconfirmation-digital-first_name>[First Name] </span>. <br>Your Interactive Catalogue is ready to view. </div>
+                                    <br>
+                                    <div> We've also sent a link to <span data-v-catalogueconfirmation-digital-email_address>[Email Address]</span> so you can access it anytime. </div>
+                                </div>
+
+                                <div class="pt-15">
+                                    <a class="th-btn-primary text-capitalize" href="https://www.krost.com.au/MultiMediaFiles/krost26/Krost2026Catalogue.html#p=1" target="_blank">View Digital Catalogue</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    @@include('../_includes/sections/need-help-section.html')
+    @@include('../_includes/sections/footer.html')
+    @@include('../_includes/sections/pinboard.html')
+    @@include('../_includes/components/footer-scripts-account.html')
+</body>
+
+</html>

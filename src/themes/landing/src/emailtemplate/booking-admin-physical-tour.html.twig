@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Internal Notification - New Showroom Booking') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+          <tr>
+            <td style="padding:24px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">Hi {{ recipient_name|default('Krost Sales') }},</p>
+              <p style="margin:0 0 20px 0; line-height:16x;">  Your have a new showroom tour booked. Please review the details below and ensure this is added to the Google Calendar.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:16x; color:#374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:00px 0px 5px 0px;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:16x; color:#374151;">Meeting Details:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:10px;">
+                      <li style="line-height:1.7;"><strong>Name:</strong> {{ client_name|default("[Client's Name]") }}</li>
+                      <li style="line-height:1.7;"><strong>Email:</strong> {{ client_email|default("[Client's Email]") }}</li>
+                      <li style="line-height:1.7;"><strong>Date:</strong> {{ meeting_date|default('[Date]') }}</li>
+                      <li style="line-height:1.7;"><strong>Time:</strong> {{ meeting_time|default('[9:00 - 9:30am]') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+                      <li style="line-height:1.7;"><strong>Location:</strong> <a href="{{ google_map_link|default('#') }}" style="color:#255793; text-decoration:underline;">{{ location|default('[Showroom Address]') }}</a></li>
+                      <li style="line-height:1.7;"><strong>Enquiry Type:</strong> {% if data is defined and data.enquiry_type is defined and data.enquiry_type %}{{ data.enquiry_type }}{% else %}[Enquiry Type]{% endif %}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          {# <tr>
+            <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">If you need to reschedule or cancel this meeting, please contact the client's email directly and cancel directly via your Google Calendar.</p>
+              <a href="{{ booking_link|default('#') }}"
+                    style="background:#255793; color:#ffffff; padding:12px 24px 12px 24px; text-decoration:none; border-radius:6px; display:inline-block; line-height:16x; margin-bottom:20px;">
+                    Calendar Link
+                  </a>
+            </td>
+          </tr> #}
+          <tr>
+            <td style="padding:18px 24px 0 24px; font-size:16px; line-height:1.6; color:#374151;">
+              {# <p style="margin:0 0 20px 0;">If you need to Reschedule or Cancel this meeting, please contact the client's email directly and Cancel directly via your Google Calendar.</p> #}
+              <p style="margin:0 0 20px 0;">
+                  Click the <span style="font-weight:bold;">Calendar</span> button to add the customer showroom visit event to the calendar{% if pinboard_id is defined and pinboard_id %}
+                      , or use the <span style="font-weight:bold;">Create Lead</span> button to convert the pinboard directly into a lead in Kingmaker.
+                  {% else %}.{% endif %}
+                  Please remember to update the calendar event name to include the client or company details.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0px 24px 24px 24px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td align="left" style="padding-right:12px;">
+                    <a href="{{ booking_link|default('#') }}"
+                       style="background:#255793; color:#ffffff; padding:12px 24px; text-decoration:none; border-radius:6px; display:inline-block; font-size:16px; line-height:1.2; font-family:Arial, Helvetica, sans-serif;">
+                      Calendar
+                    </a>
+                  </td>
+                  {% if pinboard_id is defined and pinboard_id %}
+                  <td align="left">
+                    <a href="{{ admin_url|default('#') }}"
+                       style="background:#255793; color:#ffffff; padding:12px 24px; text-decoration:none; border-radius:6px; display:inline-block; font-size:16px; line-height:1.2; font-family:Arial, Helvetica, sans-serif;">
+                      Create Lead
+                    </a>
+                  </td>
+                  {% endif %}
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">Best regards,</p>
+              <p style="margin:0 0 20px 0; line-height:16x;"><strong>Krost Website Booking System</strong></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

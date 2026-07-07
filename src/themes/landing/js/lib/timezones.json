@@ -1,0 +1,44 @@
+[
+  {
+    "showroom_id": 1, 
+    "id": 1,
+    "name": "(GMT+10:00) Sydney",
+    "value": "AUS Eastern Standard Time",
+    "abbr": "AEST",
+    "offset": 10,
+    "isdst": true,
+    "label": "AEST/AEDT (GMT+10:00) Sydney time in NSW",
+    "utc": [
+      "Australia/Sydney"
+    ]
+  },
+  {
+    "showroom_id": 2,
+    "id": 2,
+    "name": "(GMT+10:00) Melbourne",
+    "value": "AUS Eastern Standard Time",
+    "abbr": "AEST",
+    "offset": 10,
+    "isdst": true,
+    "label": "AEST/AEDT (GMT+10:00) Melbourne Time in VIC",
+    "utc": [
+      "Australia/Melbourne"
+    ]
+  },
+  {
+    "showroom_id": 3, 
+    "id": 3,
+    "name": "(GMT+10:00) Brisbane",
+    "value": "E. Australia Standard Time",
+    "abbr": "AEST",
+    "offset": 10,
+    "isdst": false,
+    "label": "AEST (GMT+10:00) Brisbane Time in QLD",
+    "utc": [
+      "Australia/Brisbane"
+    ]
+  }
+]
+// AEST/AEDT (GMT+10:00) Sydney Time in NSW
+// AEST/AEDT (GMT+10:00) Melbourne Time in VIC
+// AEST (GMT+10:00) Brisbane Time in QLD

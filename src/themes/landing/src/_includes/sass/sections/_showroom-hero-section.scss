@@ -1,0 +1,59 @@
+/*
+@Page: showroom => hero section.
+@Description: Show room page hero section design sass
+@Developer: Mohammad Ali Abdullah
+@Author: SA Technology
+@Date: 02-10-2025
+
+/*=================================
+    Showroom Hero Breadcrumb (desktop / mac)
+==================================*/
+
+#showroom-hero-section {
+  @include respond-to(mac) {
+    .th-breadcrumb {
+      padding-top: 60px !important;
+    }
+  }
+}
+
+/*=================================
+    Showroom Info (Responsive)
+==================================*/
+
+.th-showroom-info {
+  color: $white;
+  margin-bottom: 50px;
+
+  p {
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    i {
+      margin-right: 8px;
+      color: $white;
+    }
+  }
+
+  .showroom-hours {
+    font-weight: 500;
+  }
+
+  .showroom-location,
+  .showroom-phone {
+    display: flex;
+    align-items: center;
+  }
+
+  @include respond-to(xs) {
+    p {
+      font-size: 15px;
+    }
+  }
+
+  @include respond-to(vxs) {
+    p {
+      font-size: 14px;
+    }
+  }
+}

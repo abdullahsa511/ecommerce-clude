@@ -1,0 +1,12 @@
+<li class="breadcrumb-item  @@class">
+    @@if(typeof link !== "undefined") { 
+        <a href="@@link" class="@@class">
+            @@label
+        </a>
+    }
+    @@if(typeof link === "undefined") {
+        <span class="@@class" aria-current="page">
+            @@label
+        </span>
+    }
+  </li>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rescheduling your Appointment with Krost</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px 12px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:970px; background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+  <!-- Header -->
+  <tr>
+    <td style="padding:30px 24px 10px 24px;">
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Email Subject:
+        <strong>Rescheduling your Appointment with Krost</strong>
+      </p>
+    </td>
+  </tr>
+
+  <!-- Body -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Hi <strong>{{ salesperson_name|default('Sales Team') }}</strong>,
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Please accept my apologies, but due to an unexpected change in our schedule, 
+        I am no longer able to meet at our originally scheduled time on 
+        <strong>{{ original_date|default('') }}</strong>.
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        I would love to find a new time that works better for you.
+      </p>
+
+      <p style="margin:0 0 0px 0; line-height:16x;">
+        To keep things simple, you can view my live availability and select a new slot directly via the link below:
+      </p>
+
+    </td>
+  </tr>
+
+  <!-- CTA Button -->
+  <tr>
+    <td align="left" style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+      <a href="{{ reschedule_link|default('#') }}"
+         style="background:#255793; color:#ffffff; padding:12px 24px; text-decoration:none; border-radius:6px; display:inline-block; line-height:16x;">
+        Click here to Reschedule Your Appointment
+      </a>
+    </td>
+  </tr>
+
+  <!-- Footer Content -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Once you pick a new time, you will receive an updated confirmation and calendar invite immediately.
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        I look forward to meeting with you and discussing your project soon.
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Thank you for your understanding.
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        Best regards,
+      </p>
+      <p style="margin:0 0 20px 0; line-height:16x;">
+        <strong>{{ sender_name|default('Krost Sales Team') }}</strong>
+      </p>
+
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

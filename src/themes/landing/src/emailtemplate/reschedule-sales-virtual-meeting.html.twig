@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESCHEDULED: Online Appointment  - {{ client_email|default('jane@krost.com.au') }}</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px 12px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:970px; background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+  <!-- Body -->
+  <tr>
+    <td style="padding:24px 24px 0px 24px; font-size:16px; line-height: 16px; color:#374151;">
+
+      <p style="margin:0 0 20px 0; line-height: 16px;">
+        Hi Sales Team,
+      </p>
+
+      <p style="margin:0 0 20px 0; line-height: 16px;">
+        A client has just rescheduled their <span style="font-weight:bold"> Online Appointment </span> via the website. Please review the updated details below and ensure a team member is allocated to host this appointment.
+      </p>
+
+      <p style="font-weight:bold; margin:0 0 5px 0; line-height: 16px;">Your New Appointment Details:</p>
+
+      <ul style="margin:0; padding-left:30px; font-size:16px: line-height:1.7">
+        <li style="line-height:1.7;"><strong>Name:</strong> {{ client_name|default("[Client's Name]") }}</li>
+        <li style="line-height: 1.7;"><strong>Email:</strong> {{ client_email|default('jane@krost.com.au') }}</li>
+        <li style="line-height: 1.7;"><strong>Date:</strong> {{ appointment_date|default('16/05/2026') }}</li>
+        <li style="line-height: 1.7;"><strong>Time:</strong> {{ appointment_time|default('4:30 pm - 5:00 pm') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+        <li style="line-height: 1.7;"><strong>Platform:</strong> <a href="{{ meeting_link|default('#') }}" style="color:#255793; text-decoration:underline;">{{ meeting_label|default('Meeting Link') }}</a></li>
+      </ul>
+
+      <!-- <p style="margin:20px 0 20px 0; line-height: 16px;">
+        We have attached a calendar invitation to this email so you can easily add this to your schedule.
+      </p> -->
+
+      <p style="margin:20px 0 20px 0; line-height: 16px;"><strong>Next Steps: </strong> Confirm this update is synced to the assigned salesperson's Google Calendar to avoid any scheduling conflicts.</p>
+
+    </td>
+  </tr>
+
+  <!-- Footer -->
+  <tr>
+    <td style="padding:0px 24px 0px 24px; font-size:16px; line-height: 16px; color:#374151;">
+      <p style="margin:0 0 20px 0; line-height: 16px;">Best regards,</p>
+      <p style="margin:0 0 20px 0; line-height: 16px;"><strong>Krost Website Booking System</strong></p>
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

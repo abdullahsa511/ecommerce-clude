@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Examples - Modern PHP DOM API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .domexamples {
+      margin-top: 20px;
+    }
+
+    .domexample-section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #fafafa;
+    }
+
+    .example-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 5px;
+    }
+
+    .example-description {
+      color: #666;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .example-content {
+      background: white;
+      padding: 15px;
+      border-radius: 4px;
+      border-left: 4px solid #007bff;
+    }
+
+    .code-block {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    .result-block {
+      background: #e8f5e8;
+      border: 1px solid #28a745;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .position-examples-container,
+    .attribute-container,
+    .child-container,
+    .parent-children-container,
+    .fragment-container,
+    .video-container,
+    .source-container,
+    .paragraph-container,
+    .properties-container,
+    .element-container,
+    .token-container,
+    .xml-container,
+    .namespace-container,
+    .article-container,
+    .basic-container,
+    .attribute-container,
+    .complex-container {
+      margin: 10px 0;
+    }
+
+    .position-examples,
+    .attribute-list,
+    .child-list,
+    .parent-children,
+    .fragment-elements,
+    .video-attributes,
+    .source-attributes,
+    .paragraph-list,
+    .document-properties,
+    .element-properties,
+    .token-list,
+    .xml-properties,
+    .namespace-elements,
+    .article-list,
+    .basic-queries,
+    .attribute-queries,
+    .complex-queries {
+      list-style: none;
+      padding: 0;
+    }
+
+    .position-examples li,
+    .attribute-list li,
+    .child-list li,
+    .parent-children li,
+    .fragment-elements li,
+    .video-attributes li,
+    .source-attributes li,
+    .paragraph-list li,
+    .document-properties li,
+    .element-properties li,
+    .token-list li,
+    .xml-properties li,
+    .namespace-elements li,
+    .article-list li,
+    .basic-queries li,
+    .attribute-queries li,
+    .complex-queries li {
+      padding: 5px 10px;
+      margin: 2px 0;
+      background: #e9ecef;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-header h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: #666;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="section-header">
+      <h1>Modern PHP DOM API Examples</h1>
+      <p>Comprehensive demonstration of PHP 8.4+ Dom\ classes and modern DOM manipulation</p>
+    </header>
+
+    <main class="domexamples" data-v-component-domexamples>
+      <!-- AdjacentPosition Examples -->
+      <article class="domexample-section" data-v-domexample-adjacent-position>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>AdjacentPosition Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Demonstrating DOM element positioning with AdjacentPosition enum</p>
+        </header>
+        <section class="example-content">
+          <h3>Position Examples:</h3>
+          <ul class="position-examples">
+            <li class="position-examples-container">
+              <span data-v-position-before-begin>Before Begin</span>
+            </li>
+            <li class="position-examples-container">
+              <span data-v-position-after-begin>After Begin</span>
+            </li>
+            <li class="position-examples-container">
+              <span data-v-position-before-end>Before End</span>
+            </li>
+            <li class="position-examples-container">
+              <span data-v-position-after-end>After End</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- DOM Attribute Examples -->
+      <article class="domexample-section" data-v-domexample-attr>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>DOM Attribute Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with DOM attributes and properties</p>
+        </header>
+        <section class="example-content">
+          <h3>Attributes:</h3>
+          <ul class="attribute-list">
+            <li class="attribute-container">
+              <strong>ID:</strong>
+              <span data-v-attribute-id>test-element</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Class:</strong>
+              <span data-v-attribute-class>container active</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Data Custom:</strong>
+              <span data-v-attribute-data-custom>custom-value</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- CDATA Section Examples -->
+      <article class="domexample-section" data-v-domexample-cdata>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>CDATA Section Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Handling CDATA sections in XML documents</p>
+        </header>
+        <section class="example-content">
+          <h3>CDATA Content:</h3>
+          <div class="code-block" data-v-cdata-content>This is CDATA content with &lt;tags&gt; and &amp; symbols</div>
+        </section>
+      </article>
+
+      <!-- Character Data Examples -->
+      <article class="domexample-section" data-v-domexample-character-data>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Character Data Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with text nodes and character data</p>
+        </header>
+        <section class="example-content">
+          <h3>Text Manipulation:</h3>
+          <div class="result-block">
+            <strong>Original:</strong>
+            <span data-v-original-text>Hello World</span>
+            <br>
+            <strong>Modified:</strong>
+            <span data-v-modified-text>Hi Beautiful World - Extended</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Child Node Examples -->
+      <article class="domexample-section" data-v-domexample-child-node>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Child Node Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Managing child nodes and parent-child relationships</p>
+        </header>
+        <section class="example-content">
+          <h3>Child Elements:</h3>
+          <ul class="child-list">
+            <li class="child-container" data-v-child-item>First div</li>
+            <li class="child-container" data-v-child-item>Second div</li>
+            <li class="child-container" data-v-child-item>Third div</li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Parent Node Examples -->
+      <article class="domexample-section" data-v-domexample-parent-node>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Parent Node Examples</h2>
+          <p class="example-description" data-v-domexamples-description>ParentNode interface operations and child management</p>
+        </header>
+        <section class="example-content">
+          <h3>Parent Container:</h3>
+          <div class="result-block">
+            <strong>Child Count:</strong>
+            <span data-v-child-count>3</span>
+          </div>
+          <h3>Child Elements:</h3>
+          <ul class="parent-children">
+            <li class="parent-children-container">
+              <strong data-v-parent-child-tag>header</strong>: <span data-v-parent-child-content>Header Section</span>
+            </li>
+            <li class="parent-children-container">
+              <strong data-v-parent-child-tag>main</strong>: <span data-v-parent-child-content>Main Content</span>
+            </li>
+            <li class="parent-children-container">
+              <strong data-v-parent-child-tag>footer</strong>: <span data-v-parent-child-content>Footer Section</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Comment Examples -->
+      <article class="domexample-section" data-v-domexample-comment>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>DOM Comment Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Creating and managing HTML comments</p>
+        </header>
+        <section class="example-content">
+          <h3>Comment Content:</h3>
+          <div class="code-block" data-v-comment-text>This is an HTML comment with special characters: &lt;&gt;&amp;&quot;&#39;</div>
+          <div class="result-block">
+            <strong>Updated:</strong>
+            <span data-v-updated-comment>Updated comment content</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Document Examples -->
+      <article class="domexample-section" data-v-domexample-document>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Document Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with DOM documents and document structure</p>
+        </header>
+        <section class="example-content">
+          <h3>Document Properties:</h3>
+          <div class="result-block">
+            <strong>Doctype:</strong>
+            <span data-v-doctype>html</span>
+            <br>
+            <strong>Document Element:</strong>
+            <span data-v-document-element>html</span>
+            <br>
+            <strong>Implementation:</strong>
+            <span data-v-implementation>Dom\Implementation</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Document Fragment Examples -->
+      <article class="domexample-section" data-v-domexample-document-fragment>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Document Fragment Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Using document fragments for efficient DOM manipulation</p>
+        </header>
+        <section class="example-content">
+          <h3>Fragment Elements:</h3>
+          <ul class="fragment-elements">
+            <li class="fragment-container">
+              <strong>Article:</strong>
+              <span data-v-fragment-element-article>Article content</span>
+            </li>
+            <li class="fragment-container">
+              <strong>Section:</strong>
+              <span data-v-fragment-element-section>Section content</span>
+            </li>
+            <li class="fragment-container">
+              <strong>Aside:</strong>
+              <span data-v-fragment-element-aside>Aside content</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Element Examples -->
+      <article class="domexample-section" data-v-domexample-element>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Element Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Creating and manipulating DOM elements</p>
+        </header>
+        <section class="example-content">
+          <h3>Video Element Attributes:</h3>
+          <ul class="video-attributes">
+            <li class="video-container">
+              <strong>Controls:</strong>
+              <span data-v-video-attr-controls></span>
+            </li>
+            <li class="video-container">
+              <strong>Width:</strong>
+              <span data-v-video-attr-width>640</span>
+            </li>
+            <li class="video-container">
+              <strong>Height:</strong>
+              <span data-v-video-attr-height>360</span>
+            </li>
+            <li class="video-container">
+              <strong>Preload:</strong>
+              <span data-v-video-attr-preload>metadata</span>
+            </li>
+          </ul>
+          <h3>Source Element Attributes:</h3>
+          <ul class="source-attributes">
+            <li class="source-container">
+              <strong>Src:</strong>
+              <span data-v-source-attr-src>video.mp4</span>
+            </li>
+            <li class="source-container">
+              <strong>Type:</strong>
+              <span data-v-source-attr-type>video/mp4</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- HTML Collection Examples -->
+      <article class="domexample-section" data-v-domexample-html-collection>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>HTML Collection Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with HTML collections and node lists</p>
+        </header>
+        <section class="example-content">
+          <h3>Paragraph Collection:</h3>
+          <ul class="paragraph-list">
+            <li class="paragraph-container" data-v-paragraph-item>Paragraph 1</li>
+            <li class="paragraph-container" data-v-paragraph-item>Paragraph 2</li>
+            <li class="paragraph-container" data-v-paragraph-item>Paragraph 3</li>
+            <li class="paragraph-container" data-v-paragraph-item>Paragraph 4</li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- HTML Document Examples -->
+      <article class="domexample-section" data-v-domexample-html-document>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>HTML Document Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Modern HTML document creation and manipulation</p>
+        </header>
+        <section class="example-content">
+          <h3>Document Properties:</h3>
+          <ul class="document-properties">
+            <li class="properties-container">
+              <strong>Doctype:</strong>
+              <span data-v-doc-prop-doctype>html</span>
+            </li>
+            <li class="properties-container">
+              <strong>Document Element:</strong>
+              <span data-v-doc-prop-document-element>html</span>
+            </li>
+            <li class="properties-container">
+              <strong>Title:</strong>
+              <span data-v-doc-prop-title>Test HTML Document</span>
+            </li>
+            <li class="properties-container">
+              <strong>Body Content:</strong>
+              <span data-v-doc-prop-body-content>Hello World This is a test paragraph.</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- HTML Element Examples -->
+      <article class="domexample-section" data-v-domexample-html-element>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>HTML Element Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with HTML elements and their properties</p>
+        </header>
+        <section class="example-content">
+          <h3>Container Element Properties:</h3>
+          <ul class="element-properties">
+            <li class="element-container">
+              <strong>Tag Name:</strong>
+              <span data-v-element-prop-tag-name>div</span>
+            </li>
+            <li class="element-container">
+              <strong>ID:</strong>
+              <span data-v-element-prop-id>container</span>
+            </li>
+            <li class="element-container">
+              <strong>Class:</strong>
+              <span data-v-element-prop-class>main</span>
+            </li>
+            <li class="element-container">
+              <strong>Data Custom:</strong>
+              <span data-v-element-prop-data-custom>value</span>
+            </li>
+            <li class="element-container">
+              <strong>Inner HTML:</strong>
+              <span data-v-element-prop-inner-html>Hello World This is a paragraph.</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Implementation Examples -->
+      <article class="domexample-section" data-v-domexample-implementation>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>DOM Implementation Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Using DOM implementation for document creation</p>
+        </header>
+        <section class="example-content">
+          <h3>Implementation Details:</h3>
+          <div class="result-block">
+            <strong>Doctype:</strong>
+            <span data-v-doctype>html</span>
+            <br>
+            <strong>HTML5 Support:</strong>
+            <span data-v-html5-support>true</span>
+            <br>
+            <strong>Implementation Class:</strong>
+            <span data-v-implementation-class>Dom\Implementation</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Named Node Map Examples -->
+      <article class="domexample-section" data-v-domexample-named-node-map>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Named Node Map Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with attribute collections</p>
+        </header>
+        <section class="example-content">
+          <h3>Attribute Map:</h3>
+          <ul class="attribute-map">
+            <li class="attribute-container">
+              <strong>ID:</strong>
+              <span data-v-attr-map-id>123</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Name:</strong>
+              <span data-v-attr-map-name>Product Name</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Price:</strong>
+              <span data-v-attr-map-price>29.99</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Category:</strong>
+              <span data-v-attr-map-category>electronics</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- Namespace Info Examples -->
+      <article class="domexample-section" data-v-domexample-namespace-info>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Namespace Info Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Handling XML namespaces and namespace information</p>
+        </header>
+        <section class="example-content">
+          <h3>Namespace Properties:</h3>
+          <div class="result-block">
+            <strong>Namespace URI:</strong>
+            <span data-v-namespace-uri>http://example.com/namespace</span>
+            <br>
+            <strong>Prefix:</strong>
+            <span data-v-prefix>ns</span>
+            <br>
+            <strong>Local Name:</strong>
+            <span data-v-local-name>element</span>
+            <br>
+            <strong>Has Namespace:</strong>
+            <span data-v-has-namespace>true</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Node List Examples -->
+      <article class="domexample-section" data-v-domexample-node-list>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Node List Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with node lists and collections</p>
+        </header>
+        <section class="example-content">
+          <h3>Article List:</h3>
+          <ul class="article-list">
+            <li class="article-container" data-v-article-item>Article 1</li>
+            <li class="article-container" data-v-article-item>Article 2</li>
+            <li class="article-container" data-v-article-item>Article 3</li>
+            <li class="article-container" data-v-article-item>Article 4</li>
+          </ul>
+          <h3>Sidebar Content:</h3>
+          <div class="result-block" data-v-sidebar-content>Sidebar content</div>
+        </section>
+      </article>
+
+      <!-- Processing Instruction Examples -->
+      <article class="domexample-section" data-v-domexample-processing-instruction>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Processing Instruction Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Creating and managing XML processing instructions</p>
+        </header>
+        <section class="example-content">
+          <h3>Processing Instruction:</h3>
+          <div class="result-block">
+            <strong>Target:</strong>
+            <span data-v-target>xml-stylesheet</span>
+            <br>
+            <strong>Data:</strong>
+            <span data-v-data>type="text/xsl" href="style.xsl"</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Text Node Examples -->
+      <article class="domexample-section" data-v-domexample-text-node>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Text Node Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with text nodes and text manipulation</p>
+        </header>
+        <section class="example-content">
+          <h3>Text Operations:</h3>
+          <div class="result-block">
+            <strong>Original Text:</strong>
+            <span data-v-original-text>Hello World</span>
+            <br>
+            <strong>Split Text:</strong>
+            <span data-v-split-text>Hello</span>
+            <br>
+            <strong>Remaining Text:</strong>
+            <span data-v-remaining-text> World</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- Token List Examples -->
+      <article class="domexample-section" data-v-domexample-token-list>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>Token List Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Managing class lists and token collections</p>
+        </header>
+        <section class="example-content">
+          <h3>Class Tokens:</h3>
+          <ul class="token-list">
+            <li class="token-container" data-v-token-item>container</li>
+            <li class="token-container" data-v-token-item>active</li>
+            <li class="token-container" data-v-token-item>visible</li>
+          </ul>
+          <h3>Token Checks:</h3>
+          <div class="result-block">
+            <strong>Contains Active:</strong>
+            <span data-v-contains-active>true</span>
+            <br>
+            <strong>Contains Visible:</strong>
+            <span data-v-contains-visible>true</span>
+          </div>
+        </section>
+      </article>
+
+      <!-- XML Document Examples -->
+      <article class="domexample-section" data-v-domexample-xml-document>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>XML Document Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Working with XML documents and XML properties</p>
+        </header>
+        <section class="example-content">
+          <h3>XML Properties:</h3>
+          <ul class="xml-properties">
+            <li class="xml-container">
+              <strong>Version:</strong>
+              <span data-v-xml-prop-version>1.0</span>
+            </li>
+            <li class="xml-container">
+              <strong>Encoding:</strong>
+              <span data-v-xml-prop-encoding>UTF-8</span>
+            </li>
+            <li class="xml-container">
+              <strong>Standalone:</strong>
+              <span data-v-xml-prop-standalone>true</span>
+            </li>
+          </ul>
+          <h3>Root Element:</h3>
+          <div class="result-block" data-v-root-element>root</div>
+          <h3>Namespace Elements:</h3>
+          <ul class="namespace-elements">
+            <li class="namespace-container">
+              <strong>ns:element:</strong>
+              <span data-v-namespace-element-ns-element>Namespace content</span>
+            </li>
+            <li class="namespace-container">
+              <strong>ns:another:</strong>
+              <span data-v-namespace-element-ns-another>Another namespace element</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- XPath Examples -->
+      <article class="domexample-section" data-v-domexample-xpath>
+        <header>
+          <h2 class="example-title" data-v-domexamples-title>XPath Examples</h2>
+          <p class="example-description" data-v-domexamples-description>Advanced XPath queries and node selection</p>
+        </header>
+        <section class="example-content">
+          <h3>Basic Queries:</h3>
+          <ul class="basic-queries">
+            <li class="basic-container">
+              <strong>All Elements:</strong>
+              <span data-v-basic-query-all-elements>25</span>
+            </li>
+            <li class="basic-container">
+              <strong>Paragraphs:</strong>
+              <span data-v-basic-query-paragraphs>6</span>
+            </li>
+            <li class="basic-container">
+              <strong>Headings:</strong>
+              <span data-v-basic-query-headings>4</span>
+            </li>
+            <li class="basic-container">
+              <strong>Links:</strong>
+              <span data-v-basic-query-links>3</span>
+            </li>
+          </ul>
+          <h3>Attribute Queries:</h3>
+          <ul class="attribute-queries">
+            <li class="attribute-container">
+              <strong>Post Elements:</strong>
+              <span data-v-attribute-query-post-elements>2</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Data ID Elements:</strong>
+              <span data-v-attribute-query-data-id-elements>2</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Meta Elements:</strong>
+              <span data-v-attribute-query-meta-elements>2</span>
+            </li>
+            <li class="attribute-container">
+              <strong>Hash Links:</strong>
+              <span data-v-attribute-query-hash-links>3</span>
+            </li>
+          </ul>
+          <h3>Complex Queries:</h3>
+          <ul class="complex-queries">
+            <li class="complex-container">
+              <strong>Articles with Author:</strong>
+              <span data-v-complex-query-articles-with-author>2</span>
+            </li>
+            <li class="complex-container">
+              <strong>Article Paragraphs:</strong>
+              <span data-v-complex-query-article-paragraphs>4</span>
+            </li>
+            <li class="complex-container">
+              <strong>Multi Attr Elements:</strong>
+              <span data-v-complex-query-multi-attr-elements>2</span>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+
+</html>

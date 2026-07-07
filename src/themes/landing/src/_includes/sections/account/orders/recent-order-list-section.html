@@ -1,0 +1,234 @@
+<section id="account-db-active-quotes">
+  <div class="container th-container">
+    <div class="section-body">
+      <div class="row">
+        <!-- Profile pic aside bar -->
+        <!-- <div id="account-navigation" class="col-12 col-md-4 col-lg-3 border-right-gray th-remove-border pt-30"
+          data-v-component-accountnavigation>
+          <div class="row th-sidebard">
+            <div class="col-12">
+              <div class="profile-info">
+                <div class="profile-pic">
+                    <div class="profile-pic-initials rounded-circle" data-v-account-profile-initials>CW</div>
+                    <input id="account-profile-photo-upload" type="file" accept="image/*" class="d-none"
+                      data-v-account-profile-upload>
+                    <label for="account-profile-photo-upload" class="profile-pic-edit-btn" aria-label="Upload profile photo" style="right:90px">
+                      <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+                    </label>
+                </div>
+                <div class="profile-text">
+                  <h6 data-v-account-profile-name>Cameron Williamson</h6>
+                  <p data-v-account-profile-desc>Lorem Ipsum</p>
+                </div>
+                <div id="account-sidebar-list" class="sidebar-list">
+                  <div class="sidebar">
+                    <ul data-v-account-sidebar-nav class="sidebar-nav flex-column">
+                      <li class="sidebar-nav-item">
+                        <a data-v-account-sidebar-link href="#" class="nav-link active font-size-16">
+                          <i class="fas fa-shopping-cart"></i> <span>Recent Orders</span>
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-file"></i> Active Quotes
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-user"></i>Scheduled Services
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-heart"></i>Virtual Pinboard
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-gear"></i> Service Requests
+                        </a>
+                      </li>
+                      <li class="sidebar-nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="fa-solid fa-truck"></i> Track your Order
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="col-12 d-flex justify-content-center pt-40 d-none">
+                      <div data-v-account-sidebar-actions class="th-card-btn d-flex flex-column align-items-cente">
+                        <div class="position-relative pb-3">
+                          <a data-v-account-sidebar-action-link href="contact.html" class="text-capitalize">
+                            <span class="mr-5">Visit Our Showroom</span>
+                            <i class="fa-regular fa-arrow-up degree-60"></i>
+                          </a>
+                        </div>
+                        <div class="position-relative pb-3">
+                          <a href="contact.html" class="text-capitalize">
+                            <span class="mr-5">Contact Sales</span>
+                            <i class="fa-regular fa-arrow-up degree-60"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        @@include('../account-leftside-manubar.html')
+
+
+
+        <div class="col-12 col-md-8 col-lg-9 pt-30 dashboard-main" id="recent-orders-section"
+          data-v-component-accountrecentorders>
+          <div class="row th-res-remove mb-80 d-flex justify-content-center align-items-right">
+            <div class="col-6 col-md-8">
+              <h2 class="text-weight-600 th-recent-orders-title ml-10" data-v-recent-orders-title>Recent Orders</h2>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="dropdown text-end" style="margin-right: 116px;" >
+                <button class="btn th-custom-btn-outline dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false" data-v-recent-orders-sort-button>
+                  - Sort By -
+                </button>
+                <ul class="dropdown-menu" data-v-recent-orders-sort-options>
+                  <li>
+                    <a data-v-recent-orders-sort-option class="dropdown-item" href="#">Action 1</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="th-documents-list" data-v-recent-orders-list>
+            <!-- new design start -->
+            <div class="row th-mar th-quotes-carg-gap mb-0 mr-0 th-recent-order-row" data-v-recent-order-item>
+              <div class="col-12 col-sm-12 col-md-5 text-center text-md-start th-recent-order-media-col">
+                <div class="recent-order-img th-quotes-card th-recent-order-left-panel bg-black">
+                  <div class="quote-info">
+                    <div class="quote-content text-center text-white">
+                      <h4 data-v-recent-order-card-title>Order Title</h4>
+                      <p data-v-recent-order-number class="qute-number font-weight-500">#907526</p>
+                      <p data-v-recent-order-description class="quote-para font-weight-400">
+                        Lorem ipsum dolor sit amet will nec consectetur. Quis ut
+                        consectetur sed nec cursus orci
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 pl-0 th-recent-order-details-col">
+                <div class="card-body th-ordercard-info th-quote-oredr-info">
+                  <div class="th-rs-card-text">
+                    <h6 class="th-code-gap th-title-16">
+                      Account: <span class="font-weight-400 th-order-item-data font-size-16"
+                        data-v-recent-order-account>org</span>
+                    </h6>
+                    <h6 class="th-color-gap th-title-16">
+                      Amount: <span class="font-weight-400 text-gray th-order-item-data font-size-16"
+                        data-v-recent-order-amount>$260</span>
+                    </h6>
+                    <h6 class="th-title-16">
+                      Created Date: <span class="th-order-item-data font-size-16" data-v-recent-order-created-date>June 11th, 2024</span>
+                    </h6>
+                  </div>
+                  <div class="th-document-actions">
+                    <!-- Comment Button -->
+                    <div class="th-qoute-comment-btn pt-20">
+                      <!-- class="text-capitalize th-btn-outline-black th-btn-comment" -->
+                      <a href="#" id="'comment-view-right-sidebar"
+                        class="add-comment-button th-btn-outline-black w-100 text-capitalize" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRightTop" class="text-capitalize th-btn-outline-black w-100"
+                        data-model-type="Order"
+                        data-model-id="123"
+                        data-model-uuid="123"
+                        data-model-ref="org"
+                        data-v-comment-order 
+                        >
+                        <span class="me-2">Add Comment</span>
+                        <i class="fa-regular fa-comment-medical"></i>
+                      </a>
+                    </div>
+                    <div class="th-card-btn d-flex flex-wrap gap-2 mt-3">
+                      <a data-v-recent-order-track-link href="#" class="th-btn text-capitalize bg-gray order-track-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTopForOrder">
+                        <span class="me-2">Track Order</span>
+                      </a>
+                      <a data-v-recent-order-details-link href="#" class="th-btn text-capitalize bg-black text-white">
+                        <span>View Details</span>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- offcanvas start -->
+                </div>
+              </div>
+            </div>
+            <!-- new design end -->
+
+            <!-- Devider -->
+            <div class="d-flex justify-content-center my-60" data-v-recent-orders-divider>
+              <div class="col-md-10 border-bottom"></div>
+            </div>
+
+            <div class="row th-mar">
+              <div class="col-12 col-sm-12 col-md-4 text-center text-md-start">
+                <div class="recent-order-img">
+                  <img src="/img/account-dashboard/recent-order2.png" alt="order1-img" />
+                </div>
+              </div>
+              <!-- Content Column -->
+              <div class="col-12 col-sm-12 col-md-8">
+                <div class="card-body th-ordercard-info py-3">
+                  <div class="th-reccard-heading">
+                    <h5 class="fw-semibold">Order Number</h5>
+                    <h2 class="th-order-number fw-light">#907526</h2>
+                  </div>
+                  <div class="th-rs-card-text">
+                    <h4 class="th-mior">
+                      Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                    </h4>
+                    <h4 class="th-code-gap th-rs-text">
+                      Item Code: <span>MM200K</span>
+                    </h4>
+                    <h4 class="th-color-gap th-rs-text">
+                      Color: <span>Black</span>
+                    </h4>
+                    <h4 class="th-rs-text">Quantity: <span>7</span> </h4>
+                  </div>
+                  <!-- button and offcanvase -->
+                  <div class="th-card-btn d-flex flex-wrap gap-2 mt-3">
+                    <a href="#" class="th-btn text-capitalize" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightTopForOrder">
+                      <span class="me-2">Track Order</span>
+                      <i class="fa-solid fa-arrow-up degree-60"></i>
+                    </a>
+                    <a href="#" class="th-btn text-capitalize">
+                      <span>View Details</span>
+                    </a>
+                  </div>
+                  <!-- Offcanvas (Right-Top Positioned) -->
+                  <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasRightTop-2">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title">Order Details</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="th-recent-orders-view-more-wrap d-flex justify-content-center mt-4">
+              <div class="th-recent-orders-not-found d-flex justify-content-center mt-4" data-v-recent-orders-not-found>
+                <h3 class="text-center font-weight-500">No Data Found</h3>
+              </div>
+              <button id="recent-documents-expand-toggle" class="th-btn text-capitalize bg-black text-white" data-v-recent-orders-view-more>View More</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

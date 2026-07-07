@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title|default('Krost — Secure payment') }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>{% include 'payment.css.twig' %}</style>
+</head>
+<body>
+<div class="page">
+  <div class="shell">
+    <div class="card">
+      <div class="brandRow">
+        <img class="brandLogo" src="/assets/krost-logo.png" alt="{{ merchant_name|default('Krost') }}" />
+        <span class="secureBadge no-print">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="#857F77" stroke-width="2" stroke-linecap="round"/><rect x="4.5" y="10" width="15" height="10.5" rx="2.5" fill="#857F77"/></svg>
+          Secure checkout
+        </span>
+      </div>
+      <div id="screen"></div>
+      <div id="uc-hold-anchor"><div id="uc-hold" class="uc-hold"></div></div>
+      <div id="card-back-anchor" class="card-back-anchor" hidden></div>
+      <div class="footer no-print">
+        <div class="footer__marks">
+          <span class="footer__visa">VISA</span>
+          <span class="footer__mc"><span class="footer__mc-a"></span><span class="footer__mc-b"></span></span>
+          <span class="footer__amex">AMEX</span>
+          <span class="footer__sep"></span>
+          <span class="footer__powered">Powered by <span class="footer__nab">nab</span></span>
+        </div>
+        <div class="footer__fine">Payments are encrypted and processed securely.<br/>Questions? {{ support_email|default('accounts@krost.com.au') }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.__PAYMENT__ = {
+  slug: {{ slug|default('pay')|json_encode|raw }},
+  screen: {{ screen|default('details')|json_encode|raw }},
+  currency: {{ currency|default('AUD')|json_encode|raw }},
+  merchantName: {{ merchant_name|default('Krost')|json_encode|raw }},
+  supportEmail: {{ support_email|default('accounts@krost.com.au')|json_encode|raw }},
+  requireEmail: {{ require_email|default(true) ? 'true' : 'false' }},
+  mock: {{ mock|default(false) ? 'true' : 'false' }},
+  intentId: {{ intent_id|default('')|json_encode|raw }},
+  amount: {{ amount|default('')|json_encode|raw }},
+  reference: {{ reference|default('')|json_encode|raw }},
+  email: {{ email|default('')|json_encode|raw }},
+  readonlyFields: {{ readonly_fields|default(false) ? 'true' : 'false' }},
+  nonce: {{ nonce|default('')|json_encode|raw }},
+  captureContextUrl: '/api/payment/capture-context',
+  intentUrl: '/api/payment/intent',
+  payUrl: '/api/payment/pay',
+  paymentDebug: {{ payment_debug|default(false) ? 'true' : 'false' }},
+  nabEnvironment: {{ nab_environment|default('test')|json_encode|raw }}
+};
+</script>
+<script>{% include 'payment.js.twig' %}</script>
+</body>
+</html>

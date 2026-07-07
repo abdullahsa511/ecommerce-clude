@@ -1,0 +1,400 @@
+/* ===============================
+   Card Base
+================================ */
+.page-component.p-card {
+  background: var(--white-color);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+
+  .p-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3,
+    .header-name {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+  }
+
+  .p-card-body {
+    padding: 20px;
+  }
+}
+
+/* ===============================
+   Production Status (Stepper)
+================================ */
+.customer-order-status {
+  .p-steps {
+    width: 100%;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+
+      /* connector line */
+      &::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 9%;
+        right: 9%;
+        height: 2px;
+        background: var(--gray-300);
+        z-index: 0;
+      }
+    }
+
+    .p-steps-item {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+
+      .p-menuitem-link {
+        text-decoration: none;
+        cursor: default;
+      }
+
+      .p-steps-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        margin: 0 auto 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        background: var(--gray-600);
+        color: var(--white-color);
+        i{
+          font-size: 20px;
+        }
+      }
+
+      .p-steps-title {
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--gray-700);
+        white-space: nowrap;
+      }
+
+      /* completed */
+      &.p-highlight {
+        .p-steps-number {
+          background: var(--black-color);
+          font-weight: bold;
+        }
+
+        .p-steps-title {
+          color: var(--black-color);
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.customer-order-overview-details {
+  .p-card-header {
+    padding: 14px 16px;
+  }
+
+  .p-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .order-summary-title {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--gray-700);
+  }
+
+  .order-summary-link {
+    color: var(--gray-700);
+    text-decoration: none;
+  }
+
+  /* LEFT */
+  .customer-order-details-left {
+    // flex: 1;
+    // width: 30%;
+    width: 35%;
+    // padding-right: 30px;
+    .p-field {
+      flex-direction: column;
+      margin-bottom: 5px;
+    }
+
+    @include respond-to(md){
+      padding-right: 0px;
+      width: 100%;
+    }
+  }
+
+  /* CENTER (FIX) */
+  .customer-order-address {
+    // flex: 1;
+    text-align: left;
+    // width: 30%;
+    width: 40%;
+    // padding-left: 20px;
+    margin-top: 0px;
+
+    .order-tracking-del-title {
+      margin-bottom: 8px;
+      color: var(--gray-700);
+      line-height: 1.1;
+    }
+
+    .address-info { 
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 10px;
+      display: block;
+      line-height: 1.45;
+    }
+
+    @include respond-to(md){
+      padding-left: 0px;
+      width: 100%;
+    }
+  }
+
+  /* RIGHT */
+  .customer-order-details-right {
+    // width: 260px;
+    flex-shrink: 0;
+    width: 30%;
+    // padding-left: 40px;
+
+    @include respond-to(md){
+      padding-left: 0px;
+      width: 100%;
+    }
+  }
+}
+
+/* ===============================
+   Fields (Label / Value)
+================================ */
+.p-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  label {
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+  }
+}
+
+/* ===============================
+   Address Block
+================================ */
+.customer-order-address {
+  span {
+    line-height: 1.5;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .clickable-icon {
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--gray-700);
+
+    &:hover {
+      color: var(--black-color);
+    }
+  }
+}
+
+/* ===============================
+   Totals Section
+================================ */
+.customer-order-totals {
+  text-align: right;
+
+  .customer-order-subtotals {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $gray-200;
+  }
+
+  .customer-order-grand-total {
+    .p-field {
+      margin-bottom: 0;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--black-color);
+    }
+
+    span {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  
+  @include respond-to(md){
+    padding-top: 10px;
+  }
+}
+
+/* ===============================
+   Comment Button
+================================ */
+.comment-button {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: var(--gray-700);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+
+  &:hover {
+    color: var(--black-color);
+  }
+}
+
+/* ===============================
+   Responsive
+================================ */
+@include respond-to(md) {
+  .customer-order-overview-details {
+    .p-card-content {
+      flex-direction: column;
+    }
+
+    .customer-order-details-right {
+      width: 100%;
+      text-align: left;
+    }
+
+    .customer-order-totals {
+      text-align: left;
+    }
+  }
+
+  .p-steps {
+    ul::before {
+      left: 5%;
+      right: 5%;
+    }
+
+    .p-steps-title {
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+}
+
+/* ===============================
+   Responsive Production Status
+================================ */
+@include respond-to(md) {
+    .customer-order-status {
+      .p-steps {
+        ul {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-left: 20px;
+  
+          /* remove horizontal line */
+          &::before {
+            top: 0;
+            left: 32px;
+            right: auto;
+            width: 2px;
+            height: 100%;
+            background: var(--gray-300);
+          }
+        }
+  
+        .p-steps-item {
+          display: flex;
+          align-items: flex-start;
+          text-align: left;
+          margin-bottom: 20px;
+          position: relative;
+  
+          &:last-child {
+            margin-bottom: 0;
+          }
+  
+          .p-menuitem-link {
+            display: flex;
+            align-items: center;
+          }
+  
+          .p-steps-number {
+            margin: 0 12px 0 0;
+            flex-shrink: 0;
+          }
+  
+          .p-steps-title {
+            white-space: normal;
+            line-height: 1.4;
+            font-size: 18px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  // it is track order
+  .th-login-form-container {
+    width: 50%;
+    margin: 0 auto;
+    .th-login-form-header {
+      h2 {
+        font-size: 32px;
+        font-weight: 600;
+        color: #231F20;
+      }  
+    }
+  
+    @include respond-to(sm) {
+      width: 100% !important;
+      h2 {
+        font-size: 24px;
+      }
+  
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  @include respond-to(md) {
+    .th-login-form-container {
+      width: 100% !important;
+    }
+  }
+  

@@ -1,0 +1,405 @@
+<section id="account-db-active-quotes">
+    <div class="container th-container">
+      <div class="section-body">
+        <div class="row">
+            <div id="account-navigation" class="col-12 col-md-3 border-right-gray th-remove-border pt-30"                 data-v-component-accountnavigation>
+                <div class="row th-sidebard">
+                  <div class="col-12">
+                    <div class="profile-info">
+                      <div class="profile-pic">
+                        <img data-v-account-profile-avatar class="rounded-circle" alt="avatar1" src="/img/account-dashboard/profile-pic.png" />
+                      </div>
+                      <div class="profile-text">
+                        <h6 data-v-account-profile-name>Cameron Williamson</h6>
+                        <p data-v-account-profile-desc>Lorem Ipsum</p>
+                      </div>
+                      <div class="sidebar-list">
+                        <div class="sidebar">
+                          <ul data-v-account-sidebar-nav class="sidebar-nav flex-column">
+                            <li class="sidebar-nav-item">
+                              <a data-v-account-sidebar-link href="#" class="nav-link active">
+                                <i class="fas fa-shopping-cart"></i> <span>Recent Orders</span>
+                              </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                              <a href="#" class="nav-link">
+                                <i class="fa-solid fa-file"></i> Active Quotes
+                              </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                              <a href="#" class="nav-link">
+                                <i class="fa-solid fa-user"></i>Scheduled Services
+                              </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                              <a href="#" class="nav-link">
+                                <i class="fa-solid fa-heart"></i>Virtual Pinboard
+                              </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                              <a href="#" class="nav-link">
+                                <i class="fa-solid fa-gear"></i> Service Requests
+                              </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                              <a href="#" class="nav-link">
+                                <i class="fa-solid fa-truck"></i> Track your Order
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-center d-none">
+                    <div data-v-account-sidebar-actions class="th-card-btn d-flex flex-column align-items-cente">
+                      <div class="position-relative pb-3">
+                        <a data-v-account-sidebar-action-link href="contact.html" class="text-capitalize">
+                          <span class="mr-5">Visit Our Showroom</span>
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </a>
+                      </div>
+                      <div class="position-relative pb-3">
+                        <a href="contact.html" class="text-capitalize">
+                          <span class="mr-5">Contact Sales</span>
+                          <i class="fa-regular fa-arrow-up degree-60"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          <div class="col-12 col-md-9 th-dashboard-main">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="th-dashboard-header th-pinboard-header">Virtual Pinboard</h2>
+              </div>
+              <div class="col-md-12">
+                <div class="th-dash-pinboard-devider border-bottom-gray"></div>
+              </div>
+            </div>
+
+
+            <!--================= Section pinboard List ==========================-->
+            <div id="account-pinboard-list" class="th-section" data-v-component-accountpinboardlist>
+              
+              <div class="section-body">
+                <div class="row">
+                  <div class="col-12">
+                    <h3>Pinboard List</h3>
+                  </div>
+                  <div class="col-12">
+                    <div class="th-dash-pinboard-devider border-bottom-gray"></div>
+                  </div>
+                  <div class="col-12 th-table-content">
+                    <div class="th-table th-table-col-6" data-v-pinboard-table>
+                      <div class="th-header-wrapper">
+                        <div class="th-row-wrapper">
+                          <div class="th-cell" data-v-pinboard-header="name">Pinboard Name</div>
+                          <div class="th-cell" data-v-pinboard-header="customer">Customer Name</div>
+                          <div class="th-cell" data-v-pinboard-header="email">Customer Email</div>
+                          <div class="th-cell text-end" data-v-pinboard-header="items">Item Count</div>
+                          <div class="th-cell text-end" data-v-pinboard-header="total">Total Price</div>
+                          <div class="th-cell text-center" data-v-pinboard-header="actions">Actions</div>
+                        </div>
+                      </div>
+                      <div class="th-body-wrapper" data-v-pinboard-rows>
+                        <div class="th-row-wrapper" data-v-pinboard-row>
+                          <div class="th-cell font-wight-700" data-label="Pinboard Name" data-v-pinboard-name>Workspace Refresh</div>
+                          <div class="th-cell" data-label="Customer Name" data-v-pinboard-customer-name>Cameron Williamson</div>
+                          <div class="th-cell" data-label="Customer Email" data-v-pinboard-customer-email>cameron.williamson@example.com</div>
+                          <div class="th-cell text-end" data-label="Item Count" data-v-pinboard-item-count>8</div>
+                          <div class="th-cell text-end font-weight-600" data-label="Total Price" data-v-pinboard-total>$12,480.00</div>
+                          <div class="th-cell text-center" data-label="Actions">
+                            <a href="?userId=1&pinboardId=1" class="th-btn-primary text-capitalize th-pinboard-action-btn" data-v-pinboard-view>View</a>
+                          </div>
+                        </div>
+                        <div class="th-row-wrapper" data-v-pinboard-row>
+                          <div class="th-cell font-wight-700" data-label="Pinboard Name" data-v-pinboard-name>Collaborative Spaces</div>
+                          <div class="th-cell" data-label="Customer Name" data-v-pinboard-customer-name>Theresa Webb</div>
+                          <div class="th-cell" data-label="Customer Email" data-v-pinboard-customer-email>theresa.webb@example.com</div>
+                          <div class="th-cell text-end" data-label="Item Count" data-v-pinboard-item-count>6</div>
+                          <div class="th-cell text-end font-weight-600" data-label="Total Price" data-v-pinboard-total>$9,210.00</div>
+                          <div class="th-cell text-center" data-label="Actions">
+                            <a href="?userId=1&pinboardId=2" class="th-btn-primary text-capitalize th-pinboard-action-btn" data-v-pinboard-view>View</a>
+                          </div>
+                        </div>
+                        <div class="th-row-wrapper" data-v-pinboard-row>
+                          <div class="th-cell font-wight-700" data-label="Pinboard Name" data-v-pinboard-name>Executive Suite</div>
+                          <div class="th-cell" data-label="Customer Name" data-v-pinboard-customer-name>Brooklyn Simmons</div>
+                          <div class="th-cell" data-label="Customer Email" data-v-pinboard-customer-email>brooklyn.simmons@example.com</div>
+                          <div class="th-cell text-end" data-label="Item Count" data-v-pinboard-item-count>4</div>
+                          <div class="th-cell text-end font-weight-600" data-label="Total Price" data-v-pinboard-total>$7,680.00</div>
+                          <div class="th-cell text-center" data-label="Actions">
+                            <a href="?userId=1&pinboardId=3" class="th-btn-primary text-capitalize th-pinboard-action-btn" data-v-pinboard-view>View</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!--================= End Section pinboard List ==========================-->
+
+
+
+
+            <!--============================== Section Account DashBoard Pin board ==============================-->
+            <div id="dashboard-pinboard-item" class="th-section" data-v-component-accountpinboard>
+              <div class="section-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="th-pinbaoder-item-title">
+                          <h3>List name here</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" data-v-accountpinboard-list>
+                  
+                  <div class="col-md-12 my-40" data-v-accountpinboard-item>
+                    <div class="th-pinboard-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="th-pinboard-item-img border">
+                            <img data-v-accountpinboarditem-image src="/img/dashboard-pinboard/pinboard-img-01.png" class="img-fluid rounded-start" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="th-pinboard-item-info">
+                            <div class="card-body position-relative">
+                              <button type="button" class="btn-close position-absolute top-0 end-0 p-2" aria-label="Close"></button>
+                              <div class="th-pinboard-info-body">
+                                <h4 class="fw-bold font-wight-700" data-v-accountpinboarditem-type>Product</h4>
+                                <h4 class="card-title font-wight-700" data-v-accountpinboarditem-name>
+                                  Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                                </h4>
+
+                                <div class="th-pinboard-item-circle">
+                                  <div class="th-circle-items" data-v-itemoptions>
+                                    <img data-v-itemoption-image src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 1" />
+                                    <img data-v-itemoption-image src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 2" />
+
+                                    <img data-v-itemoption-image src="/img/product-detail/third circle.png" class="rounded-circle border border-light" alt="Option 3" />
+                                    <img data-v-itemoption-image src="/img/product-detail/first circle.png" class="rounded-circle border border-light" alt="Option 4" />
+                                  </div>
+                                </div>
+
+                                <!-- Quote -->
+                                <div class="th-pinboard-item-edit">
+                                  <div class="th-pinboard-item-blockquote border d-flex justify-content-between align-items-start">
+                                    <blockquote class="th-blockquote-txt">
+                                      <p class="fst-italic" data-v-accountpinboarditem-quote>
+                                        "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing
+                                        Elit. Sed Do Eiusmod Tempor Incididunt Ut Labore Et
+                                        Dolore Magna Aliqua."
+                                      </p>
+                                    </blockquote>
+                                    <div class="th-blockquote-edit-icon text-end">
+                                      <button class="btn">
+                                        <i class="fa-solid fa-pencil"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Comment Box -->
+                                <input type="text" class="" placeholder="Add A Comment" data-v-accountpinboarditem-comment-placeholder />
+
+                                <!-- Buttons -->
+                                <div class="th-doc-actions th-pinbord-item-comment">
+                                  <a href="contact.html" class="th-btn-gray text-capitalize">
+                                    <span data-v-accountpinboarditem-white_btn class="mr-5">Accept Quote</span>
+                                  </a>
+                                  <a href="contact.html" class="th-btn-primary text-capitalize">
+                                    <span data-v-accountpinboarditem-black_btn class="mr-5">Accept Quote</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 my-40" data-v-accountpinboard-item>
+                    <div class="th-pinboard-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="th-pinboard-item-img border">
+                            <img src="/img/dashboard-pinboard/pinboard-img-01.png" class="img-fluid rounded-start" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="th-pinboard-item-info">
+                            <div class="card-body position-relative">
+                              <button type="button" class="btn-close position-absolute top-0 end-0 p-2" aria-label="Close"></button>
+                              <div class="th-pinboard-info-body">
+                                <h4 class="fw-bold font-wight-700">Product</h4>
+                                <h4 class="card-title font-wight-700">
+                                  Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                                </h4>
+
+                                <div class="th-pinboard-item-circle">
+                                  <div class="th-circle-items">
+                                    <img src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 1" />
+                                    <img src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 2" />
+
+                                    <img src="/img/product-detail/third circle.png" class="rounded-circle border border-light" alt="Option 3" />
+                                    <img src="/img/product-detail/first circle.png" class="rounded-circle border border-light" alt="Option 4" />
+                                  </div>
+                                </div>
+
+                                <!-- Quote -->
+                                <div class="th-pinboard-item-edit">
+                                  <div class="th-pinboard-item-blockquote border d-flex justify-content-between align-items-start">
+                                    <blockquote class="th-blockquote-txt">
+                                      <p class="fst-italic">
+                                        "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing
+                                        Elit. Sed Do Eiusmod Tempor Incididunt Ut Labore Et
+                                        Dolore Magna Aliqua."
+                                      </p>
+                                    </blockquote>
+                                    <div class="th-blockquote-edit-icon text-end">
+                                      <button class="btn">
+                                        <i class="fa-solid fa-pencil"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Comment Box -->
+                                <input type="text" class="" placeholder="Add A Comment" />
+
+                                <!-- Buttons -->
+                                <div class="th-doc-actions th-pinbord-item-comment">
+                                  <a href="contact.html" class="th-btn-gray text-capitalize">
+                                    <span class="mr-5">Accept Quote</span>
+                                  </a>
+                                  <a href="contact.html" class="th-btn-primary text-capitalize">
+                                    <span class="mr-5">Accept Quote</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mt-40" data-v-accountpinboard-item>
+                    <div class="th-pinboard-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="th-pinboard-item-img border">
+                            <img src="/img/dashboard-pinboard/pinboard-img-01.png" class="img-fluid rounded-start" alt="..." />
+                          </div>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="th-pinboard-item-info">
+                            <div class="card-body position-relative">
+                              <button type="button" class="btn-close position-absolute top-0 end-0 p-2" aria-label="Close"></button>
+                              <div class="th-pinboard-info-body">
+                                <h4 class="fw-bold font-wight-700">Product</h4>
+                                <h4 class="card-title font-wight-700">
+                                  Miro Task Chair - Black Fabric Seat / Black Mesh Black
+                                </h4>
+
+                                <div class="th-pinboard-item-circle">
+                                  <div class="th-circle-items">
+                                    <img src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 1" />
+                                    <img src="/img/product-detail/second circle.png" class="rounded-circle border border-light" alt="Option 2" />
+
+                                    <img src="/img/product-detail/third circle.png" class="rounded-circle border border-light" alt="Option 3" />
+                                    <img src="/img/product-detail/first circle.png" class="rounded-circle border border-light" alt="Option 4" />
+                                  </div>
+                                </div>
+
+                                <!-- Quote -->
+                                <div class="th-pinboard-item-edit">
+                                  <div class="th-pinboard-item-blockquote border d-flex justify-content-between align-items-start">
+                                    <blockquote class="th-blockquote-txt">
+                                      <p class="fst-italic">
+                                        "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing
+                                        Elit. Sed Do Eiusmod Tempor Incididunt Ut Labore Et
+                                        Dolore Magna Aliqua."
+                                      </p>
+                                    </blockquote>
+                                    <div class="th-blockquote-edit-icon text-end">
+                                      <button class="btn">
+                                        <i class="fa-solid fa-pencil"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <!-- Comment Box -->
+                                <input type="text" class="" placeholder="Add A Comment" />
+
+                                <!-- Buttons -->
+                                <div class="th-doc-actions th-pinbord-item-comment">
+                                  <a href="contact.html" class="th-btn-gray text-capitalize">
+                                    <span class="mr-5">Accept Quote</span>
+                                  </a>
+                                  <a href="contact.html" class="th-btn-primary text-capitalize">
+                                    <span class="mr-5">Accept Quote</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--============================== End Section Template ==============================-->
+
+            <!--============================== Section Account DashBoard Pin board Comment ==============================-->
+            <div id="dashboard-pinboard-comment" class="th-section">
+              <div class="section-body">
+                <div class="row">
+                  <div class="col-md-12 d-flex justify-content-center">
+                    <div class="th-pinboard-comment-border-top border-bottom-gray w-75"></div>
+                  </div>
+                  <div class="col-md-12">
+                    <h4 class="th-pinboard-comment-title">Additional notes</h4>
+                    <div class="th-pinboard-coment-box">
+                      <textarea class="" rows="4" placeholder="Write your comment here..."></textarea>
+                    </div>
+                    <div class="th-doc-actions d-flex justify-content-end">
+                      <a href="contact.html" class="th-btn-gray text-capitalize">
+                        <span class="mr-5">Upload</span>
+                      </a>
+                      <a href="contact.html" class="th-btn-primary text-capitalize">
+                        <span class="mr-5">Comment</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-12 d-flex justify-content-center">
+                    <div class="th-pinboard-comment-border-bottom border-bottom-gray w-75"></div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="th-doc-actions d-flex justify-content-end">
+                      <a href="contact.html" class="th-btn-gray text-capitalize">
+                        <span class="mr-5">Send to sell</span>
+                        <i class="fa-regular fa-arrow-up degree-60"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--============================== =============================-->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

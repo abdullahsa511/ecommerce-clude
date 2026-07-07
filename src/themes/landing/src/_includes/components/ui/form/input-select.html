@@ -1,0 +1,20 @@
+<div class="th-input-group pl-0 @@topClass">
+    <select
+        class="form-control th-choices-select z-index-10"
+        name="choose-members"
+        id="@@selectInputId"
+        placeholder="@@placeholder">
+    </select>
+</div>
+
+<script>
+    var res = JSON.parse('@@choices');
+    console.log(res);
+    var inputId = '@@selectInputId';
+    if(document.getElementById(inputId)){
+        new Choices('#'+inputId, {
+            allowHTML: true,
+            choices: res
+        });
+    }
+</script>

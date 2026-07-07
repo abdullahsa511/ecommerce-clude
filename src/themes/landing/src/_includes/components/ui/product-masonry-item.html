@@ -1,0 +1,26 @@
+
+<div class="th-masonry-grid-item grid-col-span-@@span @@class"
+        style="transform: translateY(@@top px);padding-top:@@padding-top px">
+    <div class="th-item-img">
+        <img src="@@img" alt="Product 1" />
+    </div>
+    <div class="th-product-info-wrapper">
+        <div class="th-item-info th-mt-15">
+            <h6 class="th-title-17">
+                @@include("./all-btn/title-icon-link.html", {
+                    "link_text": "@@heading",
+                    "arrow_icon": "@@arrow_icon"
+                })
+            </h6>
+            <p class="item-description">
+              @@des
+            </p>
+            @@include('./all-btn/icon-link-small.html', {
+                "linkText": "Read More",
+                "linkIcon": "fa-regular fa-arrow-up degree-60",
+                "classPadding": "pt-10"
+            })
+        </div>
+    </div>
+</div>
+          

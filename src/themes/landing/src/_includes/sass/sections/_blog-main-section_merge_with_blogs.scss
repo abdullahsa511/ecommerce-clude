@@ -1,0 +1,49 @@
+#th-blog-main{
+    position: relative;
+    overflow-x: hidden;
+    a{
+        color: blue;
+        &:hover {
+            cursor: pointer;
+            text-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+            box-shadow: none;
+            transition: all ease 0.4s;
+          }
+    }
+    
+    .th-blog-main-content{
+        .th-section-title{
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+    }
+    .th-img-container{
+        &.blog-detail{
+            margin-top: -147px;
+            z-index: 10;
+        }
+    } 
+    .th-blog-main-header{
+        height: 219px;
+        margin-left: -15px;
+        margin-right: -15px;
+        background-color: $gray;
+        
+        > .col-md-12 {
+            padding: 0;
+        }
+    }
+    p {
+        font-size: 20px;
+    }
+    @include respond-to(md) {
+        .th-blog-main-content{
+            margin-top: -96px;
+        }
+        .th-img-container{
+            &.blog-detail{
+                margin-top: 50px;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<div
+  class="th-masonry-grid-item grid-col-span-@@span @@class"
+  style="transform: translateY(@@toppx); padding-top: @@padding-toppx"
+>
+  <div class="th-item-img">
+    <img src="@@img" alt="Product 1" />
+  </div>
+  <div class="th-product-info-wrapper">
+    <div class="th-item-info th-mt-15">
+      <h6 class="withOutArrow">@@heading</h6>
+      <p class="th-item-description">@@des</p>
+      <div class="th-category-items">
+        @@if(typeof scategories !== "undefined") {
+          @@loop('./p-tag.html', @@scategories)
+        }
+      </div>
+    </div>
+    @@include('./all-btn/icon-link-small.html', { "link_text": "View all @@heading" })
+  </div>
+</div>

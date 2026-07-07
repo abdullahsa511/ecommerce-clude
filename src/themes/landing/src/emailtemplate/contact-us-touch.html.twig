@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Your enquiry has been received') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  {% set attachment_links = attachment_links|default([]) %}
+  {% set attachment_labels = attachment_labels|default([]) %}
+  {% set notes_text = notes_text|default('')|trim %}
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+          <tr>
+            <td style="padding:24px 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:1.6;">Your enquiry has been received.</p>
+              <p style="margin:0 0 20px 0; line-height:1.6;">Thank you, <strong>{{ first_name_last_name|default('Mohammad Abdullah') }}</strong>. Our team is reviewing your project details and will be in touch shortly.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0px 0px 8px 0px;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:1.6; color:#374151;">Enquiry Summary:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:10px;">
+                      <li style="line-height:1.7;"><strong>Name:</strong> {{ first_name_last_name|default('Mohammad Abdullah') }}</li>
+                      <li style="line-height:1.7;"><strong>Email Address:</strong> {{ email_address|default('abdullah@satechnology.com.au') }}</li>
+                      <li style="line-height:1.7;"><strong>Project Details:</strong> {{ project_details|default('Office Upgrades & Refurbishments') }}</li>
+                      <li style="line-height:1.7;"><strong>State:</strong> {{ state|default('NSW') }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 5px 0; font-size:16px; font-weight:bold; line-height:1.6;">Attachments:</p>
+              {% if attachment_links is defined and attachment_links is iterable and attachment_links|length > 0 %}
+                <ul style="margin:0 0 20px 24px; padding-left:10px; line-height:1.7;">
+                  {% for file_link in attachment_links %}
+                    <li style="line-height:1.7; margin-bottom:0;">
+                      <a href="{{ file_link }}" download target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline;">{{ attachment_labels[loop.index0]|default('Link to download File ' ~ loop.index) }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% elseif attachment_link is defined and attachment_link and attachment_label is defined %}
+                <ul style="margin:0 0 20px 24px; padding-left:10px; line-height:1.7;">
+                  <li style="line-height:1.7;">
+                    <a href="{{ attachment_link }}" download target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline;">{{ attachment_label|default('Link to download File 1') }}</a>
+                  </li>
+                </ul>
+              {% elseif attachments is defined and attachments %}
+                <p style="margin:0 0 20px 0; line-height:1.7;">{{ attachments }}</p>
+              {% else %}
+                <p style="margin:0 0 20px 24px; line-height:1.7;">None provided</p>
+              {% endif %}
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 5px 0; font-size:16px; font-weight:bold; line-height:1.6;">Additional Notes:</p>
+              <p style="margin:0 0 20px 0; line-height:1.7;">{% if notes_text %}{{ notes_text }}{% else %}None provided{% endif %}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0 24px 0px 24px; font-size:16px; line-height:1.6; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:1.6;">While you wait, discover how our furniture comes to life in real commercial spaces.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;" align="center">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+                <tr>
+                  <td align="center" style="border-radius:6px; background-color:#2563eb;">
+                    <a href="{{ projects_url|default('/projects') }}" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:12px 24px; font-size:16px; font-weight:bold; color:#ffffff; text-decoration:none;">Explore Featured Projects</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

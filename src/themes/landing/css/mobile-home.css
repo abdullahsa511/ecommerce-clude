@@ -1,0 +1,1517 @@
+/*
+ * mobile-home.css
+ * Mobile-only overrides for home.html (max-width: 768px)
+ * Target design: Krost Mobile Homepage.html (390px viewport)
+ *
+ * These rules are purely additive — they only apply inside media queries
+ * and do NOT affect desktop styles.
+ */
+
+/* ============================================================
+   0. SHARED UTILITY — horizontal scroll strip (category pill nav,
+      project cards, blog cards etc.)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Thin horizontal scrollbar on overflow strips */
+  .cat-strip-mobile::-webkit-scrollbar { height: 4px; }
+  .cat-strip-mobile::-webkit-scrollbar-thumb { background: #cfccc9; border-radius: 2px; }
+}
+
+
+/* ============================================================
+   1. TOP BAR
+   ============================================================ */
+@media (max-width: 768px) {
+  .th-topbar {
+    height: 44px !important;
+    background-color: #231f20 !important;
+    padding: 0 !important;
+  }
+
+  .th-topbar .position-relative.container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 20px !important;
+    height: 44px !important;
+    max-width: 100% !important;
+  }
+
+  /* Left text — hide inner flex wrapper, show just the anchor */
+  .th-topbar .d-flex.align-items-center.justify-content-center {
+    display: contents !important;
+  }
+
+  .th-topbar-text {
+    font-size: 13px !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #fff !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .th-topbar .contact-sales {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .th-topbar-link {
+    font-size: 13px !important;
+    color: #fff !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+    white-space: nowrap !important;
+    padding-left: 12px !important;
+  }
+
+  .th-topbar .fa-envelope {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   2. HEADER / NAVIGATION BAR
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Prevent any element from causing horizontal overflow */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  .th-menu-wrapper,
+  .sticky-wrapper,
+  .sticky-wrapper.desktop-menu,
+  .menu-area {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Desktop sticky nav — keep it compact on mobile */
+  .sticky-wrapper.desktop-menu .menu-area {
+    padding: 0;
+  }
+
+  .sticky-wrapper.desktop-menu .menu-area .row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    min-height: 60px;
+  }
+
+  /* Logo — centred on mobile */
+  .header-logo a img {
+    height: 22px;
+    width: auto;
+  }
+
+  /* Hide desktop nav links & "Resources / Contact Us" on mobile */
+  .sticky-wrapper .d-none.d-lg-inline-block {
+    display: none !important;
+  }
+
+  /* Hide user dropdown on mobile */
+  .th-user-dropdown {
+    display: none !important;
+  }
+
+  /* Hide desktop "Shop Now" button — show it as the right action */
+  .header-button.d-none.d-lg-inline-block {
+    display: none !important;
+  }
+
+  /* Right-hand icon cluster: keep search + pinboard + user but collapse gap */
+  .sticky-wrapper .d-flex.align-items-end.gap-3 {
+    gap: 12px !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Show hamburger toggle */
+  button.th-menu-toggle.d-block.d-lg-none {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    margin-left: -8px;
+    cursor: pointer;
+  }
+
+  /* Icon sizes — match mobile spec (26px) */
+  .fa-regular.fa-magnifying-glass,
+  .th-header-search .fa-regular.fa-magnifying-glass,
+  #th-header-global-search i,
+  #th-header-global-search .fa-regular.fa-magnifying-glass {
+    font-size: 20px !important;
+  }
+
+  .fa-solid.fa-user {
+    font-size: 20px !important;
+  }
+
+  .th-header-search {
+    width: 20px;
+    height: 20px;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Pinboard icon — same size as search */
+  #pinboard-button img,
+  a[aria-controls="offcanvasRight"] img,
+  img[src*="pinboard-icon"] {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Column layout inside header row */
+  .sticky-wrapper .col-4.d-flex {
+    flex: none !important;
+  }
+
+  /* Left col — hamburger */
+  .sticky-wrapper .col-4:first-child {
+    justify-content: flex-start !important;
+  }
+
+  /* Centre col — logo */
+  .sticky-wrapper .col-4:nth-child(2) {
+    justify-content: center !important;
+  }
+
+  /* Right col — icons */
+  .sticky-wrapper .col-4:last-child {
+    justify-content: flex-end !important;
+  }
+}
+
+
+/* ============================================================
+   3. HERO SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+  #hero.th-hero-wrapper {
+    min-height: 520px !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Force background image to cover */
+  #hero.background-image {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  /* Gradient overlay — dark at bottom, lighter at top */
+  #hero.th-hero-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(35,31,32,0.15) 0%, rgba(35,31,32,0.78) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #hero .container.th-container {
+    padding: 20px !important;
+    max-width: 100% !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  #hero .row {
+    margin: 0;
+  }
+
+  /* Hide the right image column on mobile */
+  #hero .col-xl-5 {
+    display: none !important;
+  }
+
+  /* Full-width hero content */
+  #hero .col-xl-7 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+  }
+
+  .th-hero-container.gr-bg4 {
+    background: none !important;
+    padding: 0 !important;
+  }
+
+  /* Override desktop left-to-right gradient — use top-to-bottom for mobile */
+  .gr-bg4:before {
+    background-image: linear-gradient(180deg, rgba(35,31,32,0.15) 0%, rgba(35,31,32,0.78) 100%) !important;
+    height: 100% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+  }
+
+  /* Push content to bottom of hero */
+  .th-hero-style.th-mt-100 {
+    margin-top: 0 !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* Hero title */
+  .th-hero-title.th-hero-title-mb {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+    margin-bottom: 12px !important;
+    font-weight: 700;
+  }
+
+  /* Hero subtitle */
+  .th-hero-subtitle.th-hero-subtitle-my {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* Button group — stack vertically, full width */
+  .th-hero-wrapp {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .th-hero-wrapp .button {
+    padding-bottom: 0 !important;
+    width: 100% !important;
+  }
+
+  .th-hero-wrapp .button a.th-btn,
+  .th-hero-wrapp .button a.th-btn-outline {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 11px 20px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 2px !important;
+  }
+
+  /* Primary button — white bg */
+  .th-hero-wrapp .button a.th-btn {
+    background: #ffffff !important;
+    color: #231f20 !important;
+    border: none !important;
+  }
+
+  /* Outline button */
+  .th-hero-wrapp .button a.th-btn-outline {
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+
+  /* Hide edit link in hero */
+  .th-component-edit-link {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   4. PRODUCT CATEGORIES SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+  #home-categories.th-section-categories-py {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  #home-categories .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section header */
+  #home-categories .th-section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-bottom: 18px !important;
+    gap: 8px;
+    padding-top: 0px;
+  }
+
+  #home-categories .th-section-header .right {
+    display: none !important;
+  }
+
+  #home-categories .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+    font-weight: 700;
+  }
+
+  #home-categories .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Hide the desktop left nav column entirely */
+  #home-categories .col-md-3 {
+    display: none !important;
+  }
+
+  /* Swiper column goes full width */
+  #home-categories .col-md-9 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+  }
+
+  /* ---- Mobile pill/tab strip injected above the swiper ---- */
+  #home-categories .th-categories-slider-nav,
+  #home-categories .section-body .row {
+    display: block !important;
+  }
+
+  /* The pill strip container */
+  .th-cat-pill-strip {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 16px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cfccc9 transparent;
+  }
+  .th-cat-pill-strip::-webkit-scrollbar {
+    height: 4px;
+    display: block;
+  }
+  .th-cat-pill-strip::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .th-cat-pill-strip::-webkit-scrollbar-thumb {
+    background: #cfccc9;
+    border-radius: 2px;
+  }
+
+  /* Individual pill */
+  .th-cat-pill {
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 8px 14px !important;
+    border: 1px solid #e8e8e8 !important;
+    background: #ffffff !important;
+    color: #33322f !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    border-radius: 2px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    line-height: 1 !important;
+  }
+
+  /* Active pill — dark fill */
+  .th-cat-pill.th-cat-pill--active {
+    background: #231f20 !important;
+    color: #ffffff !important;
+    border-color: #231f20 !important;
+  }
+
+  /* Force fade-stack layout: swiper wrapper is the positioned parent,
+     all slides sit at the same origin, JS controls which is visible */
+  .home-product-category-slider {
+    height: 260px !important;
+    overflow: hidden !important;
+  }
+  .home-product-category-slider{
+    padding-bottom: 0px!important;
+  }
+
+  .home-product-category-slider .swiper-wrapper {
+    height: 260px !important;
+    transform: none !important;
+  }
+
+  .home-product-category-slider .swiper-slide {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 260px !important;
+    transform: none !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  /* JS sets inline opacity:1 on the active slide — needs to beat the !important above */
+  .home-product-category-slider .swiper-slide[style*="opacity: 1"],
+  .home-product-category-slider .swiper-slide[style*="opacity:1"] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 2 !important; 
+  }
+
+  /* Category slider image */
+  .home-product-category-slider .swiper-slide img {
+    width: 100% !important;
+    height: 260px !important;
+    object-fit: cover !important;
+    border-radius: 2px !important;
+    display: block !important;
+  }
+
+  /* Bottom-anchored gradient overlay with title + description */
+  .home-product-category-slider .slider-content {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    padding: 16px !important;
+    background: linear-gradient(transparent, rgba(35, 31, 32, 0.75)) !important;
+    border-radius: 0 0 2px 2px !important;
+  }
+
+  .home-product-category-slider .slider-content h4 {
+    font-size: 18px !important;
+    color: #fff !important;
+    margin-bottom: 4px !important;
+  }
+
+  .home-product-category-slider .slider-content h6 {
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 400 !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+  }
+
+  /* Hide built-in swiper pagination — navigation is via pill strip */
+  .home-product-category-slider .swiper-pagination {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   5. FEATURED PROJECTS SLIDER
+   ============================================================ */
+@media (max-width: 768px) {
+  #th-featured-projects-slider {
+    padding-top: 0 !important;
+    padding-bottom: 48px !important;
+    overflow: hidden !important;
+  }
+
+  #th-featured-projects-slider .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section header */
+  #th-featured-projects-slider .th-section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-bottom: 20px !important;
+    gap: 8px;
+    padding-top: 0px !important;
+    position: relative;
+  }
+
+
+  #th-featured-projects-slider .th-section-header .right {
+    display: none !important;
+    position: absolute;
+    right: 0;
+  }
+  #th-featured-projects-slider .th-section-header .right .th-view-all-btn{
+    font-size: 15px!important;
+  }
+
+  #th-featured-projects-slider .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+    font-weight: 700;
+  }
+
+  #th-featured-projects-slider .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Horizontal swiper — overflow-x scroll */
+  .th-featured-projects-slider {
+    padding-bottom: 16px !important;
+    margin: 0 -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+  }
+
+  /* Each project card */
+  .th-featured-projects-slider .swiper-slide {
+    width: 280px !important;
+    min-width: 280px !important;
+    margin-right: 16px !important;
+  }
+
+  /* Project image */
+  .th-featured-projects-slider .th-img-container{
+    min-height: 200px !important;
+    aspect-ratio: 0!important;
+  }
+  .th-featured-projects-slider .th-img-container img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 2px !important;
+  }
+
+  /* Project card footer */
+  .th-featured-projects-slider .th-item-footer {
+    padding-top: 16px !important;
+  }
+  /* Project card footer */
+  .th-featured-projects-slider .th-item-footer h3 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px!important;
+  }
+
+  .th-featured-projects-slider h3.th-title.th-item-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #231f20 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .th-featured-projects-slider .th-description {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    color: #33322f !important;
+    margin-bottom: 8px !important;
+  }
+
+  .th-featured-projects-slider .th-link .th-link-text {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #231f20 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+  }
+
+  /* Pinboard add button */
+  .th-featured-projects-slider .th-add-to-pinboard {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+
+  /* Scrollbar */
+  .th-featured-projects-slider .swiper-scrollbar {
+    height: 2px !important;
+    margin: 8px 20px 0 !important;
+    width: auto !important;
+  }
+}
+
+
+/* ============================================================
+   6. BLOCK QUOTE
+   ============================================================ */
+@media (max-width: 768px) {
+  #th-block-quote.th-section-py {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
+    background: #f6f5f3 !important;
+  }
+
+  #th-block-quote .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .th-block-quote {
+    text-align: center !important;
+    padding: 0 !important;
+    margin: 0;
+    border: none !important;
+  }
+
+  .th-block-quote::before,
+  .th-block-quote::after {
+    display: none !important;
+  }
+
+  .th-block-quote p {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    color: #33322f !important;
+  }
+
+  /* Logo replace with text treatment on mobile */
+  .th-block-quote .th-quote-author {
+    font-size: 0 !important; /* hide dash */
+    margin-top: 16px !important;
+  }
+
+  .th-block-quote .th-quote-author img {
+    height: 20px !important;
+    width: auto !important;
+    display: inline-block !important;
+  }
+}
+
+
+/* ============================================================
+   7. DESIGN RESOURCES
+   ============================================================ */
+@media (max-width: 768px) {
+  #home-design-resources {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  #home-design-resources .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section header */
+  #home-design-resources .th-section-header {
+    display: block !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px;
+  }
+
+  #home-design-resources .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+
+  #home-design-resources .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* 2-column grid for resource cards */
+  #home-design-resources .design-resource-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px 16px !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Reset Bootstrap col-md-3 sizing so grid takes over */
+  #home-design-resources .design-resource-item {
+    width: auto !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding: 0 !important;
+  }
+
+  /* Resource card image */
+  #home-design-resources .th-item-resource > a > img {
+    height: 150px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 2px !important;
+    margin-top: 0 !important;
+  }
+
+  /* Resource title */
+  #home-design-resources .th-item-title-bold {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+    display: block;
+  }
+
+  /* Resource description */
+  #home-design-resources .th-description {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-top: 4px !important;
+  }
+
+  #home-design-resources .th-item-resource-content .th-link {
+    padding-bottom: 0 !important;
+  }
+  #home-design-resources .th-item-resource-content .th-link a{
+    margin-top: 0 !important;
+  }
+}
+
+
+/* ============================================================
+   8. FEATURED PRODUCTS (MASONRY)
+   ============================================================ */
+@media (max-width: 768px) {
+  #feature-products.th-section-py {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    background: #ffffff !important;
+  }
+
+  #feature-products .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Section header — centred */
+  #feature-products .th-section-header {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  #feature-products .th-section-header-wrapper.text-center {
+    text-align: center !important;
+    padding-bottom: 24px !important;
+  }
+
+  #feature-products .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+
+  #feature-products .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    max-width: 32em !important;
+    margin: 0 auto !important;
+  }
+
+  /* Override masonry — single column stacked cards */
+  .th-masonry-col-2 .th-masonry-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    column-gap: 0 !important;
+    row-gap: 16px !important;
+  }
+
+  /* Each masonry item — full width card */
+  .th-masonry-grid-item {
+    grid-column: span 1 !important;
+    transform: translateY(0) !important;
+    padding-top: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #e8e8e8 !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Product image — 16:11 aspect ratio */
+  .th-masonry-grid-item .th-item-img {
+    width: 100% !important;
+    aspect-ratio: 16 / 11 !important;
+    overflow: hidden !important;
+    /* background: #f5f5f3 !important; */
+    border: none !important;
+    padding: 15px;
+  }
+
+  .th-masonry-grid-item .th-item-img a,
+  .th-masonry-grid-item .th-item-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Pinboard add button */
+  .th-masonry-grid-item .th-add-to-pinboard {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  /* Product info area */
+  .th-masonry-grid-item .th-product-info-wrapper {
+    padding: 14px 16px 16px !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .th-masonry-grid-item .th-product-info-wrapper .th-item-info {
+   margin-top: 0;
+  }
+  .th-masonry-grid-item .th-item-title-bold {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #231f20 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0px !important;
+  }
+
+  .th-masonry-grid-item .th-description {
+    font-size: 12px !important;
+    color: #33322f !important;
+    line-height: 1.6 !important;
+    margin: 2px 0 0 !important;
+  }
+
+  .th-masonry-grid-item .th-link {
+    padding-top: 0 !important;
+    margin-top: 10px !important;
+  }
+
+  .th-masonry-grid-item .th-link-text {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #231f20 !important;
+    border-bottom: 1px solid #231f20 !important;
+    padding-bottom: 1px !important;
+    display: inline !important;
+  }
+
+  /* Remove old title h6 wrapper double nesting visual redundancy */
+  .th-masonry-grid-item .th-item-info .th-title-17 {
+    margin: 0 !important;
+  }
+
+  .th-masonry-grid-item .th-item-info .th-mt-15 {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* ============================================================
+   9. LATEST NEWS (BLOG SLIDER)
+   ============================================================ */
+@media (max-width: 768px) {
+  #home-blogs.th-section-py {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    overflow: hidden !important;
+  }
+
+  #home-blogs .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section header */
+  #home-blogs .th-section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding-bottom: 20px !important;
+    padding-top: 0px !important;
+    gap: 8px;
+  }
+
+  #home-blogs .th-section-header .right {
+    display: none !important;
+  }
+
+  #home-blogs .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 12px !important;
+    font-weight: 700;
+  }
+
+  #home-blogs .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Horizontal scrollable blog slider */
+  .home-blog-slider {
+    margin: 0 -20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    overflow: visible !important;
+    padding-bottom: 16px !important;
+  }
+
+  /* Each blog slide card */
+  .home-blog-slider .swiper-slide {
+    width: 280px !important;
+    min-width: 280px !important;
+    margin-right: 16px !important;
+    height: auto !important;
+  }
+
+  /* Blog image */
+  .home-blog-slider .img-container img {
+    height: 190px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 2px !important;
+  }
+
+  /* Blog date/category label */
+  .home-blog-slider .th-meta,
+  .home-blog-slider .th-blog-meta,
+  .home-blog-slider [class*="meta"] {
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #999 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Blog title */
+  .home-blog-slider .th-blog-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    color: #231f20 !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+    min-height: 43px !important;
+  }
+  .home-blog-slider .th-blog-title h6{
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+    margin-top: 16px !important;
+    margin-bottom: 8px !important;
+    font-weight: 600 !important;
+    color: rgb(35, 31, 32) !important;
+    min-height: 43px !important;
+  }
+
+  /* Blog excerpt */
+  .home-blog-slider p.font-weight-400,
+  .home-blog-slider .th-description {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    color: #33322f !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Read More link */
+  .home-blog-slider .th-read-more-btn .th-link-text,
+  .home-blog-slider .th-link .th-link-text {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #231f20 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+  }
+
+  /* Pinboard button */
+  .home-blog-slider .th-add-to-pinboard {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+  }
+
+  /* Scrollbar */
+  .home-blog-slider .swiper-scrollbar {
+    height: 2px !important;
+    margin: 8px 20px 0 !important;
+    width: auto !important;
+  }
+}
+
+
+/* ============================================================
+   10. TAKE THE NEXT STEP (NEED HELP SECTION)
+   ============================================================ */
+@media (max-width: 768px) {
+  #need-help-section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    background: #ffffff !important;
+  }
+
+  #need-help-section .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Section header — centred */
+  #need-help-section .th-section-header {
+    display: block !important;
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  #need-help-section .th-section-header-wrapper.text-center {
+    text-align: center !important;
+  }
+
+  #need-help-section .th-section-title {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+    font-weight: 700;
+  }
+
+  #need-help-section .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* 2-column grid for help items */
+  .th-need-help-container {
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+  }
+  .th-need-help-container.grid-5 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px 20px !important;
+  }
+
+  /* 5th orphan item — centre it across both columns */
+  .th-need-help-container.grid-5 .th-item-help:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    max-width: calc(50% - 10px) !important;
+    margin: 0 auto !important;
+  }
+
+  .th-item-help {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Circle icon — override stylesheet.css min/max-width: 115px */
+  .th-item-help .th-btn-circle-icon {
+    width: 72px !important;
+    min-width: 72px !important;
+    max-width: 72px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    border-radius: 50% !important;
+    background: #f0efed !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 14px !important;
+    color: #231f20 !important;
+    aspect-ratio: 1 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .th-item-help .th-btn-circle-icon i {
+    font-size: 28px !important;
+  }
+
+  /* Title */
+  .th-item-help h6.th-item-title-bold {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+    min-height: auto !important;
+    color: #231f20 !important;
+  }
+
+  /* Description */
+  .th-item-help .th-description.th-need-to-help-des-my {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 10px !important;
+    color: #33322f !important;
+  }
+
+  /* Link */
+  .th-item-help .th-link a {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #231f20 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px !important;
+  }
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+@media (max-width: 768px) {
+  #footer-section-container.th-footer {
+    padding-top: 32px !important;
+    padding-bottom: 0 !important;
+    background: #eaeaec !important;
+  }
+
+  #footer-section-container .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Remove desktop 2-column layout */
+  #footer-section-container .row.component-footer {
+    flex-direction: column !important;
+  }
+
+  /* Full width both columns */
+  #footer-section-container .col-lg-8,
+  #footer-section-container .col-lg-4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Remove desktop border between columns */
+  #footer-section-container .border-right-dark {
+    border-right: 0 !important;
+  }
+
+  /* Contact Us heading */
+  #footer-section-container h4.th-footer-title {
+    font-size: 18px !important;
+    margin-bottom: 16px !important;
+    font-weight: 600;
+  }
+
+  /* Email + phone links */
+  #footer-section-container .footer-left-content .text-weight-600.pt-10 {
+    margin-bottom: 0px !important;
+    padding-top: 0px!important;
+  }
+
+  #footer-section-container .footer-left-content .d-flex.align-items-center p,
+  #footer-section-container .footer-left-content .d-flex.align-items-center a {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+  }
+
+  /* Showroom addresses — vertical stack */
+  #footer-section-container .d-grid.grid-col-3 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .th-showroom-address p.th-footer-heading {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .th-showroom-address p.th-address-line,
+  .th-showroom-address p.th-opening-hours,
+  .th-showroom-address .footer-phone-link {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Right column (subscription + nav + social) */
+  #footer-section-container .col-lg-4 .th-subscription {
+    padding-left: 0 !important;
+    padding-top: 24px !important;
+    border-top: 1px solid rgba(33,37,41,0.18) !important;
+    margin-top: 24px !important;
+  }
+
+  #footer-section-container .th-subscription h4.th-footer-title {
+    font-size: 16px !important;
+    margin-bottom: 4px !important;
+  }
+
+  #footer-section-container .th-subscription .description {
+    font-size: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Subscription form — stacked */
+  #footer-section-container .th-subscription-form {
+    flex-direction: column !important;
+    gap: 10px !important;
+    display: flex !important;
+  }
+
+  #footer-section-container .th-subscription-form label {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #footer-section-container .th-subscription-form input[type="email"] {
+    width: 100% !important;
+    height: 44px !important;
+    font-size: 14px !important;
+    padding: 10px 12px !important;
+    border: 1px solid #212529 !important;
+    border-radius: 2px !important;
+  }
+
+  #footer-section-container .th-subscription-form .link {
+    width: 100% !important;
+  }
+
+  #footer-section-container .th-subscription-form button#subscription-form-button {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    padding: 11px 0 !important;
+    font-weight: 600 !important;
+    background: #212529 !important;
+    color: #eaeaec !important;
+    border: none !important;
+    border-radius: 2px !important;
+    cursor: pointer !important;
+  }
+
+  /* Footer nav links */
+  #footer-section-container .th-footer-navigation {
+    padding-top: 0px !important;
+    padding-left: 0 !important;
+  }
+
+  #footer-section-container .th-footer-navigation ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  #footer-section-container .th-footer-navigation ul li {
+    padding: 4px 0 !important;
+  }
+
+  #footer-section-container .th-footer-navigation ul li a {
+    font-size: 12px !important;
+    padding: 4px 8px 4px 8px !important;
+  }
+
+  /* Remove desktop vertical border between nav items */
+  #footer-section-container .th-footer-navigation ul li .link {
+    border-right: 0 !important;
+  }
+
+  /* Social icons */
+  #footer-section-container .th-footer-follow {
+    padding-top: 16px !important;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  #footer-section-container .th-footer-follow p {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  #footer-section-container .social-media-list {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+
+  #footer-section-container .social-media-item .link a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    border: 1px solid #212529 !important;
+    border-radius: 50% !important;
+    font-size: 16px !important;
+    color: #212529 !important;
+    text-decoration: none !important;
+  }
+
+  /* Copyright bar */
+  .th-footer-copyright {
+    margin-top: 24px !important;
+    padding: 12px 0 !important;
+    border-top: 1px solid rgba(33,37,41,0.12) !important;
+  }
+
+  .th-footer-copyright .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .th-footer-copyright-content {
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .th-footer-copyright .text-muted,
+  .th-footer-copyright .copyright-text-right {
+    font-size: 11px !important;
+  }
+}
+
+
+/* ============================================================
+   12. GENERAL TYPOGRAPHY & SPACING OVERRIDES (mobile)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Body font size for readability */
+  body {
+    font-size: 14px !important;
+  }
+
+  /* Section title default size */
+  .th-section-title,
+  h2, .h2 {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Section subtitle */
+  .th-section-subtitle {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Standard section padding */
+  .th-section-py {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Category section padding */
+  .th-section-categories-py {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* Footer section padding */
+  .th-footer-section-py {
+    padding-top: 32px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Section header padding */
+  .th-section-header-pb-50 {
+    padding-bottom: 20px !important;
+  }
+
+  /* View All link — hide on mobile (shown contextually) */
+  /* .th-section-header .right {
+    display: none !important;
+  } */
+
+  .th-section-header .section-header-link-mobile{
+    display: block !important;
+  }
+  .th-section-header .section-header-link-desktop{
+    display: none !important;
+  }
+
+  .th-section-header .right .th-view-all-btn {
+    font-size: 15px !important;
+  }
+  .th-section-header .right .th-section-header-link .th-section-header-link-btn{
+    display: flex !important;
+    min-width: 25px !important;
+    height: 25px !important;
+    width: 25px !important;
+  }
+  .th-section-header .right .th-section-header-link .th-section-header-link-btn i{
+    font-size: 15px !important;
+  }
+
+
+  /* Section header layout */
+  .th-section-header.sectionHeaderClass {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  /* Container max-width — full bleed on mobile */
+  .th-container,
+  .th-container-md {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Ensure images are never oversized */
+  img {
+    max-width: 100% !important;
+    height: auto;
+  }
+}
+
+
+/* ============================================================
+   13. EXTRA SMALL DEVICES (max-width: 390px)
+   ============================================================ */
+@media (max-width: 390px) {
+  .th-hero-title.th-hero-title-mb {
+    font-size: 22px !important;
+  }
+
+  .th-section-title,
+  h2, .h2 {
+    font-size: 18px !important;
+  }
+
+  /* Need help grid — keep 2 columns on very small screens */
+  .th-need-help-container.grid-5 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px 20px !important;
+  }
+
+  /* Design resources — keep 2 columns even on very small screens */
+  #home-design-resources .design-resource-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px 12px !important;
+  }
+}
+
+
+/* ============================================================
+   14. HIDE DESKTOP-ONLY ELEMENTS ON MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Admin / component edit links */
+  .th-component-edit-link {
+    display: none !important;
+  }
+
+  /* Desktop sticky nav (the .sticky class adds it) */
+  .sticky-wrapper.desktop-menu .main-menu {
+    display: none !important;
+  }
+
+  /* Way-points container */
+  .way-points-container {
+    display: none !important;
+  }
+
+  /* Product label / subtitle */
+  .th-label.th-item-subtitle-my {
+    display: none !important;
+  }
+}

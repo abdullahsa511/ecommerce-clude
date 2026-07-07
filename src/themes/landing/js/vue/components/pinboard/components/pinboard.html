@@ -1,0 +1,52 @@
+<template>
+
+    <div class="bg-gray pinboard-app-root">
+        <!-- Desktop: original single-row header (md and up) -->
+
+
+        <PinboardHeaderDesktop />
+
+        <!-- Mobile: title + close, then project block (below md only) -->
+
+        <PinboardHeaderMobile />
+
+
+
+        <!-- Search + list + footer: md–lg = 2 columns; stacked on mobile & lg+ -->
+        <div class="offcanvas-body">
+            <div class="th-pinboard th-pinboard--tablet-split">
+                <div
+                    class="row gx-0 gx-md-3 gx-lg-0 gy-0 align-items-md-stretch align-items-lg-start mx-0 pinboard-offcanvas-tablet-row">
+                    <div class="col-12 col-md-7 col-lg-12 px-0 pinboard-offcanvas-col pinboard-offcanvas-col--main">
+                        <PinboardSearchBar />
+                        <PinboardItems />
+                    </div>
+                    <div class="col-12 col-md-5 col-lg-12 px-0 pinboard-offcanvas-col pinboard-offcanvas-col--actions">
+                        <PinboardBottom />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal section  -->
+        <PinboardShowProjectModal />
+        <PinboardShowroomVisitModal />
+
+
+        <!-- Live camera (opens on Add Image; then title/note modal) -->
+        <PinboardShowLiveCamera />
+
+
+        <!-- Add image: title / note -->
+        <PinboardShowImageModal />
+        <PinboardCreateNewProjectModal />
+
+
+        <!--============================== End Virtual Pinboard ==============================-->
+
+
+
+
+
+    </div>
+</template>

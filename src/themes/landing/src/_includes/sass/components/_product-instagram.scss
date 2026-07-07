@@ -1,0 +1,376 @@
+.th-product-instagram-section {
+    .th-product-instagram-card {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+    .th-product-instagram-img {
+        min-height: 420px;
+    }
+
+    .th-product-instagram-overlay {
+        .th-product-instagram-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .th-instagram-link {
+            display: inline-flex;
+            pointer-events: none;
+
+            i {
+                font-size: 48px;
+            }
+        }
+    }
+
+    @include respond-to(sm) {
+        .th-product-instagram-img {
+            min-height: 280px;
+        }
+    }
+}
+
+body.th-product-instagram-modal-open {
+    overflow: hidden;
+}
+
+.th-product-instagram-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+    }
+
+    &__wrapper {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 60px;
+        pointer-events: none;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    &__dialog {
+        position: relative;
+        width: 100%;
+        max-width: 1180px;
+        padding: 30px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+        pointer-events: auto;
+        box-sizing: border-box;
+    }
+
+    &__media {
+        padding-bottom: 30px;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        min-height: 490px;
+        object-fit: cover;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 0 24px;
+    }
+
+    &__header {
+        flex-shrink: 0;
+        margin: 0 0 24px;
+        gap: 16px;
+    }
+
+    &__nav-group {
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    &__close,
+    &__nav {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #111;
+        cursor: pointer;
+        flex-shrink: 0;
+        opacity: 1;
+
+        i {
+            font-size: 22px;
+            pointer-events: none;
+        }
+
+        &.is-disabled {
+            color: #999;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+
+    &__nav-icon--flip {
+        display: inline-block;
+        transform: scaleX(-1);
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        flex: 1;
+        padding-right: 6px;
+    }
+
+    &__caption {
+        font-size: 15px;
+        line-height: 1.7;
+        font-style: italic;
+        color: #111;
+        white-space: pre-line;
+    }
+
+    &__product-link,
+    &__instagram-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #111;
+        text-decoration: none;
+        font-size: 15px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &[hidden] {
+            display: none !important;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 15px;
+        line-height: 1.6;
+
+        p {
+            margin: 0 0 4px;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #111;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__hashtags {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #333;
+        white-space: pre-line;
+    }
+
+    &__meta {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+    &__share {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-top: auto;
+        padding-top: 12px;
+
+        a,
+        button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: #111;
+            cursor: pointer;
+            text-decoration: none;
+
+            i {
+                font-size: 18px;
+            }
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // iPad landscape and below
+    @include respond-to(lg) {
+        &__wrapper {
+            padding: 40px;
+        }
+
+        &__dialog {
+            padding: 0 24px 24px 24px;
+        }
+
+        &__image {
+            min-height: 420px;
+        }
+
+        &__content {
+            padding-left: 20px;
+        }
+
+        &__caption {
+            font-size: 17px;
+        }
+    }
+
+    // iPad portrait and below
+    @include respond-to(md) {
+        &__wrapper {
+            padding: 24px;
+            align-items: flex-start;
+        }
+
+        &__dialog {
+            padding: 0 20px 20px 20px;
+        }
+
+        &__media {
+            padding-bottom: 20px;
+        }
+
+        &__image {
+            min-height: 360px;
+        }
+
+        &__content {
+            padding: 20px 0 0;
+        }
+
+        &__header {
+            margin-bottom: 20px;
+        }
+
+        &__caption {
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        &__product-link,
+        &__instagram-link,
+        &__contact {
+            font-size: 14px;
+        }
+    }
+
+    // Mobile
+    @include respond-to(sm) {
+        &__wrapper {
+            padding: 16px;
+        }
+
+        &__dialog {
+            padding: 0 16px 16px 16px;
+        }
+
+        &__media {
+            padding-bottom: 16px;
+        }
+
+        &__image {
+            min-height: 260px;
+        }
+
+        &__header {
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        &__close,
+        &__nav {
+            width: 36px;
+            height: 36px;
+
+            i {
+                font-size: 18px;
+            }
+        }
+
+        &__body {
+            gap: 14px;
+        }
+
+        &__caption {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        &__hashtags {
+            font-size: 13px;
+        }
+
+        &__meta {
+            font-size: 11px;
+        }
+
+        &__share {
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+    }
+}

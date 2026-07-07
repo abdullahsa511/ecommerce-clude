@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('PINBOARD SUBMISSION - [Project Name] from [Client Name]') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+          <tr>
+            <td style="padding:24px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;">Hi {{ team_name|default('Team') }},</p>
+              <p style="margin:0 0 20px 0;">A new project pinboard has been submitted via the website. Please review the details below and allocate a consultant to manage this lead.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 5px 0;"><strong>Client Information:</strong></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 8px; color: #374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0px 16px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:22px;">
+                      <li style="line-height: 1.7;"><strong>Name:</strong> {{ client_name|default('[Client Name]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Email:</strong> {{ client_email|default('[Client Email]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Company:</strong> {{ company|default('[Company Name]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Phone:</strong> {{ phone|default('[Phone Number]') }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 5px 0;"><strong>Pinboard Details:</strong></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 8px; color: #374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0px 16px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:22px;">
+                      <li style="line-height: 1.7;"><strong>Pinboard Name:</strong> {{ pinboard_name|default('[Project Name]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Number of Items:</strong> {{ items_count|default('[]') }}</li>
+                      <li style="line-height: 1.7;"><strong>Company:</strong> [<a href="{{ board_url|default('#') }}" style="font-style:italic; text-decoration:underline; color:#0097a7;">{{ board_link_label|default('URL to see the board') }}</a>]</li>
+                      <li style="line-height: 1.7;"><strong>Phone:</strong> {{ pinboard_phone|default('[Phone Number]') }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 20px 0;"><strong>Client Message/Notes:</strong> {{ client_notes|default("[Insert Client Notes here or 'None']") }}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0 24px 20px 24px; font-size:16px; line-height: 16px; color:#374151;">
+              <p style="margin:0 0 6px 0;">Best regards,</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

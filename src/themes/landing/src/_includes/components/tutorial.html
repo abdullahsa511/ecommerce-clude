@@ -1,0 +1,550 @@
+<div id="user-tutorial" class="is-hidden" aria-hidden="true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+
+    /* ---- overlay shell (fixed viewport layer) ---- */
+    #user-tutorial {
+        position: fixed;
+        inset: 0;
+        z-index: 10050;
+        display: none;
+    }
+    #user-tutorial.is-visible {
+        display: block;
+    }
+    #user-tutorial.is-hidden {
+        display: none !important;
+    }
+    body.user-tutorial-open {
+        overflow: hidden;
+    }
+
+    /* never show on mobile */
+    @media (max-width: 768px) {
+        #user-tutorial,
+        #user-tutorial.is-visible {
+            display: none !important;
+        }
+        body.user-tutorial-open {
+            overflow: auto;
+        }
+    }
+
+    /* ---- keyframes ---- */
+    @keyframes kpb-pinRing { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(1.9); opacity: 0; } }
+    @keyframes kpb-caret   { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* ============================ COMPONENT ============================ */
+    #user-tutorial #krost-pinboard { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: #1b1b1a; }
+    #user-tutorial #krost-pinboard *, #user-tutorial #krost-pinboard *::before, #user-tutorial #krost-pinboard *::after { box-sizing: border-box; }
+    #user-tutorial #krost-pinboard button { white-space: nowrap; font-family: inherit; }
+
+    /* overlay stage — centres the modal over the page */
+    #user-tutorial #krost-pinboard .stage {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 24px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+    #user-tutorial #krost-pinboard.is-closed .stage { display: none; }
+
+    /* modal shell — override Bootstrap .modal (position:fixed;top:0;left:0) */
+    #user-tutorial #krost-pinboard .modal {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        z-index: auto;
+        width: 900px;
+        max-width: 100%;
+        min-height: 446px;
+        height: auto;
+        margin: 0;
+        overflow: hidden;
+        outline: none;
+        background: #fff;
+        border-radius: 18px;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        box-shadow: 0 40px 80px -20px rgba(0,0,0,.5);
+        pointer-events: auto;
+    }
+
+    /* ---- visual column ---- */
+    #user-tutorial #krost-pinboard .modal__visual { background: #f2f2f0; padding: 22px; display: flex; align-items: center; justify-content: center; border-right: 1px solid #ececea; }
+    #user-tutorial #krost-pinboard .device { width: 100%; height: 360px; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 30px -16px rgba(0,0,0,.3); background: #f2f2f0; position: relative; display: flex; flex-direction: column; }
+    #user-tutorial #krost-pinboard .device > * { height: 100%; }
+
+    /* shared pinboard icon + count badge */
+    #user-tutorial #krost-pinboard .pinboard-icon { position: relative; display: inline-flex; }
+    #user-tutorial #krost-pinboard .pinboard-icon img { height: 22px; width: auto; display: block; }
+    #user-tutorial #krost-pinboard .pinboard-icon__count { position: absolute; top: -6px; right: -7px; min-width: 14px; height: 14px; border-radius: 8px; background: #1b1b1a; color: #fff; font-size: 9px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; padding: 0 3px; border: 1.5px solid #fff; }
+    #user-tutorial #krost-pinboard .pinboard-icon--on-grey .pinboard-icon__count { border-color: #ececeb; }
+
+    /* STEP 1 — browse */
+    #user-tutorial #krost-pinboard .browse { display: flex; flex-direction: column; height: 100%; }
+    #user-tutorial #krost-pinboard .browse__bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #fff; border-bottom: 1px solid #ececea; flex: none; }
+    #user-tutorial #krost-pinboard .browse__logo { height: 12px; width: auto; display: block; }
+    #user-tutorial #krost-pinboard .browse__nav { display: flex; align-items: center; gap: 12px; }
+    #user-tutorial #krost-pinboard .nav-bar { width: 30px; height: 5px; border-radius: 3px; background: #e4e4e1; display: block; }
+    #user-tutorial #krost-pinboard .nav-bar--sm { width: 24px; }
+    #user-tutorial #krost-pinboard .browse__body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 11px; min-height: 0; }
+    #user-tutorial #krost-pinboard .browse__title { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+    #user-tutorial #krost-pinboard .browse__sub { font-size: 10.5px; color: #8a8a86; margin-top: 1px; }
+    #user-tutorial #krost-pinboard .browse__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; flex: 1; min-height: 0; }
+
+    #user-tutorial #krost-pinboard .product-card { background: #fff; border: 1px solid #e7e7e3; border-radius: 11px; overflow: hidden; display: flex; flex-direction: column; }
+    #user-tutorial #krost-pinboard .product-card__media { position: relative; flex: 1; min-height: 70px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #user-tutorial #krost-pinboard .product-card__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    #user-tutorial #krost-pinboard .product-card__label { padding: 9px 11px; font-size: 12px; font-weight: 700; flex: none; }
+
+    #user-tutorial #krost-pinboard .pin { position: absolute; top: 9px; right: 9px; width: 30px; height: 30px; background-color: transparent;}
+    #user-tutorial #krost-pinboard .pin__ring { position: absolute; inset: 0; border-radius: 50%; background: #1b1b1a; animation: kpb-pinRing 1.9s ease-out infinite; }
+    #user-tutorial #krost-pinboard .pin__btn { position: absolute; inset: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #f0f0ee; border: 1px solid #e0e0dc; color: #1b1b1a; }
+    #user-tutorial #krost-pinboard .pin--active .pin__btn { background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.14); }
+    #user-tutorial #krost-pinboard .pin__btn svg { width: 12px; height: 12px; display: block; }
+
+    /* STEP 2 — board */
+    #user-tutorial #krost-pinboard .board { height: 100%; background: #ececeb; display: flex; flex-direction: column; padding: 15px; }
+    #user-tutorial #krost-pinboard .board__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; flex: none; }
+    #user-tutorial #krost-pinboard .board__title { font-size: 15px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; }
+    #user-tutorial #krost-pinboard .board__list { display: flex; flex-direction: column; gap: 9px; flex: 1; min-height: 0; }
+
+    #user-tutorial #krost-pinboard .pin-row { background: #fff; border-radius: 11px; padding: 10px; display: flex; align-items: center; gap: 11px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+    #user-tutorial #krost-pinboard .pin-row__thumb { width: 50px; height: 42px; border-radius: 7px; flex: none; overflow: hidden; }
+    #user-tutorial #krost-pinboard .pin-row__thumb img { width: 100%; height: 100%; display: block; }
+    #user-tutorial #krost-pinboard .pin-row__thumb--cover { background: #f0f0ee; }
+    #user-tutorial #krost-pinboard .pin-row__thumb--cover img { object-fit: cover; }
+    #user-tutorial #krost-pinboard .pin-row__thumb--contain { background: #fff; }
+    #user-tutorial #krost-pinboard .pin-row__thumb--contain img { object-fit: contain; }
+    #user-tutorial #krost-pinboard .pin-row__info { flex: 1; min-width: 0; line-height: 1.2;}
+    #user-tutorial #krost-pinboard .pin-row__title { font-size: 12.5px; font-weight: 700; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #user-tutorial #krost-pinboard .pin-row__type { font-size: 9.5px; color: #9a9a95; text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+    #user-tutorial #krost-pinboard .pin-row__note { font-size: 10.5px; color: #8a8a86; margin-top: 4px; }
+    #user-tutorial #krost-pinboard .pin-row__actions { display: flex; align-items: center; gap: 9px; flex: none; color: #bdbdb8; }
+    #user-tutorial #krost-pinboard .pin-row__actions svg { display: block; }
+    #user-tutorial #krost-pinboard .pin-row__actions .icon-drag { width: 14px; height: 14px; }
+    #user-tutorial #krost-pinboard .pin-row__actions .icon-remove { width: 13px; height: 13px; }
+
+    /* STEP 3 — save */
+    #user-tutorial #krost-pinboard .save { height: 100%; background: #ececeb; display: flex; flex-direction: column; padding: 15px; }
+    #user-tutorial #krost-pinboard .save__title { font-size: 15px; font-weight: 800; letter-spacing: -.01em; margin-bottom: 11px; flex: none; }
+    #user-tutorial #krost-pinboard .project-chip { background: #fff; border-radius: 11px; padding: 11px; display: flex; align-items: center; gap: 10px; margin-bottom: 13px; flex: none; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+    #user-tutorial #krost-pinboard .project-chip__avatar { width: 34px; height: 34px; border-radius: 8px; background: #1b1b1a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex: none; }
+    #user-tutorial #krost-pinboard .project-chip__info { flex: 1; min-width: 0; }
+    #user-tutorial #krost-pinboard .project-chip__name { font-size: 12.5px; font-weight: 700; }
+    #user-tutorial #krost-pinboard .project-chip__meta { font-size: 10.5px; color: #8a8a86; }
+    #user-tutorial #krost-pinboard .project-chip__tag { font-size: 9.5px; color: #9a9a95; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+    #user-tutorial #krost-pinboard .save__fields { display: flex; flex-direction: column; gap: 9px; flex: 1; min-height: 0; }
+    #user-tutorial #krost-pinboard .field { background: #fff; border: 1px solid #e0e0dc; border-radius: 10px; padding: 11px 13px; font-size: 12px; }
+    #user-tutorial #krost-pinboard .field--filled { font-weight: 700; color: #1b1b1a; }
+    #user-tutorial #krost-pinboard .field--email { color: #9a9a95; display: flex; align-items: center; }
+    #user-tutorial #krost-pinboard .caret { width: 1px; height: 13px; background: #1b1b1a; display: inline-block; animation: kpb-caret 1.1s step-end infinite; margin-left: 1px; }
+    #user-tutorial #krost-pinboard .save__btn { margin-top: 12px; flex: none; background: #161614; color: #fff; border: none; border-radius: 10px; padding: 13px; font-size: 12.5px; font-weight: 700; cursor: pointer; letter-spacing: .01em; }
+
+    /* STEP 4 — quote */
+    #user-tutorial #krost-pinboard .quote { height: 100%; background: #f2f2f0; display: flex; flex-direction: column; padding: 15px; }
+    #user-tutorial #krost-pinboard .saved-chip { background: #fff; border: 1px solid #e7e7e3; border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; flex: none; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
+    #user-tutorial #krost-pinboard .saved-chip__avatar { width: 30px; height: 30px; border-radius: 7px; background: #1b1b1a; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex: none; }
+    #user-tutorial #krost-pinboard .saved-chip__info { flex: 1; min-width: 0; }
+    #user-tutorial #krost-pinboard .saved-chip__name { font-size: 12.5px; font-weight: 700; line-height: 1.2; }
+    #user-tutorial #krost-pinboard .saved-chip__meta { font-size: 10px; color: #9a9a95; margin-top: 1px; }
+    #user-tutorial #krost-pinboard .saved-chip__status { display: inline-flex; align-items: center; gap: 4px; background: #eaf6f0; color: #1f7a52; border-radius: 20px; padding: 3px 8px; font-size: 9px; font-weight: 700; flex: none; }
+    #user-tutorial #krost-pinboard .saved-chip__status svg { width: 9px; height: 9px; display: block; }
+    #user-tutorial #krost-pinboard .quote__title { font-size: 13px; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; margin: 14px 0 10px; flex: none; }
+    #user-tutorial #krost-pinboard .quote__methods { display: flex; flex-direction: column; gap: 8px; flex: 1; min-height: 0; }
+    #user-tutorial #krost-pinboard .method { background: #fff; border: 1px solid #e0e0dc; border-radius: 9px; padding: 10px 12px; display: flex; align-items: center; gap: 11px; }
+    #user-tutorial #krost-pinboard .method__icon { display: flex; color: #1b1b1a; flex: none; }
+    #user-tutorial #krost-pinboard .method__icon svg { width: 15px; height: 15px; display: block; }
+    #user-tutorial #krost-pinboard .method__label { font-size: 12px; font-weight: 700; color: #1b1b1a; white-space: nowrap; }
+
+    /* ---- copy column ---- */
+    #user-tutorial #krost-pinboard .modal__copy { padding: 34px 34px 28px; display: flex; flex-direction: column; position: relative; }
+    #user-tutorial #krost-pinboard .close { position: absolute; top: 18px; right: 18px; width: 32px; height: 32px; border-radius: 50%; border: none; background: #f0f0ee; color: #6f6f6b; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    #user-tutorial #krost-pinboard .badge { position: relative; display: inline-flex; align-items: center; gap: 7px; align-self: flex-start; background: #1b1b1a; color: #fff; border-radius: 20px; padding: 5px 12px; font-size: 11px; font-weight: 700; letter-spacing: .05em; margin-bottom: 20px; }
+    #user-tutorial #krost-pinboard .badge__dot { width: 6px; height: 6px; border-radius: 50%; background: #2f9e6b; display: block; }
+    #user-tutorial #krost-pinboard .step-label { font-family: 'Spline Sans Mono', monospace; font-size: 11px; color: #a3a39e; letter-spacing: .08em; margin-bottom: 10px; }
+    #user-tutorial #krost-pinboard .step-title { font-size: 27px; line-height: 1.1; font-weight: 800; letter-spacing: -.02em; margin: 0 0 14px; }
+    #user-tutorial #krost-pinboard .step-body p { font-size: 14.5px; line-height: 1.6; color: #5e5e58; margin: 0 0 14px; }
+    #user-tutorial #krost-pinboard .step-body p:last-child { margin-bottom: 0; }
+    #user-tutorial #krost-pinboard .step-body strong { font-weight: 700; color: #1b1b1a; }
+
+    /* + badge inside the step-1 copy */
+    #user-tutorial #krost-pinboard .plus-badge { display: inline-flex; align-items: center; justify-content: center; width: .95em; height: .95em; background: #ececea; border-radius: 50%; font-weight: 500; line-height: 0; vertical-align: middle; position: relative; top: -.05em; }
+    #user-tutorial #krost-pinboard .plus-badge > span { display: block; transform: translateY(-.07em); }
+    #user-tutorial #krost-pinboard .plus-badge--body { width: 1.4em; height: 1.4em; top: -.08em; color: #1b1b1a; }
+
+    #user-tutorial #krost-pinboard .spacer { flex: 1; min-height: 24px; }
+    #user-tutorial #krost-pinboard .footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    #user-tutorial #krost-pinboard .dots { display: flex; gap: 7px; align-items: center; }
+    #user-tutorial #krost-pinboard .dot { width: 7px; height: 7px; border-radius: 4px; border: none; background: #cfcfca; cursor: pointer; padding: 0; transition: all .25s; }
+    #user-tutorial #krost-pinboard .dot--active { width: 24px; background: #1b1b1a; }
+    #user-tutorial #krost-pinboard .actions { display: flex; align-items: center; gap: 10px; }
+    #user-tutorial #krost-pinboard .btn-text { background: none; border: none; font-size: 13.5px; font-weight: 600; color: #6f6f6b; cursor: pointer; padding: 11px 6px; }
+    #user-tutorial #krost-pinboard .btn-primary { background: #161614; color: #fff; border: none; border-radius: 11px; padding: 12px 26px; font-size: 13.5px; font-weight: 700; cursor: pointer; }
+
+    /* responsive: stack on narrow screens */
+    @media (max-width: 720px) {
+        #user-tutorial #krost-pinboard .modal { grid-template-columns: 1fr; }
+        #user-tutorial #krost-pinboard .modal__visual { border-right: none; border-bottom: 1px solid #ececea; }
+    }
+    </style>
+
+
+    <div id="krost-pinboard">
+    <div class="stage">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="kpb-title">
+  
+        <!-- LEFT: visual preview (rendered from data) -->
+        <div class="modal__visual">
+          <div class="device" id="kpb-device"></div>
+        </div>
+  
+        <!-- RIGHT: copy + navigation -->
+        <div class="modal__copy">
+          <button class="close" id="kpb-close" type="button" aria-label="Close">&times;</button>
+          <div class="badge"><span class="badge__dot"></span>NEW ON KROST</div>
+          <div class="step-label" id="kpb-label"></div>
+          <h3 class="step-title" id="kpb-title"></h3>
+          <div class="step-body" id="kpb-body"></div>
+          <div class="spacer"></div>
+          <div class="footer">
+            <div class="dots" id="kpb-dots"></div>
+            <div class="actions">
+              <button class="btn-text" id="kpb-back" type="button">Back</button>
+              <button class="btn-primary" id="kpb-next" type="button">Next</button>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  <script>
+  (function () {
+    "use strict";
+
+    var STORAGE_KEY = "krost_pinboard_tutorial_seen";
+    var ASSET_BASE = "/assets/";
+
+    var tutorialShell = document.getElementById("user-tutorial");
+    if (!tutorialShell) { return; }
+
+    var MOBILE_MQ = window.matchMedia("(max-width: 768px)");
+
+    function isMobileView() {
+      return MOBILE_MQ.matches;
+    }
+
+    function hasSeenTutorial() {
+      try {
+        return localStorage.getItem(STORAGE_KEY) === "true";
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function markTutorialSeen() {
+      try {
+        localStorage.setItem(STORAGE_KEY, "true");
+      } catch (e) { /* ignore quota / private mode */ }
+    }
+
+    function showTutorial() {
+      tutorialShell.classList.remove("is-hidden");
+      tutorialShell.classList.add("is-visible");
+      tutorialShell.setAttribute("aria-hidden", "false");
+      document.body.classList.add("user-tutorial-open");
+    }
+
+    function hideTutorial() {
+      tutorialShell.classList.remove("is-visible");
+      tutorialShell.classList.add("is-hidden");
+      tutorialShell.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("user-tutorial-open");
+    }
+
+    if (hasSeenTutorial()) {
+      hideTutorial();
+      return;
+    }
+  
+    /* ===================== CONTENT (edit me) ===================== */
+  
+    var STEPS = [
+      {
+        label: "01 · Browse",
+        visual: "browse",
+        titleHtml: 'Spot something you love? Hit the <span class="plus-badge"><span>+</span></span>',
+        body: [
+          'Every product, project gallery, blog post, and showroom setting features a <span class="plus-badge plus-badge--body"><span>+</span></span> icon.',
+          'One simple click saves it directly to your temporary board—no sign-up, no checkout, no friction.'
+        ]
+      },
+      {
+        label: "02 · Pin it",
+        visual: "board",
+        titleHtml: "Watch your workspace vision take shape",
+        body: [
+          "Products, project galleries, blog posts, and showroom settings all live side-by-side.",
+          "You can seamlessly reorder items, remove alternatives, add custom notes, or even upload your own reference images straight from your device to keep all your inspiration in one place."
+        ]
+      },
+      {
+        label: "03 · Save",
+        visual: "save",
+        titleHtml: "Name your project to lock it in",
+        body: [
+          "Give your pinboard a custom name and enter your email address and verify with OTP to securely save it.",
+          "Pick up right where you left off on any desktop, tablet, or mobile device."
+        ]
+      },
+      {
+        label: "04 · Quote",
+        visual: "quote",
+        titleHtml: "Let\u2019s turn your concept into a tailored quote",
+        body: [
+          'Once saved, you can instantly share your board with us by choosing one of our four contact methods: an <strong>email confirmation</strong>, a <strong>quick phone call request</strong>, booking a <strong>showroom tour</strong>, or a <strong>virtual meeting</strong>.',
+          "A Krost consultant will review your curated selections and reach out shortly with customised pricing and options built around your project."
+        ]
+      }
+    ];
+  
+    var BROWSE_ITEMS = [
+      { name: "Archi", image: "sm-archi-chair.jpg", pinned: true },
+      { name: "Kove",  image: "sm-kove-chair.jpg",  pinned: false }
+    ];
+  
+    var PINBOARD_ITEMS = [
+      { title: "MA Financial Suite",                              type: "Project", image: "sm-ma-financial.jpg",    fit: "cover" },
+      { title: "Ace",                                             type: "Product", image: "sm-ace-workstation.jpg", fit: "contain" },
+      { title: "Sensory Layering in Australian Workplace Design", type: "Post",    image: "sm-sensory-post.jpg",    fit: "cover" },
+      { title: "Archi",                                           type: "Product", image: "sm-archi-item.jpg",      fit: "contain" }
+    ];
+  
+    var PROJECT = {
+      boardName: "Virtual Pinboard",
+      name: "Acme HQ \u2014 Level 12 fitout",
+      itemCount: 4,
+      email: "you@company.com.au"
+    };
+  
+    var CONTACT_METHODS = [
+      { label: "Request a Call Back",        icon: "phone" },
+      { label: "Email a Consultant",         icon: "mail" },
+      { label: "Book a Showroom Tour",       icon: "calendar" },
+      { label: "Book a Video Consultation",  icon: "video" }
+    ];
+  
+    var ICONS = {
+      plus:     '<svg viewBox="0 0 24 24" fill="none"><path d="M12 5.5v13M5.5 12h13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',
+      drag:     '<svg class="icon-drag" viewBox="0 0 16 16" fill="none"><circle cx="2.5" cy="4" r="1" fill="currentColor"/><circle cx="2.5" cy="8" r="1" fill="currentColor"/><circle cx="2.5" cy="12" r="1" fill="currentColor"/><rect x="6" y="3.25" width="8" height="1.5" rx="0.75" fill="currentColor"/><rect x="6" y="7.25" width="8" height="1.5" rx="0.75" fill="currentColor"/><rect x="6" y="11.25" width="8" height="1.5" rx="0.75" fill="currentColor"/></svg>',
+      remove:   '<svg class="icon-remove" viewBox="0 0 16 16"><path d="M3 3 L13 13 M13 3 L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+      check:    '<svg viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      phone:    '<svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l1.5 4.5L7.5 10a11 11 0 0 0 6 6l1.5-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+      mail:     '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>',
+      calendar: '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      video:    '<svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M16 10l5-3v10l-5-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+    };
+  
+    function asset(file) { return ASSET_BASE + file; }
+    function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  
+    function renderBrowse() {
+      var cards = BROWSE_ITEMS.map(function (item) {
+        return '' +
+          '<div class="product-card">' +
+            '<div class="product-card__media">' +
+              '<img src="' + asset(item.image) + '" alt="' + esc(item.name) + '" loading="lazy">' +
+              '<div class="pin' + (item.pinned ? ' pin--active' : '') + '">' +
+                (item.pinned ? '<span class="pin__ring"></span>' : '') +
+                '<span class="pin__btn">' + ICONS.plus + '</span>' +
+              '</div>' +
+            '</div>' +
+            '<div class="product-card__label">' + esc(item.name) + '</div>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="browse">' +
+          '<div class="browse__bar">' +
+            '<img class="browse__logo" src="' + asset("krost-logo.png") + '" alt="KROST" loading="lazy">' +
+            '<div class="browse__nav">' +
+              '<span class="nav-bar"></span>' +
+              '<span class="nav-bar nav-bar--sm"></span>' +
+              '<span class="pinboard-icon">' +
+                '<img src="' + asset("pinboard-icon.png") + '" alt="Pinboard" loading="lazy">' +
+                '<span class="pinboard-icon__count">3</span>' +
+              '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="browse__body">' +
+            '<div>' +
+              '<div class="browse__title">Task Seating</div>' +
+              '<div class="browse__sub">Tap the + on anything you like</div>' +
+            '</div>' +
+            '<div class="browse__grid">' + cards + '</div>' +
+          '</div>' +
+        '</div>';
+    }
+  
+    function renderBoard() {
+      var rows = PINBOARD_ITEMS.map(function (item) {
+        return '' +
+          '<div class="pin-row">' +
+            '<div class="pin-row__thumb pin-row__thumb--' + item.fit + '">' +
+              '<img src="' + asset(item.image) + '" alt="' + esc(item.title) + '" loading="lazy">' +
+            '</div>' +
+            '<div class="pin-row__info">' +
+              '<div class="pin-row__title">' + esc(item.title) + '</div>' +
+              '<div class="pin-row__type">' + esc(item.type) + '</div>' +
+              '<div class="pin-row__note">+ Add Note</div>' +
+            '</div>' +
+            '<div class="pin-row__actions">' + ICONS.drag + ICONS.remove + '</div>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="board">' +
+          '<div class="board__head">' +
+            '<div class="board__title">' + esc(PROJECT.boardName) + '</div>' +
+            '<span class="pinboard-icon pinboard-icon--on-grey">' +
+              '<img src="' + asset("pinboard-icon.png") + '" alt="Pinboard" loading="lazy">' +
+              '<span class="pinboard-icon__count">' + PROJECT.itemCount + '</span>' +
+            '</span>' +
+          '</div>' +
+          '<div class="board__list">' + rows + '</div>' +
+        '</div>';
+    }
+  
+    function renderSave() {
+      return '' +
+        '<div class="save">' +
+          '<div class="save__title">Save your project</div>' +
+          '<div class="project-chip">' +
+            '<div class="project-chip__avatar">V</div>' +
+            '<div class="project-chip__info">' +
+              '<div class="project-chip__name">' + esc(PROJECT.boardName) + '</div>' +
+              '<div class="project-chip__meta">' + PROJECT.itemCount + ' items</div>' +
+            '</div>' +
+            '<div class="project-chip__tag">Project</div>' +
+          '</div>' +
+          '<div class="save__fields">' +
+            '<div class="field field--filled">' + esc(PROJECT.name) + '</div>' +
+            '<div class="field field--email">' + esc(PROJECT.email) + '<span class="caret"></span></div>' +
+          '</div>' +
+          '<button class="save__btn" type="button">Save Project And Continue</button>' +
+        '</div>';
+    }
+  
+    function renderQuote() {
+      var methods = CONTACT_METHODS.map(function (m) {
+        return '' +
+          '<div class="method">' +
+            '<span class="method__icon">' + (ICONS[m.icon] || "") + '</span>' +
+            '<span class="method__label">' + esc(m.label) + '</span>' +
+          '</div>';
+      }).join("");
+  
+      return '' +
+        '<div class="quote">' +
+          '<div class="saved-chip">' +
+            '<div class="saved-chip__avatar">V</div>' +
+            '<div class="saved-chip__info">' +
+              '<div class="saved-chip__name">' + esc(PROJECT.name) + '</div>' +
+              '<div class="saved-chip__meta">' + PROJECT.itemCount + ' items \u00b7 Project</div>' +
+            '</div>' +
+            '<div class="saved-chip__status">' + ICONS.check + 'Saved</div>' +
+          '</div>' +
+          '<div class="quote__title">Connect with a Krost consultant for a quote</div>' +
+          '<div class="quote__methods">' + methods + '</div>' +
+        '</div>';
+    }
+  
+    var VISUALS = { browse: renderBrowse, board: renderBoard, save: renderSave, quote: renderQuote };
+  
+    var root   = document.getElementById("krost-pinboard");
+    var device = document.getElementById("kpb-device");
+    var elLabel = document.getElementById("kpb-label");
+    var elTitle = document.getElementById("kpb-title");
+    var elBody  = document.getElementById("kpb-body");
+    var elDots  = document.getElementById("kpb-dots");
+    var btnBack = document.getElementById("kpb-back");
+    var btnNext = document.getElementById("kpb-next");
+    var btnClose = document.getElementById("kpb-close");
+  
+    var step = 0;
+    var initialized = false;
+  
+    function render() {
+      var s = STEPS[step];
+      var isLast = step === STEPS.length - 1;
+  
+      device.innerHTML = (VISUALS[s.visual] || function () { return ""; })();
+      elLabel.textContent = s.label;
+      elTitle.innerHTML = s.titleHtml;
+      elBody.innerHTML = s.body.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+  
+      elDots.innerHTML = STEPS.map(function (_, i) {
+        return '<button class="dot' + (i === step ? " dot--active" : "") +
+               '" type="button" data-step="' + i + '" aria-label="Step ' + (i + 1) + '"></button>';
+      }).join("");
+  
+      btnBack.style.display = step > 0 ? "" : "none";
+      btnNext.textContent = isLast ? "Start Pinning" : "Next";
+    }
+  
+    function close() {
+      markTutorialSeen();
+      root.classList.add("is-closed");
+      hideTutorial();
+      if (typeof window.onPinboardClose === "function") { window.onPinboardClose(); }
+      document.dispatchEvent(new CustomEvent("krost-pinboard:close"));
+    }
+  
+    function initTutorial() {
+      if (initialized) { return; }
+      if (isMobileView()) {
+        hideTutorial();
+        return;
+      }
+      initialized = true;
+      render();
+      showTutorial();
+    }
+
+    MOBILE_MQ.addEventListener("change", function () {
+      if (isMobileView()) {
+        hideTutorial();
+      }
+    });
+  
+    btnNext.addEventListener("click", function () {
+      if (step === STEPS.length - 1) { close(); }
+      else { step += 1; render(); }
+    });
+    btnBack.addEventListener("click", function () {
+      if (step > 0) { step -= 1; render(); }
+    });
+    elDots.addEventListener("click", function (e) {
+      var dot = e.target.closest(".dot");
+      if (dot) { step = parseInt(dot.getAttribute("data-step"), 10); render(); }
+    });
+    btnClose.addEventListener("click", close);
+
+    if (document.readyState === "complete") {
+      initTutorial();
+    } else {
+      window.addEventListener("load", initTutorial);
+    }
+  })();
+  </script>
+</div>

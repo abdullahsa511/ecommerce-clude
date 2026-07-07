@@ -1,0 +1,356 @@
+<!--============================== Book Now and calender ==============================-->
+<section id="book-now" class="position-relative th-section-py" data-v-component-booknow>
+    <div class="d-flex justify-content-end th-pr-40 align-items-center position-absolute" style="right: 40px"
+        data-v-booknow-component-link>
+        <i class="fa-solid fa-pencil th-pr-5" style="font-size: .8rem"></i>
+        <a href="" target="_blank" class="">Edit</a>
+    </div>
+    <div class="container th-container">
+        <div class="row">
+            <div class="col-md-5 border-right-gray th-pr-25">
+                <div class="" >
+                    <div class="th-section-header-wrapper">
+                        <h3 class="title th-mb-30" data-v-booknow-section_title> Book Now </h3>
+                        <!-- <div class="th-section-subtitle th-section-subtitle-mb">
+                        </div> -->
+                    </div>
+                </div>
+                <div class="th-booking-form-container">
+                    <div class="th-booking-selected-member d-flex align-items-center th-mb-30">
+                        <div class="th-booking-member-avatar">
+                            <img src="" alt="Member Avatar" data-v-booknow-member_image />
+                        </div>
+                        <!-- <div class="th-member-info pb-0">
+                            <p class="th-member-position">Visit Showroom</p>
+                            <p class="th-member-name" data-v-booknow-name>Devon Lane</p>
+                        </div> -->
+                    </div>
+                    <form>
+                        <div class="th-input-group">
+                            <label for="choose-location">Location</label>
+                            <select class="form-control th-choices-select" name="choose-location" id="choose-location"
+                                placeholder="This is a placeholder">
+                                <option value="superman" 
+                                data-v-booknow-location 
+                                data-map-link="" 
+                                data-address=""
+                                data-image=""
+                                >Superman</option>
+
+                            </select>
+                        </div>
+                        <div class="th-input-group" style="display: none;">
+                            <label for="choose-members">Host</label>
+                            <select class="form-control th-choices-select" name="choose-members" id="choose-members"
+                                placeholder="This is a placeholder">
+                                <option value="superman" selected data-v-booknow-member>Superman</option>
+
+                            </select>
+                        </div>
+                        <div class="th-input-group">
+                            <label for="choose-tour-type">Meeting Type</label>
+                            <select class="form-control th-choices-select" name="choose-meeting-type" id="choose-tour-type"
+                                placeholder="This is a placeholder">
+                                <option value="physicalTour" selected>Physical Tour</option>
+                                <option value="virtualTour">Virtual Meeting</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-7 ">
+                <div class="th-calendar-container">
+                    <div class="booking-calendar-wrapper">
+                        <div class="th-booking-calendar">
+                            <input class="d-none" type="text" placeholder="Select Date.." data-input />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--======== End Book Now Section ========-->
+<div class="modal fade" id="timeSlotsModal" tabindex="-1" aria-labelledby="timeSlotsModalLabel" aria-modal="true"
+    role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-custom-width">
+        <div class="modal-content px-80 py-60">
+            <div class="modal-header">
+                <h5 class="modal-title" id="timeSlotsModalLabel">Booking for Showroom Tour</h5>
+                <button type="button" id="close-time-slots-modal-btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- booking form container start here -->
+            <div class="modal-body" id="booking-form-container">
+                <div class="gap-10">
+                    <!-- 1.1. location -->
+                    <div class="th-form-row" id="ts-location-container">
+                        <label for="ts-location">Location</label>
+                        <div class="th-field">
+                            <span id="ts-location-name" class="th-location-name">Sydney showroom</span>
+                            <!-- google map link -->
+                            <span class="th-location-link-container" style="padding-left: 5px;">
+                                <a href="https://www.google.com/maps/place/Sydney+Showroom/@-33.8688196,151.2092958,15z/data=!4m6!3m5!1s0x6b12ae69de2f61bd:0x36259a62c459770!8m2!3d-33.8688196!4d151.2092958!16s%2Fg%2F11c4022wg7?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" id="ts-location-link" class="ts-location-link" style="color: blue;"><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 2. date -->
+                    <div class="th-form-row">
+                        <label for="ts-selected-date">Date</label>
+                        <div class="th-field">
+                            <div class="th-input-group d-flex align-items-center">
+                                <i class="fa-solid fa-calendar th-input-icon"></i>
+                                <input type="date" id="ts-selected-date" class="form-control th-date-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 3. time zone -->
+                    <div class="th-form-row th-timezone-selector">
+                        <label for="choose-timezone">Time Zone</label>
+                        <div class="th-field">
+                            <div class="th-input-group d-flex align-items-center">
+                                <i class="fa-solid fa-globe th-input-icon"></i>
+                                <select class="form-control th-choices-select" name="choose-members"
+                                    id="choose-timezone-dropdown" placeholder="This is a placeholder" disabled></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Name -->
+                    <div class="th-form-row">
+                        <label for="ts-name">Name</label>
+                        <div class="th-field">
+                            <div class="th-input-group d-flex align-items-center" id="ts-name-container">
+                                <i class="fa-solid fa-user th-input-icon"></i>
+                                <input type="text" id="ts-name" class="form-control"
+                                    placeholder="Enter your name" style="border: none !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. email -->
+                    <div class="th-form-row">
+                        <label for="ts-email-not-logged-in-email">Email</label>
+                        <div class="th-field">
+                            <div class="th-input-group d-flex align-items-center" id="ts-email-not-logged-in-email-container">
+                                <i class="fa-solid fa-envelope th-input-icon"></i>
+                                <input type="email" id="ts-email-not-logged-in-email" class="form-control"
+                                    placeholder="Enter your email" style="border: none !important;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. time slots/pick a time -->
+                    <div class="th-form-row th-pt-20">
+                        <label>Pick a time</label>
+                        <div class="th-field">
+                            <strong class="d-block">Choose a slot below</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-slots-blocks pt-10">
+                    <div class="ts-slots-block ts-slots-morning">
+                        <div id="ts-slots-morning" class="ts-slots-grid d-flex flex-wrap gap-2">
+                            <div class="th-time-slot active disabled" disabled>
+                                <i class="fa-light fa-arrow-right "></i>
+                                <input class="d-none" type="checkbox" id="time-slot-1" value="09:00:00" disabled>
+                                <label for="time-slot-1">9:00 AM</label>
+                            </div>
+                            <div class="th-time-slot active disabled" disabled>
+                                <i class="fa-light fa-arrow-right "></i>
+                                <input class="d-none" type="checkbox" id="time-slot-2" value="09:30:00" disabled>
+                                <label for="time-slot-2">9:30 AM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-3" value="10:00:00">
+                                <label for="time-slot-3">10:00 AM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-4" value="10:30:00">
+                                <label for="time-slot-4">10:30 AM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-5" value="11:00:00">
+                                <label for="time-slot-5">11:00 AM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-6" value="11:30:00">
+                                <label for="time-slot-6">11:30 AM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-7" value="12:00:00">
+                                <label for="time-slot-7">12:00 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-8" value="12:30:00">
+                                <label for="time-slot-8">12:30 PM</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ts-slots-block ts-slots-evening">
+                        <div id="ts-slots-evening" class="ts-slots-grid d-flex flex-wrap gap-2">
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-9" value="13:00:00">
+                                <label for="time-slot-9">1:00 PM</label>
+                            </div>
+
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-10" value="13:30:00">
+                                <label for="time-slot-10">1:30 PM</label>
+                            </div>
+
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-11" value="14:00:00">
+                                <label for="time-slot-11">2:00 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-12" value="14:30:00">
+                                <label for="time-slot-12">2:30 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-13" value="15:00:00">
+                                <label for="time-slot-13">3:00 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-14" value="15:30:00">
+                                <label for="time-slot-14">3:30 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-15" value="16:00:00">
+                                <label for="time-slot-15">4:00 PM</label>
+                            </div>
+                            <div class="th-time-slot">
+                                <i class="fa-light fa-arrow-right d-none"></i>
+                                <input type="checkbox" id="time-slot-16" value="16:30:00">
+                                <label for="time-slot-16">4:30 PM</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ts-no-slots" style="display:none;">No available slots for the selected date/time zone.</div>
+                <div class="th-pt-20">
+                    <button type="button" id="th-book-time-btn"
+                        class="th-btn-primary w-100 text-capitalize">Book</button>
+                </div>
+            </div>
+
+            <!-- booking form container end here -->
+            <div id="book-now-verify-email-form-container" class="d-none">
+                <form id="verify-email-form" class="guest-signup-form">
+                    <div class="text-center py-10 mb-20">
+                        <h6>Verify it's you</h6>
+                        <p>
+                            We've sent a verification code to
+                            <strong id="verify-email-display">email@example.com</strong>. <br>
+                            Please enter the code below to confirm your booking.
+                        </p>
+                        <!-- <strong class="d-block mb-20 text-center" id="otp-text"> otp </strong> -->
+                    </div>
+
+                    <!-- OTP BOXES -->
+                    <div class="otp-wrapper mb-20">
+                        <input type="text" maxlength="1" class="otp-input" data-index="0" />
+                        <input type="text" maxlength="1" class="otp-input" data-index="1" />
+                        <input type="text" maxlength="1" class="otp-input" data-index="2" />
+                        <input type="text" maxlength="1" class="otp-input" data-index="3" />
+                        <input type="text" maxlength="1" class="otp-input" data-index="4" />
+                        <input type="text" maxlength="1" class="otp-input" data-index="5" />
+                    </div>
+
+                    <!-- PRIMARY BUTTON -->
+                    <button type="button" class="th-btn-primary text-capitalize w-100 mt-15" id="verify-email-button">
+                        Verify & Continue
+                    </button>
+
+                    <!-- OTP TIMER TEXT -->
+                    <div class="text-center mt-15">
+                        <span id="otp-timer-text">
+                            Resend in 00:00
+                        </span>
+                    </div>
+                   
+                    <!-- RESEND LINK -->
+                    <div class="text-center mt-15">
+                        <small>
+                            Didn't receive the code?
+                            <a href="javascript:void(0)" class="resend-link" id="resend-otp-button">
+                                Resend OTP
+                            </a>
+                        </small>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-7 d-none">
+                <div class="th-calendar-container">
+                    <div class="booking-calendar-wrapper th-booking-calendar-wrapper-px">
+                        <div class="th-booking-calendar">
+                            <input class="d-none" type="text" placeholder="Select Date.." data-input />
+                        </div>
+                    </div>
+                    <div class="th-timezone-selector pt-50">
+                        <h4 data-v-booknow-calendar_title>Time Zone</h4>
+                        <div class="th-input-group">
+                            <i class="fa-solid fa-globe"></i>
+                            <select class="form-control th-choices-select" name="choose-timezone" id="choose-timezone"
+                                placeholder="This is a placeholder"></select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- show message here -->
+            <div class="col-md-10 text-center mx-auto px-2 px-md-3" id="show-message-container">
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .otp-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .otp-input {
+        width: 48px;
+        height: 55px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+        transition: all 0.2s ease;
+    }
+
+    .otp-input:focus {
+        border-color: #000;
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        outline: none;
+    }
+
+    .resend-link {
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+</style>

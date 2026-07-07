@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We’ve received your project!</title>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6; padding:24px;">
+<tr>
+<td align="center">
+
+<table role="presentation" width="600" style="background:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+  <!-- Body -->
+  <tr>
+    <td style="padding:24px 24px 0px 24px; font-size:16px; line-height: 16px; color:#374151;">
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        Hi <strong>{{ client_name|default('Valued Customer') }}</strong>,
+      </p>
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        Thank you for sharing your project pinboard with us! 
+      </p>
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        One of our specialists will be in touch shortly to discuss your ideas and help bring your space to life.
+      </p>
+
+    </td>
+  </tr>
+
+  <!-- Project Details -->
+  <tr>
+    <td style="padding:0px 24px; font-size:16px; line-height: 16px; color:#374151;">
+      <p style="margin:0; padding:20px 0 0px 0;"><strong>Project Name:</strong> {{ project_name|default('N/A') }}</p>
+      <p style="margin:0; padding:20px 0 0px 0;"><strong>Items Saved:</strong> {{ items_count|default(0) }} Items</p>
+      <p style="margin:0; padding:20px 0 0px 0;"><strong>Submission Date:</strong> {{ submission_date|default('N/A') }}</p>
+
+    </td>
+  </tr>
+
+  <!-- Extra -->
+  <tr>
+    <td style="padding:0 24px 20px; font-size:16px; line-height: 16px; color:#374151;">
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        In the meantime, feel free to explore our latest collections.
+      </p>
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        We look forward to working with you!
+      </p>
+
+      <p style="margin:0; padding:20px 0 0px 0;">
+        Best regards,
+      </p>
+      <p style="margin:0; padding:20px 0 0px 0;"> <strong>The Krost Team</strong></p>
+
+    </td>
+  </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

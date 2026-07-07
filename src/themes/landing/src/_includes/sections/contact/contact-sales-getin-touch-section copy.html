@@ -1,0 +1,237 @@
+<!--============================== Section Get IN Tourch Template ==============================-->
+<section id="contact-getin-touch" class="th-request-contact" data-v-component-getintouch>
+  
+  <div class="gr-bg8-custom">
+    <div class="container th-container">
+      <div class="th-section-header pt-20">
+        <div class="th-section-header-wrapper">
+          <h2 class="th-section-title " data-v-getintouch-section_title>Get in Touch</h2>
+          <div class="th-section-subtitle" data-v-getintouch-section_subtitle>Have a specific project in mind? Submit your floorplans or project details below, and our team will be in touch shortly.
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col-lg-12">
+          <div class="th-getin-touch-content">
+            <h2 data-v-getintouch-section_title>Get in Touch</h2>
+            <p data-v-getintouch-section_subtitle>
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+
+      <div class="section-body">
+        <div class="row">
+          <div class="col-lg-7 col-sm-12">
+            
+            <div class="img-container th-get-in-touch-img">
+              <img src="/img/contact/contact-location-one.jpeg" alt="Sydney Showroom" data-v-getintouch-image />
+            </div>
+          </div>
+          <div class="col-lg-5 position-relative">
+            <div class="th-get-in-touch-form">
+              <!-- <div id="contact-sales-get-in-touch-alert-message" style="display: none; color: green; font-weight: bold;">
+              </div> -->
+              <div class="form-container th-cf-wrapper overlap th-bg-cf-white">
+                <form action="/catalogue/request-catalogue" method="post">
+                  <input type="hidden" name="nonce" value="" data-v-nonce>
+                  <div class="form-group">
+                    <label for="first-name">First Name*</label>
+                    <input type="text" id="first-name" class="form-control" placeholder="First Name*" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last Name*</label>
+                    <input type="text" id="last-name" class="form-control" placeholder="Last Name*" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email*" required>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="company">Company Name*</label>
+                    <input type="text" id="company" class="form-control" placeholder="Company Name*" required>
+                  </div> -->
+                  
+                  <div class="form-group">
+                    <label for="type">Type</label>
+                    <select id="type" class="form-control" id="type">
+                      <option value="" disabled selected>Type</option>
+                      <option value="Workstations">Workstations</option>
+                      <option value="Complete Fit-Out">Complete Fit-Out</option>
+                      <option value="Seating">Seating</option>
+                      <option value="General Enquiry">General Enquiry</option>
+                    </select>
+                  </div>
+                  <!-- File Upload Section -->
+                  <div class="upload-section" id="upload-zone">
+                    <input type="file" id="attachments" accept="image/*,application/pdf" hidden>
+
+                    <div class="upload-content" id="upload-content">
+                      <p id="upload-text" class="font-weight-700">Drag & Drop or Click to Upload</p>
+                      <p class="text-center extra-small-text">Upload floorplans, design briefs, or RFQs</p>
+                      <span id="upload-filename" class="upload-filename"></span>
+                      <button type="button" id="remove-image" class="remove-btn" style="display:none;">✕</button>
+                    </div>
+                  </div>
+                  <!-- Text Area -->
+                  <div class="form-group">
+                    <label for="message">Add Text</label>
+                    <div class="text-section">
+                      <textarea class="form-control" placeholder="Project Details" id="add-text"></textarea>
+                    </div>
+                  </div>
+                  <!-- Submit Button -->
+                  <div class="form-group">
+                    <button type="submit" class="th-btn-primary mt-30" id="contact-touch-submit">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ </div>
+</section>
+
+<style>
+  .upload-section {
+    width: 100%;
+    height: 220px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .upload-content {
+    .extra-small-text{
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  .upload-section.has-image {
+    border: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .upload-section.has-image .upload-content p,
+  .upload-section.has-filename .upload-content p {
+    display: none !important;
+  }
+
+  .upload-filename {
+    display: none;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 36px;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    font-size: 13px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .upload-section.has-image .upload-filename,
+  .upload-section.has-filename .upload-filename {
+    display: block;
+  }
+
+  .remove-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 28px;
+  }
+</style>
+
+<script>
+  const uploadZone = document.getElementById('upload-zone');
+  const fileInput = document.getElementById('attachments');
+  const removeBtn = document.getElementById('remove-image');
+  const filenameEl = document.getElementById('upload-filename');
+
+  // Click anywhere to open file
+  uploadZone.addEventListener('click', (e) => { if (e.target !== removeBtn) fileInput.click(); });
+
+  function showSelectedFile(file) {
+    filenameEl.textContent = file.name;
+    uploadZone.classList.add('has-filename');
+    removeBtn.style.display = 'block';
+  }
+
+  // When image selected
+  fileInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/') && !file.type.startsWith('application/pdf')) {
+      alert('Please select a valid image or pdf file.');
+      fileInput.value = '';
+      return;
+    }
+
+    // Show file name for both image and PDF
+    filenameEl.textContent = file.name;
+    uploadZone.classList.add('has-filename');
+
+    // For PDF: show filename only (cannot preview PDF as background)
+    if (file.type.startsWith('application/pdf')) {
+      removeBtn.style.display = 'block';
+      // return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      var fileExt = file.name.split('.').pop();
+      console.log(fileExt);
+      uploadZone.style.backgroundSize = 'contain';
+      if(fileExt === 'pdf'){
+        uploadZone.style.backgroundImage = `url(/media/design-resource/icons/pdf.png)`;
+      }else{
+        uploadZone.style.backgroundImage = `url(${e.target.result})`;
+      }
+      uploadZone.classList.add('has-image');
+      removeBtn.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Remove image
+  removeBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    fileInput.value = '';
+    uploadZone.style.backgroundImage = '';
+    uploadZone.classList.remove('has-image', 'has-filename');
+    filenameEl.textContent = '';
+    removeBtn.style.display = 'none';
+  });
+</script>
+<!--============================== End Section Get in Touch Template ==============================-->

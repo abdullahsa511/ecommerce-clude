@@ -1,0 +1,216 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="home bg-white">
+  @@include('../_includes/sections/navigation.html')
+
+
+
+  <div id="booking-phone-call-app">
+    <section id="booking-phone-call" class="bg-gray" data-v-component-bookingphonecall>
+      <div class="container th-container">
+        <div class="section-body">
+          <div class="row project-details-wrapper">
+            <div class="col-12 col-md-8">
+              <div class="project-details">
+                <p class="project-label">Phone Call Details</p>
+                <h2 class="section-title mb-30">Book a Phone Call</h2>
+                <div id="success-message" class="text-success" style="display: none;"></div>
+                <div class="pinboard-input phone-call-input form-group flex-row w-100 d-flex align-items-center">
+
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter your Phone Number" id="bookingPhoneNumber" data-v-bookingphonecall-phone-number>
+                    <div class="input-group-append">
+                      <button class="btn btn-success" style="background-color: white; color: #111; border: 1px solid #b1b1b1; border-left: none;">Request for Call</button>
+                      <button id="bookingPhoneCallButton" data-v-bookingphonecall-pinboard-id>
+                        <span class="sr-only">
+                          <i class="fa-solid fa-phone"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-meta">
+                  <div class="meta-item">
+                    <i class="fa-solid fa-cube"></i>
+                    <span data-v-bookingphonecall-item-count>1 item</span>
+                  </div>
+
+                  <div class="meta-item price">
+                    <i class="fa-solid fa-tag"></i>
+                    <span data-v-bookingphonecall-total-price>6,723.00 $</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                  </div>
+
+                  <div class="meta-item">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Project Name: </span> <span data-v-bookingphonecall-project-name></span>
+                  </div>
+
+                  <div class="meta-phone-numbers" id="phone-numbers-container" data-v-bookingphonecall-contact-numbers>
+                    <ul data-v-bookingphonecall-contact-numbers-list class="meta-phone-numbers-list">
+                      <li data-v-bookingphonecall-contact-number>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+61 2 9374 4000</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="th-contact-members">
+      <div class="container th-container">
+        <div class="row">
+          <div class="th-section-header" style="display: block">
+            <div class="th-section-header-wrapper text-center">
+              <h2 class="  th-section-title "> Connect with our sales team </h2>
+              <div class="th-section-subtitle">
+                <span data-v-bookingphonecall-section-subtitle>Lorem ipsum dolor sit amet consectetur. Scelerisque urna
+                  pellentesque.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body th-members">
+            <!-- Team Members -->
+            <div class="pb-70" id="sales-team-sydney" data-v-bookingphonecall-team>
+              <h3 class="title th-member-title pt-30" data-v-bookingphonecall-branch-title>Sydney</h3>
+              <div class="sydney-list d-flex row th-members-row">
+                <div class="col-sm-6 col-lg-3 pb-20 sydney-item" data-v-bookingphonecall-team-member>
+                  <div class="th-member" data-bg-src="/img/contact/member-0.jpg"
+                    data-v-bookingphonecall-team-member-avatar>
+                    <div class="th-member-icons" data-v-bookingphonecall-team-member-icons>
+                      <span class="final-booking-calendar" data-v-bookingphonecall-team-member-calendar-icon>
+                        <i class="fa-solid fa-calendar"></i>
+                      </span>
+
+                      <span class="final-booking-email" data-v-bookingphonecall-team-member-email-icon>
+                        <i class="fa-solid fa-envelope"></i>
+                      </span>
+
+
+
+
+                      <span data-v-bookingphonecall-team-member-phone-icon class="th-phone-icon th-tooltip"
+                        data-member-name="Devon Lane" data-member-email="devon@krost.com.au"
+                        data-member-phone="0412345678" data-toggle="tooltip" data-placement="top" title="" role="button"
+                        tabindex="0">
+                        <i class="fa-solid fa-phone"></i>
+                      </span>
+
+                      <!-- <span class="final-booking-phone th-phone-icon th-tooltip" data-member-name="Devon Lane" data-member-email="devon@krost.com.au" data-member-phone="0412345678" data-toggle="tooltip" data-placement="top" title="" role="button" tabindex="0" data-v-bookingphonecall-team-member-phone-icon>
+                        <i class="fa-solid fa-phone"></i>
+                        </span> -->
+                    </div>
+                    <div class="th-member-info-container gr-bg6">
+                      <div class="th-member-info">
+                        <p class="th-member-name" data-v-bookingphonecall-team-member-name>Devon Lane</p>
+                        <p class="th-member-position" data-v-bookingphonecall-team-member-position>Director</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 pb-20 sydney-item" data-v-bookingphonecall-team-member>
+                  <div class="th-member" data-bg-src="/img/contact/member-1.jpg"
+                    data-v-bookingphonecall-team-member-avatar>
+                    <div class="th-member-icons">
+                      <span class="final-booking-calendar" data-v-bookingphonecall-team-member-calendar-icon>
+                        <i class="fa-solid fa-calendar"></i>
+                      </span>
+                      <span class="final-booking-email" data-v-bookingphonecall-team-member-email-icon>
+                        <i class="fa-solid fa-envelope"></i>
+                      </span>
+                      <span class="final-booking-phone th-phone-icon" data-v-bookingphonecall-team-member-phone-icon>
+                        <i class="fa-solid fa-phone"></i>
+                      </span>
+                    </div>
+                    <div class="th-member-info-container gr-bg6">
+                      <div class="th-member-info">
+                        <p class="th-member-name" data-v-bookingphonecall-team-member-name>Jane Doe</p>
+                        <p class="th-member-position" data-v-bookingphonecall-team-member-position>Senior Sales
+                          Executive</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 pb-20 sydney-item" data-v-bookingphonecall-team-member>
+                  <div class="th-member" data-bg-src="/img/contact/member-2.jpg"
+                    data-v-bookingphonecall-team-member-avatar>
+                    <div class="th-member-icons">
+                      <span class="final-booking-calendar" data-v-bookingphonecall-team-member-calendar-icon>
+                        <i class="fa-solid fa-calendar"></i>
+                      </span>
+                      <span class="final-booking-email" data-v-bookingphonecall-team-member-email-icon>
+                        <i class="fa-solid fa-envelope"></i>
+                      </span>
+                      <span class="final-booking-phone th-phone-icon" data-v-bookingphonecall-team-member-phone-icon>
+                        <i class="fa-solid fa-phone"></i>
+                      </span>
+                    </div>
+                    <div class="th-member-info-container gr-bg6">
+                      <div class="th-member-info">
+                        <p class="th-member-name" data-v-bookingphonecall-team-member-name>Devon Lane</p>
+                        <p class="th-member-position" data-v-bookingphonecall-team-member-position>Sales Executive</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-lg-3 pb-20 sydney-item" data-v-bookingphonecall-team-member>
+                  <div class="th-member" data-bg-src="/img/contact/member-3.jpeg"
+                    data-v-bookingphonecall-team-member-avatar>
+                    <div class="th-member-icons">
+                      <span class="final-booking-calendar" data-v-bookingphonecall-team-member-calendar-icon>
+                        <i class="fa-solid fa-calendar"></i>
+                      </span>
+                      <span class="final-booking-email" data-v-bookingphonecall-team-member-email-icon>
+                        <i class="fa-solid fa-envelope"></i>
+                      </span>
+                      <span class="final-booking-phone th-phone-icon" data-v-bookingphonecall-team-member-phone-icon>
+                        <i class="fa-solid fa-phone"></i>
+                      </span>
+                    </div>
+                    <div class="th-member-info-container gr-bg6">
+                      <div class="th-member-info">
+                        <p class="th-member-name" data-v-bookingphonecall-team-member-name>Jane Doe</p>
+                        <p class="th-member-position" data-v-bookingphonecall-team-member-position>Sales Executive</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Team Members -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <style>
+    .meta-phone-numbers {
+      li {
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+        list-style: none;
+
+        span {
+          margin-left: 5px;
+        }
+      }
+    }
+  </style>
+
+  @@include('../_includes/sections/footer.html')
+  @@include('../_includes/sections/pinboard.html')
+  @@include('../_includes/components/footer-scripts-account.html')
+
+</body>
+
+</html>

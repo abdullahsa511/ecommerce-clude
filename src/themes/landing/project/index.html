@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-v-component-head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+
+  <base href="">
+
+  <title data-v-head-title>Krost Landing - Homepage</title>
+
+  <meta name="description" content="" data-v-head-meta-description />
+  <meta name="keywords" content="" data-v-head-meta-keywords />
+  <meta name="author" content="Shofiul Alam" data-v-head-meta-author>
+  <style>
+
+  </style>
+  <link rel="preload" fetchpriority="high" as="image" href="/media/Components/hero_home.webp">
+
+
+  <!-- <link rel="preload" href="/css/fontawesome.min.css" as="style" onload="this.rel='stylesheet'"> -->
+
+  <link rel="preload" href="/css/solid.min.css" as="style" onload="this.rel='stylesheet'">
+
+
+  <!-- <link rel="preload" href="/css/fontawesome.min.css" as="style" onload="this.rel='stylesheet'"> -->
+  <!-- <link rel="stylesheet" href="/css/solid.min.css"> -->
+  <!-- <link rel="preload" href="/css/regular.min.css" as="style" onload="this.rel='stylesheet'"> -->
+
+  <link rel="preload" href="/css/lib/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/choices.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/flatpickr.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lightgallery-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/lib/lg-transitions.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="/css/component.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="alternate" type="application/rss+xml" title="Feed" href="/feed/posts" />
+  <link rel="alternate" type="application/rss+xml" title="Comments Feed" href="/feed/comments" />
+  <link rel="icon" type="image/x-icon" href="../../media/favicon.ico" data-v-global-site.favicon>
+
+
+</head>
+
+<body class="bg-white">
+  <style>
+    .th-pinboard-count-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      top: -5px;
+      right: -10px;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.8;
+      color: #fff;
+      border-radius: 50%;
+      padding: 2px 5px;
+      font-size: 13px;
+      line-height: 12px;
+      font-weight: 700;
+    }
+
+    .th-pinboard-count-badge-text {
+      position: relative;
+      left: -2px;
+    }
+
+    /* User dropdown - shows on click of user icon */
+    .th-user-dropdown {
+      position: relative;
+    }
+
+    .th-user-dropdown .dropdown-toggle {
+      color: inherit;
+      text-decoration: none;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-toggle:hover {
+      opacity: 0.85;
+    }
+
+    .th-user-dropdown .dropdown-toggle::after {
+      display: none;
+      /* Hide default Bootstrap caret - icon is enough */
+    }
+
+    .th-user-dropdown .dropdown-menu {
+      min-width: 180px;
+      padding: 0px 0px;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .th-user-dropdown .dropdown-item {
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2E2E2E;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .th-user-dropdown .dropdown-item:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: #231F20;
+    }
+
+    .th-user-dropdown .dropdown-divider {
+      margin: 6px 0;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button {
+      color: #6B7280;
+    }
+
+    .th-user-dropdown .dropdown-item#logout-button:hover {
+      color: #DC2626;
+      background-color: rgba(220, 38, 38, 0.06);
+    }
+  </style>
+  <!--==============================Header Area==============================-->
+  <div class="th-header header-layout menu-white" data-v-component-header role="header">
+    <div class="th-topbar d-flex justify-content-center flex-column">
+      <div class="position-relative container th-container p-0 th-container-md">
+        <div class="d-flex align-items-center justify-content-center">
+          <p class="font-white m-0" data-v-header-topbar_message>Experience the Future of Workspace: The 2026 Catalogue is Out Now</p>
+        </div>
+        <div class="contact-sales d-flex align-items-center justify-content-center">
+          <i class="fal fa-envelope font-white" style="font-size: 18px;"></i>
+          <a href="/catalogue" data-v-header-topbar-link target="_blank" class="font-white" data-v-header-topbar-link-text>Get Your Copy</a>
+        </div>
+      </div>
+    </div>
+    <!--============================== Mobile Menu ============================== -->
+    <div class="th-menu-wrapper mobile-menu" role="navigation">
+      <div class="th-menu-area text-center">
+        <button class="th-menu-toggle">
+          <i class="fal fa-times"></i>
+        </button>
+        <div class="mobile-logo">
+          <a class="icon-masking" href="/">
+            <img src="/img/logo-white.png" alt="KROST">
+          </a>
+        </div>
+
+        <div class="th-mobile-menu">
+          <ul class="mobile-menu-list" data-v-header-mobile-menu-list>
+            <li class="mobile-menu-item" data-v-header-mobile-menu-item>
+              <a href="#" data-v-header-mobile-menu-item-href>
+                <span data-v-header-mobile-menu-item-title>Home</span>
+              </a>
+              <ul class="sub-menu" data-v-header-mobilemenu-children>
+                <li>
+                  <a href="#" data-v-header-mobilemenu-childitem></a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="about.html">About Us</a>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Services</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="service.html">Services</a>
+                </li>
+                <li>
+                  <a href="service-details.html">Services Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Pages</a>
+              <ul class="sub-menu">
+                <li class="menu-item-has-children">
+                  <a href="#">Shop</a>
+                  <ul class="sub-menu">
+                    <li>
+                      <a href="shop.html">Shop</a>
+                    </li>
+                    <li>
+                      <a href="shop-details.html">Shop Details</a>
+                    </li>
+                    <li>
+                      <a href="cart.html">Cart Page</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html">Checkout</a>
+                    </li>
+                    <li>
+                      <a href="wishlist.html">Wishlist</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="team.html">Team</a>
+                </li>
+                <li>
+                  <a href="team-details.html">Team Details</a>
+                </li>
+                <li>
+                  <a href="project.html">Project</a>
+                </li>
+                <li>
+                  <a href="project-details.html">Project Details</a>
+                </li>
+                <li>
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                  <a href="pricing.html">Pricing</a>
+                </li>
+                <li>
+                  <a href="faq.html">Faq Page</a>
+                </li>
+                <li>
+                  <a href="error.html">Error Page</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children mobile-menu-item">
+              <a href="#">Blog</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                  <a href="blog-details.html">Blog Details</a>
+                </li>
+              </ul>
+            </li>
+            <li class="mobile-menu-item">
+              <a href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-wrapper desktop-menu" role="navigation">
+      <!-- Main Menu Area -->
+      <div class="menu-area">
+        <div class="container th-container p-0 th-container-md">
+          <div class="row align-items-center justify-content-between ps-50 pe-50">
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-start">
+              <div class="main-menu d-none d-lg-inline-block">
+                <ul class="desktop-menu-list" data-v-header-desktop-menu-list>
+                  <li class="menu-item-has-children mega-menu-wrap desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a href="#">
+                      <span data-v-header-desktop-menu-item-title>Products</span>
+                    </a>
+                    <ul class="mega-menu py-5" data-v-header-mega-menu>
+                      <!-- <div class="row justify-content-center"> -->
+                      <div class="container th-container px-60">
+                        <div class="row">
+                          <div class="col-9" data-v-header-mega-menu-rows style="flex: 5">
+
+                            <div class="row mega-menu-row category-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <a href="" class="category-link mega-menu-item-link" data-v-header-mega-submenu-item-link>
+                                  <h5 class="hover" data-v-header-mega-menu-item-title>Workstations</h5>
+                                </a>
+                                <nobr>
+                                  <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                    <a href="" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                      <span class="hover" data-v-header-categorylink-title>Workstations</span>
+                                    </a>
+                                    <!-- <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>screens</span>
+                                  </a> -->
+                                  </span>
+                                </nobr>
+                              </div>
+                              <!-- <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Screens</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Acoustic booths</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Perspex screens</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Desks</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Executive desks</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Desk system</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Modesty panels</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>tables</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Meeting tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Counter Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link">
+                                    <span>Training Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Cafe Tables</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Coffee Tables</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-item" data-v-header-mega-menu-item>
+                                <h5>Storage</h5>
+                                <span class="category-links mega-menu-item-links" data-v-header-mega-menu-item-links>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>In-office storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                  <span>Universal storage</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>steel storage units</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Shelving</span>
+                                  </a>
+                                  <a href="#" class="category-link mega-menu-item-link" data-v-header-mega-menu-item-link>
+                                    <span>Custom joinery</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            </div>
+
+                            <!-- <div class="row mega-menu-row mt-50 category-two-list" data-v-header-mega-menu-row>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5 data-v-header-categorytwoitem-title>Seating</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="/shofiul-categories-seating.html" class="category-two-link mega-menu-item-link" data-v-header-categorytwolink-href>
+                                    <span data-v-header-categorytwolink-title>All seating</span>
+                                  </a>
+                                  <a href="/shofiul-category-products.html" class="category-two-link mega-menu-item-link">
+                                    <span>Task seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>executive seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>training seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Occasional seating</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Stools</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Lounges</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            <!-- <div class="col mega-menu-item category-two-item">
+                                <h5>Accessories</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Computer accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Power accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                  <span>General office
+                                    accessories</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Acoustic solutions</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Training</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Communication
+                                      boards</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>screen partitions</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Finishes</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Materials</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Fabrics</span>
+                                  </a>
+                                </span>
+
+                              </div>
+                              <div class="col mega-menu-item category-two-item">
+                                <h5>Counters</h5>
+                                <span class="category-two-links mega-menu-item-links">
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                  <a href="#" class="category-two-link mega-menu-item-link">
+                                    <span>Workstations</span>
+                                  </a>
+                                </span>
+                              </div> -->
+                            <!-- </div> -->
+                          </div>
+                          <!-- Sidebar Images -->
+                          <!-- <div class="col-3 d-flex flex-column gap-3 side-image-list" style="flex: 1;">
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/book-metting.png" alt="boot-meetting">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/contact-sells.png" alt="contact-sells">
+                            </div>
+                            <div class="nav-image sidebar-image-item">
+                              <img data-v-header-sidebarimageitem-image src="/img/navbar-img/request-catalog.png" alt="request-catalog">
+                            </div>
+                          </div> -->
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <a class="font-weight-700 hover" href="/categories">View All Categories</a>
+                          </div>
+                        </div>
+                      </div>
+                    </ul>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="desktop-menu-link" href="shofiul-projects.html">
+                      <span data-v-header-desktop-menu-item-title>Projects</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="desktop-menu-link" href="tuhin-blogs.html">
+                      <span data-v-header-desktop-menu-item-title>Blog</span>
+                    </a>
+                  </li>
+                  <li class="desktop-menu-item" data-v-header-desktop-menu-item>
+                    <a class="desktop-menu-link" href="/zahidul-about.html">
+                      <span class="manu-name" data-v-header-desktop-menu-item-title>About</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <button type="button" class="th-menu-toggle d-block d-lg-none">
+                <i class="far fa-bars"></i>
+              </button>
+            </div>
+            <div class="d-flex flex-2-md col-4 align-items-center justify-content-center">
+              <div class="header-logo">
+                <a class="icon-masking" href="/">
+                  <img src="/img/logo_black.png" alt="KROST">
+                </a>
+              </div>
+
+            </div>
+            <div class="d-flex flex-6-md col-4 align-items-center justify-content-end">
+              <div class=" d-none d-lg-inline-block">
+                <a class="desktop-menu-link" href="/account/resources">
+                  <span class="manu-name hover pr-20 pr-20-ml">Resources</span>
+                </a>
+                <a class="desktop-menu-link" href="/contact-us">
+                  <span class="manu-name hover pr-20 pr-20-ml">Contact Us</span>
+                </a>
+              </div>
+              <div class="header-button  d-none d-lg-inline-block">
+                <a href="https://store.krost.com.au" class="h-btn d-flex align-items-center justify-content-center">
+                  <span>Shop Now</span>
+                </a>
+              </div>
+
+              <div class="d-flex align-items-end gap-3 gap-3-ml" style="margin-bottom: 1px;">
+
+                <!-- search section  -->
+                <div class="th-header-search" id="th-header-global-search">
+                  <a class="d-flex" href="" title="Search" role="button" data-bs-toggle="offcanvas" data-bs-target="#search_offcanvasRight" aria-controls="search_offcanvasRight">
+                    <i class="fa-regular fa-magnifying-glass" style="font-size: 28px;"></i>
+                  </a>
+                </div>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="search_offcanvasRight" aria-labelledby="search_offcanvasRightLabelLabel">
+                  <!-- <div id="searchbar-app"> -->
+                  <div class="offcanvas-body" id="searchbar-app">
+                  </div>
+
+                  <!-- ======================== mobile searchbar ======================== -->
+                  <div class="offcanvas-wrapper mobile-searchbar">
+                    <div class="offcanvas-header header-upper d-flex align-items-center justify-content-between">
+                      <h3 id="search_offcanvasRightLabelLabel">Search</h3>
+                      <i class="fa-solid fa-xmark" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                    </div>
+                    <div class="offcanvas-body">
+                      <div class="th-search-result-container">
+                        <div class="autocomplete">
+                          <div class="autocomplete-input-wrapper">
+                            <input type="text" class="form-control th-choices-select" id="search-product-name" placeholder="Search..." autocomplete="off" />
+                            <span class="icon search">
+                              <i class="fa-solid fa-search"></i>
+                            </span>
+                            <span class="icon clear" id="clearBtn">✕</span>
+                          </div>
+                          <ul class="autocomplete-list" id="autocompleteList"></ul>
+                        </div>
+
+                        <div class="th-search-result-content">
+                          <div class="th-search-result-count">
+                            <span>23</span> Products Found
+                          </div>
+
+                          <div class="d-flex gap-4">
+                            <div class="th-search-result-item">
+                              <div class="th-search-result-item-image">
+                                <img src="/img/category-seating/Archi.png" alt="Product Image">
+                                <h5>
+                                  Configure Product
+                                  <i class="fa-regular fa-arrow-right"></i>
+                                </h5>
+                              </div>
+                              <div class="th-item-details">
+                                <h3 class="th-item-title">Archi - <span class="th-item-subTitle">Next Level Flexibility</span>
+                                </h3>
+                                <p>Product</p>
+                              </div>
+                            </div>
+
+                            <div class="th-search-result-item">
+                              <div class="th-search-result-item-image">
+                                <img src="/media/Products/banner/krost-furniture-collection.png" alt="Product Image">
+                                <h5 class="text-white">
+                                  Explore Project
+                                  <i class="fa-regular fa-arrow-right"></i>
+                                </h5>
+                              </div>
+                              <div class="th-item-details">
+                                <h3 class="th-item-title">Krost Features on Indesignlive Collection - <span class="th-item-subTitle">Architects</span>
+                                </h3>
+                                <p>Project</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="th-view-all-results">
+                            <button class="th-btn-secondary">View All</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ============================== end vue app integration ============================== -->
+
+                <a href="" id="pinboard-button" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="margin-right: 1px; width: 26px;">
+                  <span class="" style="position: relative;">
+                    <img src="/img/pinboard-icon.png" alt="Pinboard" style="width: 26px; height: 27px;">
+                    <span class="th-pinboard-count-badge" style="display: none;">
+                      <i id="pinboard-item-count"></i>
+                    </span>
+                  </span>
+                </a>
+
+                <div class="dropdown th-user-dropdown">
+                  <a href="#" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" title="Account menu">
+                    <i class="fa-solid fa-user" style="font-size: 28px;"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li id="account-button">
+                      <a class="dropdown-item" href="/account/recent-orders">Account</a>
+                    </li>
+                    <li id="login-button">
+                      <a class="dropdown-item" href="/login">Login</a>
+                    </li>
+                    <li id="signup-button">
+                      <a class="dropdown-item" href="/signup">Sign Up</a>
+                    </li>
+                    <li id="logout-button">
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </li>
+                  </ul>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- get pinboard item count -->
+  <script type="text/javascript">
+    window.addEventListener('user:isLoggedIn', function(event) {
+      const profileButton = document.getElementById('profile-button');
+      const accountButton = document.getElementById('account-button');
+      const loginButton = document.getElementById('login-button');
+      const signupButton = document.getElementById('signup-button');
+      const logoutButton = document.getElementById('logout-button');
+
+      const userAuthDetails = localStorage.getItem('userAuthDetails');
+      if (userAuthDetails) {
+        accountButton.style.display = 'block';
+        loginButton.style.display = 'none';
+        signupButton.style.display = 'none';
+        logoutButton.style.display = 'block';
+      } else {
+        accountButton.style.display = 'none';
+        loginButton.style.display = 'block';
+        signupButton.style.display = 'block';
+        logoutButton.style.display = 'none';
+      }
+    });
+    const logoutButton = document.getElementById('logout-button');
+    logoutButton?.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      localStorage.removeItem('userAuthDetails');
+      localStorage.removeItem('pinboard');
+      localStorage.removeItem('customer');
+      // Refresh the browser
+      window.location.reload();
+    });
+  </script>
+  <script type="text/javascript" id="is-logged-in">
+
+  </script>
+
+
+  <!--============================== What's Happening ==============================-->
+  <div class="whats-happening-background pt-30">
+    <div class="container th-container">
+      <div class="th-breadcrumb">
+        <div aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+          </ol>
+        </div>
+      </div>
+      <div class="section-body whats-happening-container" data-v-component-whatishappening>
+        <div class="row">
+          <!-- Left Side -->
+          <div class="col-md-7">
+            <div class=" whats-happening">
+              <h1 data-v-whatishappening-section_title>WHAT'S HAPPENING?</h1>
+            </div>
+            <div class="whats-happening-left mt-50" data-v-whatishappening-image style="background-image: url('/img/blog-page/whats-happening-left.png');">
+              <div class="th-member-info-container">
+                <div class="link read-more th-white-link">
+                  <div class="link-text pr-20 font-weight-600 font-white" data-v-whatishappening-link_text>Read More</div>
+                  <div class="link-icon-btn-white-large">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Content below the image -->
+            <div class="whats-happening-content">
+              <h2 data-v-whatishappening-below_title>Embracing Human-Centric Design: A Path to Enhanced Usability and Experience</h2>
+              <p data-v-whatishappening-below_description>Sit egestas orci consequat est mauris duis. In viverra hac vestibulum pretium.</p>
+            </div>
+          </div>
+
+          <!-- Right Side -->
+          <div class="col-md-5 th-whats-happening-right">
+            <div class="whats-happening-right">
+              <div class="row align-items-center right-item">
+                <div class="col-md-7 col-sm-7">
+                  <p class="th-underline" data-v-whatishappeningitem-title>Bayside City Council - Youth Centre Opening</p>
+                </div>
+                <div class="col-md-5 col-sm-5">
+                  <div class="upper-img">
+                    <img src="/img/blog-page/upper img.png" alt="" data-v-whatishappeningitem-image>
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center right-item">
+                <div class="col-md-7 col-sm-7">
+                  <p class="th-underline">Kenni - A Class Of Its Own</p>
+                </div>
+                <div class="col-md-5 col-sm-5">
+                  <div class="upper-img">
+                    <img src="/img/blog-page/middle img.png" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="row align-items-center right-item">
+                <div class="col-md-7 col-sm-7">
+                  <p class="th-underline">An Arena For Innovative Collaboration</p>
+                </div>
+                <div class="col-md-5 col-sm-5">
+                  <div class="upper-img">
+                    <img src="/img/blog-page/lower img.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--============================== Featured Products ==============================-->
+  <div id="projects-list" class="latest-news th-section" data-v-component-latestnews>
+    <div class="container th-container">
+      <div class="row">
+        <div class="section-header project-header p-0">
+          <div class="w-100 text-center mb-5">
+            <h2 class="section-title" data-v-latestnews-section_title>Latest News</h2>
+            <p class="section-subtitle" data-v-latestnews-section_subtitle>
+              Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-body">
+          <div class="row project-list-row">
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+                <div class="img-container">
+                  <img src="/img/blog-page/News 1.png" alt="" data-v-latestnewsitem-image />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400" data-v-latestnewsitem-title>Krost's Sydney Office Update With 3d Tour</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+
+                <div class="img-container">
+                  <img src="/img/blog-page/News 2.png" alt="" />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400">THE BOOTH: WHERE IDEAS AND CONNECTIONS GROW</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+
+                <div class="img-container">
+                  <img src="/img/blog-page/News 3.png" alt="" />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400">Unveiling Our Updated Sydney Showroom</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+
+                <div class="img-container">
+                  <img src="/img/blog-page/News 4.png" alt="" />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400">Beyond Aesthetics: How Organic Design</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+
+                <div class="img-container">
+                  <img src="/img/blog-page/News 5.png" alt="" />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400">Watch The Full Panel Discussion On Designing</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-4 project-list-gap project-list-item">
+              <div class="list-img">
+
+                <div class="img-container">
+                  <img src="/img/blog-page/News 6.png" alt="" />
+                </div>
+                <div class="add-to-pinboard position-absolute top-right-30">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+              </div>
+              <div class="card-footer">
+                <h6 class="font-weight-400">Extraordinary Sydney Showroom Event Hosted</h6>
+                <div class="link th-read-more-btn">
+                  <div class="link-text pr-5">Read More</div>
+                  <div class="link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <button class="btn load-more">Load More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--==============================
+    End Featured Products
+    ==============================-->
+
+  <!--============================== Footer ==============================-->
+  <div class="th-footer bg-gray th-section" title="footer" data-v-save-global="index.html,.footer-1">
+    <div class="container th-container" data-v-slug="main-footer">
+      <div class="row component-footer" data-v-component-footer>
+        <div class="col-lg-6 border-right-dark border-right-md-0">
+          <h4>Contact Us</h4>
+          <div class="d-grid grid-col-2">
+            <div class="d-flex align-items-center text-weight-600 pt-10">
+              <i class="fa-solid fa-envelope pr-5"></i>
+              <p data-v-footer-contact_email>sales@krost.com.au</p>
+            </div>
+            <div class="d-flex align-items-center text-weight-600 pt-10">
+              <i class="fa-solid fa-phone pr-5"></i>
+              <p data-v-footer-contact_phone>1800 1KROST</p>
+            </div>
+
+            <div class="th-showroom-address">
+              <p class="text-weight-600" data-v-footer-sydney_office_name>Sydney Office</p>
+              <p data-v-footer-sydney_office_address>33 Ricketty Street</p>
+              <!-- <p data-v-footer-sydney_office_address_2>Mascot NSW, 2020</p> -->
+              <div class="d-flex align-items-center text-weight-600 pt-10">
+                <i class="fa-solid fa-phone pr-5"></i>
+                <p data-v-footer-sydney_office_phone>02 9557 3055</p>
+              </div>
+              <p data-v-footer-sydney_office_hours>Open weekdays, 8am to 5pm</p>
+            </div>
+            <div class="th-showroom-address">
+              <p class="text-weight-600" data-v-footer-melbourne_office_name>Melbourne Office</p>
+              <p data-v-footer-melbourne_office_address>17-643 spencer st</p>
+              <!-- <p data-v-footer-melbourne_office_address_2>West Melbourne VIC, 3003</p> -->
+              <div class="d-flex align-items-center text-weight-600 pt-10">
+                <i class="fa-solid fa-phone pr-5"></i>
+                <p data-v-footer-melbourne_office_phone>03 9682 8280</p>
+              </div>
+              <p data-v-footer-melbourne_office_hours>open weekdays, 9am to 5pm</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="th-subscription pl-50 pl-md-0">
+            <div class="th-subscription-heading">
+              <div class="th-subscription-icon">
+                <i class="fa-thin fa-envelope"></i>
+              </div>
+              <div class="th-subscription-details">
+                <div class="sub-title m-0" data-v-footer-subscription_title>Get krost product updates</div>
+                <div class="description" data-v-footer-subscription_description>Receive the latest news and updates from Krost</div>
+              </div>
+            </div>
+            <div class="th-subscription-form">
+              <label class="pr-15">
+                <input type="text" placeholder="Your Email Address Please" data-v-footer-subscription_placeholder />
+              </label>
+              <div class="link">
+                <div class="link-text pr-5" data-v-footer-subscription_button_text>Subscribe Now</div>
+                <div class="link-icon">
+                  <i class="fa-regular fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="th-footer-navigation">
+            <ul>
+
+              <li class="pl-0">
+                <span class="link pl-0">
+                  <a href="#" data-v-footer-footer_navigation_our_store> Our Store</a>
+                </span>
+              </li>
+              <li class="class">
+                <span class="link class">
+                  <a href="#" data-v-footer-footer_navigation_visit_us> Visit Us</a>
+                </span>
+              </li>
+              <li class="border-right-0">
+                <span class="link border-right-0">
+                  <a href="#" data-v-footer-footer_navigation_contact_us> Contact Us</a>
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="th-footer-follow pt-30">
+            <p class="text-weight-600">Follow Us:</p>
+            <div class="social-media">
+              <ul class="social-media-list">
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.linkedin.com/company/krost-furniture/" data-v-url>
+                      <i class="fa-brands fa-linkedin-in" data-v-icon></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.facebook.com/krostfurniture/">
+                      <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.instagram.com/krostfurniture/">
+                      <i class="fa-brands fa-instagram"></i>
+                    </a>
+                  </span>
+                </li>
+                <li class="social-media-item">
+                  <span class="link">
+                    <a href="https://www.pinterest.com/krostfurniture/">
+                      <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+                  </span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="th-footer-copyright mt-20">
+      <div class="container th-container">
+        <div class="d-flex flex-column flex-md-row">
+          <div class="text-muted flex-grow-1">
+            <a class="btn-link text-muted" href="content/page.html" data-v-footer-copyright_terms_url>Terms and conditions</a> |
+            <a class="btn-link text-muted" href="content/page.html" data-v-footer-copyright_privacy_url>Privacy Policy</a>
+          </div>
+          <div class="text-muted">
+            &copy; <span data-v-footer-copyright_year>2025</span>
+            <span data-v-footer-copyright_company_name>KROST</span>. <span data-v-footer-copyright_powered_by_text>Powered by</span>
+            <a href="https://krost.com.au" class="btn-link text-muted" target="_blank" data-v-footer-copyright_powered_by_url>KROST</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--============================== End Footer ==============================-->
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/js/lib/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/js/lib/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="/js/lib/flatpickr-4.6.13.min.js"></script>
+  <script type="text/javascript" src="/js/bundle.js"></script>
+
+</body>

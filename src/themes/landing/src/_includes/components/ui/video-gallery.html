@@ -1,0 +1,46 @@
+<style>
+
+.inline-video-gallery-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+</style>
+<div id="@@id" class="inline-video-gallery-container">
+    <div class="inline-video-gallery-thumbnails-left" style="z-index: 1000;"></div>
+</div>
+
+<script>
+    var jsonFile = "@@jsonData";
+    if(jsonFile && jsonFile != "\@\@jsonData"){
+        fetch(jsonFile)
+        .then(response => response.json())
+        .then(data => {
+                console.log(data);
+                const @@id = document.getElementById("@@id");
+                const @@variable = lightGallery(@@id, {
+                container: @@id,
+                dynamic: !0,
+                thumbnail: !0,
+                swipeToClose: !1,
+                addClass: 'lg-inline',
+                mode: 'lg-scale-up',
+                slideShowAutoplay: !1,
+                autoPlay: !1,
+                hash: !1,
+                pager: !1,
+                closable: !1,
+                showMaximizeIcon: !0,
+                rotate: !0,
+                download: !0,
+                thumbnailsPosition: 'left',
+                plugins: [lgZoom, lgFullscreen, lgPager, lgRotate, lgShare, lgThumbnail, lgVideo],
+                appendSubHtmlTo: '.lg-outer',
+                autoplayFirstVideo: !1,
+                dynamicEl: data
+            });
+            @@variable.openGallery();
+        });
+    }
+</script>

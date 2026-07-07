@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ subject|default('Krost Website | Email a Consultant') }}</title>
+
+</head>
+
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+
+  {% set notes_text = client_notes|default('')|trim %}
+  {% set attachment_labels = attachment_labels|default([]) %}
+
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+
+    <tr>
+
+      <td align="center">
+
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+
+          <tr>
+
+            <td style="padding:20px 24px 0px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">Hi {{ client_email|default("[User's Email]") }},</p>
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">Thank you for sharing your project with us. We have successfully received your Virtual Pinboard selection and project details.</p>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+
+                <tr>
+
+                  <td style="padding:0px 0px 8px 0px;">
+
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:1.4; color:#374151;">Your Submission Summary:</p>
+
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:1.7;">
+
+                    <ul style="margin:0; padding-left:10px;">
+
+                      <li style="line-height:1.7;"><strong>Project Name:</strong> {{ project_name|default('[Project Name]') }}</li>
+
+                      <li style="line-height:1.7;"><strong>Items Included:</strong> {{ items_count|default('0') }} items</li>
+
+                      <li style="line-height:1.7;"><strong>Additional Notes:</strong> {% if notes_text %}{{ notes_text }}{% else %}None provided{% endif %}</li>
+                      
+                      <li style="line-height:1.7;"><strong>Attachments:</strong> 
+                            {% if attachment_links is defined and attachment_links is iterable and attachment_links|length > 0 %}
+                            {% for file_link in attachment_links %}{% if not loop.first %}, {% endif %}<a href="{{ file_link }}" download target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline;">{{ attachment_labels[loop.index0]|default('File ' ~ loop.index) }}</a>{% endfor %}
+                          {% elseif attachment_link is defined and attachment_link and attachment_label is defined %}
+                            <a href="{{ attachment_link }}" download target="_blank" rel="noopener noreferrer" style="color:#2563eb; text-decoration:underline;">{{ attachment_label|default('Attachment') }}</a>
+                          {% elseif attachments is defined and attachments %}
+                            {{ attachments }}
+                          {% else %}
+                            None
+                          {% endif %}
+                      </li>
+
+                    </ul>
+
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td style="padding:20px 24px 0px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 5px 0; font-size:16px; font-weight:bold; line-height:1.6;">What happens next?</p>
+
+              <p style="margin:0px 0 20px 0; line-height:1.7;">Our consultant will review your project selection and any supporting documentation you’ve provided. We will be in touch shortly to discuss your requirements and help refine your project.</p>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;" align="center">
+
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto;">
+
+                <tr>
+
+                  <td align="center" style="border-radius:6px; background-color:#2563eb;">
+
+                    <a href="{{ board_url|default('#') }}" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:12px 24px; font-size:16px; font-weight:bold; color:#ffffff; text-decoration:none;">View My Pinboard</a>
+
+                  </td>
+
+                </tr>
+
+              </table>
+
+            </td>
+
+          </tr>
+
+
+
+          <tr>
+
+            <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.4; color:#374151;">
+
+              <p style="margin:0 0 20px 0; line-height:1.4;">Best Regards,</p>
+
+              <p style="margin:0 0 0 0; line-height:1.4;"><strong>The Krost Team</strong></p>
+
+            </td>
+
+          </tr>
+
+        </table>
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</body>
+
+</html>
+

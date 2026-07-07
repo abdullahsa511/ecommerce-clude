@@ -1,0 +1,147 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="home bg-white">
+    @@include('../_includes/sections/navigation.html')
+    
+    <section id="booking-submissionconfirmation" class="py-0 mb-60" data-v-component-submissionconfirmation>
+        <div class="bg-gray submission-confirmation-hero">
+            <div class="container th-container">
+                <div class="section-body py-50">
+                    <div class="breadcrumb_class submission-confirmation-breadcrumb">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="/account/virtual-pinboards">Pinboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Confirmation</li>
+                        </ol>
+                    </div>
+
+                    <div
+                        class="submission-confirmation-status d-inline-flex align-items-center gap-2 mb-4 px-3 py-2 rounded-pill">
+                        <i class="fa-solid fa-circle-check font-size-16"></i>
+                        <p class="mb-0">Project Submitted</p>
+                    </div>
+
+                    <h1 class="th-section-title submission-confirmation-title mb-20"
+                        data-v-submissionconfirmation-title>Thank you, your project is with our team.</h1>
+                    <p class="th-section-subtitle submission-confirmation-subtitle mb-0"
+                        data-v-submissionconfirmation-subtitle>Our consultants will review your pinboard selection and
+                        contact you shortly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container th-container">
+            <div class="row project-details-wrapper">
+                <div class="col-md-6">
+                    <div class="th-virtual-meeting-image">
+                        <img src="/media/catalogue/catalogue-confirmation/confirm1.png" alt="Executive Office">
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="project-summary">
+                        <p class="summary-eyebrow mb-2">Project Summary</p>
+                        <h2 class="mb-3" data-v-submissionconfirmation-pinboard-name>Executive Office</h2>
+
+                        <div class="summary-meta d-flex align-items-start justify-content-between py-3">
+                            <div>
+                                <p class="summary-meta-label mb-1">Submitted</p>
+                                <p class="summary-meta-value mb-0" data-v-submissionconfirmation-pinboard-created-at>
+                                    7 May 2026 
+                                    <span data-v-submissionconfirmation-pinboard-created-at-time>10:42 AM</span>
+                                </p>
+                            </div>
+                            <div class="text-md-end">
+                                <p class="summary-meta-label mb-1">Items</p>
+                                <p class="summary-meta-value mb-0"><span
+                                        data-v-submissionconfirmation-pinboard-item-count>3</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="summary-list" data-v-submissionconfirmation-pinboard-items>
+                            <!-- item 1 -->
+                            <div class="summary-item d-flex align-items-center py-3"
+                                data-v-submissionconfirmation-pinboard-item>
+                                <div class="summary-thumb flex-shrink-0">
+                                    <a href="" data-v-item-link-url>
+                                        <img src="/media/products/product-image/product-image-1.png"
+                                        alt="Acoustic Pod - Quad" data-v-submissionconfirmation-pinboard-item-image>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="" data-v-item-link-url class="summary-title mb-1" data-v-submissionconfirmation-pinboard-item-name>
+                                        Acoustic Pod - Quad</a>
+                                    <p class="summary-subtitle mb-0 text-capitalize"
+                                        data-v-submissionconfirmation-pinboard-item-description>Storm Grey - 4-seater
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end item 1 -->
+                        </div>
+
+                        <div class="summary-view-more text-center pt-3 d-none"
+                            data-v-submissionconfirmation-view-more-wrapper>
+                            <button type="button" class="th-btn th-btn-text font-weight-500"
+                                data-v-submissionconfirmation-view-more-btn>
+                                View more (<span data-v-submissionconfirmation-view-more-count>0</span>)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        (function () {
+            var VISIBLE_LIMIT = 5;
+
+            function initSubmissionConfirmationViewMore() {
+                var container = document.querySelector('[data-v-submissionconfirmation-pinboard-items]');
+                var wrapper = document.querySelector('[data-v-submissionconfirmation-view-more-wrapper]');
+                var btn = document.querySelector('[data-v-submissionconfirmation-view-more-btn]');
+                var countEl = document.querySelector('[data-v-submissionconfirmation-view-more-count]');
+                if (!container || !wrapper || !btn) return;
+
+                var items = container.querySelectorAll('[data-v-submissionconfirmation-pinboard-item]');
+                var total = items.length;
+
+                if (total <= VISIBLE_LIMIT) {
+                    wrapper.classList.add('d-none');
+                    return;
+                }
+
+                for (var i = VISIBLE_LIMIT; i < total; i++) {
+                    items[i].classList.add('d-none');
+                    items[i].classList.add('pinboard-item-hidden');
+                }
+                if (countEl) countEl.textContent = String(total - VISIBLE_LIMIT);
+                wrapper.classList.remove('d-none');
+
+                btn.addEventListener('click', function () {
+                    var hidden = container.querySelectorAll('[data-v-submissionconfirmation-pinboard-item].pinboard-item-hidden');
+                    hidden.forEach(function (el) {
+                        el.classList.remove('d-none');
+                        el.classList.remove('pinboard-item-hidden');
+                    });
+                    wrapper.classList.add('d-none');
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initSubmissionConfirmationViewMore);
+            } else {
+                initSubmissionConfirmationViewMore();
+            }
+        })();
+    </script>
+
+    @@include('../_includes/sections/footer.html')
+    @@include('../_includes/sections/pinboard.html')
+    @@include('../_includes/components/footer-scripts-account.html')
+
+</body>
+
+</html>

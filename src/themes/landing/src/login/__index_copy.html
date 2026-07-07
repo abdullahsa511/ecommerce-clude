@@ -1,0 +1,132 @@
+@@include('../_includes/components/html-head.html')
+
+<body class="bg-white">
+    @@include('../_includes/sections/navigation.html')
+
+
+
+
+
+
+    <!-- @@include('../_includes/sections/login/login-page-section.html') -->
+
+    <!--============================== Start Login Page ==============================-->
+    <section id="login-page" class="th-login pt-0" data-v-component-login>
+        <div class="container th-container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="th-img-container">
+                        <img src="/media/login/login.png" alt="" data-v-login-image>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="th-login-form-container pt-100 w-100">
+                        <div class="th-login-form-header">
+                            <h2>Access Your Protal</h2>
+                        </div>
+                        <div class="th-login-form-body">
+                            <form class="th-form needs-validation was-validated" id="login-form" action="/login"
+                                method="POST">
+                                <input type="hidden" name="nonce" value="" data-v-nonce>
+                                <input type="hidden" name="email" id="signup-email-value" data-v-login-email-value>
+                                <div class="form-group ">
+                                    <label data-v-login-email_input_label for="email" class="form-label">Enter Your
+                                        Email*</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter your email" data-v-login-email required>
+                                    <div class="invalid-feedback" id="email-feedback"></div>
+                                </div>
+                                <button type="button" class="th-btn-primary w-100" id="send-otp-button">Send
+                                    OTP</button>
+                            </form>
+                            <div class="th-login-form-footer text-center pt-20">
+                                <p>Are you new? <a class="th-underline th-bold" href="/signup">Create an account</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="modal fade backdrop-static" id="verifyEmailModal" tabindex="-1" aria-hidden="true"
+            data-bs-backdrop="false" style="position:fixed; inset:0; background-color: rgba(0,0,0,0.5); z-index:1040;">
+
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content modelBorderRadius">
+                    <div class="modal-header">
+
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="verify-email-form" class="guest-signup-form">
+                            <div class="text-center py-10 mb-20">
+                                <h6>Verify it's you</h6>
+                                <p>
+                                    We've sent a verification code to
+                                    <strong id="verify-email-display">email@example.com</strong>. <br>
+                                    Please enter the code below to verify your email.
+                                </p>
+                                <strong class="d-block mb-20 text-center" id="otp-text"> otp </strong>
+                            </div>
+
+                            <!-- OTP BOXES -->
+                            <div class="otp-wrapper mb-20">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="0"
+                                    inputmode="numeric" autocomplete="one-time-code">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="1"
+                                    inputmode="numeric">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="2"
+                                    inputmode="numeric">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="3"
+                                    inputmode="numeric">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="4"
+                                    inputmode="numeric">
+                                <input type="text" maxlength="1" class="otp-input" data-otp-index="5"
+                                    inputmode="numeric">
+                            </div>
+
+                            <!-- PRIMARY BUTTON -->
+                            <button type="button" class="th-btn-primary text-capitalize w-100 mt-15"
+                                id="verify-email-button">
+                                <span id="verify-email-button-text">Verify & Continue</span>
+                                <span class="spinner-border spinner-border-sm ms-2 d-none" role="status"
+                                    id="verify-email-spinner"></span>
+                            </button>
+
+                            <!-- RESEND LINK -->
+                            <div class="text-center mt-15">
+                                <small>
+                                    Didn't receive the code?
+                                    <a href="javascript:void(0)" class="resend-link" id="resend-email-link">
+                                        Resend Email
+                                    </a>
+                                </small>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--============================== End Login Page ==============================-->
+
+
+
+    @@include('../_includes/sections/footer.html')
+
+    @@include('../_includes/sections/pinboard.html')
+
+    @@include('../_includes/components/footer-scripts.html')
+
+</body>
+
+</html>

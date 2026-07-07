@@ -1,0 +1,22 @@
+<div class="th-grid-area @@gridArea"
+@@if(typeof bgImage !== 'undefined'){
+    data-bg-src="@@bgImage"
+}
+>
+    @@if(typeof title !== 'undefined'){
+    <h2 class="">@@title</h2>
+    }
+    @@if(typeof subtitle !== 'undefined'){
+    <h5 class="">@@subtitle</h5>
+    }
+    @@if(typeof description !== 'undefined'){
+    <h6 class="th-title-22 font-weight-400">
+       @@description
+    </h6>
+    }
+    @@if(typeof linkText !== 'undefined'){
+        @@include('./all-btn/icon-link-small.html', {
+            "label": "@@linkText"
+        })
+    }
+  </div>

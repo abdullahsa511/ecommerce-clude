@@ -1,0 +1,442 @@
+.th-duration-dropdown {
+  position: relative;
+  max-width: 260px;
+
+  .th-duration-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+    padding: 10px 14px;
+    background: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 10px;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+
+    .th-duration-label {
+      color: var(--gray-400);
+    }
+
+    .th-duration-value {
+      color: #231f20;
+      font-weight: 500;
+    }
+
+    .th-duration-chevron {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--theme-primary);
+    }
+  }
+
+  &:hover .th-duration-trigger {
+    background: #f0f0f0;
+  }
+
+  &.th-duration-open .th-duration-chevron {
+    transform: rotate(180deg);
+  }
+
+  .th-duration-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    margin: 6px 0 0;
+    padding: 6px 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+    z-index: 1000;
+    display: none;
+
+    li {
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: #f5f5f5;
+    }
+  }
+
+  &.th-duration-open .th-duration-options {
+    display: block;
+  }
+}
+
+
+#timeSlotsModal {
+  .modal-custom-width {
+    max-width: 879px !important;
+  }
+
+  @include respond-to(lg) {
+    .modal-custom-width {
+      max-width: 879px !important;
+    }
+  }
+
+  @include respond-to(md) {
+    .modal-custom-width {
+      max-width: 600px !important;
+      .modal-content{
+        padding: 0!important;
+      }
+    }
+  }
+
+  @include respond-to(sm) {
+    .modal-custom-width {
+      max-width: 400px !important;
+    }
+  }
+
+  @include respond-to(xs) {
+    .modal-custom-width {
+      max-width: 100% !important;
+    }
+  }
+
+  .modal-content {
+    // padding: 0px 60px 20px 60px;
+    border-radius: 25px;
+  }
+}
+
+.ts-slots-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ts-slots-block {
+  .ts-slots-block-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--theme-primary, #231f20);
+    margin-bottom: 12px;
+  }
+}
+
+.ts-slots-grid,
+#ts-slots-morning,
+#ts-slots-evening {
+  .th-booking-slot-btn {
+    border: 1px solid var(--theme-border);
+    color: var(--theme-primary);
+    border-radius: 5px !important;
+    padding: 7px 10px !important;
+
+    &.active {
+      color: var(--gray-lighter);
+
+      i {
+        &::before {
+          content: '\f061';
+          font-family: 'Font Awesome 6 Pro';
+          font-weight: 900;
+          font-size: 15px;
+          color: var(--gray-lighter);
+        }
+      }
+    }
+
+    &:hover {
+      color: var(--gray-lighter);
+
+      i {
+        &::before {
+          content: '\f061';
+          font-family: 'Font Awesome 6 Pro';
+          font-weight: 900;
+          font-size: 15px;
+          color: var(--gray-lighter);
+        }
+      }
+    }
+
+  }
+}
+
+.th-time-slot {
+  width: 160px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #bcbcbc;
+  padding: 20px 10px;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &.active {
+    // color: var(--theme-title);
+    color: white;
+    // background-color: #eaeaec;
+    // background-color: var(--gray-darker);
+    background-color: gray;
+    border-color: var(--gray-darker);
+    font-weight: 600;
+
+    label {
+      // color: var(--theme-title);
+      // color: var(--gray-lighter);
+      color: white;
+    }
+  }
+
+  &.no-hover {
+    &:hover {
+      background-color: gray;
+      color: white;
+      border-color: #bcbcbc;
+
+      label {
+        color: var(--theme-primary, #231f20);
+      }
+    }
+  }
+}
+
+.th-time-slot input.hover {
+  display: none;
+}
+
+.th-time-slot input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0px;
+  height: 0px;
+  padding: 0px;
+  border-radius: 0% !important;
+  border: 0;
+  background: #fff;
+  transition: border-color 0.2s;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+}
+
+.th-time-slot input[type="checkbox"]:checked {
+  border-color: var(--theme-primary, #231f20);
+  background: var(--theme-primary, #231f20);
+}
+
+.th-time-slot input[type="checkbox"]:checked::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.th-time-slot input[type="checkbox"]:checked~label::before {
+  display: none;
+}
+
+// Swiper measures this container for slide widths; a fixed 1200px breaks mobile layouts.
+.th-sales-team-slider-width {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.disabled.time-slot-disabled {
+  cursor: not-allowed;
+
+  * {
+    cursor: not-allowed;
+  }
+}
+
+// iPad only — 768px to 1024px
+@media (min-width: 768px) and (max-width: 1024px) {
+  #book-now {
+
+    // Stack columns full-width
+    .col-md-5,
+    .col-md-7 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding-right: 15px;
+    }
+
+    // Reorder: calendar (col-md-7) goes first visually
+    // .col-md-5 { order: 2; }
+    // .col-md-7 { order: 1; }
+
+    // Remove vertical border between columns
+    .border-right-gray {
+      border-right: none !important;
+    }
+
+    // Title sits above calendar, reduce bottom margin
+    .th-section-header-wrapper {
+      margin-bottom: 20px;
+    }
+
+    // Hide showroom image — too small to be useful on iPad
+    .th-booking-member-avatar {
+      display: none;
+    }
+
+    // Dropdowns side by side in a row
+    .th-booking-form-container form {
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+      margin-bottom: 40px;
+
+      .th-input-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    // Give the calendar container breathing room
+    .th-calendar-container {
+      margin-bottom: 28px;
+    }
+  }
+}
+
+#virtual-meeting-info {
+  .virtual-meeting-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: Arial, sans-serif;
+  }
+
+  .custom-radio {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 16px;
+      color: #333;
+  }
+
+  .custom-radio input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+  }
+
+  /* The custom radio circle */
+  .radio-mark {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      transition: all 0.2s;
+  }
+
+  /* On hover */
+  .custom-radio:hover .radio-mark {
+      border-color: #4f46e5;
+      /* example accent color */
+  }
+
+  /* When checked */
+  .custom-radio input:checked~.radio-mark {
+      border-color: #4f46e5;
+      background-color: #4f46e5;
+  }
+
+  /* Inner dot */
+  .radio-mark::after {
+      content: "";
+      position: absolute;
+      display: none;
+  }
+
+  .custom-radio input:checked~.radio-mark::after {
+      display: block;
+      left: 5px;
+      top: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+}
+
+
+// Booked time slots: light gray box, muted label, diagonal strike over text — CSS only
+.th-time-slot.th-booked-time-slot {
+  position: relative;
+  cursor: not-allowed;
+  font-weight: 400;
+  color: #9a9a9a;
+  background-color: #e6e6e6;
+  border: 1px solid #d8d8d8;
+
+  // // Strike sits above label (parent bg alone would sit behind label text)
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   pointer-events: none;
+  //   cursor: not-allowed;
+  //   background-image: linear-gradient(
+  //     to top left,
+  //     transparent 0,
+  //     transparent calc(50% - 1px),
+  //     #8a8a8a calc(50% - 1px),
+  //     #8a8a8a calc(50% + 1px),
+  //     transparent calc(50% + 1px),
+  //     transparent 100%
+  //   );
+  // }
+
+  // *,
+  // *::before,
+  // *::after {
+  //   cursor: not-allowed;
+  // }
+
+  label {
+    position: relative;
+    color: #9a9a9a;
+    font-weight: 400;
+  }
+
+  &:hover,
+  &.active,
+  &.active:hover {
+    background-color: #e6e6e6;
+    border-color: #d8d8d8;
+    color: #9a9a9a;
+    font-weight: 400;
+
+    label {
+      color: #9a9a9a;
+    }
+  }
+}
+
+// end new css for booked time slots

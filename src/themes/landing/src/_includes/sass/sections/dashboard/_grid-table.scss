@@ -1,0 +1,121 @@
+// Create 1 column table to 50 columns table
+
+.th-table{
+  display: grid;
+  width: 100%;
+  border-collapse: collapse; /* mimic table collapse if desired */
+  margin: 0 auto;
+  row-gap: 15px;
+}
+
+@for $i from 1 through 50 {
+  .th-table-col-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+
+@for $i from 1 through 50 {
+  .th-col-span-#{$i} {
+    grid-column: span $i;
+    -ms-grid-column: span $i;
+  }
+}
+
+/* Each section (header/body/footer) will “inherit” the same grid columns */
+.th-table-wrapper,
+.th-header-wrapper,
+.th-body-wrapper,
+.th-section-wrapper,
+.th-footer-wrapper{
+  display: contents; /* So they all share the same grid track definitions */
+}
+
+.th-footer-wrapper {
+  .th-cell{
+    background-color: $gray-lighter;
+    p {
+      padding: 16px;
+      text-align: right;
+    }
+  }
+}
+
+/* Each row uses display: contents to allow its children to line up in the grid */
+.th-row-wrapper {
+  display: contents;
+}
+.th-row-wrapper .th-cell:nth-child(1) {
+  border-left: 1px solid $gray;
+}
+.th-row-wrapper .th-cell:last-child {
+  border-right: 1px solid $gray;
+}
+
+/* Basic cell styling */
+.th-cell {
+  padding: 0.75rem;
+  background-color: #fff;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 15px solid $gray-lighter;
+}
+
+/* Header styling */
+.th-header-wrapper .th-cell {
+  font-weight: bold;
+  background-color: #f7f7f7;
+}
+
+
+/* --- Example Responsive Behavior --- */
+/* At smaller screens, stack cells or adjust columns */
+@media (max-width: 768px) {
+  .th-header-wrapper{
+    display: none;
+  }
+  .th-section-wrapper{
+    .th-row-wrapper{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .th-footer-wrapper{
+    .th-row-wrapper{
+      .th-cell{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  /* Make each row display as a block */
+  .th-row-wrapper {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  /* Cells become full-width and can display label/value pairs */
+  .th-cell {
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* If you want “labels” for each cell, add a data-label attribute in HTML and use content: attr(...) */
+  /* Example:
+     <div class="cell" data-label="Item">Miro Task Chair</div>
+  */
+  .th-cell::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+}

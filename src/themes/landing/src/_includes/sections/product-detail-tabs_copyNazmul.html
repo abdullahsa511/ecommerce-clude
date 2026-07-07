@@ -1,0 +1,448 @@
+<!--==============================
+Product Detail Tabs
+==============================-->
+<section class="th-product-detail-tabs th-product-tabs-section-p" id="product-detail-tabs">
+  <div class="container th-container">
+    <!-- Tab navigation for larger screens (d-none d-md-flex hides on mobile) -->
+    <div class="nav nav-tabs mb-4 d-none d-md-flex border-0" id="product-tabs" role="tablist">
+
+      <button class="nav-link active th-tab-title th-tabs-title-p" id="specs-tab" data-bs-toggle="tab"
+        data-bs-target="#specs" type="button" role="tab" aria-controls="specs" aria-selected="true"
+        data-v-productspecifications-tab-button>Specs</button>
+
+      <button class="nav-link th-tab-title th-tabs-title-p" id="dimensions-tab" data-bs-toggle="tab"
+        data-bs-target="#dimensions" type="button" role="tab" aria-controls="dimensions" aria-selected="false"
+        data-v-productdimensions-tab-button>Dimensions</button>
+
+      <button class="nav-link th-tab-title th-tabs-title-p" id="downloads-tab" data-bs-toggle="tab"
+        data-bs-target="#downloads" type="button" role="tab" aria-controls="downloads" aria-selected="false"
+        data-v-productdownloads-tab-button>Downloads</button>
+
+      <button class="nav-link th-tab-title th-tabs-title-p" id="certifications-tab" data-bs-toggle="tab"
+        data-bs-target="#certifications" type="button" role="tab" aria-controls="certifications" aria-selected="false"
+        data-v-productcertifications-tab-button>Certifications</button>
+
+      <button class="nav-link th-tab-title th-tabs-title-p" id="media-tab" data-bs-toggle="tab" data-bs-target="#media"
+        type="button" role="tab" aria-controls="media" aria-selected="false" data-v-productmedia-tab-button>Pictures &
+        Videos</button>
+
+    </div>
+
+    <!-- Accordion for mobile screens only (d-md-none hides on desktop) -->
+    <div class="accordion d-md-none mb-4" id="accordionProductDetails">
+
+      <div class="accordion-item border-0 mb-2">
+        <h2 class="accordion-header" id="headingSpecs">
+          <button class="accordion-button px-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpecs"
+            aria-expanded="true" aria-controls="collapseSpecs">
+            Specs
+          </button>
+        </h2>
+        <div id="collapseSpecs" class="accordion-collapse collapse show" aria-labelledby="headingSpecs"
+          data-bs-parent="#accordionProductDetails">
+          <div class="accordion-body pt-0">
+            <!-- This will be filled with the same content as the tab -->
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <ul class="">
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit amet.</li>
+                  <li>• Lorem ipsum dolor sit geho urna pellentesque.</li>
+                </ul>
+                <div class="th-link @@classPadding">
+                  <div class="th-link-text pr-5">
+                    View Catalogue
+
+                  </div>
+                  <!--
+                  <div class="th-link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div>
+                  -->
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                <img src="/img/product-detail/tab image.png" alt="Product Specifications"
+                  class="img-fluid mt-4 mt-lg-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- dimensions accordion -->
+      <div class="accordion-item border-0 mb-2" data-v-productdetailtabs-dimensions-accordion>
+        <h2 class="accordion-header" id="headingDimensions">
+          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDimensions" aria-expanded="false" aria-controls="collapseDimensions">
+            Dimensions
+          </button>
+        </h2>
+        <div id="collapseDimensions" class="accordion-collapse collapse" aria-labelledby="headingDimensions"
+          data-bs-parent="#accordionProductDetails">
+          <div class="accordion-body pt-0">
+            <!-- This will be filled with the same content as the tab -->
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <h3>Product Dimensions</h3>
+                <ul class="list-unstyled">
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit amet.</li>
+                </ul>
+                <div class="th-link @@classPadding">
+                  <div class="th-link-text pr-5">
+                    View in Catalogue
+
+                  </div>
+                  <!-- <div class="th-link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div> -->
+                </div>
+
+
+              </div>
+              <div class="col-lg-6">
+                <img src="/img/product-detail/second circle.png" alt="Product Dimensions"
+                  class="img-fluid mt-4 mt-lg-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- downloads accordion -->
+      <div class="accordion-item border-0 mb-2" data-v-productdetailtabs-downloads-accordion>
+        <h2 class="accordion-header" id="headingDownloads">
+          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseDownloads" aria-expanded="false" aria-controls="collapseDownloads">
+            Downloads
+          </button>
+        </h2>
+        <div id="collapseDownloads" class="accordion-collapse collapse" aria-labelledby="headingDownloads"
+          data-bs-parent="#accordionProductDetails">
+          <div class="accordion-body pt-0">
+            <!-- This will be filled with the same content as the tab -->
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <h3>Available Downloads</h3>
+                <ul class="list-unstyled">
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                </ul>
+                <div class="th-link @@classPadding">
+                  <div class="th-link-text pr-5">
+                    Download All
+
+                  </div>
+                  <!-- <div class="th-link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div> -->
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                <img src="/img/product-detail/tab image.png" alt="Downloads" class="img-fluid mt-4 mt-lg-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- certifications accordion -->
+      <div class="accordion-item border-0 mb-2" data-v-productdetailtabs-certifications-accordion>
+        <h2 class="accordion-header" id="headingCertifications">
+          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCertifications" aria-expanded="false" aria-controls="collapseCertifications">
+            Certifications
+          </button>
+        </h2>
+        <div id="collapseCertifications" class="accordion-collapse collapse" aria-labelledby="headingCertifications"
+          data-bs-parent="#accordionProductDetails">
+          <div class="accordion-body pt-0">
+            <!-- This will be filled with the same content as the tab -->
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <h3>Product Certifications</h3>
+                <ul class="list-unstyled">
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                </ul>
+                <div class="th-link @@classPadding">
+                  <div class="th-link-text pr-5">
+                    View Certifications
+
+                  </div>
+                  <!-- <div class="th-link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div> -->
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                <img src="/img/product-detail/second circle.png" alt="Certifications" class="img-fluid mt-4 mt-lg-0" data-v-productcertifications-image>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- media accordion -->
+      <div class="accordion-item border-0" data-v-productdetailtabs-media-accordion>
+        <h2 class="accordion-header" id="headingMedia">
+          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseMedia" aria-expanded="false" aria-controls="collapseMedia">
+            Pictures & Videos
+          </button>
+        </h2>
+        <div id="collapseMedia" class="accordion-collapse collapse" aria-labelledby="headingMedia"
+          data-bs-parent="#accordionProductDetails">
+          <div class="accordion-body pt-0">
+            <!-- This will be filled with the same content as the tab -->
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <h3>Media Gallery</h3>
+                <ul class="list-unstyled">
+                  <li>• Lorem ipsum dolor sit amet consectetur.</li>
+                  <li>• Lorem ipsum dolor sit</li>
+                  <li>• Lorem ipsum dolor sit amet consectetur. Scelerisque urna pellentesque.</li>
+                </ul>
+                <div class="th-link @@classPadding">
+                  <div class="th-link-text pr-5">
+                    View Gallery
+
+                  </div>
+                  <!-- <div class="th-link-icon-btn">
+                    <i class="fa-regular fa-arrow-up degree-60"></i>
+                  </div> -->
+                </div>
+
+              </div>
+              <div class="col-lg-6">
+                <img src="/img/product-detail/tab image.png" alt="Media Gallery" class="img-fluid mt-4 mt-lg-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab content for larger screens -->
+    <div class="tab-content d-none d-md-block">
+      <!-- specifications tab -->
+      <div class="tab-pane fade show active" id="specs" role="tabpanel" aria-labelledby="specs-tab"
+        data-v-component-productspecifications>
+        <div class="row flex-1">
+          <div class="col-lg-6">
+            <!-- <h3 data-v-productspecifications-title>Lorem Ipsum Dolor Sit</h3> -->
+            <ul class="" data-v-productspecifications-items>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit amet consectetur.</li>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit</li>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit amet consectetur. Scelerisque
+                urna pellentesque.</li>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit amet consectetur.</li>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit amet.</li>
+              <li data-v-productspecifications-item class="mb-10">• Lorem ipsum dolor sit geho urna pellentesque.</li>
+            </ul>
+            <div class="th-link pt-20 pl-10">
+              <div class="th-link-text pr-5">
+                <a href="javascript:void(0)" data-v-productspecifications-link>View in Catalogue</a>
+              </div>
+              <!-- <div class="th-link-icon-btn">
+                <i class="fa-regular fa-arrow-up degree-60"></i>
+              </div> -->
+            </div>
+
+          </div>
+          <div class="col-lg-6" data-v-productspecifications-image-container>
+            <img data-v-productspecifications-image src="/img/product-detail/tab image.png" alt="Product Specifications"
+              class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <!-- specifications tab end -->
+      <!-- dimensions tab -->
+      <div class="tab-pane fade" id="dimensions" role="tabpanel" aria-labelledby="dimensions-tab"
+        data-v-component-productdimenssions>
+        <div class="row flex-1">
+          <div class="col-lg-6">
+            <!-- <h3 data-v-productdimensions-title>Product Dimensions</h3> -->
+            <ul class="">
+              <li class="mb-10">Width: <span id="width-dimension">100mm</span></li>
+              <li class="mb-10">Height: <span id="height-dimension">100mm</span></li>
+              <li class="mb-10">Depth: <span id="depth-dimension">100mm</span></li>
+
+              <!-- <li data-v-productdimensions-width class="mb-10" id="width-dimension">• Width: 100mm</li>
+              <li data-v-productdimensions-height class="mb-10" id="height-dimension">• Height: 100mm</li>
+              <li data-v-productdimensions-depth class="mb-10" id="depth-dimension">• Depth: 100mm</li> -->
+            </ul>
+            <div class="th-link pt-20">
+              <div class="th-link-text pr-5 pl-5">
+                <a href="javascript:void(0)" data-v-productdimensions-link target="_blank">
+                  <span data-v-productdimensions-link-text>View in Catalogue</span></a>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-6" data-v-productdimensions-image-container>
+            <img data-v-productdimensions-image src="/img/product-detail/tab image.png" alt="Product Dimensions"
+              id="dimensions-image" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <!-- dimensions tab end -->
+      <!-- downloads tab -->
+      <div class="tab-pane fade" id="downloads" role="tabpanel" aria-labelledby="downloads-tab"
+        data-v-component-productdownloads>
+        <div class="row flex-1">
+          <div class="col-lg-6">
+            <!-- <h3 data-v-downloads-title>Available Downloads</h3> -->
+            <ul class="list-unstyled" data-v-downloads-items>
+              <li data-v-downloads-item>
+                <div class="download-item-container d-flex">
+                  <img src="" alt="Download Icon" data-v-downloads-item-icon-src style="width: 70px; height: 50px;">
+                  <a href="" download data-v-downloads-item-name data-v-downloads-item-link
+                    class="design-resource-tag block mb-1 text-blue-600 hover:text-blue-800 download-item-link"></a>
+                </div>
+              </li>
+            </ul>
+            <div class="th-link @@classPadding pl-35 mt-15">
+              <div class="th-link-text pr-5" id="download-all-link" data-v-productdownloads-link>
+                Download All
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="/img/product-detail/tab image.png" alt="Downloads" class="img-fluid"
+              data-v-productdownloads-image>
+          </div>
+        </div>
+      </div>
+      <!-- downloads tab end -->
+      <!-- certifications tab -->
+      <div class="tab-pane fade" id="certifications" role="tabpanel" aria-labelledby="certifications-tab"
+        data-v-component-productcertifications>
+        <div class="row flex-1">
+          <div class="col-lg-6">
+            <div class="product-certificates">
+              <ul class="list-unstyled" data-v-productcertifications-items>
+                <li data-v-productcertifications-item>
+                  <div class="download-item-container d-flex">
+                    <img src="" alt="Download Icon" data-v-productcertifications-icon-src
+                      style="width: 70px; height: 50px;">
+                    <a href="" download data-v-productcertifications-item-link
+                      class="design-resource-tag block mb-1 text-blue-600 hover:text-blue-800 download-item-link"></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="/img/product-detail/second circle.png" alt="Certifications" class="img-fluid" data-v-productcertifications-image>
+          </div>
+        </div>
+      </div>
+      <!-- certifications tab end -->
+      <!-- media tab -->
+      <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab" data-v-component-productmedia>
+        <div class="row flex-1">
+          <div class="col-12">
+            <!-- media gallery -->
+            <div id="product-media-gallery" style="min-width: 200px!important;" class="th-product-gallery-container d-flex flex-items-center justify-content-start"
+              data-v-designresourceimages-images>
+              <div class="th-product-media-item" data-src="/img/design-resources/images/img-1.png" data-v-designresourceimages-image-data-src>
+                <img src="/img/design-resources/images/img-1.png" alt="Product Media" class="img-fluid"
+                data-v-designresourceimages-image-src>
+              </div>
+            </div>
+            <!-- media gallery end -->
+          </div>
+        </div>
+      </div>
+      <!-- media tab end -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .th-media-item {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .product-certificates {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 10px;
+    /* background: #e5ddd6; */
+    /* light beige like image */
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+
+  .certificate-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+
+  .product-certificate {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+
+  .product-certificate:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    opacity: 0.8;
+    border-radius: 4px;
+    padding: 5px;
+  }
+
+
+  /* Custom styles for the product detail tabs */
+
+  /* Responsive adjustments */
+  @media (max-width: 767.98px) {
+    .th-product-detail-tabs .accordion-body {
+      padding: 1rem;
+    }
+  }
+
+  /* Custom icon styles */
+  .th-product-detail-tabs a i {
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+  }
+
+  .th-product-detail-tabs a:hover i {
+    transform: rotate(45deg) translateX(3px);
+  }
+</style>

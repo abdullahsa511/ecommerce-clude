@@ -1,0 +1,30 @@
+.th-login-form-container {
+  width: 50%;
+  margin: 0 auto;
+  .th-login-form-header {
+    h2 {
+      font-size: 40px;
+      font-weight: 600;
+      color: #231F20;
+    }
+
+
+  }
+
+  @include respond-to(sm) {
+    width: 100% !important;
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@include respond-to(md) {
+  .th-login-form-container {
+    width: 100% !important;
+  }
+}

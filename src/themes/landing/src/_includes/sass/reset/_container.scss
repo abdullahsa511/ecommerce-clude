@@ -1,0 +1,71 @@
+:root {
+    --main-container: #{map-get($container-widths, md)};
+    --container-gutters: #{map-get($container-gutters, md)};
+    --border-radius-round: 0px;
+}
+.th-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Apply CSS variable changes inside :root using media queries */
+@each $breakpoint, $bp-value in $breakpoints {
+    @include respond-to($breakpoint) {
+        :root {
+            --main-container: #{map-get($container-widths, $breakpoint)};
+            --container-gutters: #{map-get($container-gutters, $breakpoint)};
+        }
+    }
+}
+
+@each $breakpoint, $bp-value in $breakpoints {
+    @include respond-to($breakpoint) {
+        .th-container, th-container-#{$breakpoint} {
+            max-width: var(--main-container);
+            padding-left: calc(var(--container-gutters) / 2);
+            padding-right: calc(var(--container-gutters) / 2);
+        }
+    }
+}
+
+
+// Round Container
+.round-container {
+    max-width: 1620px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radius-round);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.flex-1{
+    flex: 1;
+}
+.flex-6-md{
+    flex:6;
+    @include respond-to(md){
+        flex:1;
+    }
+}
+.flex-2-md{
+    flex:2;
+    @include respond-to(lg){
+        flex:1.5;
+    }
+}
+@media (max-width: 1050px) {
+    .flex-2-md {
+        flex: 1;
+    }
+}
+
+
+.th-container-md{
+    @include respond-to(ml){
+        max-width: 96%!important;
+    }
+    @include respond-to(lg){
+        max-width: 97%!important;
+    }
+}

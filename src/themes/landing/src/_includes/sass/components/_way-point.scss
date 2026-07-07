@@ -1,0 +1,138 @@
+.pin {
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.circle-point {
+    width: 40px;
+    height: 40px;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 11;
+}
+
+.circle-point::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dot {
+    width: 30px;
+    height: 30px;
+    background: rgb(10, 9, 9);
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
+}
+
+.label {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.way-point {
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: element;
+}
+
+// .way-point:active {
+//     cursor: grabbing;
+// }
+
+.way-point.dragging {
+    opacity: 0.8;
+}
+
+.way-point-link {
+    position: absolute;
+    left: -310px;
+    top: 50%;
+    transform: translateY(-5%);
+    display: none;
+    z-index: 10;
+    width: 250px;
+    height: 250px;
+}
+
+.way-point-link::before {
+    content: "";
+    position: absolute;
+    right: -61px;
+    top: -8px;
+    width: var(--line-width, 90px);
+    height: 1px;
+    background: rgba(200, 200, 200, 0.6);
+    transform: translateY(-50%);
+}
+
+.way-point-link::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -10px;
+    width: 1px;
+    height: 40px;
+    transform: rotate(-25deg);
+    background: rgba(200, 200, 200, 0.6);
+}
+
+.way-point-link.active {
+    display: block;
+}
+
+.way-point-link a {
+    color: white;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    display: block;
+    padding: 4px 0;
+    transition: opacity 0.2s ease;
+    left: 55px;
+    position: relative;
+    top: -40px;
+    text-align: right;
+}
+
+.way-point-link a:hover {
+    opacity: 0.8;
+}

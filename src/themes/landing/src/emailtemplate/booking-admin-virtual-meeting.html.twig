@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ subject|default('Internal Notification - New Online Meeting Booking') }}</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif; color:#374151;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f3f4f6; padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:970px; background-color:#ffffff; border:1px solid #e5e7eb; border-radius:8px;">
+          <tr>
+            <td style="padding:24px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">Hi {{ recipient_name|default('Salesteam') }},</p>
+              <p style="margin:0 0 0px 0; line-height:16x;">You have a new online consultation booked. The event has been automatically added to your Google Calendar.</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0 24px; font-size:16px; line-height:16x; color:#374151;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:20px 0px 5px 0px;">
+                    <p style="margin:0; font-size:16px; font-weight:bold; line-height:16x; color:#374151;">Meeting Details:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0px 24px 20px 24px; font-size:16px; line-height:1.7;">
+                    <ul style="margin:0; padding-left:10px;">
+                      <li style="line-height:1.7;"><strong>Name:</strong> {{ client_name|default("[Client's Name]") }}</li>
+                      <li style="line-height:1.7;"><strong>Email:</strong> {{ client_email|default("[Client's Email]") }}</li>
+                      <li style="line-height:1.7;"><strong>Date:</strong> {{ meeting_date|default('[Date]') }}</li>
+                      <li style="line-height:1.7;"><strong>Time:</strong> {{ meeting_time|default('[9:00 - 9:30am]') }} [{{ time_zone|default('AEST (GMT+10:00) Time in Sydney NSW') }}]</li>
+                      <li style="line-height:1.7;"><strong>Platform:</strong> <a href="{{ platform_url|default('#') }}" style="color:#255793; text-decoration:underline;">{{ platform_label|default('Online Link') }}</a></li>
+                      <li style="line-height:1.7;"><strong>Enquiry Type:</strong> {% if data is defined and data.enquiry_type is defined and data.enquiry_type %}{{ data.enquiry_type }}{% else %}[Enquiry Type]{% endif %}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">If you need to reschedule or cancel this meeting, please contact the client's email directly or cancel directly via your Google Calendar.</p>
+              <a href="{{ booking_link|default('#') }}"
+                    style="background:#255793; color:#ffffff; padding:12px 24px 12px 24px; text-decoration:none; border-radius:6px; display:inline-block; line-height:16x; margin-bottom:20px;">
+                    Calendar Link
+                  </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:0px 24px 0px 24px; font-size:16px; line-height:16x; color:#374151;">
+              <p style="margin:0 0 20px 0; line-height:16x;">Best regards,</p>
+              <p style="margin:0 0 20px 0; line-height:16x;"><strong>Krost Website Booking System</strong></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
